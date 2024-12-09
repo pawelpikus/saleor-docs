@@ -4,13 +4,15 @@ title: PageTranslatableContent
 hide_table_of_contents: false
 ---
 
-No description
+Represents page's original translatable fields and related translations.
 
 ```graphql
 type PageTranslatableContent implements Node {
   id: ID!
+  pageId: ID!
   seoTitle: String
   seoDescription: String
+  slug: String
   title: String!
   content: JSONString
   contentJson: JSONString
@@ -24,15 +26,33 @@ type PageTranslatableContent implements Node {
 
 #### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
 
+The ID of the page translatable content.
+
+#### [`pageId`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+
+The ID of the page to translate.
+
 #### [`seoTitle`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+SEO title to translate.
 
 #### [`seoDescription`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
+SEO description to translate.
+
+#### [`slug`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Slug to translate.
+
+Added in Saleor 3.21.
+
 #### [`title`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+Page title to translate.
 
 #### [`content`](#) ([`JSONString`](../../../developer/api-reference/scalars/jsonstring))
 
-Content of the page.
+Content of the page to translate.
 
 Rich text format. For reference see https://editorjs.io/
 

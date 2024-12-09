@@ -11,6 +11,7 @@ input OrderUpdateInput {
   billingAddress: AddressInput
   userEmail: String
   shippingAddress: AddressInput
+  externalReference: String
 }
 ```
 
@@ -27,3 +28,7 @@ Email address of the customer.
 #### [`shippingAddress`](#) ([`AddressInput`](../../../developer/api-reference/inputs/address-input))
 
 Shipping address of the customer.
+
+#### [`externalReference`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+External ID of this order.

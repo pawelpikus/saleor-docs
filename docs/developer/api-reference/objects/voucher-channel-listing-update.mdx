@@ -8,6 +8,10 @@ Manage voucher's availability in channels.
 
 Requires one of the following permissions: MANAGE_DISCOUNTS.
 
+Triggers the following webhook events:
+
+- VOUCHER_UPDATED (async): A voucher was updated.
+
 ```graphql
 type VoucherChannelListingUpdate {
   voucher: Voucher

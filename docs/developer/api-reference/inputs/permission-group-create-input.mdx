@@ -10,7 +10,9 @@ No description
 input PermissionGroupCreateInput {
   addPermissions: [PermissionEnum!]
   addUsers: [ID!]
+  addChannels: [ID!]
   name: String!
+  restrictedAccessToChannels: Boolean
 }
 ```
 
@@ -24,6 +26,14 @@ List of permission code names to assign to this group.
 
 List of users to assign to this group.
 
+#### [`addChannels`](#) ([`[ID!]`](../../../developer/api-reference/scalars/id))
+
+List of channels to assign to this group.
+
 #### [`name`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
 Group name.
+
+#### [`restrictedAccessToChannels`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
+
+Determine if the group has restricted access to channels. DEFAULT: False

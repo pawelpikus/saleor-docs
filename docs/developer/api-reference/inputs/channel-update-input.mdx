@@ -12,6 +12,11 @@ input ChannelUpdateInput {
   stockSettings: StockSettingsInput
   addShippingZones: [ID!]
   addWarehouses: [ID!]
+  orderSettings: OrderSettingsInput
+  metadata: [MetadataInput!]
+  privateMetadata: [MetadataInput!]
+  checkoutSettings: CheckoutSettingsInput
+  paymentSettings: PaymentSettingsInput
   name: String
   slug: String
   defaultCountry: CountryCode
@@ -24,15 +29,11 @@ input ChannelUpdateInput {
 
 #### [`isActive`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
 
-isActive flag.
+Determine if channel will be set active or not.
 
 #### [`stockSettings`](#) ([`StockSettingsInput`](../../../developer/api-reference/inputs/stock-settings-input))
 
 The channel stock settings.
-
-Added in Saleor 3.7.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
 
 #### [`addShippingZones`](#) ([`[ID!]`](../../../developer/api-reference/scalars/id))
 
@@ -42,9 +43,25 @@ List of shipping zones to assign to the channel.
 
 List of warehouses to assign to the channel.
 
-Added in Saleor 3.5.
+#### [`orderSettings`](#) ([`OrderSettingsInput`](../../../developer/api-reference/inputs/order-settings-input))
 
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
+The channel order settings
+
+#### [`metadata`](#) ([`[MetadataInput!]`](../../../developer/api-reference/inputs/metadata-input))
+
+Channel public metadata.
+
+#### [`privateMetadata`](#) ([`[MetadataInput!]`](../../../developer/api-reference/inputs/metadata-input))
+
+Channel private metadata.
+
+#### [`checkoutSettings`](#) ([`CheckoutSettingsInput`](../../../developer/api-reference/inputs/checkout-settings-input))
+
+The channel checkout settings
+
+#### [`paymentSettings`](#) ([`PaymentSettingsInput`](../../../developer/api-reference/inputs/payment-settings-input))
+
+The channel payment settings
 
 #### [`name`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
@@ -58,8 +75,6 @@ Slug of the channel.
 
 Default country for the channel. Default country can be used in checkout to determine the stock quantities or calculate taxes when the country was not explicitly provided.
 
-Added in Saleor 3.1.
-
 #### [`removeShippingZones`](#) ([`[ID!]`](../../../developer/api-reference/scalars/id))
 
 List of shipping zones to unassign from the channel.
@@ -67,7 +82,3 @@ List of shipping zones to unassign from the channel.
 #### [`removeWarehouses`](#) ([`[ID!]`](../../../developer/api-reference/scalars/id))
 
 List of warehouses to unassign from the channel.
-
-Added in Saleor 3.5.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.

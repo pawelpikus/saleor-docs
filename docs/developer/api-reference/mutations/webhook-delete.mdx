@@ -4,7 +4,7 @@ title: webhookDelete
 hide_table_of_contents: false
 ---
 
-Deletes a webhook subscription.
+Delete a webhook. Before the deletion, the webhook is deactivated to pause any deliveries that are already scheduled. The deletion might fail if delivery is in progress. In such a case, the webhook is not deleted but remains deactivated.
 
 Requires one of the following permissions: MANAGE_APPS, AUTHENTICATED_APP.
 
@@ -24,6 +24,6 @@ ID of a webhook to delete.
 
 #### [`WebhookDelete`](../../../developer/api-reference/objects/webhook-delete)
 
-Deletes a webhook subscription.
+Delete a webhook. Before the deletion, the webhook is deactivated to pause any deliveries that are already scheduled. The deletion might fail if delivery is in progress. In such a case, the webhook is not deleted but remains deactivated.
 
 Requires one of the following permissions: MANAGE_APPS, AUTHENTICATED_APP.

@@ -8,6 +8,10 @@ Deactivate a gift card.
 
 Requires one of the following permissions: MANAGE_GIFT_CARD.
 
+Triggers the following webhook events:
+
+- GIFT_CARD_STATUS_CHANGED (async): A gift card was deactivated.
+
 ```graphql
 type GiftCardDeactivate {
   giftCard: GiftCard

@@ -4,7 +4,7 @@ title: AccountErrorCode
 hide_table_of_contents: false
 ---
 
-An enumeration.
+No description
 
 ```graphql
 enum AccountErrorCode {
@@ -31,6 +31,7 @@ enum AccountErrorCode {
   PASSWORD_TOO_COMMON
   PASSWORD_TOO_SHORT
   PASSWORD_TOO_SIMILAR
+  PASSWORD_RESET_ALREADY_REQUESTED
   REQUIRED
   UNIQUE
   JWT_SIGNATURE_EXPIRED
@@ -41,6 +42,8 @@ enum AccountErrorCode {
   CHANNEL_INACTIVE
   MISSING_CHANNEL_SLUG
   ACCOUNT_NOT_CONFIRMED
+  LOGIN_ATTEMPT_DELAYED
+  UNKNOWN_IP_ADDRESS
 }
 ```
 
@@ -92,6 +95,8 @@ enum AccountErrorCode {
 
 #### [`PASSWORD_TOO_SIMILAR`](#)
 
+#### [`PASSWORD_RESET_ALREADY_REQUESTED`](#)
+
 #### [`REQUIRED`](#)
 
 #### [`UNIQUE`](#)
@@ -111,3 +116,7 @@ enum AccountErrorCode {
 #### [`MISSING_CHANNEL_SLUG`](#)
 
 #### [`ACCOUNT_NOT_CONFIRMED`](#)
+
+#### [`LOGIN_ATTEMPT_DELAYED`](#)
+
+#### [`UNKNOWN_IP_ADDRESS`](#)

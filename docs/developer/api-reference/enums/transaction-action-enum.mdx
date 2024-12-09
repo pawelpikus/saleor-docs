@@ -9,13 +9,13 @@ Represents possible actions on payment transaction.
     The following actions are possible:
     CHARGE - Represents the charge action.
     REFUND - Represents a refund action.
-    VOID - Represents a void action.
+    CANCEL - Represents a cancel action. Added in Saleor 3.12.
 
 ```graphql
 enum TransactionActionEnum {
   CHARGE
   REFUND
-  VOID
+  CANCEL
 }
 ```
 
@@ -25,4 +25,4 @@ enum TransactionActionEnum {
 
 #### [`REFUND`](#)
 
-#### [`VOID`](#)
+#### [`CANCEL`](#)

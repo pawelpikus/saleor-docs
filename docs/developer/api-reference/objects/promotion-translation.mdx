@@ -1,0 +1,47 @@
+---
+id: promotion-translation
+title: PromotionTranslation
+hide_table_of_contents: false
+---
+
+Represents promotion translations.
+
+```graphql
+type PromotionTranslation implements Node {
+  id: ID!
+  language: LanguageDisplay!
+  name: String
+  description: JSONString
+  translatableContent: PromotionTranslatableContent
+}
+```
+
+### Fields
+
+#### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+
+ID of the promotion translation.
+
+#### [`language`](#) ([`LanguageDisplay!`](../../../developer/api-reference/objects/language-display))
+
+Translation language.
+
+#### [`name`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Translated name of the promotion.
+
+#### [`description`](#) ([`JSONString`](../../../developer/api-reference/scalars/jsonstring))
+
+Translated description of the promotion.
+
+Rich text format. For reference see https://editorjs.io/
+
+#### [`translatableContent`](#) ([`PromotionTranslatableContent`](../../../developer/api-reference/objects/promotion-translatable-content))
+
+Represents the promotion fields to translate.
+
+### Interfaces
+
+#### [`Node`](../../../developer/api-reference/interfaces/node)
+
+An object with an ID

@@ -10,20 +10,25 @@ Requires one of the following permissions: MANAGE_PRODUCTS.
 
 ```graphql
 productVariantChannelListingUpdate(
-  id: ID!
+  id: ID
   input: [ProductVariantChannelListingAddInput!]!
+  sku: String
 ): ProductVariantChannelListingUpdate
 ```
 
 ### Arguments
 
-#### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+#### [`id`](#) ([`ID`](../../../developer/api-reference/scalars/id))
 
 ID of a product variant to update.
 
 #### [`input`](#) ([`[ProductVariantChannelListingAddInput!]!`](../../../developer/api-reference/inputs/product-variant-channel-listing-add-input))
 
 List of fields required to create or upgrade product variant channel listings.
+
+#### [`sku`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+SKU of a product variant to update.
 
 ### Type
 

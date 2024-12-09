@@ -6,7 +6,7 @@ hide_table_of_contents: false
 
 List of checkouts.
 
-Requires one of the following permissions: MANAGE_CHECKOUTS.
+Requires one of the following permissions: MANAGE_CHECKOUTS, HANDLE_PAYMENTS.
 
 ```graphql
 checkouts(
@@ -26,13 +26,9 @@ checkouts(
 
 Sort checkouts.
 
-Added in Saleor 3.1.
-
 #### [`filter`](#) ([`CheckoutFilterInput`](../../../developer/api-reference/inputs/checkout-filter-input))
 
 Filtering options for checkouts.
-
-Added in Saleor 3.1.
 
 #### [`channel`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
@@ -48,11 +44,11 @@ Return the elements in the list that come after the specified cursor.
 
 #### [`first`](#) ([`Int`](../../../developer/api-reference/scalars/int))
 
-Return the first n elements from the list.
+Retrieve the first n elements from the list. Note that the system only allows fetching a maximum of 100 objects in a single query.
 
 #### [`last`](#) ([`Int`](../../../developer/api-reference/scalars/int))
 
-Return the last n elements from the list.
+Retrieve the last n elements from the list. Note that the system only allows fetching a maximum of 100 objects in a single query.
 
 ### Type
 

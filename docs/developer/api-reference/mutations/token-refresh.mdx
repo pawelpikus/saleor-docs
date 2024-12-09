@@ -4,7 +4,7 @@ title: tokenRefresh
 hide_table_of_contents: false
 ---
 
-Refresh JWT token. Mutation tries to take refreshToken from the input.If it fails it will try to take refreshToken from the http-only cookie -refreshToken. csrfToken is required when refreshToken is provided as a cookie.
+Refresh JWT token. Mutation tries to take refreshToken from the input. If it fails it will try to take `refreshToken` from the http-only cookie `refreshToken`. `csrfToken` is required when `refreshToken` is provided as a cookie.
 
 ```graphql
 tokenRefresh(
@@ -17,7 +17,7 @@ tokenRefresh(
 
 #### [`csrfToken`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
-CSRF token required to refresh token. This argument is required when refreshToken is provided as a cookie.
+CSRF token required to refresh token. This argument is required when `refreshToken` is provided as a cookie.
 
 #### [`refreshToken`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
@@ -27,4 +27,4 @@ Refresh token.
 
 #### [`RefreshToken`](../../../developer/api-reference/objects/refresh-token)
 
-Refresh JWT token. Mutation tries to take refreshToken from the input.If it fails it will try to take refreshToken from the http-only cookie -refreshToken. csrfToken is required when refreshToken is provided as a cookie.
+Refresh JWT token. Mutation tries to take refreshToken from the input. If it fails it will try to take `refreshToken` from the http-only cookie `refreshToken`. `csrfToken` is required when `refreshToken` is provided as a cookie.

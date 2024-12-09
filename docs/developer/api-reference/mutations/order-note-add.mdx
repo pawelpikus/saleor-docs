@@ -1,0 +1,34 @@
+---
+id: order-note-add
+title: orderNoteAdd
+hide_table_of_contents: false
+---
+
+Adds note to the order.
+
+Requires one of the following permissions: MANAGE_ORDERS.
+
+```graphql
+orderNoteAdd(
+  order: ID!
+  input: OrderNoteInput!
+): OrderNoteAdd
+```
+
+### Arguments
+
+#### [`order`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+
+ID of the order to add a note for.
+
+#### [`input`](#) ([`OrderNoteInput!`](../../../developer/api-reference/inputs/order-note-input))
+
+Fields required to create a note for the order.
+
+### Type
+
+#### [`OrderNoteAdd`](../../../developer/api-reference/objects/order-note-add)
+
+Adds note to the order.
+
+Requires one of the following permissions: MANAGE_ORDERS.

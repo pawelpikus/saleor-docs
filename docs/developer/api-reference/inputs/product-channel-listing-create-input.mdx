@@ -1,0 +1,44 @@
+---
+id: product-channel-listing-create-input
+title: ProductChannelListingCreateInput
+hide_table_of_contents: false
+---
+
+No description
+
+```graphql
+input ProductChannelListingCreateInput {
+  channelId: ID!
+  isPublished: Boolean
+  publishedAt: DateTime
+  visibleInListings: Boolean
+  isAvailableForPurchase: Boolean
+  availableForPurchaseAt: DateTime
+}
+```
+
+### Fields
+
+#### [`channelId`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+
+ID of a channel.
+
+#### [`isPublished`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
+
+Determines if object is visible to customers.
+
+#### [`publishedAt`](#) ([`DateTime`](../../../developer/api-reference/scalars/date-time))
+
+Publication date time. ISO 8601 standard.
+
+#### [`visibleInListings`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
+
+Determines if product is visible in product listings (doesn't apply to product collections).
+
+#### [`isAvailableForPurchase`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
+
+Determines if product should be available for purchase in this channel. This does not guarantee the availability of stock. When set to `False`, this product is still visible to customers, but it cannot be purchased.
+
+#### [`availableForPurchaseAt`](#) ([`DateTime`](../../../developer/api-reference/scalars/date-time))
+
+A start date time from which a product will be available for purchase. When not set and `isAvailable` is set to True, the current day is assumed.

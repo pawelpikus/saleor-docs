@@ -16,13 +16,20 @@ type Voucher implements Node, ObjectWithMetadata {
   metafield(key: String!): String
   metafields(keys: [String!]): Metadata
   name: String
-  code: String!
+  codes(
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): VoucherCodeCountableConnection
+  code: String
   usageLimit: Int
   used: Int!
   startDate: DateTime!
   endDate: DateTime
   applyOncePerOrder: Boolean!
   applyOncePerCustomer: Boolean!
+  singleUse: Boolean!
   onlyForStaff: Boolean!
   minCheckoutItemsQuantity: Int
   categories(
@@ -64,6 +71,8 @@ type Voucher implements Node, ObjectWithMetadata {
 
 #### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
 
+The ID of the voucher.
+
 #### [`privateMetadata`](#) ([`[MetadataItem!]!`](../../../developer/api-reference/objects/metadata-item))
 
 List of private metadata items. Requires staff permissions to access.
@@ -74,19 +83,11 @@ A single key from private metadata. Requires staff permissions to access.
 
 Tip: Use GraphQL aliases to fetch multiple keys.
 
-Added in Saleor 3.3.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
 - ##### [`key`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
 #### [`privateMetafields`](#) ([`Metadata`](../../../developer/api-reference/scalars/metadata))
 
 Private metadata. Requires staff permissions to access. Use `keys` to control which fields you want to include. The default is to include everything.
-
-Added in Saleor 3.3.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
 
 - ##### [`keys`](#) ([`[String!]`](../../../developer/api-reference/scalars/string))
 
@@ -100,41 +101,83 @@ A single key from public metadata.
 
 Tip: Use GraphQL aliases to fetch multiple keys.
 
-Added in Saleor 3.3.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
 - ##### [`key`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
 #### [`metafields`](#) ([`Metadata`](../../../developer/api-reference/scalars/metadata))
 
 Public metadata. Use `keys` to control which fields you want to include. The default is to include everything.
 
-Added in Saleor 3.3.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
 - ##### [`keys`](#) ([`[String!]`](../../../developer/api-reference/scalars/string))
 
 #### [`name`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
-#### [`code`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+The name of the voucher.
+
+#### [`codes`](#) ([`VoucherCodeCountableConnection`](../../../developer/api-reference/objects/voucher-code-countable-connection))
+
+List of codes available for this voucher.
+
+Added in Saleor 3.18.
+
+- ##### [`before`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Return the elements in the list that come before the specified cursor.
+
+- ##### [`after`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Return the elements in the list that come after the specified cursor.
+
+- ##### [`first`](#) ([`Int`](../../../developer/api-reference/scalars/int))
+
+Retrieve the first n elements from the list. Note that the system only allows fetching a maximum of 100 objects in a single query.
+
+- ##### [`last`](#) ([`Int`](../../../developer/api-reference/scalars/int))
+
+Retrieve the last n elements from the list. Note that the system only allows fetching a maximum of 100 objects in a single query.
+
+#### [`code`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+The code of the voucher.This field will be removed in Saleor 4.0.
 
 #### [`usageLimit`](#) ([`Int`](../../../developer/api-reference/scalars/int))
 
+The number of times a voucher can be used.
+
 #### [`used`](#) ([`Int!`](../../../developer/api-reference/scalars/int))
+
+Usage count of the voucher.
 
 #### [`startDate`](#) ([`DateTime!`](../../../developer/api-reference/scalars/date-time))
 
+The start date and time of voucher.
+
 #### [`endDate`](#) ([`DateTime`](../../../developer/api-reference/scalars/date-time))
+
+The end date and time of voucher.
 
 #### [`applyOncePerOrder`](#) ([`Boolean!`](../../../developer/api-reference/scalars/boolean))
 
+Determine if the voucher should be applied once per order. If set to True, the voucher is applied to a single cheapest eligible product in checkout.
+
 #### [`applyOncePerCustomer`](#) ([`Boolean!`](../../../developer/api-reference/scalars/boolean))
+
+Determine if the voucher usage should be limited to one use per customer.
+
+#### [`singleUse`](#) ([`Boolean!`](../../../developer/api-reference/scalars/boolean))
+
+Determine if the voucher codes can be used once or multiple times.
+
+Added in Saleor 3.18.
+
+Note: this API is currently in Feature Preview and can be subject to changes at later point.
 
 #### [`onlyForStaff`](#) ([`Boolean!`](../../../developer/api-reference/scalars/boolean))
 
+Determine if the voucher is available only for staff members.
+
 #### [`minCheckoutItemsQuantity`](#) ([`Int`](../../../developer/api-reference/scalars/int))
+
+Determine minimum quantity of items for checkout.
 
 #### [`categories`](#) ([`CategoryCountableConnection`](../../../developer/api-reference/objects/category-countable-connection))
 
@@ -150,11 +193,11 @@ Return the elements in the list that come after the specified cursor.
 
 - ##### [`first`](#) ([`Int`](../../../developer/api-reference/scalars/int))
 
-Return the first n elements from the list.
+Retrieve the first n elements from the list. Note that the system only allows fetching a maximum of 100 objects in a single query.
 
 - ##### [`last`](#) ([`Int`](../../../developer/api-reference/scalars/int))
 
-Return the last n elements from the list.
+Retrieve the last n elements from the list. Note that the system only allows fetching a maximum of 100 objects in a single query.
 
 #### [`collections`](#) ([`CollectionCountableConnection`](../../../developer/api-reference/objects/collection-countable-connection))
 
@@ -172,11 +215,11 @@ Return the elements in the list that come after the specified cursor.
 
 - ##### [`first`](#) ([`Int`](../../../developer/api-reference/scalars/int))
 
-Return the first n elements from the list.
+Retrieve the first n elements from the list. Note that the system only allows fetching a maximum of 100 objects in a single query.
 
 - ##### [`last`](#) ([`Int`](../../../developer/api-reference/scalars/int))
 
-Return the last n elements from the list.
+Retrieve the last n elements from the list. Note that the system only allows fetching a maximum of 100 objects in a single query.
 
 #### [`products`](#) ([`ProductCountableConnection`](../../../developer/api-reference/objects/product-countable-connection))
 
@@ -194,17 +237,15 @@ Return the elements in the list that come after the specified cursor.
 
 - ##### [`first`](#) ([`Int`](../../../developer/api-reference/scalars/int))
 
-Return the first n elements from the list.
+Retrieve the first n elements from the list. Note that the system only allows fetching a maximum of 100 objects in a single query.
 
 - ##### [`last`](#) ([`Int`](../../../developer/api-reference/scalars/int))
 
-Return the last n elements from the list.
+Retrieve the last n elements from the list. Note that the system only allows fetching a maximum of 100 objects in a single query.
 
 #### [`variants`](#) ([`ProductVariantCountableConnection`](../../../developer/api-reference/objects/product-variant-countable-connection))
 
 List of product variants this voucher applies to.
-
-Added in Saleor 3.1.
 
 Requires one of the following permissions: MANAGE_DISCOUNTS.
 
@@ -218,11 +259,11 @@ Return the elements in the list that come after the specified cursor.
 
 - ##### [`first`](#) ([`Int`](../../../developer/api-reference/scalars/int))
 
-Return the first n elements from the list.
+Retrieve the first n elements from the list. Note that the system only allows fetching a maximum of 100 objects in a single query.
 
 - ##### [`last`](#) ([`Int`](../../../developer/api-reference/scalars/int))
 
-Return the last n elements from the list.
+Retrieve the last n elements from the list. Note that the system only allows fetching a maximum of 100 objects in a single query.
 
 #### [`countries`](#) ([`[CountryDisplay!]`](../../../developer/api-reference/objects/country-display))
 

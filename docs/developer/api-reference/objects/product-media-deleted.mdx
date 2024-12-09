@@ -1,0 +1,43 @@
+---
+id: product-media-deleted
+title: ProductMediaDeleted
+hide_table_of_contents: false
+---
+
+Event sent when product media is deleted.
+
+```graphql
+type ProductMediaDeleted implements Event {
+  issuedAt: DateTime
+  version: String
+  issuingPrincipal: IssuingPrincipal
+  recipient: App
+  productMedia: ProductMedia
+}
+```
+
+### Fields
+
+#### [`issuedAt`](#) ([`DateTime`](../../../developer/api-reference/scalars/date-time))
+
+Time of the event.
+
+#### [`version`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Saleor version that triggered the event.
+
+#### [`issuingPrincipal`](#) ([`IssuingPrincipal`](../../../developer/api-reference/unions/issuing-principal))
+
+The user or application that triggered the event.
+
+#### [`recipient`](#) ([`App`](../../../developer/api-reference/objects/app))
+
+The application receiving the webhook.
+
+#### [`productMedia`](#) ([`ProductMedia`](../../../developer/api-reference/objects/product-media))
+
+The product media the event relates to.
+
+### Interfaces
+
+#### [`Event`](../../../developer/api-reference/interfaces/event)

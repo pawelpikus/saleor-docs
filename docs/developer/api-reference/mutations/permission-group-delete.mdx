@@ -8,6 +8,10 @@ Delete permission group. Apps are not allowed to perform this mutation.
 
 Requires one of the following permissions: MANAGE_STAFF.
 
+Triggers the following webhook events:
+
+- PERMISSION_GROUP_DELETED (async)
+
 ```graphql
 permissionGroupDelete(
   id: ID!
@@ -27,3 +31,7 @@ ID of the group to delete.
 Delete permission group. Apps are not allowed to perform this mutation.
 
 Requires one of the following permissions: MANAGE_STAFF.
+
+Triggers the following webhook events:
+
+- PERMISSION_GROUP_DELETED (async)

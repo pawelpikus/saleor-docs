@@ -1,0 +1,27 @@
+---
+id: stock-update-policy-enum
+title: StockUpdatePolicyEnum
+hide_table_of_contents: false
+---
+
+Determine how stocks should be updated, while processing an order.
+
+    SKIP - stocks are not checked and not updated.
+    UPDATE - only do update, if there is enough stock.
+    FORCE - force update, if there is not enough stock.
+
+```graphql
+enum StockUpdatePolicyEnum {
+  SKIP
+  UPDATE
+  FORCE
+}
+```
+
+### Values
+
+#### [`SKIP`](#)
+
+#### [`UPDATE`](#)
+
+#### [`FORCE`](#)

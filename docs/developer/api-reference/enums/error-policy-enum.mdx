@@ -1,0 +1,29 @@
+---
+id: error-policy-enum
+title: ErrorPolicyEnum
+hide_table_of_contents: false
+---
+
+No description
+
+```graphql
+enum ErrorPolicyEnum {
+  IGNORE_FAILED
+  REJECT_EVERYTHING
+  REJECT_FAILED_ROWS
+}
+```
+
+### Values
+
+#### [`IGNORE_FAILED`](#)
+
+Save what is possible within a single row. If there are errors in an input data row, try to save it partially and skip the invalid part.
+
+#### [`REJECT_EVERYTHING`](#)
+
+Reject all rows if there is at least one error in any of them.
+
+#### [`REJECT_FAILED_ROWS`](#)
+
+Reject rows with errors.

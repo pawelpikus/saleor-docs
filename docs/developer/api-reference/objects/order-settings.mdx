@@ -4,12 +4,17 @@ title: OrderSettings
 hide_table_of_contents: false
 ---
 
-Order related settings from site settings.
+Represents the channel-specific order settings.
 
 ```graphql
 type OrderSettings {
   automaticallyConfirmAllNewOrders: Boolean!
   automaticallyFulfillNonShippableGiftCard: Boolean!
+  expireOrdersAfter: Minute
+  markAsPaidStrategy: MarkAsPaidStrategyEnum!
+  deleteExpiredOrdersAfter: Day!
+  allowUnpaidOrders: Boolean!
+  includeDraftOrderInVoucherUsage: Boolean!
 }
 ```
 
@@ -17,4 +22,34 @@ type OrderSettings {
 
 #### [`automaticallyConfirmAllNewOrders`](#) ([`Boolean!`](../../../developer/api-reference/scalars/boolean))
 
+When disabled, all new orders from checkout will be marked as unconfirmed. When enabled orders from checkout will become unfulfilled immediately.
+
 #### [`automaticallyFulfillNonShippableGiftCard`](#) ([`Boolean!`](../../../developer/api-reference/scalars/boolean))
+
+When enabled, all non-shippable gift card orders will be fulfilled automatically.
+
+#### [`expireOrdersAfter`](#) ([`Minute`](../../../developer/api-reference/scalars/minute))
+
+Expiration time in minutes. Default null - means do not expire any orders.
+
+#### [`markAsPaidStrategy`](#) ([`MarkAsPaidStrategyEnum!`](../../../developer/api-reference/enums/mark-as-paid-strategy-enum))
+
+Determine what strategy will be used to mark the order as paid. Based on the chosen option, the proper object will be created and attached to the order when it's manually marked as paid.
+`PAYMENT_FLOW` - [default option] creates the `Payment` object.
+`TRANSACTION_FLOW` - creates the `TransactionItem` object.
+
+#### [`deleteExpiredOrdersAfter`](#) ([`Day!`](../../../developer/api-reference/scalars/day))
+
+The time in days after expired orders will be deleted.
+
+#### [`allowUnpaidOrders`](#) ([`Boolean!`](../../../developer/api-reference/scalars/boolean))
+
+Determine if it is possible to place unpaid order by calling `checkoutComplete` mutation.
+
+#### [`includeDraftOrderInVoucherUsage`](#) ([`Boolean!`](../../../developer/api-reference/scalars/boolean))
+
+Determine if voucher applied on draft order should be count toward voucher usage.
+
+Added in Saleor 3.18.
+
+Note: this API is currently in Feature Preview and can be subject to changes at later point.

@@ -1,0 +1,29 @@
+---
+id: product-bulk-create
+title: ProductBulkCreate
+hide_table_of_contents: false
+---
+
+Creates products.
+
+Requires one of the following permissions: MANAGE_PRODUCTS.
+
+```graphql
+type ProductBulkCreate {
+  count: Int!
+  results: [ProductBulkResult!]!
+  errors: [ProductBulkCreateError!]!
+}
+```
+
+### Fields
+
+#### [`count`](#) ([`Int!`](../../../developer/api-reference/scalars/int))
+
+Returns how many objects were created.
+
+#### [`results`](#) ([`[ProductBulkResult!]!`](../../../developer/api-reference/objects/product-bulk-result))
+
+List of the created products.
+
+#### [`errors`](#) ([`[ProductBulkCreateError!]!`](../../../developer/api-reference/objects/product-bulk-create-error))

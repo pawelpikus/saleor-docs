@@ -9,16 +9,20 @@ No description
 ```graphql
 input WarehouseFilterInput {
   clickAndCollectOption: WarehouseClickAndCollectOptionEnum
+  metadata: [MetadataFilter!]
   search: String
   ids: [ID!]
   isPrivate: Boolean
   channels: [ID!]
+  slugs: [String!]
 }
 ```
 
 ### Fields
 
 #### [`clickAndCollectOption`](#) ([`WarehouseClickAndCollectOptionEnum`](../../../developer/api-reference/enums/warehouse-click-and-collect-option-enum))
+
+#### [`metadata`](#) ([`[MetadataFilter!]`](../../../developer/api-reference/inputs/metadata-filter))
 
 #### [`search`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
@@ -27,3 +31,5 @@ input WarehouseFilterInput {
 #### [`isPrivate`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
 
 #### [`channels`](#) ([`[ID!]`](../../../developer/api-reference/scalars/id))
+
+#### [`slugs`](#) ([`[String!]`](../../../developer/api-reference/scalars/string))

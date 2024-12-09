@@ -10,18 +10,25 @@ Requires one of the following permissions: MANAGE_PRODUCTS.
 
 ```graphql
 productVariantStocksDelete(
-  variantId: ID!
+  sku: String
+  variantId: ID
   warehouseIds: [ID!]
 ): ProductVariantStocksDelete
 ```
 
 ### Arguments
 
-#### [`variantId`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+#### [`sku`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+SKU of product variant for which stocks will be deleted.
+
+#### [`variantId`](#) ([`ID`](../../../developer/api-reference/scalars/id))
 
 ID of product variant for which stocks will be deleted.
 
 #### [`warehouseIds`](#) ([`[ID!]`](../../../developer/api-reference/scalars/id))
+
+Input list of warehouse IDs.
 
 ### Type
 

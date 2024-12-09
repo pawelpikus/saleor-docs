@@ -4,7 +4,7 @@ title: AddressValidationData
 hide_table_of_contents: false
 ---
 
-No description
+Represents address validation rules for a country.
 
 ```graphql
 type AddressValidationData {
@@ -32,34 +32,94 @@ type AddressValidationData {
 
 #### [`countryCode`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
+The country code of the address validation rule.
+
 #### [`countryName`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+The country name of the address validation rule.
 
 #### [`addressFormat`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
+The address format of the address validation rule.
+
+Many fields in the JSON refer to address fields by one-letter abbreviations. These are defined as follows:
+
+- `N`: Name
+- `O`: Organization
+- `A`: Street Address Line(s)
+- `D`: Dependent locality (may be an inner-city district or a suburb)
+- `C`: City or Locality
+- `S`: Administrative area such as a state, province, island etc
+- `Z`: Zip or postal code
+- `X`: Sorting code
+
+[Click here for more information.](https://github.com/google/libaddressinput/wiki/AddressValidationMetadata)
+
 #### [`addressLatinFormat`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+The latin address format of the address validation rule.
+
+Many fields in the JSON refer to address fields by one-letter abbreviations. These are defined as follows:
+
+- `N`: Name
+- `O`: Organization
+- `A`: Street Address Line(s)
+- `D`: Dependent locality (may be an inner-city district or a suburb)
+- `C`: City or Locality
+- `S`: Administrative area such as a state, province, island etc
+- `Z`: Zip or postal code
+- `X`: Sorting code
+
+[Click here for more information.](https://github.com/google/libaddressinput/wiki/AddressValidationMetadata)
 
 #### [`allowedFields`](#) ([`[String!]!`](../../../developer/api-reference/scalars/string))
 
+The allowed fields to use in address.
+
 #### [`requiredFields`](#) ([`[String!]!`](../../../developer/api-reference/scalars/string))
+
+The required fields to create a valid address.
 
 #### [`upperFields`](#) ([`[String!]!`](../../../developer/api-reference/scalars/string))
 
+The list of fields that should be in upper case for address validation rule.
+
 #### [`countryAreaType`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+The formal name of the county area of the address validation rule.
 
 #### [`countryAreaChoices`](#) ([`[ChoiceValue!]!`](../../../developer/api-reference/objects/choice-value))
 
+The available choices for the country area of the address validation rule.
+
 #### [`cityType`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+The formal name of the city of the address validation rule.
 
 #### [`cityChoices`](#) ([`[ChoiceValue!]!`](../../../developer/api-reference/objects/choice-value))
 
+The available choices for the city of the address validation rule.
+
 #### [`cityAreaType`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+The formal name of the city area of the address validation rule.
 
 #### [`cityAreaChoices`](#) ([`[ChoiceValue!]!`](../../../developer/api-reference/objects/choice-value))
 
+The available choices for the city area of the address validation rule.
+
 #### [`postalCodeType`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+The formal name of the postal code of the address validation rule.
 
 #### [`postalCodeMatchers`](#) ([`[String!]!`](../../../developer/api-reference/scalars/string))
 
+The regular expression for postal code validation.
+
 #### [`postalCodeExamples`](#) ([`[String!]!`](../../../developer/api-reference/scalars/string))
 
+The example postal code of the address validation rule.
+
 #### [`postalCodePrefix`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+The postal code prefix of the address validation rule.

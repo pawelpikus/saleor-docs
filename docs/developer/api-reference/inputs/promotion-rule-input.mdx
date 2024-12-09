@@ -1,0 +1,71 @@
+---
+id: promotion-rule-input
+title: PromotionRuleInput
+hide_table_of_contents: false
+---
+
+No description
+
+```graphql
+input PromotionRuleInput {
+  name: String
+  description: JSON
+  cataloguePredicate: CataloguePredicateInput
+  orderPredicate: OrderPredicateInput
+  rewardValueType: RewardValueTypeEnum
+  rewardValue: PositiveDecimal
+  rewardType: RewardTypeEnum
+  channels: [ID!]
+  gifts: [ID!]
+}
+```
+
+### Fields
+
+#### [`name`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Promotion rule name.
+
+#### [`description`](#) ([`JSON`](../../../developer/api-reference/scalars/json))
+
+Promotion rule description.
+
+#### [`cataloguePredicate`](#) ([`CataloguePredicateInput`](../../../developer/api-reference/inputs/catalogue-predicate-input))
+
+Defines the conditions on the catalogue level that must be met for the reward to be applied.
+
+#### [`orderPredicate`](#) ([`OrderPredicateInput`](../../../developer/api-reference/inputs/order-predicate-input))
+
+Defines the conditions on the checkout/draft order level that must be met for the reward to be applied.
+
+Added in Saleor 3.19.
+
+Note: this API is currently in Feature Preview and can be subject to changes at later point.
+
+#### [`rewardValueType`](#) ([`RewardValueTypeEnum`](../../../developer/api-reference/enums/reward-value-type-enum))
+
+Defines the promotion rule reward value type. Must be provided together with reward value.
+
+#### [`rewardValue`](#) ([`PositiveDecimal`](../../../developer/api-reference/scalars/positive-decimal))
+
+Defines the discount value. Required when catalogue predicate is provided.
+
+#### [`rewardType`](#) ([`RewardTypeEnum`](../../../developer/api-reference/enums/reward-type-enum))
+
+Defines the reward type of the promotion rule.
+
+Added in Saleor 3.19.
+
+Note: this API is currently in Feature Preview and can be subject to changes at later point.
+
+#### [`channels`](#) ([`[ID!]`](../../../developer/api-reference/scalars/id))
+
+List of channel ids to which the rule should apply to.
+
+#### [`gifts`](#) ([`[ID!]`](../../../developer/api-reference/scalars/id))
+
+Product variant IDs available as a gift to choose.
+
+Added in Saleor 3.19.
+
+Note: this API is currently in Feature Preview and can be subject to changes at later point.

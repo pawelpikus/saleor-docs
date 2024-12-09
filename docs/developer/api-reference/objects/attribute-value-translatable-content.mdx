@@ -4,16 +4,18 @@ title: AttributeValueTranslatableContent
 hide_table_of_contents: false
 ---
 
-No description
+Represents attribute value's original translatable fields and related translations.
 
 ```graphql
 type AttributeValueTranslatableContent implements Node {
   id: ID!
+  attributeValueId: ID!
   name: String!
   richText: JSONString
   plainText: String
   translation(languageCode: LanguageCodeEnum!): AttributeValueTranslation
   attributeValue: AttributeValue
+  attribute: AttributeTranslatableContent
 }
 ```
 
@@ -21,7 +23,15 @@ type AttributeValueTranslatableContent implements Node {
 
 #### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
 
+The ID of the attribute value translatable content.
+
+#### [`attributeValueId`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+
+The ID of the attribute value to translate.
+
 #### [`name`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+Name of the attribute value to translate.
 
 #### [`richText`](#) ([`JSONString`](../../../developer/api-reference/scalars/jsonstring))
 
@@ -44,6 +54,10 @@ A language code to return the translation for attribute value.
 #### [`attributeValue`](#) ([`AttributeValue`](../../../developer/api-reference/objects/attribute-value))
 
 Represents a value of an attribute.
+
+#### [`attribute`](#) ([`AttributeTranslatableContent`](../../../developer/api-reference/objects/attribute-translatable-content))
+
+Associated attribute that can be translated.
 
 ### Interfaces
 

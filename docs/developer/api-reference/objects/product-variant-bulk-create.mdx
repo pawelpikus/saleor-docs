@@ -12,6 +12,7 @@ Requires one of the following permissions: MANAGE_PRODUCTS.
 type ProductVariantBulkCreate {
   count: Int!
   productVariants: [ProductVariant!]!
+  results: [ProductVariantBulkResult!]!
   bulkProductErrors: [BulkProductError!]!
   errors: [BulkProductError!]!
 }
@@ -24,6 +25,10 @@ type ProductVariantBulkCreate {
 Returns how many objects were created.
 
 #### [`productVariants`](#) ([`[ProductVariant!]!`](../../../developer/api-reference/objects/product-variant))
+
+List of the created variants.This field will be removed in Saleor 4.0.
+
+#### [`results`](#) ([`[ProductVariantBulkResult!]!`](../../../developer/api-reference/objects/product-variant-bulk-result))
 
 List of the created variants.
 

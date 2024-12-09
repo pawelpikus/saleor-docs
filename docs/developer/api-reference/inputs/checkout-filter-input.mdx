@@ -13,6 +13,9 @@ input CheckoutFilterInput {
   search: String
   metadata: [MetadataFilter!]
   channels: [ID!]
+  updatedAt: DateRangeInput
+  authorizeStatus: [CheckoutAuthorizeStatusEnum!]
+  chargeStatus: [CheckoutChargeStatusEnum!]
 }
 ```
 
@@ -27,3 +30,9 @@ input CheckoutFilterInput {
 #### [`metadata`](#) ([`[MetadataFilter!]`](../../../developer/api-reference/inputs/metadata-filter))
 
 #### [`channels`](#) ([`[ID!]`](../../../developer/api-reference/scalars/id))
+
+#### [`updatedAt`](#) ([`DateRangeInput`](../../../developer/api-reference/inputs/date-range-input))
+
+#### [`authorizeStatus`](#) ([`[CheckoutAuthorizeStatusEnum!]`](../../../developer/api-reference/enums/checkout-authorize-status-enum))
+
+#### [`chargeStatus`](#) ([`[CheckoutChargeStatusEnum!]`](../../../developer/api-reference/enums/checkout-charge-status-enum))

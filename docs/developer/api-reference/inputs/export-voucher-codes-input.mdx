@@ -1,0 +1,29 @@
+---
+id: export-voucher-codes-input
+title: ExportVoucherCodesInput
+hide_table_of_contents: false
+---
+
+No description
+
+```graphql
+input ExportVoucherCodesInput {
+  voucherId: ID
+  ids: [ID!]
+  fileType: FileTypesEnum!
+}
+```
+
+### Fields
+
+#### [`voucherId`](#) ([`ID`](../../../developer/api-reference/scalars/id))
+
+The ID of the voucher. If provided, exports all codes belonging to the voucher.
+
+#### [`ids`](#) ([`[ID!]`](../../../developer/api-reference/scalars/id))
+
+List of voucher code IDs to export.
+
+#### [`fileType`](#) ([`FileTypesEnum!`](../../../developer/api-reference/enums/file-types-enum))
+
+Type of exported file.

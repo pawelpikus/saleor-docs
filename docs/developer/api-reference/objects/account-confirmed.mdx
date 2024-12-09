@@ -1,0 +1,63 @@
+---
+id: account-confirmed
+title: AccountConfirmed
+hide_table_of_contents: false
+---
+
+Event sent when account is confirmed.
+
+```graphql
+type AccountConfirmed implements Event {
+  issuedAt: DateTime
+  version: String
+  issuingPrincipal: IssuingPrincipal
+  recipient: App
+  redirectUrl: String
+  user: User
+  channel: Channel
+  token: String
+  shop: Shop
+}
+```
+
+### Fields
+
+#### [`issuedAt`](#) ([`DateTime`](../../../developer/api-reference/scalars/date-time))
+
+Time of the event.
+
+#### [`version`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Saleor version that triggered the event.
+
+#### [`issuingPrincipal`](#) ([`IssuingPrincipal`](../../../developer/api-reference/unions/issuing-principal))
+
+The user or application that triggered the event.
+
+#### [`recipient`](#) ([`App`](../../../developer/api-reference/objects/app))
+
+The application receiving the webhook.
+
+#### [`redirectUrl`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+The URL to redirect the user after he accepts the request.
+
+#### [`user`](#) ([`User`](../../../developer/api-reference/objects/user))
+
+The user the event relates to.
+
+#### [`channel`](#) ([`Channel`](../../../developer/api-reference/objects/channel))
+
+The channel data.
+
+#### [`token`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+The token required to confirm request.
+
+#### [`shop`](#) ([`Shop`](../../../developer/api-reference/objects/shop))
+
+Shop data.
+
+### Interfaces
+
+#### [`Event`](../../../developer/api-reference/interfaces/event)

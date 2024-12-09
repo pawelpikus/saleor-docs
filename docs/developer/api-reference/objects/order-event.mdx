@@ -30,8 +30,8 @@ type OrderEvent implements Node {
   transactionReference: String
   shippingCostsIncluded: Boolean
   relatedOrder: Order
+  related: OrderEvent
   discount: OrderEventDiscountObject
-  status: TransactionStatus
   reference: String
 }
 ```
@@ -39,6 +39,8 @@ type OrderEvent implements Node {
 ### Fields
 
 #### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+
+ID of the event associated with an order.
 
 #### [`date`](#) ([`DateTime`](../../../developer/api-reference/scalars/date-time))
 
@@ -124,13 +126,13 @@ Define if shipping costs were included to the refund.
 
 The order which is related to this order.
 
+#### [`related`](#) ([`OrderEvent`](../../../developer/api-reference/objects/order-event))
+
+The order event which is related to this event.
+
 #### [`discount`](#) ([`OrderEventDiscountObject`](../../../developer/api-reference/objects/order-event-discount-object))
 
 The discount applied to the order.
-
-#### [`status`](#) ([`TransactionStatus`](../../../developer/api-reference/enums/transaction-status))
-
-The status of payment's transaction.
 
 #### [`reference`](#) ([`String`](../../../developer/api-reference/scalars/string))
 

@@ -1,0 +1,27 @@
+---
+id: tax-class
+title: taxClass
+hide_table_of_contents: false
+---
+
+Look up a tax class.
+
+Requires one of the following permissions: AUTHENTICATED_STAFF_USER, AUTHENTICATED_APP.
+
+```graphql
+taxClass(
+  id: ID!
+): TaxClass
+```
+
+### Arguments
+
+#### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+
+ID of a tax class.
+
+### Type
+
+#### [`TaxClass`](../../../developer/api-reference/objects/tax-class)
+
+Tax class is a named object used to define tax rates per country. Tax class can be assigned to product types, products and shipping methods to define their tax rates.

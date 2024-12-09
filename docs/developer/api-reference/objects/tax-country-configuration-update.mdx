@@ -1,0 +1,24 @@
+---
+id: tax-country-configuration-update
+title: TaxCountryConfigurationUpdate
+hide_table_of_contents: false
+---
+
+Update tax class rates for a specific country.
+
+Requires one of the following permissions: MANAGE_TAXES.
+
+```graphql
+type TaxCountryConfigurationUpdate {
+  taxCountryConfiguration: TaxCountryConfiguration
+  errors: [TaxCountryConfigurationUpdateError!]!
+}
+```
+
+### Fields
+
+#### [`taxCountryConfiguration`](#) ([`TaxCountryConfiguration`](../../../developer/api-reference/objects/tax-country-configuration))
+
+Updated tax class rates grouped by a country.
+
+#### [`errors`](#) ([`[TaxCountryConfigurationUpdateError!]!`](../../../developer/api-reference/objects/tax-country-configuration-update-error))

@@ -8,15 +8,24 @@ Deletes a customer.
 
 Requires one of the following permissions: MANAGE_USERS.
 
+Triggers the following webhook events:
+
+- CUSTOMER_DELETED (async): A customer account was deleted.
+
 ```graphql
 customerDelete(
-  id: ID!
+  externalReference: String
+  id: ID
 ): CustomerDelete
 ```
 
 ### Arguments
 
-#### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+#### [`externalReference`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+External ID of a customer to update.
+
+#### [`id`](#) ([`ID`](../../../developer/api-reference/scalars/id))
 
 ID of a customer to delete.
 
@@ -27,3 +36,7 @@ ID of a customer to delete.
 Deletes a customer.
 
 Requires one of the following permissions: MANAGE_USERS.
+
+Triggers the following webhook events:
+
+- CUSTOMER_DELETED (async): A customer account was deleted.

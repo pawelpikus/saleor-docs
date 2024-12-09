@@ -1,0 +1,34 @@
+---
+id: checkout-create-from-order-unavailable-variant
+title: CheckoutCreateFromOrderUnavailableVariant
+hide_table_of_contents: false
+---
+
+No description
+
+```graphql
+type CheckoutCreateFromOrderUnavailableVariant {
+  message: String!
+  code: CheckoutCreateFromOrderUnavailableVariantErrorCode!
+  variantId: ID!
+  lineId: ID!
+}
+```
+
+### Fields
+
+#### [`message`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+The error message.
+
+#### [`code`](#) ([`CheckoutCreateFromOrderUnavailableVariantErrorCode!`](../../../developer/api-reference/enums/checkout-create-from-order-unavailable-variant-error-code))
+
+The error code.
+
+#### [`variantId`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+
+Variant ID that is unavailable.
+
+#### [`lineId`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+
+Order line ID that is unavailable.

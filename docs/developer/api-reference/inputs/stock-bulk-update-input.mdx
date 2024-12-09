@@ -1,0 +1,39 @@
+---
+id: stock-bulk-update-input
+title: StockBulkUpdateInput
+hide_table_of_contents: false
+---
+
+No description
+
+```graphql
+input StockBulkUpdateInput {
+  variantId: ID
+  variantExternalReference: String
+  warehouseId: ID
+  warehouseExternalReference: String
+  quantity: Int!
+}
+```
+
+### Fields
+
+#### [`variantId`](#) ([`ID`](../../../developer/api-reference/scalars/id))
+
+Variant ID.
+
+#### [`variantExternalReference`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Variant external reference.
+
+#### [`warehouseId`](#) ([`ID`](../../../developer/api-reference/scalars/id))
+
+Warehouse ID.
+
+#### [`warehouseExternalReference`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Warehouse external reference.
+
+#### [`quantity`](#) ([`Int!`](../../../developer/api-reference/scalars/int))
+
+Quantity of items available for sell.

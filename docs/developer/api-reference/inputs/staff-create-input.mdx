@@ -4,7 +4,7 @@ title: StaffCreateInput
 hide_table_of_contents: false
 ---
 
-No description
+Fields required to create a staff user.
 
 ```graphql
 input StaffCreateInput {
@@ -13,6 +13,8 @@ input StaffCreateInput {
   email: String
   isActive: Boolean
   note: String
+  metadata: [MetadataInput!]
+  privateMetadata: [MetadataInput!]
   addGroups: [ID!]
   redirectUrl: String
 }
@@ -39,6 +41,14 @@ User account is active.
 #### [`note`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
 A note about the user.
+
+#### [`metadata`](#) ([`[MetadataInput!]`](../../../developer/api-reference/inputs/metadata-input))
+
+Fields required to update the user metadata.
+
+#### [`privateMetadata`](#) ([`[MetadataInput!]`](../../../developer/api-reference/inputs/metadata-input))
+
+Fields required to update the user private metadata.
 
 #### [`addGroups`](#) ([`[ID!]`](../../../developer/api-reference/scalars/id))
 

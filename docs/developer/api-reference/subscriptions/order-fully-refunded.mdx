@@ -1,0 +1,29 @@
+---
+id: order-fully-refunded
+title: orderFullyRefunded
+hide_table_of_contents: false
+---
+
+The order is fully refunded.
+
+Added in Saleor 3.20.
+
+Note: this API is currently in Feature Preview and can be subject to changes at later point.
+
+```graphql
+orderFullyRefunded(
+  channels: [String!]
+): OrderFullyRefunded
+```
+
+### Arguments
+
+#### [`channels`](#) ([`[String!]`](../../../developer/api-reference/scalars/string))
+
+List of channel slugs. The event will be sent only if the order belongs to one of the provided channels. If the channel slug list is empty, orders that belong to any channel will be sent. Maximally 500 items.
+
+### Type
+
+#### [`OrderFullyRefunded`](../../../developer/api-reference/objects/order-fully-refunded)
+
+The order is fully refunded.

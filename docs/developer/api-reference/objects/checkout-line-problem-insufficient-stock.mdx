@@ -1,0 +1,29 @@
+---
+id: checkout-line-problem-insufficient-stock
+title: CheckoutLineProblemInsufficientStock
+hide_table_of_contents: false
+---
+
+Indicates insufficient stock for a given checkout line.Placing the order will not be possible until solving this problem.
+
+```graphql
+type CheckoutLineProblemInsufficientStock {
+  availableQuantity: Int
+  line: CheckoutLine!
+  variant: ProductVariant!
+}
+```
+
+### Fields
+
+#### [`availableQuantity`](#) ([`Int`](../../../developer/api-reference/scalars/int))
+
+Available quantity of a variant.
+
+#### [`line`](#) ([`CheckoutLine!`](../../../developer/api-reference/objects/checkout-line))
+
+The line that has variant with insufficient stock.
+
+#### [`variant`](#) ([`ProductVariant!`](../../../developer/api-reference/objects/product-variant))
+
+The variant with insufficient stock.

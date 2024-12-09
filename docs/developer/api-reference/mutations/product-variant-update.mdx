@@ -10,20 +10,30 @@ Requires one of the following permissions: MANAGE_PRODUCTS.
 
 ```graphql
 productVariantUpdate(
-  id: ID!
+  externalReference: String
+  id: ID
   input: ProductVariantInput!
+  sku: String
 ): ProductVariantUpdate
 ```
 
 ### Arguments
 
-#### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+#### [`externalReference`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
-ID of a product variant to update.
+External ID of a product variant to update.
+
+#### [`id`](#) ([`ID`](../../../developer/api-reference/scalars/id))
+
+ID of a product to update.
 
 #### [`input`](#) ([`ProductVariantInput!`](../../../developer/api-reference/inputs/product-variant-input))
 
 Fields required to update a product variant.
+
+#### [`sku`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+SKU of a product variant to update.
 
 ### Type
 

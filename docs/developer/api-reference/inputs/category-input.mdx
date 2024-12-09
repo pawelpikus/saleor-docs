@@ -14,6 +14,8 @@ input CategoryInput {
   seo: SeoInput
   backgroundImage: Upload
   backgroundImageAlt: String
+  metadata: [MetadataInput!]
+  privateMetadata: [MetadataInput!]
 }
 ```
 
@@ -44,3 +46,11 @@ Background image file.
 #### [`backgroundImageAlt`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
 Alt text for a product media.
+
+#### [`metadata`](#) ([`[MetadataInput!]`](../../../developer/api-reference/inputs/metadata-input))
+
+Fields required to update the category metadata.
+
+#### [`privateMetadata`](#) ([`[MetadataInput!]`](../../../developer/api-reference/inputs/metadata-input))
+
+Fields required to update the category private metadata.

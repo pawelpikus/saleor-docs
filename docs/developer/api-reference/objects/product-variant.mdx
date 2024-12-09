@@ -37,12 +37,15 @@ type ProductVariant implements Node, ObjectWithMetadata {
   preorder: PreorderData
   created: DateTime!
   updatedAt: DateTime!
+  externalReference: String
 }
 ```
 
 ### Fields
 
 #### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+
+The ID of the product variant.
 
 #### [`privateMetadata`](#) ([`[MetadataItem!]!`](../../../developer/api-reference/objects/metadata-item))
 
@@ -54,19 +57,11 @@ A single key from private metadata. Requires staff permissions to access.
 
 Tip: Use GraphQL aliases to fetch multiple keys.
 
-Added in Saleor 3.3.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
 - ##### [`key`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
 #### [`privateMetafields`](#) ([`Metadata`](../../../developer/api-reference/scalars/metadata))
 
 Private metadata. Requires staff permissions to access. Use `keys` to control which fields you want to include. The default is to include everything.
-
-Added in Saleor 3.3.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
 
 - ##### [`keys`](#) ([`[String!]`](../../../developer/api-reference/scalars/string))
 
@@ -80,33 +75,37 @@ A single key from public metadata.
 
 Tip: Use GraphQL aliases to fetch multiple keys.
 
-Added in Saleor 3.3.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
 - ##### [`key`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
 #### [`metafields`](#) ([`Metadata`](../../../developer/api-reference/scalars/metadata))
 
 Public metadata. Use `keys` to control which fields you want to include. The default is to include everything.
 
-Added in Saleor 3.3.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
 - ##### [`keys`](#) ([`[String!]`](../../../developer/api-reference/scalars/string))
 
 #### [`name`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
+The name of the product variant.
+
 #### [`sku`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+The SKU (stock keeping unit) of the product variant.
 
 #### [`product`](#) ([`Product!`](../../../developer/api-reference/objects/product))
 
+The product to which the variant belongs.
+
 #### [`trackInventory`](#) ([`Boolean!`](../../../developer/api-reference/scalars/boolean))
+
+Determines if the inventory of this variant should be tracked. If false, the quantity won't change when customers buy this item. If the field is not provided, `Shop.trackInventoryByDefault` will be used.
 
 #### [`quantityLimitPerCustomer`](#) ([`Int`](../../../developer/api-reference/scalars/int))
 
+The maximum quantity of this variant that a customer can purchase.
+
 #### [`weight`](#) ([`Weight`](../../../developer/api-reference/objects/weight))
+
+The weight of the product variant.
 
 #### [`channel`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
@@ -208,13 +207,17 @@ DEPRECATED: this field will be removed in Saleor 4.0. Use `address` argument ins
 
 Preorder data for product variant.
 
-Added in Saleor 3.1.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
 #### [`created`](#) ([`DateTime!`](../../../developer/api-reference/scalars/date-time))
 
+The date and time when the product variant was created.
+
 #### [`updatedAt`](#) ([`DateTime!`](../../../developer/api-reference/scalars/date-time))
+
+The date and time when the product variant was last updated.
+
+#### [`externalReference`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+External ID of this product.
 
 ### Interfaces
 

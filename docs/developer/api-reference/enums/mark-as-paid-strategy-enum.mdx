@@ -1,0 +1,26 @@
+---
+id: mark-as-paid-strategy-enum
+title: MarkAsPaidStrategyEnum
+hide_table_of_contents: false
+---
+
+Determine the mark as paid strategy for the channel.
+
+    TRANSACTION_FLOW - new orders marked as paid will receive a
+    `TransactionItem` object, that will cover the `order.total`.
+
+    PAYMENT_FLOW - new orders marked as paid will receive a
+    `Payment` object, that will cover the `order.total`.
+
+```graphql
+enum MarkAsPaidStrategyEnum {
+  TRANSACTION_FLOW
+  PAYMENT_FLOW
+}
+```
+
+### Values
+
+#### [`TRANSACTION_FLOW`](#)
+
+#### [`PAYMENT_FLOW`](#)

@@ -8,6 +8,10 @@ Retry failed installation of new app.
 
 Requires one of the following permissions: MANAGE_APPS.
 
+Triggers the following webhook events:
+
+- APP_INSTALLED (async): An app was installed.
+
 ```graphql
 appRetryInstall(
   activateAfterInstallation: Boolean = true
@@ -32,3 +36,7 @@ ID of failed installation.
 Retry failed installation of new app.
 
 Requires one of the following permissions: MANAGE_APPS.
+
+Triggers the following webhook events:
+
+- APP_INSTALLED (async): An app was installed.

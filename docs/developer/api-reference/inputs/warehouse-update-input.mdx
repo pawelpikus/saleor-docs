@@ -10,6 +10,7 @@ No description
 input WarehouseUpdateInput {
   slug: String
   email: String
+  externalReference: String
   name: String
   address: AddressInput
   clickAndCollectOption: WarehouseClickAndCollectOptionEnum
@@ -27,6 +28,10 @@ Warehouse slug.
 
 The email address of the warehouse.
 
+#### [`externalReference`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+External ID of the warehouse.
+
 #### [`name`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
 Warehouse name.
@@ -39,14 +44,6 @@ Address of the warehouse.
 
 Click and collect options: local, all or disabled.
 
-Added in Saleor 3.1.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
 #### [`isPrivate`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
 
 Visibility of warehouse stocks.
-
-Added in Saleor 3.1.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.

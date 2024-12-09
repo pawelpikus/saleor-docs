@@ -4,13 +4,15 @@ title: CategoryTranslatableContent
 hide_table_of_contents: false
 ---
 
-No description
+Represents category original translatable fields and related translations.
 
 ```graphql
 type CategoryTranslatableContent implements Node {
   id: ID!
+  categoryId: ID!
   seoTitle: String
   seoDescription: String
+  slug: String
   name: String!
   description: JSONString
   descriptionJson: JSONString
@@ -23,15 +25,33 @@ type CategoryTranslatableContent implements Node {
 
 #### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
 
+The ID of the category translatable content.
+
+#### [`categoryId`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+
+The ID of the category to translate.
+
 #### [`seoTitle`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+SEO title to translate.
 
 #### [`seoDescription`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
+SEO description to translate.
+
+#### [`slug`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Slug to translate.
+
+Added in Saleor 3.21.
+
 #### [`name`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+Name of the category translatable content.
 
 #### [`description`](#) ([`JSONString`](../../../developer/api-reference/scalars/jsonstring))
 
-Description of the category.
+Category description to translate.
 
 Rich text format. For reference see https://editorjs.io/
 

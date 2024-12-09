@@ -11,6 +11,8 @@ input CategoryFilterInput {
   search: String
   metadata: [MetadataFilter!]
   ids: [ID!]
+  slugs: [String!]
+  updatedAt: DateTimeRangeInput
 }
 ```
 
@@ -21,3 +23,9 @@ input CategoryFilterInput {
 #### [`metadata`](#) ([`[MetadataFilter!]`](../../../developer/api-reference/inputs/metadata-filter))
 
 #### [`ids`](#) ([`[ID!]`](../../../developer/api-reference/scalars/id))
+
+#### [`slugs`](#) ([`[String!]`](../../../developer/api-reference/scalars/string))
+
+#### [`updatedAt`](#) ([`DateTimeRangeInput`](../../../developer/api-reference/inputs/date-time-range-input))
+
+Filter by when was the most recent update.

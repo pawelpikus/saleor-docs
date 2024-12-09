@@ -6,13 +6,24 @@ hide_table_of_contents: false
 
 Create new order from existing checkout. Requires the following permissions: AUTHENTICATED_APP and HANDLE_CHECKOUTS.
 
-Added in Saleor 3.2.
+Triggers the following webhook events:
 
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
+- SHIPPING_LIST_METHODS_FOR_CHECKOUT (sync): Optionally triggered when cached external shipping methods are invalid.
+- CHECKOUT_FILTER_SHIPPING_METHODS (sync): Optionally triggered when cached filtered shipping methods are invalid.
+- CHECKOUT_CALCULATE_TAXES (sync): Optionally triggered when checkout prices are expired.
+- ORDER_CREATED (async): Triggered when order is created.
+- NOTIFY_USER (async): A notification for order placement.
+- NOTIFY_USER (async): A staff notification for order placement.
+- ORDER_UPDATED (async): Triggered when order received the update after placement.
+- ORDER_PAID (async): Triggered when newly created order is paid.
+- ORDER_FULLY_PAID (async): Triggered when newly created order is fully paid.
+- ORDER_CONFIRMED (async): Optionally triggered when newly created order are automatically marked as confirmed.
 
 ```graphql
 orderCreateFromCheckout(
   id: ID!
+  metadata: [MetadataInput!]
+  privateMetadata: [MetadataInput!]
   removeCheckout: Boolean = true
 ): OrderCreateFromCheckout
 ```
@@ -22,6 +33,14 @@ orderCreateFromCheckout(
 #### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
 
 ID of a checkout that will be converted to an order.
+
+#### [`metadata`](#) ([`[MetadataInput!]`](../../../developer/api-reference/inputs/metadata-input))
+
+Fields required to update the checkout metadata.
+
+#### [`privateMetadata`](#) ([`[MetadataInput!]`](../../../developer/api-reference/inputs/metadata-input))
+
+Fields required to update the checkout private metadata.
 
 #### [`removeCheckout`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
 
@@ -33,6 +52,15 @@ Determines if checkout should be removed after creating an order. Default true.
 
 Create new order from existing checkout. Requires the following permissions: AUTHENTICATED_APP and HANDLE_CHECKOUTS.
 
-Added in Saleor 3.2.
+Triggers the following webhook events:
 
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
+- SHIPPING_LIST_METHODS_FOR_CHECKOUT (sync): Optionally triggered when cached external shipping methods are invalid.
+- CHECKOUT_FILTER_SHIPPING_METHODS (sync): Optionally triggered when cached filtered shipping methods are invalid.
+- CHECKOUT_CALCULATE_TAXES (sync): Optionally triggered when checkout prices are expired.
+- ORDER_CREATED (async): Triggered when order is created.
+- NOTIFY_USER (async): A notification for order placement.
+- NOTIFY_USER (async): A staff notification for order placement.
+- ORDER_UPDATED (async): Triggered when order received the update after placement.
+- ORDER_PAID (async): Triggered when newly created order is paid.
+- ORDER_FULLY_PAID (async): Triggered when newly created order is fully paid.
+- ORDER_CONFIRMED (async): Optionally triggered when newly created order are automatically marked as confirmed.

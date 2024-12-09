@@ -1,0 +1,29 @@
+---
+id: payment-method-process-tokenization-error
+title: PaymentMethodProcessTokenizationError
+hide_table_of_contents: false
+---
+
+No description
+
+```graphql
+type PaymentMethodProcessTokenizationError {
+  field: String
+  message: String
+  code: PaymentMethodProcessTokenizationErrorCode!
+}
+```
+
+### Fields
+
+#### [`field`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field.
+
+#### [`message`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+The error message.
+
+#### [`code`](#) ([`PaymentMethodProcessTokenizationErrorCode!`](../../../developer/api-reference/enums/payment-method-process-tokenization-error-code))
+
+The error code.

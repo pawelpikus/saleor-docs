@@ -6,6 +6,10 @@ hide_table_of_contents: false
 
 Confirm user account with token sent by email during registration.
 
+Triggers the following webhook events:
+
+- ACCOUNT_CONFIRMED (async): Account was confirmed.
+
 ```graphql
 confirmAccount(
   email: String!
@@ -28,3 +32,7 @@ A one-time token required to confirm the account.
 #### [`ConfirmAccount`](../../../developer/api-reference/objects/confirm-account)
 
 Confirm user account with token sent by email during registration.
+
+Triggers the following webhook events:
+
+- ACCOUNT_CONFIRMED (async): Account was confirmed.

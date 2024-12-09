@@ -8,6 +8,11 @@ Updates a voucher.
 
 Requires one of the following permissions: MANAGE_DISCOUNTS.
 
+Triggers the following webhook events:
+
+- VOUCHER_UPDATED (async): A voucher was updated.
+- VOUCHER_CODES_CREATED (async): A voucher code was created.
+
 ```graphql
 type VoucherUpdate {
   discountErrors: [DiscountError!]!

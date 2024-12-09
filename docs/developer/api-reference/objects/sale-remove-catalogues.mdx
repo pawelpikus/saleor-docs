@@ -6,7 +6,13 @@ hide_table_of_contents: false
 
 Removes products, categories, collections from a sale.
 
+DEPRECATED: this mutation will be removed in Saleor 4.0. Use `promotionRuleUpdate` or `promotionRuleDelete` mutations instead.
+
 Requires one of the following permissions: MANAGE_DISCOUNTS.
+
+Triggers the following webhook events:
+
+- SALE_UPDATED (async): A sale was updated.
 
 ```graphql
 type SaleRemoveCatalogues {

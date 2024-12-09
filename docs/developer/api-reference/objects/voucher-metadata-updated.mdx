@@ -1,0 +1,47 @@
+---
+id: voucher-metadata-updated
+title: VoucherMetadataUpdated
+hide_table_of_contents: false
+---
+
+Event sent when voucher metadata is updated.
+
+```graphql
+type VoucherMetadataUpdated implements Event {
+  issuedAt: DateTime
+  version: String
+  issuingPrincipal: IssuingPrincipal
+  recipient: App
+  voucher(channel: String): Voucher
+}
+```
+
+### Fields
+
+#### [`issuedAt`](#) ([`DateTime`](../../../developer/api-reference/scalars/date-time))
+
+Time of the event.
+
+#### [`version`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Saleor version that triggered the event.
+
+#### [`issuingPrincipal`](#) ([`IssuingPrincipal`](../../../developer/api-reference/unions/issuing-principal))
+
+The user or application that triggered the event.
+
+#### [`recipient`](#) ([`App`](../../../developer/api-reference/objects/app))
+
+The application receiving the webhook.
+
+#### [`voucher`](#) ([`Voucher`](../../../developer/api-reference/objects/voucher))
+
+The voucher the event relates to.
+
+- ##### [`channel`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Slug of a channel for which the data should be returned.
+
+### Interfaces
+
+#### [`Event`](../../../developer/api-reference/interfaces/event)

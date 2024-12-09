@@ -4,15 +4,14 @@ title: transactionUpdate
 hide_table_of_contents: false
 ---
 
-Create transaction for checkout or order. Requires the following permissions: AUTHENTICATED_APP and HANDLE_PAYMENTS.
+Update transaction.
 
-Added in Saleor 3.4.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
+Requires the following permissions: OWNER and HANDLE_PAYMENTS for apps, HANDLE_PAYMENTS for staff users. Staff user cannot update a transaction that is owned by the app.
 
 ```graphql
 transactionUpdate(
-  id: ID!
+  id: ID
+  token: UUID
   transaction: TransactionUpdateInput
   transactionEvent: TransactionEventInput
 ): TransactionUpdate
@@ -20,9 +19,13 @@ transactionUpdate(
 
 ### Arguments
 
-#### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+#### [`id`](#) ([`ID`](../../../developer/api-reference/scalars/id))
 
-The ID of the transaction.
+The ID of the transaction. One of field id or token is required.
+
+#### [`token`](#) ([`UUID`](../../../developer/api-reference/scalars/uuid))
+
+The token of the transaction. One of field id or token is required.
 
 #### [`transaction`](#) ([`TransactionUpdateInput`](../../../developer/api-reference/inputs/transaction-update-input))
 
@@ -36,8 +39,6 @@ Data that defines a transaction transaction.
 
 #### [`TransactionUpdate`](../../../developer/api-reference/objects/transaction-update)
 
-Create transaction for checkout or order. Requires the following permissions: AUTHENTICATED_APP and HANDLE_PAYMENTS.
+Update transaction.
 
-Added in Saleor 3.4.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
+Requires the following permissions: OWNER and HANDLE_PAYMENTS for apps, HANDLE_PAYMENTS for staff users. Staff user cannot update a transaction that is owned by the app.

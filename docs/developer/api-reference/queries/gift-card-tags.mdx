@@ -6,10 +6,6 @@ hide_table_of_contents: false
 
 List of gift card tags.
 
-Added in Saleor 3.1.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
 Requires one of the following permissions: MANAGE_GIFT_CARD.
 
 ```graphql
@@ -38,11 +34,11 @@ Return the elements in the list that come after the specified cursor.
 
 #### [`first`](#) ([`Int`](../../../developer/api-reference/scalars/int))
 
-Return the first n elements from the list.
+Retrieve the first n elements from the list. Note that the system only allows fetching a maximum of 100 objects in a single query.
 
 #### [`last`](#) ([`Int`](../../../developer/api-reference/scalars/int))
 
-Return the last n elements from the list.
+Retrieve the last n elements from the list. Note that the system only allows fetching a maximum of 100 objects in a single query.
 
 ### Type
 

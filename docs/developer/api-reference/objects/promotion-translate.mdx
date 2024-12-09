@@ -1,0 +1,22 @@
+---
+id: promotion-translate
+title: PromotionTranslate
+hide_table_of_contents: false
+---
+
+Creates/updates translations for a promotion.
+
+Requires one of the following permissions: MANAGE_TRANSLATIONS.
+
+```graphql
+type PromotionTranslate {
+  errors: [TranslationError!]!
+  promotion: Promotion
+}
+```
+
+### Fields
+
+#### [`errors`](#) ([`[TranslationError!]!`](../../../developer/api-reference/objects/translation-error))
+
+#### [`promotion`](#) ([`Promotion`](../../../developer/api-reference/objects/promotion))

@@ -10,9 +10,6 @@ No description
 input ShopSettingsInput {
   headerText: String
   description: String
-  includeTaxesInPrices: Boolean
-  displayGrossPrices: Boolean
-  chargeTaxesOnShipping: Boolean
   trackInventoryByDefault: Boolean
   defaultWeightUnit: WeightUnitsEnum
   automaticFulfillmentDigitalProducts: Boolean
@@ -26,6 +23,13 @@ input ShopSettingsInput {
   reserveStockDurationAnonymousUser: Int
   reserveStockDurationAuthenticatedUser: Int
   limitQuantityPerCheckout: Int
+  enableAccountConfirmationByEmail: Boolean
+  allowLoginWithoutConfirmation: Boolean
+  metadata: [MetadataInput!]
+  privateMetadata: [MetadataInput!]
+  includeTaxesInPrices: Boolean
+  displayGrossPrices: Boolean
+  chargeTaxesOnShipping: Boolean
 }
 ```
 
@@ -39,21 +43,9 @@ Header text.
 
 SEO description.
 
-#### [`includeTaxesInPrices`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
-
-Include taxes in prices.
-
-#### [`displayGrossPrices`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
-
-Display prices with tax in store.
-
-#### [`chargeTaxesOnShipping`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
-
-Charge taxes on shipping.
-
 #### [`trackInventoryByDefault`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
 
-Enable inventory tracking.
+This field is used as a default value for `ProductVariant.trackInventory`.
 
 #### [`defaultWeightUnit`](#) ([`WeightUnitsEnum`](../../../developer/api-reference/enums/weight-units-enum))
 
@@ -67,13 +59,9 @@ Enable automatic fulfillment for all digital products.
 
 Enable automatic approval of all new fulfillments.
 
-Added in Saleor 3.1.
-
 #### [`fulfillmentAllowUnpaid`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
 
 Enable ability to approve fulfillments which are unpaid.
-
-Added in Saleor 3.1.
 
 #### [`defaultDigitalMaxDownloads`](#) ([`Int`](../../../developer/api-reference/scalars/int))
 
@@ -99,18 +87,44 @@ URL of a view where customers can set their password.
 
 Default number of minutes stock will be reserved for anonymous checkout. Enter 0 or null to disable.
 
-Added in Saleor 3.1.
-
 #### [`reserveStockDurationAuthenticatedUser`](#) ([`Int`](../../../developer/api-reference/scalars/int))
 
 Default number of minutes stock will be reserved for authenticated checkout. Enter 0 or null to disable.
-
-Added in Saleor 3.1.
 
 #### [`limitQuantityPerCheckout`](#) ([`Int`](../../../developer/api-reference/scalars/int))
 
 Default number of maximum line quantity in single checkout. Minimum possible value is 1, default value is 50.
 
-Added in Saleor 3.1.
+#### [`enableAccountConfirmationByEmail`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
 
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
+Enable automatic account confirmation by email.
+
+#### [`allowLoginWithoutConfirmation`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
+
+Enable possibility to login without account confirmation.
+
+#### [`metadata`](#) ([`[MetadataInput!]`](../../../developer/api-reference/inputs/metadata-input))
+
+Shop public metadata.
+
+#### [`privateMetadata`](#) ([`[MetadataInput!]`](../../../developer/api-reference/inputs/metadata-input))
+
+Shop private metadata.
+
+#### [`includeTaxesInPrices`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
+
+Include taxes in prices.
+
+DEPRECATED: this field will be removed in Saleor 4.0. Use `taxConfigurationUpdate` mutation to configure this setting per channel or country.
+
+#### [`displayGrossPrices`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
+
+Display prices with tax in store.
+
+DEPRECATED: this field will be removed in Saleor 4.0. Use `taxConfigurationUpdate` mutation to configure this setting per channel or country.
+
+#### [`chargeTaxesOnShipping`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
+
+Charge taxes on shipping.
+
+DEPRECATED: this field will be removed in Saleor 4.0. To enable taxes for a shipping method, assign a tax class to the shipping method with `shippingPriceCreate` or `shippingPriceUpdate` mutations.

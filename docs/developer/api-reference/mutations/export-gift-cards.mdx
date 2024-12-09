@@ -6,11 +6,12 @@ hide_table_of_contents: false
 
 Export gift cards to csv file.
 
-Added in Saleor 3.1.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
 Requires one of the following permissions: MANAGE_GIFT_CARD.
+
+Triggers the following webhook events:
+
+- NOTIFY_USER (async): A notification for the exported file.
+- GIFT_CARD_EXPORT_COMPLETED (async): A notification for the exported file.
 
 ```graphql
 exportGiftCards(
@@ -30,8 +31,9 @@ Fields required to export gift cards data.
 
 Export gift cards to csv file.
 
-Added in Saleor 3.1.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
 Requires one of the following permissions: MANAGE_GIFT_CARD.
+
+Triggers the following webhook events:
+
+- NOTIFY_USER (async): A notification for the exported file.
+- GIFT_CARD_EXPORT_COMPLETED (async): A notification for the exported file.

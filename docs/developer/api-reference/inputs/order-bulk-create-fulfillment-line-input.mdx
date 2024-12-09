@@ -1,0 +1,44 @@
+---
+id: order-bulk-create-fulfillment-line-input
+title: OrderBulkCreateFulfillmentLineInput
+hide_table_of_contents: false
+---
+
+No description
+
+```graphql
+input OrderBulkCreateFulfillmentLineInput {
+  variantId: ID
+  variantSku: String
+  variantExternalReference: String
+  quantity: Int!
+  warehouse: ID!
+  orderLineIndex: Int!
+}
+```
+
+### Fields
+
+#### [`variantId`](#) ([`ID`](../../../developer/api-reference/scalars/id))
+
+The ID of the product variant.
+
+#### [`variantSku`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+The SKU of the product variant.
+
+#### [`variantExternalReference`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+The external ID of the product variant.
+
+#### [`quantity`](#) ([`Int!`](../../../developer/api-reference/scalars/int))
+
+The number of line items to be fulfilled from given warehouse.
+
+#### [`warehouse`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+
+ID of the warehouse from which the item will be fulfilled.
+
+#### [`orderLineIndex`](#) ([`Int!`](../../../developer/api-reference/scalars/int))
+
+0-based index of order line, which the fulfillment line refers to.

@@ -24,19 +24,35 @@ type Transaction implements Node {
 
 #### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
 
+ID of the transaction.
+
 #### [`created`](#) ([`DateTime!`](../../../developer/api-reference/scalars/date-time))
+
+Date and time at which transaction was created.
 
 #### [`payment`](#) ([`Payment!`](../../../developer/api-reference/objects/payment))
 
+Determines the payment associated with a transaction.
+
 #### [`token`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+Unique token associated with a transaction.
 
 #### [`kind`](#) ([`TransactionKind!`](../../../developer/api-reference/enums/transaction-kind))
 
+Determines the type of transaction.
+
 #### [`isSuccess`](#) ([`Boolean!`](../../../developer/api-reference/scalars/boolean))
+
+Determines if the transaction was successful.
 
 #### [`error`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
+Error associated with transaction, if any.
+
 #### [`gatewayResponse`](#) ([`JSONString!`](../../../developer/api-reference/scalars/jsonstring))
+
+Response returned by payment gateway.
 
 #### [`amount`](#) ([`Money`](../../../developer/api-reference/objects/money))
 

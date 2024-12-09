@@ -1,0 +1,27 @@
+---
+id: checkout-create-from-order
+title: CheckoutCreateFromOrder
+hide_table_of_contents: false
+---
+
+Create new checkout from existing order.
+
+```graphql
+type CheckoutCreateFromOrder {
+  unavailableVariants: [CheckoutCreateFromOrderUnavailableVariant!]
+  checkout: Checkout
+  errors: [CheckoutCreateFromOrderError!]!
+}
+```
+
+### Fields
+
+#### [`unavailableVariants`](#) ([`[CheckoutCreateFromOrderUnavailableVariant!]`](../../../developer/api-reference/objects/checkout-create-from-order-unavailable-variant))
+
+Variants that were not attached to the checkout.
+
+#### [`checkout`](#) ([`Checkout`](../../../developer/api-reference/objects/checkout))
+
+Created checkout.
+
+#### [`errors`](#) ([`[CheckoutCreateFromOrderError!]!`](../../../developer/api-reference/objects/checkout-create-from-order-error))

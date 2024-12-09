@@ -1,0 +1,44 @@
+---
+id: order-bulk-create-note-input
+title: OrderBulkCreateNoteInput
+hide_table_of_contents: false
+---
+
+No description
+
+```graphql
+input OrderBulkCreateNoteInput {
+  message: String!
+  date: DateTime
+  userId: ID
+  userEmail: ID
+  userExternalReference: ID
+  appId: ID
+}
+```
+
+### Fields
+
+#### [`message`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+Note message. Max characters: 255.
+
+#### [`date`](#) ([`DateTime`](../../../developer/api-reference/scalars/date-time))
+
+The date associated with the message.
+
+#### [`userId`](#) ([`ID`](../../../developer/api-reference/scalars/id))
+
+The user ID associated with the message.
+
+#### [`userEmail`](#) ([`ID`](../../../developer/api-reference/scalars/id))
+
+The user email associated with the message.
+
+#### [`userExternalReference`](#) ([`ID`](../../../developer/api-reference/scalars/id))
+
+The user external ID associated with the message.
+
+#### [`appId`](#) ([`ID`](../../../developer/api-reference/scalars/id))
+
+The app ID associated with the message.

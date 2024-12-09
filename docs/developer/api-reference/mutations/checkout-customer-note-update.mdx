@@ -1,0 +1,42 @@
+---
+id: checkout-customer-note-update
+title: checkoutCustomerNoteUpdate
+hide_table_of_contents: false
+---
+
+Updates customer note in the existing checkout object.
+
+Added in Saleor 3.21.
+
+Triggers the following webhook events:
+
+- CHECKOUT_UPDATED (async): A checkout was updated.
+
+```graphql
+checkoutCustomerNoteUpdate(
+  customerNote: String!
+  id: ID!
+): CheckoutCustomerNoteUpdate
+```
+
+### Arguments
+
+#### [`customerNote`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+New customer note content.
+
+#### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+
+The checkout's ID.
+
+### Type
+
+#### [`CheckoutCustomerNoteUpdate`](../../../developer/api-reference/objects/checkout-customer-note-update)
+
+Updates customer note in the existing checkout object.
+
+Added in Saleor 3.21.
+
+Triggers the following webhook events:
+
+- CHECKOUT_UPDATED (async): A checkout was updated.

@@ -4,13 +4,15 @@ title: ProductTranslatableContent
 hide_table_of_contents: false
 ---
 
-No description
+Represents product's original translatable fields and related translations.
 
 ```graphql
 type ProductTranslatableContent implements Node {
   id: ID!
+  productId: ID!
   seoTitle: String
   seoDescription: String
+  slug: String
   name: String!
   description: JSONString
   descriptionJson: JSONString
@@ -24,15 +26,33 @@ type ProductTranslatableContent implements Node {
 
 #### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
 
+The ID of the product translatable content.
+
+#### [`productId`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+
+The ID of the product to translate.
+
 #### [`seoTitle`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+SEO title to translate.
 
 #### [`seoDescription`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
+SEO description to translate.
+
+#### [`slug`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Slug to translate.
+
+Added in Saleor 3.21.
+
 #### [`name`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+Product's name to translate.
 
 #### [`description`](#) ([`JSONString`](../../../developer/api-reference/scalars/jsonstring))
 
-Description of the product.
+Product's description to translate.
 
 Rich text format. For reference see https://editorjs.io/
 

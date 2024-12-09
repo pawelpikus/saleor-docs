@@ -4,7 +4,7 @@ title: OrderErrorCode
 hide_table_of_contents: false
 ---
 
-An enumeration.
+No description
 
 ```graphql
 enum OrderErrorCode {
@@ -27,6 +27,7 @@ enum OrderErrorCode {
   ORDER_NO_SHIPPING_ADDRESS
   PAYMENT_ERROR
   PAYMENT_MISSING
+  TRANSACTION_ERROR
   REQUIRED
   SHIPPING_METHOD_NOT_APPLICABLE
   SHIPPING_METHOD_REQUIRED
@@ -39,7 +40,10 @@ enum OrderErrorCode {
   DUPLICATED_INPUT_ITEM
   NOT_AVAILABLE_IN_CHANNEL
   CHANNEL_INACTIVE
-  MISSING_TRANSACTION_ACTION_REQUEST_WEBHOOK
+  INVALID_VOUCHER
+  INVALID_VOUCHER_CODE
+  NON_EDITABLE_GIFT_LINE
+  NON_REMOVABLE_GIFT_LINE
 }
 ```
 
@@ -83,6 +87,8 @@ enum OrderErrorCode {
 
 #### [`PAYMENT_MISSING`](#)
 
+#### [`TRANSACTION_ERROR`](#)
+
 #### [`REQUIRED`](#)
 
 #### [`SHIPPING_METHOD_NOT_APPLICABLE`](#)
@@ -107,4 +113,10 @@ enum OrderErrorCode {
 
 #### [`CHANNEL_INACTIVE`](#)
 
-#### [`MISSING_TRANSACTION_ACTION_REQUEST_WEBHOOK`](#)
+#### [`INVALID_VOUCHER`](#)
+
+#### [`INVALID_VOUCHER_CODE`](#)
+
+#### [`NON_EDITABLE_GIFT_LINE`](#)
+
+#### [`NON_REMOVABLE_GIFT_LINE`](#)

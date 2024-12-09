@@ -6,6 +6,10 @@ hide_table_of_contents: false
 
 Updates an address of the logged-in user. Requires one of the following permissions: MANAGE_USERS, IS_OWNER.
 
+Triggers the following webhook events:
+
+- ADDRESS_UPDATED (async): An address was updated.
+
 ```graphql
 type AccountAddressUpdate {
   user: User

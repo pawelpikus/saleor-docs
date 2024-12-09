@@ -1,0 +1,51 @@
+---
+id: promotion-rule-created-event
+title: PromotionRuleCreatedEvent
+hide_table_of_contents: false
+---
+
+History log of the promotion rule created event.
+
+```graphql
+type PromotionRuleCreatedEvent implements Node, PromotionEventInterface, PromotionRuleEventInterface {
+  id: ID!
+  date: DateTime!
+  type: PromotionEventsEnum!
+  createdBy: UserOrApp
+  ruleId: String
+}
+```
+
+### Fields
+
+#### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+
+#### [`date`](#) ([`DateTime!`](../../../developer/api-reference/scalars/date-time))
+
+Date when event happened.
+
+#### [`type`](#) ([`PromotionEventsEnum!`](../../../developer/api-reference/enums/promotion-events-enum))
+
+Promotion event type.
+
+#### [`createdBy`](#) ([`UserOrApp`](../../../developer/api-reference/unions/user-or-app))
+
+User or App that created the promotion event.
+
+Requires one of the following permissions: MANAGE_STAFF, MANAGE_APPS, OWNER.
+
+#### [`ruleId`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+The rule ID associated with the promotion event.
+
+### Interfaces
+
+#### [`Node`](../../../developer/api-reference/interfaces/node)
+
+An object with an ID
+
+#### [`PromotionEventInterface`](../../../developer/api-reference/interfaces/promotion-event-interface)
+
+#### [`PromotionRuleEventInterface`](../../../developer/api-reference/interfaces/promotion-rule-event-interface)
+
+History log of the promotion event related to rule.

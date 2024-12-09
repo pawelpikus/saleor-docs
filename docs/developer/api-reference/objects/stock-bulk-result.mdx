@@ -1,0 +1,24 @@
+---
+id: stock-bulk-result
+title: StockBulkResult
+hide_table_of_contents: false
+---
+
+No description
+
+```graphql
+type StockBulkResult {
+  stock: Stock
+  errors: [StockBulkUpdateError!]
+}
+```
+
+### Fields
+
+#### [`stock`](#) ([`Stock`](../../../developer/api-reference/objects/stock))
+
+Stock data.
+
+#### [`errors`](#) ([`[StockBulkUpdateError!]`](../../../developer/api-reference/objects/stock-bulk-update-error))
+
+List of errors occurred on create or update attempt.

@@ -1,0 +1,28 @@
+---
+id: promotion-bulk-delete
+title: PromotionBulkDelete
+hide_table_of_contents: false
+---
+
+Deletes promotions.
+
+Requires one of the following permissions: MANAGE_DISCOUNTS.
+
+Triggers the following webhook events:
+
+- PROMOTION_DELETED (async): A promotion was deleted.
+
+```graphql
+type PromotionBulkDelete {
+  count: Int!
+  errors: [DiscountError!]!
+}
+```
+
+### Fields
+
+#### [`count`](#) ([`Int!`](../../../developer/api-reference/scalars/int))
+
+Returns how many objects were affected.
+
+#### [`errors`](#) ([`[DiscountError!]!`](../../../developer/api-reference/objects/discount-error))

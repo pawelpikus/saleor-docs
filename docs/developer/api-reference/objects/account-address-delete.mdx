@@ -6,6 +6,10 @@ hide_table_of_contents: false
 
 Delete an address of the logged-in user. Requires one of the following permissions: MANAGE_USERS, IS_OWNER.
 
+Triggers the following webhook events:
+
+- ADDRESS_DELETED (async): An address was deleted.
+
 ```graphql
 type AccountAddressDelete {
   user: User

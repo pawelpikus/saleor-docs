@@ -8,6 +8,10 @@ Updates a menu item.
 
 Requires one of the following permissions: MANAGE_MENUS.
 
+Triggers the following webhook events:
+
+- MENU_ITEM_UPDATED (async): A menu item was updated.
+
 ```graphql
 type MenuItemUpdate {
   menuErrors: [MenuError!]!

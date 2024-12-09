@@ -8,6 +8,10 @@ Update permission group. Apps are not allowed to perform this mutation.
 
 Requires one of the following permissions: MANAGE_STAFF.
 
+Triggers the following webhook events:
+
+- PERMISSION_GROUP_UPDATED (async)
+
 ```graphql
 permissionGroupUpdate(
   id: ID!
@@ -32,3 +36,7 @@ Input fields to create permission group.
 Update permission group. Apps are not allowed to perform this mutation.
 
 Requires one of the following permissions: MANAGE_STAFF.
+
+Triggers the following webhook events:
+
+- PERMISSION_GROUP_UPDATED (async)

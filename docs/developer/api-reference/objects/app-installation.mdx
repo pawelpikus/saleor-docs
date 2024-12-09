@@ -15,12 +15,15 @@ type AppInstallation implements Node, Job {
   message: String
   appName: String!
   manifestUrl: String!
+  brand: AppBrand
 }
 ```
 
 ### Fields
 
 #### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+
+The ID of the app installation.
 
 #### [`status`](#) ([`JobStatusEnum!`](../../../developer/api-reference/enums/job-status-enum))
 
@@ -40,7 +43,15 @@ Job message.
 
 #### [`appName`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
+The name of the app installation.
+
 #### [`manifestUrl`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+The URL address of manifest for the app installation.
+
+#### [`brand`](#) ([`AppBrand`](../../../developer/api-reference/objects/app-brand))
+
+App's brand data.
 
 ### Interfaces
 

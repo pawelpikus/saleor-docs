@@ -4,7 +4,9 @@ title: AttributeCreateInput
 hide_table_of_contents: false
 ---
 
-No description
+Represents an input for create of attribute.
+
+NOTE: Deprecated fields `filterableInStorefront`, `storefrontSearchPosition` and `availableInGrid` are not supported in bulk mutations: `attributeBulkCreate`, `attributeBulkUpdate`.
 
 ```graphql
 input AttributeCreateInput {
@@ -22,6 +24,7 @@ input AttributeCreateInput {
   filterableInDashboard: Boolean
   storefrontSearchPosition: Int
   availableInGrid: Boolean
+  externalReference: String
 }
 ```
 
@@ -71,6 +74,8 @@ Whether the attribute should be visible or not in storefront.
 
 Whether the attribute can be filtered in storefront.
 
+DEPRECATED: this field will be removed in Saleor 4.0.
+
 #### [`filterableInDashboard`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
 
 Whether the attribute can be filtered in dashboard.
@@ -79,6 +84,14 @@ Whether the attribute can be filtered in dashboard.
 
 The position of the attribute in the storefront navigation (0 by default).
 
+DEPRECATED: this field will be removed in Saleor 4.0.
+
 #### [`availableInGrid`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
 
 Whether the attribute can be displayed in the admin product list.
+
+DEPRECATED: this field will be removed in Saleor 4.0.
+
+#### [`externalReference`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+External ID of this attribute.

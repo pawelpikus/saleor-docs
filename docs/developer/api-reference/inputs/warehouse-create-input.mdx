@@ -10,6 +10,7 @@ No description
 input WarehouseCreateInput {
   slug: String
   email: String
+  externalReference: String
   name: String!
   address: AddressInput!
   shippingZones: [ID!]
@@ -26,6 +27,10 @@ Warehouse slug.
 
 The email address of the warehouse.
 
+#### [`externalReference`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+External ID of the warehouse.
+
 #### [`name`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
 Warehouse name.
@@ -37,3 +42,5 @@ Address of the warehouse.
 #### [`shippingZones`](#) ([`[ID!]`](../../../developer/api-reference/scalars/id))
 
 Shipping zones supported by the warehouse.
+
+DEPRECATED: this field will be removed in Saleor 4.0. Providing the zone ids will raise a ValidationError.

@@ -6,11 +6,11 @@ hide_table_of_contents: false
 
 Activate gift cards.
 
-Added in Saleor 3.1.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
 Requires one of the following permissions: MANAGE_GIFT_CARD.
+
+Triggers the following webhook events:
+
+- GIFT_CARD_STATUS_CHANGED (async): A gift card was activated.
 
 ```graphql
 giftCardBulkActivate(
@@ -30,8 +30,8 @@ List of gift card IDs to activate.
 
 Activate gift cards.
 
-Added in Saleor 3.1.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
 Requires one of the following permissions: MANAGE_GIFT_CARD.
+
+Triggers the following webhook events:
+
+- GIFT_CARD_STATUS_CHANGED (async): A gift card was activated.

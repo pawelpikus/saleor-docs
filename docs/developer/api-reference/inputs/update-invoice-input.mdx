@@ -10,6 +10,8 @@ No description
 input UpdateInvoiceInput {
   number: String
   url: String
+  metadata: [MetadataInput!]
+  privateMetadata: [MetadataInput!]
 }
 ```
 
@@ -22,3 +24,11 @@ Invoice number
 #### [`url`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
 URL of an invoice to download.
+
+#### [`metadata`](#) ([`[MetadataInput!]`](../../../developer/api-reference/inputs/metadata-input))
+
+Fields required to update the invoice metadata.
+
+#### [`privateMetadata`](#) ([`[MetadataInput!]`](../../../developer/api-reference/inputs/metadata-input))
+
+Fields required to update the invoice private metadata.

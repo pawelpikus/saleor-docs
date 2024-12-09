@@ -8,6 +8,10 @@ Request an invoice for the order using plugin.
 
 Requires one of the following permissions: MANAGE_ORDERS.
 
+Triggers the following webhook events:
+
+- INVOICE_REQUESTED (async): An invoice was requested.
+
 ```graphql
 invoiceRequest(
   number: String
@@ -32,3 +36,7 @@ ID of the order related to invoice.
 Request an invoice for the order using plugin.
 
 Requires one of the following permissions: MANAGE_ORDERS.
+
+Triggers the following webhook events:
+
+- INVOICE_REQUESTED (async): An invoice was requested.

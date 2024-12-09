@@ -22,27 +22,38 @@ type OrderLine implements Node, ObjectWithMetadata {
   isShippingRequired: Boolean!
   quantity: Int!
   quantityFulfilled: Int!
-  unitDiscountReason: String
   taxRate: Float!
   digitalContentUrl: DigitalContentUrl
   thumbnail(size: Int, format: ThumbnailFormatEnum): Image
   unitPrice: TaxedMoney!
   undiscountedUnitPrice: TaxedMoney!
   unitDiscount: Money!
+  unitDiscountReason: String
   unitDiscountValue: PositiveDecimal!
+  unitDiscountType: DiscountValueTypeEnum
   totalPrice: TaxedMoney!
+  undiscountedTotalPrice: TaxedMoney!
+  isPriceOverridden: Boolean
   variant: ProductVariant
   translatedProductName: String!
   translatedVariantName: String!
   allocations: [Allocation!]
+  saleId: ID
   quantityToFulfill: Int!
-  unitDiscountType: DiscountValueTypeEnum
+  taxClass: TaxClass
+  taxClassName: String
+  taxClassMetadata: [MetadataItem!]!
+  taxClassPrivateMetadata: [MetadataItem!]!
+  voucherCode: String
+  isGift: Boolean
 }
 ```
 
 ### Fields
 
 #### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+
+ID of the order line.
 
 #### [`privateMetadata`](#) ([`[MetadataItem!]!`](../../../developer/api-reference/objects/metadata-item))
 
@@ -54,19 +65,11 @@ A single key from private metadata. Requires staff permissions to access.
 
 Tip: Use GraphQL aliases to fetch multiple keys.
 
-Added in Saleor 3.3.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
 - ##### [`key`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
 #### [`privateMetafields`](#) ([`Metadata`](../../../developer/api-reference/scalars/metadata))
 
 Private metadata. Requires staff permissions to access. Use `keys` to control which fields you want to include. The default is to include everything.
-
-Added in Saleor 3.3.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
 
 - ##### [`keys`](#) ([`[String!]`](../../../developer/api-reference/scalars/string))
 
@@ -80,39 +83,45 @@ A single key from public metadata.
 
 Tip: Use GraphQL aliases to fetch multiple keys.
 
-Added in Saleor 3.3.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
 - ##### [`key`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
 #### [`metafields`](#) ([`Metadata`](../../../developer/api-reference/scalars/metadata))
 
 Public metadata. Use `keys` to control which fields you want to include. The default is to include everything.
 
-Added in Saleor 3.3.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
 - ##### [`keys`](#) ([`[String!]`](../../../developer/api-reference/scalars/string))
 
 #### [`productName`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
+Name of the product in order line.
+
 #### [`variantName`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+Name of the variant of product in order line.
 
 #### [`productSku`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
+SKU of the product variant.
+
 #### [`productVariantId`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+The ID of the product variant.
 
 #### [`isShippingRequired`](#) ([`Boolean!`](../../../developer/api-reference/scalars/boolean))
 
+Whether the product variant requires shipping.
+
 #### [`quantity`](#) ([`Int!`](../../../developer/api-reference/scalars/int))
+
+Number of variant items ordered.
 
 #### [`quantityFulfilled`](#) ([`Int!`](../../../developer/api-reference/scalars/int))
 
-#### [`unitDiscountReason`](#) ([`String`](../../../developer/api-reference/scalars/string))
+Number of variant items fulfilled.
 
 #### [`taxRate`](#) ([`Float!`](../../../developer/api-reference/scalars/float))
+
+Rate of tax applied on product variant.
 
 #### [`digitalContentUrl`](#) ([`DigitalContentUrl`](../../../developer/api-reference/objects/digital-content-url))
 
@@ -120,35 +129,47 @@ Note: this API is currently in Feature Preview and can be subject to changes at 
 
 - ##### [`size`](#) ([`Int`](../../../developer/api-reference/scalars/int))
 
-Size of the image. If not provided, the original image will be returned.
+Desired longest side the image in pixels. Defaults to 4096. Images are never cropped. Pass 0 to retrieve the original size (not recommended).
 
 - ##### [`format`](#) ([`ThumbnailFormatEnum`](../../../developer/api-reference/enums/thumbnail-format-enum))
 
-The format of the image. When not provided, format of the original image will be used. Must be provided together with the size value, otherwise original image will be returned.
-
-Added in Saleor 3.6.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
+The format of the image. When not provided, format of the original image will be used.
 
 #### [`unitPrice`](#) ([`TaxedMoney!`](../../../developer/api-reference/objects/taxed-money))
 
-Price of the single item in the order line.
+Price of the single item in the order line with all the line-level discounts and order-level discount portions applied.
 
 #### [`undiscountedUnitPrice`](#) ([`TaxedMoney!`](../../../developer/api-reference/objects/taxed-money))
 
-Price of the single item in the order line without applied an order line discount.
+Price of the single item in the order line without any discount applied.
 
 #### [`unitDiscount`](#) ([`Money!`](../../../developer/api-reference/objects/money))
 
-The discount applied to the single order line.
+Sum of the line-level discounts applied to the order line. Order-level discounts which affect the line are not visible in this field. For order-level discount portion (if any), please query `order.discounts` field.
+
+#### [`unitDiscountReason`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Reason for line-level discounts applied on the order line. Order-level discounts which affect the line are not visible in this field. For order-level discount reason (if any), please query `order.discounts` field.
 
 #### [`unitDiscountValue`](#) ([`PositiveDecimal!`](../../../developer/api-reference/scalars/positive-decimal))
 
-Value of the discount. Can store fixed value or percent value
+Value of the discount. Can store fixed value or percent value. This field shouldn't be used when multiple discounts affect the line. There is a limitation, that after running `checkoutComplete` mutation the field always stores fixed value.
+
+#### [`unitDiscountType`](#) ([`DiscountValueTypeEnum`](../../../developer/api-reference/enums/discount-value-type-enum))
+
+Type of the discount: `fixed` or `percent`. This field shouldn't be used when multiple discounts affect the line. There is a limitation, that after running `checkoutComplete` mutation the field is always set to `fixed`.
 
 #### [`totalPrice`](#) ([`TaxedMoney!`](../../../developer/api-reference/objects/taxed-money))
 
 Price of the order line.
+
+#### [`undiscountedTotalPrice`](#) ([`TaxedMoney!`](../../../developer/api-reference/objects/taxed-money))
+
+Price of the order line without discounts.
+
+#### [`isPriceOverridden`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
+
+Returns True, if the line unit price was overridden.
 
 #### [`variant`](#) ([`ProductVariant`](../../../developer/api-reference/objects/product-variant))
 
@@ -168,15 +189,43 @@ List of allocations across warehouses.
 
 Requires one of the following permissions: MANAGE_PRODUCTS, MANAGE_ORDERS.
 
+#### [`saleId`](#) ([`ID`](../../../developer/api-reference/scalars/id))
+
+Denormalized sale ID, set when order line is created for a product variant that is on sale.
+
 #### [`quantityToFulfill`](#) ([`Int!`](../../../developer/api-reference/scalars/int))
 
 A quantity of items remaining to be fulfilled.
 
-Added in Saleor 3.1.
+#### [`taxClass`](#) ([`TaxClass`](../../../developer/api-reference/objects/tax-class))
 
-#### [`unitDiscountType`](#) ([`DiscountValueTypeEnum`](../../../developer/api-reference/enums/discount-value-type-enum))
+Denormalized tax class of the product in this order line.
 
-Type of the discount: fixed or percent
+Requires one of the following permissions: AUTHENTICATED_STAFF_USER, AUTHENTICATED_APP.
+
+#### [`taxClassName`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Denormalized name of the tax class.
+
+#### [`taxClassMetadata`](#) ([`[MetadataItem!]!`](../../../developer/api-reference/objects/metadata-item))
+
+Denormalized public metadata of the tax class.
+
+#### [`taxClassPrivateMetadata`](#) ([`[MetadataItem!]!`](../../../developer/api-reference/objects/metadata-item))
+
+Denormalized private metadata of the tax class. Requires staff permissions to access.
+
+#### [`voucherCode`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Voucher code that was used for this order line.
+
+#### [`isGift`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
+
+Determine if the line is a gift.
+
+Added in Saleor 3.19.
+
+Note: this API is currently in Feature Preview and can be subject to changes at later point.
 
 ### Interfaces
 

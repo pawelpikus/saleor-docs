@@ -27,7 +27,11 @@ type EventDelivery implements Node {
 
 #### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
 
+The ID of an event delivery.
+
 #### [`createdAt`](#) ([`DateTime!`](../../../developer/api-reference/scalars/date-time))
+
+Creation time of an event delivery.
 
 #### [`status`](#) ([`EventDeliveryStatusEnum!`](../../../developer/api-reference/enums/event-delivery-status-enum))
 
@@ -55,11 +59,11 @@ Return the elements in the list that come after the specified cursor.
 
 - ##### [`first`](#) ([`Int`](../../../developer/api-reference/scalars/int))
 
-Return the first n elements from the list.
+Retrieve the first n elements from the list. Note that the system only allows fetching a maximum of 100 objects in a single query.
 
 - ##### [`last`](#) ([`Int`](../../../developer/api-reference/scalars/int))
 
-Return the last n elements from the list.
+Retrieve the last n elements from the list. Note that the system only allows fetching a maximum of 100 objects in a single query.
 
 #### [`payload`](#) ([`String`](../../../developer/api-reference/scalars/string))
 

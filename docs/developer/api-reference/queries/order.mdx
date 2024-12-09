@@ -4,19 +4,26 @@ title: order
 hide_table_of_contents: false
 ---
 
-Look up an order by ID.
+Look up an order by ID or external reference.
 
 ```graphql
 order(
-  id: ID!
+  id: ID
+  externalReference: String
 ): Order
 ```
 
 ### Arguments
 
-#### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+#### [`id`](#) ([`ID`](../../../developer/api-reference/scalars/id))
 
 ID of an order.
+
+#### [`externalReference`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+External ID of an order.
+
+Requires one of the following permissions: MANAGE_ORDERS.
 
 ### Type
 

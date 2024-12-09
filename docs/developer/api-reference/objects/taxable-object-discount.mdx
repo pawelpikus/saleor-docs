@@ -1,0 +1,29 @@
+---
+id: taxable-object-discount
+title: TaxableObjectDiscount
+hide_table_of_contents: false
+---
+
+Taxable object discount.
+
+```graphql
+type TaxableObjectDiscount {
+  name: String
+  amount: Money!
+  type: TaxableObjectDiscountTypeEnum!
+}
+```
+
+### Fields
+
+#### [`name`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+The name of the discount.
+
+#### [`amount`](#) ([`Money!`](../../../developer/api-reference/objects/money))
+
+The amount of the discount.
+
+#### [`type`](#) ([`TaxableObjectDiscountTypeEnum!`](../../../developer/api-reference/enums/taxable-object-discount-type-enum))
+
+Indicates which part of the order the discount should affect: SUBTOTAL or SHIPPING.

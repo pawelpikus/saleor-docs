@@ -1,0 +1,39 @@
+---
+id: promotion-translate
+title: promotionTranslate
+hide_table_of_contents: false
+---
+
+Creates/updates translations for a promotion.
+
+Requires one of the following permissions: MANAGE_TRANSLATIONS.
+
+```graphql
+promotionTranslate(
+  id: ID!
+  input: PromotionTranslationInput!
+  languageCode: LanguageCodeEnum!
+): PromotionTranslate
+```
+
+### Arguments
+
+#### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+
+Promotion ID or PromotionTranslatableContent ID.
+
+#### [`input`](#) ([`PromotionTranslationInput!`](../../../developer/api-reference/inputs/promotion-translation-input))
+
+Fields required to update promotion translations.
+
+#### [`languageCode`](#) ([`LanguageCodeEnum!`](../../../developer/api-reference/enums/language-code-enum))
+
+Translation language code.
+
+### Type
+
+#### [`PromotionTranslate`](../../../developer/api-reference/objects/promotion-translate)
+
+Creates/updates translations for a promotion.
+
+Requires one of the following permissions: MANAGE_TRANSLATIONS.

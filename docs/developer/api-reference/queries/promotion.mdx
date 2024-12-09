@@ -1,0 +1,27 @@
+---
+id: promotion
+title: promotion
+hide_table_of_contents: false
+---
+
+Look up a promotion by ID.
+
+Requires one of the following permissions: MANAGE_DISCOUNTS.
+
+```graphql
+promotion(
+  id: ID!
+): Promotion
+```
+
+### Arguments
+
+#### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+
+ID of the promotion.
+
+### Type
+
+#### [`Promotion`](../../../developer/api-reference/objects/promotion)
+
+Represents the promotion that allow creating discounts based on given conditions, and is visible to all the customers.

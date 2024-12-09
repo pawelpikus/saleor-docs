@@ -1,0 +1,27 @@
+---
+id: tax-country-configuration
+title: taxCountryConfiguration
+hide_table_of_contents: false
+---
+
+Tax class rates grouped by country.
+
+Requires one of the following permissions: AUTHENTICATED_STAFF_USER, AUTHENTICATED_APP.
+
+```graphql
+taxCountryConfiguration(
+  countryCode: CountryCode!
+): TaxCountryConfiguration
+```
+
+### Arguments
+
+#### [`countryCode`](#) ([`CountryCode!`](../../../developer/api-reference/enums/country-code))
+
+Country for which to return tax class rates.
+
+### Type
+
+#### [`TaxCountryConfiguration`](../../../developer/api-reference/objects/tax-country-configuration)
+
+Tax class rates grouped by country.

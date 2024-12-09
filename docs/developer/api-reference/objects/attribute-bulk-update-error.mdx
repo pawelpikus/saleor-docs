@@ -1,0 +1,29 @@
+---
+id: attribute-bulk-update-error
+title: AttributeBulkUpdateError
+hide_table_of_contents: false
+---
+
+No description
+
+```graphql
+type AttributeBulkUpdateError {
+  path: String
+  message: String
+  code: AttributeBulkUpdateErrorCode!
+}
+```
+
+### Fields
+
+#### [`path`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Path to field that caused the error. A value of `null` indicates that the error isn't associated with a particular field.
+
+#### [`message`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+The error message.
+
+#### [`code`](#) ([`AttributeBulkUpdateErrorCode!`](../../../developer/api-reference/enums/attribute-bulk-update-error-code))
+
+The error code.

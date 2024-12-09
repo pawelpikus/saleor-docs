@@ -1,0 +1,53 @@
+---
+id: payment-gateway-initialize-session
+title: PaymentGatewayInitializeSession
+hide_table_of_contents: false
+---
+
+Event sent when user wants to initialize the payment gateway.
+
+```graphql
+type PaymentGatewayInitializeSession implements Event {
+  issuedAt: DateTime
+  version: String
+  issuingPrincipal: IssuingPrincipal
+  recipient: App
+  sourceObject: OrderOrCheckout!
+  data: JSON
+  amount: PositiveDecimal
+}
+```
+
+### Fields
+
+#### [`issuedAt`](#) ([`DateTime`](../../../developer/api-reference/scalars/date-time))
+
+Time of the event.
+
+#### [`version`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Saleor version that triggered the event.
+
+#### [`issuingPrincipal`](#) ([`IssuingPrincipal`](../../../developer/api-reference/unions/issuing-principal))
+
+The user or application that triggered the event.
+
+#### [`recipient`](#) ([`App`](../../../developer/api-reference/objects/app))
+
+The application receiving the webhook.
+
+#### [`sourceObject`](#) ([`OrderOrCheckout!`](../../../developer/api-reference/unions/order-or-checkout))
+
+Checkout or order
+
+#### [`data`](#) ([`JSON`](../../../developer/api-reference/scalars/json))
+
+Payment gateway data in JSON format, received from storefront.
+
+#### [`amount`](#) ([`PositiveDecimal`](../../../developer/api-reference/scalars/positive-decimal))
+
+Amount requested for initializing the payment gateway.
+
+### Interfaces
+
+#### [`Event`](../../../developer/api-reference/interfaces/event)

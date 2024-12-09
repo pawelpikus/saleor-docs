@@ -21,12 +21,15 @@ type AttributeValue implements Node {
   boolean: Boolean
   date: Date
   dateTime: DateTime
+  externalReference: String
 }
 ```
 
 ### Fields
 
 #### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+
+The ID of the attribute value.
 
 #### [`name`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
@@ -68,7 +71,7 @@ Rich text format. For reference see https://editorjs.io/
 
 #### [`plainText`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
-Represents the text of the attribute value, plain text without formating.
+Represents the text of the attribute value, plain text without formatting.
 
 #### [`boolean`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
 
@@ -81,6 +84,10 @@ Represents the date value of the attribute value.
 #### [`dateTime`](#) ([`DateTime`](../../../developer/api-reference/scalars/date-time))
 
 Represents the date/time value of the attribute value.
+
+#### [`externalReference`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+External ID of this attribute value.
 
 ### Interfaces
 

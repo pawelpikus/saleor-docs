@@ -8,6 +8,10 @@ Removes products, categories, collections from a voucher.
 
 Requires one of the following permissions: MANAGE_DISCOUNTS.
 
+Triggers the following webhook events:
+
+- VOUCHER_UPDATED (async): A voucher was updated.
+
 ```graphql
 voucherCataloguesRemove(
   id: ID!
@@ -32,3 +36,7 @@ Fields required to modify catalogue IDs of voucher.
 Removes products, categories, collections from a voucher.
 
 Requires one of the following permissions: MANAGE_DISCOUNTS.
+
+Triggers the following webhook events:
+
+- VOUCHER_UPDATED (async): A voucher was updated.

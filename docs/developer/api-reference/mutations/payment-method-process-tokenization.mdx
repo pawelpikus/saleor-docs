@@ -1,0 +1,47 @@
+---
+id: payment-method-process-tokenization
+title: paymentMethodProcessTokenization
+hide_table_of_contents: false
+---
+
+Tokenize payment method.
+
+Requires one of the following permissions: AUTHENTICATED_USER.
+
+Triggers the following webhook events:
+
+- PAYMENT_METHOD_PROCESS_TOKENIZATION_SESSION (sync): The customer continues payment method tokenization.
+
+```graphql
+paymentMethodProcessTokenization(
+  channel: String!
+  data: JSON
+  id: String!
+): PaymentMethodProcessTokenization
+```
+
+### Arguments
+
+#### [`channel`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+Slug of a channel related to tokenization request.
+
+#### [`data`](#) ([`JSON`](../../../developer/api-reference/scalars/json))
+
+The data that will be passed to the payment gateway.
+
+#### [`id`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+The identifier of the payment gateway app to process payment method tokenization.
+
+### Type
+
+#### [`PaymentMethodProcessTokenization`](../../../developer/api-reference/objects/payment-method-process-tokenization)
+
+Tokenize payment method.
+
+Requires one of the following permissions: AUTHENTICATED_USER.
+
+Triggers the following webhook events:
+
+- PAYMENT_METHOD_PROCESS_TOKENIZATION_SESSION (sync): The customer continues payment method tokenization.

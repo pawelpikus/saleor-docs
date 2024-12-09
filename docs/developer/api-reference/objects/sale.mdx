@@ -6,6 +6,8 @@ hide_table_of_contents: false
 
 Sales allow creating discounts for categories, collections or products and are visible to all the customers.
 
+DEPRECATED: this type will be removed in Saleor 4.0. Use `Promotion` type instead.
+
 ```graphql
 type Sale implements Node, ObjectWithMetadata {
   id: ID!
@@ -56,6 +58,8 @@ type Sale implements Node, ObjectWithMetadata {
 
 #### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
 
+The ID of the sale.
+
 #### [`privateMetadata`](#) ([`[MetadataItem!]!`](../../../developer/api-reference/objects/metadata-item))
 
 List of private metadata items. Requires staff permissions to access.
@@ -66,19 +70,11 @@ A single key from private metadata. Requires staff permissions to access.
 
 Tip: Use GraphQL aliases to fetch multiple keys.
 
-Added in Saleor 3.3.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
 - ##### [`key`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
 #### [`privateMetafields`](#) ([`Metadata`](../../../developer/api-reference/scalars/metadata))
 
 Private metadata. Requires staff permissions to access. Use `keys` to control which fields you want to include. The default is to include everything.
-
-Added in Saleor 3.3.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
 
 - ##### [`keys`](#) ([`[String!]`](../../../developer/api-reference/scalars/string))
 
@@ -92,33 +88,37 @@ A single key from public metadata.
 
 Tip: Use GraphQL aliases to fetch multiple keys.
 
-Added in Saleor 3.3.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
 - ##### [`key`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
 #### [`metafields`](#) ([`Metadata`](../../../developer/api-reference/scalars/metadata))
 
 Public metadata. Use `keys` to control which fields you want to include. The default is to include everything.
 
-Added in Saleor 3.3.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
 - ##### [`keys`](#) ([`[String!]`](../../../developer/api-reference/scalars/string))
 
 #### [`name`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
+The name of the sale.
+
 #### [`type`](#) ([`SaleType!`](../../../developer/api-reference/enums/sale-type))
+
+Type of the sale, fixed or percentage.
 
 #### [`startDate`](#) ([`DateTime!`](../../../developer/api-reference/scalars/date-time))
 
+The start date and time of the sale.
+
 #### [`endDate`](#) ([`DateTime`](../../../developer/api-reference/scalars/date-time))
+
+The end date and time of the sale.
 
 #### [`created`](#) ([`DateTime!`](../../../developer/api-reference/scalars/date-time))
 
+The date and time when the sale was created.
+
 #### [`updatedAt`](#) ([`DateTime!`](../../../developer/api-reference/scalars/date-time))
+
+The date and time when the sale was updated.
 
 #### [`categories`](#) ([`CategoryCountableConnection`](../../../developer/api-reference/objects/category-countable-connection))
 
@@ -134,11 +134,11 @@ Return the elements in the list that come after the specified cursor.
 
 - ##### [`first`](#) ([`Int`](../../../developer/api-reference/scalars/int))
 
-Return the first n elements from the list.
+Retrieve the first n elements from the list. Note that the system only allows fetching a maximum of 100 objects in a single query.
 
 - ##### [`last`](#) ([`Int`](../../../developer/api-reference/scalars/int))
 
-Return the last n elements from the list.
+Retrieve the last n elements from the list. Note that the system only allows fetching a maximum of 100 objects in a single query.
 
 #### [`collections`](#) ([`CollectionCountableConnection`](../../../developer/api-reference/objects/collection-countable-connection))
 
@@ -156,11 +156,11 @@ Return the elements in the list that come after the specified cursor.
 
 - ##### [`first`](#) ([`Int`](../../../developer/api-reference/scalars/int))
 
-Return the first n elements from the list.
+Retrieve the first n elements from the list. Note that the system only allows fetching a maximum of 100 objects in a single query.
 
 - ##### [`last`](#) ([`Int`](../../../developer/api-reference/scalars/int))
 
-Return the last n elements from the list.
+Retrieve the last n elements from the list. Note that the system only allows fetching a maximum of 100 objects in a single query.
 
 #### [`products`](#) ([`ProductCountableConnection`](../../../developer/api-reference/objects/product-countable-connection))
 
@@ -178,17 +178,15 @@ Return the elements in the list that come after the specified cursor.
 
 - ##### [`first`](#) ([`Int`](../../../developer/api-reference/scalars/int))
 
-Return the first n elements from the list.
+Retrieve the first n elements from the list. Note that the system only allows fetching a maximum of 100 objects in a single query.
 
 - ##### [`last`](#) ([`Int`](../../../developer/api-reference/scalars/int))
 
-Return the last n elements from the list.
+Retrieve the last n elements from the list. Note that the system only allows fetching a maximum of 100 objects in a single query.
 
 #### [`variants`](#) ([`ProductVariantCountableConnection`](../../../developer/api-reference/objects/product-variant-countable-connection))
 
 List of product variants this sale applies to.
-
-Added in Saleor 3.1.
 
 Requires one of the following permissions: MANAGE_DISCOUNTS.
 
@@ -202,11 +200,11 @@ Return the elements in the list that come after the specified cursor.
 
 - ##### [`first`](#) ([`Int`](../../../developer/api-reference/scalars/int))
 
-Return the first n elements from the list.
+Retrieve the first n elements from the list. Note that the system only allows fetching a maximum of 100 objects in a single query.
 
 - ##### [`last`](#) ([`Int`](../../../developer/api-reference/scalars/int))
 
-Return the last n elements from the list.
+Retrieve the last n elements from the list. Note that the system only allows fetching a maximum of 100 objects in a single query.
 
 #### [`translation`](#) ([`SaleTranslation`](../../../developer/api-reference/objects/sale-translation))
 
