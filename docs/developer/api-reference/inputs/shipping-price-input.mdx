@@ -19,6 +19,7 @@ input ShippingPriceInput {
   addPostalCodeRules: [ShippingPostalCodeRulesCreateInputRange!]
   deletePostalCodeRules: [ID!]
   inclusionType: PostalCodeRuleInclusionTypeEnum
+  taxClass: ID
 }
 ```
 
@@ -67,3 +68,7 @@ Postal code rules to delete.
 #### [`inclusionType`](#) ([`PostalCodeRuleInclusionTypeEnum`](../../../developer/api-reference/enums/postal-code-rule-inclusion-type-enum))
 
 Inclusion type for currently assigned postal code rules.
+
+#### [`taxClass`](#) ([`ID`](../../../developer/api-reference/scalars/id))
+
+ID of a tax class to assign to this shipping method. If not provided, the default tax class will be used.

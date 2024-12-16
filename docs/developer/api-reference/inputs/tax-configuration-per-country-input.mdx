@@ -1,0 +1,41 @@
+---
+id: tax-configuration-per-country-input
+title: TaxConfigurationPerCountryInput
+hide_table_of_contents: false
+---
+
+No description
+
+```graphql
+input TaxConfigurationPerCountryInput {
+  countryCode: CountryCode!
+  chargeTaxes: Boolean!
+  taxCalculationStrategy: TaxCalculationStrategy
+  displayGrossPrices: Boolean!
+  taxAppId: String
+}
+```
+
+### Fields
+
+#### [`countryCode`](#) ([`CountryCode!`](../../../developer/api-reference/enums/country-code))
+
+Country in which this configuration applies.
+
+#### [`chargeTaxes`](#) ([`Boolean!`](../../../developer/api-reference/scalars/boolean))
+
+Determines whether taxes are charged in this country.
+
+#### [`taxCalculationStrategy`](#) ([`TaxCalculationStrategy`](../../../developer/api-reference/enums/tax-calculation-strategy))
+
+A country-specific strategy to use for tax calculation. Taxes can be calculated either using user-defined flat rates or with a tax app. If not provided, use the value from the channel's tax configuration.
+
+#### [`displayGrossPrices`](#) ([`Boolean!`](../../../developer/api-reference/scalars/boolean))
+
+Determines whether displayed prices should include taxes for this country.
+
+#### [`taxAppId`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+The tax app `App.identifier` that will be used to calculate the taxes for the given channel and country. If not provided, use the value from the channel's tax configuration.
+
+Added in Saleor 3.19.

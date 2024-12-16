@@ -8,6 +8,10 @@ Removes the user assigned as the owner of the checkout.
 
 Requires one of the following permissions: AUTHENTICATED_APP, AUTHENTICATED_USER.
 
+Triggers the following webhook events:
+
+- CHECKOUT_UPDATED (async): A checkout was updated.
+
 ```graphql
 checkoutCustomerDetach(
   checkoutId: ID
@@ -28,8 +32,6 @@ DEPRECATED: this field will be removed in Saleor 4.0. Use `id` instead.
 
 The checkout's ID.
 
-Added in Saleor 3.4.
-
 #### [`token`](#) ([`UUID`](../../../developer/api-reference/scalars/uuid))
 
 Checkout token.
@@ -43,3 +45,7 @@ DEPRECATED: this field will be removed in Saleor 4.0. Use `id` instead.
 Removes the user assigned as the owner of the checkout.
 
 Requires one of the following permissions: AUTHENTICATED_APP, AUTHENTICATED_USER.
+
+Triggers the following webhook events:
+
+- CHECKOUT_UPDATED (async): A checkout was updated.

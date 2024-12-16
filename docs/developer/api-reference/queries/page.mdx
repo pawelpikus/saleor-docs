@@ -10,6 +10,7 @@ Look up a page by ID or slug.
 page(
   id: ID
   slug: String
+  slugLanguageCode: LanguageCodeEnum
 ): Page
 ```
 
@@ -22,6 +23,12 @@ ID of the page.
 #### [`slug`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
 The slug of the page.
+
+#### [`slugLanguageCode`](#) ([`LanguageCodeEnum`](../../../developer/api-reference/enums/language-code-enum))
+
+Language code of the page slug, omit to use primary slug.
+
+Added in Saleor 3.21.
 
 ### Type
 

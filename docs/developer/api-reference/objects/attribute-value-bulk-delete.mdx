@@ -8,6 +8,11 @@ Deletes values of attributes.
 
 Requires one of the following permissions: MANAGE_PAGE_TYPES_AND_ATTRIBUTES.
 
+Triggers the following webhook events:
+
+- ATTRIBUTE_VALUE_DELETED (async): An attribute value was deleted.
+- ATTRIBUTE_UPDATED (async): An attribute was updated.
+
 ```graphql
 type AttributeValueBulkDelete {
   count: Int!

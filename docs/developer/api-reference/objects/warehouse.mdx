@@ -28,12 +28,21 @@ type Warehouse implements Node, ObjectWithMetadata {
     first: Int
     last: Int
   ): ShippingZoneCountableConnection!
+  stocks(
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): StockCountableConnection
+  externalReference: String
 }
 ```
 
 ### Fields
 
 #### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+
+The ID of the warehouse.
 
 #### [`privateMetadata`](#) ([`[MetadataItem!]!`](../../../developer/api-reference/objects/metadata-item))
 
@@ -45,19 +54,11 @@ A single key from private metadata. Requires staff permissions to access.
 
 Tip: Use GraphQL aliases to fetch multiple keys.
 
-Added in Saleor 3.3.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
 - ##### [`key`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
 #### [`privateMetafields`](#) ([`Metadata`](../../../developer/api-reference/scalars/metadata))
 
 Private metadata. Requires staff permissions to access. Use `keys` to control which fields you want to include. The default is to include everything.
-
-Added in Saleor 3.3.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
 
 - ##### [`keys`](#) ([`[String!]`](../../../developer/api-reference/scalars/string))
 
@@ -71,31 +72,33 @@ A single key from public metadata.
 
 Tip: Use GraphQL aliases to fetch multiple keys.
 
-Added in Saleor 3.3.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
 - ##### [`key`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
 #### [`metafields`](#) ([`Metadata`](../../../developer/api-reference/scalars/metadata))
 
 Public metadata. Use `keys` to control which fields you want to include. The default is to include everything.
 
-Added in Saleor 3.3.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
 - ##### [`keys`](#) ([`[String!]`](../../../developer/api-reference/scalars/string))
 
 #### [`name`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
+Warehouse name.
+
 #### [`slug`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+Warehouse slug.
 
 #### [`email`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
+Warehouse email.
+
 #### [`isPrivate`](#) ([`Boolean!`](../../../developer/api-reference/scalars/boolean))
 
+Determine if the warehouse is private.
+
 #### [`address`](#) ([`Address!`](../../../developer/api-reference/objects/address))
+
+Address of the warehouse.
 
 #### [`companyName`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
@@ -105,11 +108,9 @@ Warehouse company name.
 
 Click and collect options: local, all or disabled.
 
-Added in Saleor 3.1.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
 #### [`shippingZones`](#) ([`ShippingZoneCountableConnection!`](../../../developer/api-reference/objects/shipping-zone-countable-connection))
+
+Shipping zones supported by the warehouse.
 
 - ##### [`before`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
@@ -121,11 +122,39 @@ Return the elements in the list that come after the specified cursor.
 
 - ##### [`first`](#) ([`Int`](../../../developer/api-reference/scalars/int))
 
-Return the first n elements from the list.
+Retrieve the first n elements from the list. Note that the system only allows fetching a maximum of 100 objects in a single query.
 
 - ##### [`last`](#) ([`Int`](../../../developer/api-reference/scalars/int))
 
-Return the last n elements from the list.
+Retrieve the last n elements from the list. Note that the system only allows fetching a maximum of 100 objects in a single query.
+
+#### [`stocks`](#) ([`StockCountableConnection`](../../../developer/api-reference/objects/stock-countable-connection))
+
+Stocks that belong to this warehouse.
+
+Added in Saleor 3.20.
+
+Requires one of the following permissions: MANAGE_PRODUCTS, MANAGE_ORDERS.
+
+- ##### [`before`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Return the elements in the list that come before the specified cursor.
+
+- ##### [`after`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Return the elements in the list that come after the specified cursor.
+
+- ##### [`first`](#) ([`Int`](../../../developer/api-reference/scalars/int))
+
+Retrieve the first n elements from the list. Note that the system only allows fetching a maximum of 100 objects in a single query.
+
+- ##### [`last`](#) ([`Int`](../../../developer/api-reference/scalars/int))
+
+Retrieve the last n elements from the list. Note that the system only allows fetching a maximum of 100 objects in a single query.
+
+#### [`externalReference`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+External ID of this warehouse.
 
 ### Interfaces
 

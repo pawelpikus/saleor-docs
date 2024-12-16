@@ -1,0 +1,64 @@
+---
+id: order-bulk-create-delivery-method-input
+title: OrderBulkCreateDeliveryMethodInput
+hide_table_of_contents: false
+---
+
+No description
+
+```graphql
+input OrderBulkCreateDeliveryMethodInput {
+  warehouseId: ID
+  warehouseName: String
+  shippingMethodId: ID
+  shippingMethodName: String
+  shippingPrice: TaxedMoneyInput
+  shippingTaxRate: PositiveDecimal
+  shippingTaxClassId: ID
+  shippingTaxClassName: String
+  shippingTaxClassMetadata: [MetadataInput!]
+  shippingTaxClassPrivateMetadata: [MetadataInput!]
+}
+```
+
+### Fields
+
+#### [`warehouseId`](#) ([`ID`](../../../developer/api-reference/scalars/id))
+
+The ID of the warehouse.
+
+#### [`warehouseName`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+The name of the warehouse.
+
+#### [`shippingMethodId`](#) ([`ID`](../../../developer/api-reference/scalars/id))
+
+The ID of the shipping method.
+
+#### [`shippingMethodName`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+The name of the shipping method.
+
+#### [`shippingPrice`](#) ([`TaxedMoneyInput`](../../../developer/api-reference/inputs/taxed-money-input))
+
+The price of the shipping.
+
+#### [`shippingTaxRate`](#) ([`PositiveDecimal`](../../../developer/api-reference/scalars/positive-decimal))
+
+Tax rate of the shipping.
+
+#### [`shippingTaxClassId`](#) ([`ID`](../../../developer/api-reference/scalars/id))
+
+The ID of the tax class.
+
+#### [`shippingTaxClassName`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+The name of the tax class.
+
+#### [`shippingTaxClassMetadata`](#) ([`[MetadataInput!]`](../../../developer/api-reference/inputs/metadata-input))
+
+Metadata of the tax class.
+
+#### [`shippingTaxClassPrivateMetadata`](#) ([`[MetadataInput!]`](../../../developer/api-reference/inputs/metadata-input))
+
+Private metadata of the tax class.

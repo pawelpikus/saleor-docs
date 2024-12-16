@@ -1,0 +1,29 @@
+---
+id: product-bulk-translate-error
+title: ProductBulkTranslateError
+hide_table_of_contents: false
+---
+
+No description
+
+```graphql
+type ProductBulkTranslateError {
+  path: String
+  message: String
+  code: ProductTranslateErrorCode!
+}
+```
+
+### Fields
+
+#### [`path`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Path to field that caused the error. A value of `null` indicates that the error isn't associated with a particular field.
+
+#### [`message`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+The error message.
+
+#### [`code`](#) ([`ProductTranslateErrorCode!`](../../../developer/api-reference/enums/product-translate-error-code))
+
+The error code.

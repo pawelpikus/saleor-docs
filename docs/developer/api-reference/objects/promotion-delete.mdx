@@ -1,0 +1,26 @@
+---
+id: promotion-delete
+title: PromotionDelete
+hide_table_of_contents: false
+---
+
+Deletes a promotion.
+
+Requires one of the following permissions: MANAGE_DISCOUNTS.
+
+Triggers the following webhook events:
+
+- PROMOTION_DELETED (async): A promotion was deleted.
+
+```graphql
+type PromotionDelete {
+  errors: [PromotionDeleteError!]!
+  promotion: Promotion
+}
+```
+
+### Fields
+
+#### [`errors`](#) ([`[PromotionDeleteError!]!`](../../../developer/api-reference/objects/promotion-delete-error))
+
+#### [`promotion`](#) ([`Promotion`](../../../developer/api-reference/objects/promotion))

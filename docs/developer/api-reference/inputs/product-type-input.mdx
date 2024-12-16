@@ -18,6 +18,7 @@ input ProductTypeInput {
   isDigital: Boolean
   weight: WeightScalar
   taxCode: String
+  taxClass: ID
 }
 ```
 
@@ -62,3 +63,9 @@ Weight of the ProductType items.
 #### [`taxCode`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
 Tax rate for enabled tax gateway.
+
+DEPRECATED: this field will be removed in Saleor 4.0.. Use tax classes to control the tax calculation for a product type. If taxCode is provided, Saleor will try to find a tax class with given code (codes are stored in metadata) and assign it. If no tax class is found, it would be created and assigned.
+
+#### [`taxClass`](#) ([`ID`](../../../developer/api-reference/scalars/id))
+
+ID of a tax class to assign to this product type. All products of this product type would use this tax class, unless it's overridden in the `Product` type.

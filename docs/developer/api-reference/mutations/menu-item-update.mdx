@@ -8,6 +8,10 @@ Updates a menu item.
 
 Requires one of the following permissions: MANAGE_MENUS.
 
+Triggers the following webhook events:
+
+- MENU_ITEM_UPDATED (async): A menu item was updated.
+
 ```graphql
 menuItemUpdate(
   id: ID!
@@ -32,3 +36,7 @@ Fields required to update a menu item. Only one of `url`, `category`, `page`, `c
 Updates a menu item.
 
 Requires one of the following permissions: MANAGE_MENUS.
+
+Triggers the following webhook events:
+
+- MENU_ITEM_UPDATED (async): A menu item was updated.

@@ -8,6 +8,10 @@ Requests deletion of an invoice.
 
 Requires one of the following permissions: MANAGE_ORDERS.
 
+Triggers the following webhook events:
+
+- INVOICE_DELETED (async): An invoice was requested to delete.
+
 ```graphql
 invoiceRequestDelete(
   id: ID!
@@ -27,3 +31,7 @@ ID of an invoice to request the deletion.
 Requests deletion of an invoice.
 
 Requires one of the following permissions: MANAGE_ORDERS.
+
+Triggers the following webhook events:
+
+- INVOICE_DELETED (async): An invoice was requested to delete.

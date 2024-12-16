@@ -1,0 +1,31 @@
+---
+id: attribute-bulk-create
+title: AttributeBulkCreate
+hide_table_of_contents: false
+---
+
+Creates attributes.
+
+Triggers the following webhook events:
+
+- ATTRIBUTE_CREATED (async): An attribute was created.
+
+```graphql
+type AttributeBulkCreate {
+  count: Int!
+  results: [AttributeBulkCreateResult!]!
+  errors: [AttributeBulkCreateError!]!
+}
+```
+
+### Fields
+
+#### [`count`](#) ([`Int!`](../../../developer/api-reference/scalars/int))
+
+Returns how many objects were created.
+
+#### [`results`](#) ([`[AttributeBulkCreateResult!]!`](../../../developer/api-reference/objects/attribute-bulk-create-result))
+
+List of the created attributes.
+
+#### [`errors`](#) ([`[AttributeBulkCreateError!]!`](../../../developer/api-reference/objects/attribute-bulk-create-error))

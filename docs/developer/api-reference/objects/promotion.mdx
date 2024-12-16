@@ -1,0 +1,125 @@
+---
+id: promotion
+title: Promotion
+hide_table_of_contents: false
+---
+
+Represents the promotion that allow creating discounts based on given conditions, and is visible to all the customers.
+
+```graphql
+type Promotion implements Node, ObjectWithMetadata {
+  id: ID!
+  privateMetadata: [MetadataItem!]!
+  privateMetafield(key: String!): String
+  privateMetafields(keys: [String!]): Metadata
+  metadata: [MetadataItem!]!
+  metafield(key: String!): String
+  metafields(keys: [String!]): Metadata
+  name: String!
+  type: PromotionTypeEnum
+  description: JSON
+  startDate: DateTime!
+  endDate: DateTime
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  rules: [PromotionRule!]
+  translation(languageCode: LanguageCodeEnum!): PromotionTranslation
+  events: [PromotionEvent!]
+}
+```
+
+### Fields
+
+#### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+
+#### [`privateMetadata`](#) ([`[MetadataItem!]!`](../../../developer/api-reference/objects/metadata-item))
+
+List of private metadata items. Requires staff permissions to access.
+
+#### [`privateMetafield`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+A single key from private metadata. Requires staff permissions to access.
+
+Tip: Use GraphQL aliases to fetch multiple keys.
+
+- ##### [`key`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+#### [`privateMetafields`](#) ([`Metadata`](../../../developer/api-reference/scalars/metadata))
+
+Private metadata. Requires staff permissions to access. Use `keys` to control which fields you want to include. The default is to include everything.
+
+- ##### [`keys`](#) ([`[String!]`](../../../developer/api-reference/scalars/string))
+
+#### [`metadata`](#) ([`[MetadataItem!]!`](../../../developer/api-reference/objects/metadata-item))
+
+List of public metadata items. Can be accessed without permissions.
+
+#### [`metafield`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+A single key from public metadata.
+
+Tip: Use GraphQL aliases to fetch multiple keys.
+
+- ##### [`key`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+#### [`metafields`](#) ([`Metadata`](../../../developer/api-reference/scalars/metadata))
+
+Public metadata. Use `keys` to control which fields you want to include. The default is to include everything.
+
+- ##### [`keys`](#) ([`[String!]`](../../../developer/api-reference/scalars/string))
+
+#### [`name`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+Name of the promotion.
+
+#### [`type`](#) ([`PromotionTypeEnum`](../../../developer/api-reference/enums/promotion-type-enum))
+
+The type of the promotion. Implicate if the discount is applied on catalogue or order level.
+
+Added in Saleor 3.19.
+
+Note: this API is currently in Feature Preview and can be subject to changes at later point.
+
+#### [`description`](#) ([`JSON`](../../../developer/api-reference/scalars/json))
+
+Description of the promotion.
+
+#### [`startDate`](#) ([`DateTime!`](../../../developer/api-reference/scalars/date-time))
+
+Start date of the promotion.
+
+#### [`endDate`](#) ([`DateTime`](../../../developer/api-reference/scalars/date-time))
+
+End date of the promotion.
+
+#### [`createdAt`](#) ([`DateTime!`](../../../developer/api-reference/scalars/date-time))
+
+Date time of promotion creation.
+
+#### [`updatedAt`](#) ([`DateTime!`](../../../developer/api-reference/scalars/date-time))
+
+Date time of last update of promotion.
+
+#### [`rules`](#) ([`[PromotionRule!]`](../../../developer/api-reference/objects/promotion-rule))
+
+The list of promotion rules.
+
+#### [`translation`](#) ([`PromotionTranslation`](../../../developer/api-reference/objects/promotion-translation))
+
+Returns translated promotion fields for the given language code.
+
+- ##### [`languageCode`](#) ([`LanguageCodeEnum!`](../../../developer/api-reference/enums/language-code-enum))
+
+A language code to return the translation for promotion.
+
+#### [`events`](#) ([`[PromotionEvent!]`](../../../developer/api-reference/unions/promotion-event))
+
+The list of events associated with the promotion.
+
+### Interfaces
+
+#### [`Node`](../../../developer/api-reference/interfaces/node)
+
+An object with an ID
+
+#### [`ObjectWithMetadata`](../../../developer/api-reference/interfaces/object-with-metadata)

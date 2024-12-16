@@ -6,6 +6,10 @@ hide_table_of_contents: false
 
 Update billing address in the existing checkout.
 
+Triggers the following webhook events:
+
+- CHECKOUT_UPDATED (async): A checkout was updated.
+
 ```graphql
 checkoutBillingAddressUpdate(
   billingAddress: AddressInput!
@@ -32,8 +36,6 @@ DEPRECATED: this field will be removed in Saleor 4.0. Use `id` instead.
 
 The checkout's ID.
 
-Added in Saleor 3.4.
-
 #### [`token`](#) ([`UUID`](../../../developer/api-reference/scalars/uuid))
 
 Checkout token.
@@ -44,12 +46,12 @@ DEPRECATED: this field will be removed in Saleor 4.0. Use `id` instead.
 
 The rules for changing validation for received billing address data.
 
-Added in Saleor 3.5.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
 ### Type
 
 #### [`CheckoutBillingAddressUpdate`](../../../developer/api-reference/objects/checkout-billing-address-update)
 
 Update billing address in the existing checkout.
+
+Triggers the following webhook events:
+
+- CHECKOUT_UPDATED (async): A checkout was updated.

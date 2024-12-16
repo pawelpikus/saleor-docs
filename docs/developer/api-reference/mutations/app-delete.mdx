@@ -8,6 +8,10 @@ Deletes an app.
 
 Requires one of the following permissions: MANAGE_APPS.
 
+Triggers the following webhook events:
+
+- APP_DELETED (async): An app was deleted.
+
 ```graphql
 appDelete(
   id: ID!
@@ -27,3 +31,7 @@ ID of an app to delete.
 Deletes an app.
 
 Requires one of the following permissions: MANAGE_APPS.
+
+Triggers the following webhook events:
+
+- APP_DELETED (async): An app was deleted.

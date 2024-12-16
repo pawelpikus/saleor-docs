@@ -4,13 +4,14 @@ title: MenuItemTranslation
 hide_table_of_contents: false
 ---
 
-No description
+Represents menu item translations.
 
 ```graphql
 type MenuItemTranslation implements Node {
   id: ID!
   language: LanguageDisplay!
   name: String!
+  translatableContent: MenuItemTranslatableContent
 }
 ```
 
@@ -18,11 +19,19 @@ type MenuItemTranslation implements Node {
 
 #### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
 
+The ID of the menu item translation.
+
 #### [`language`](#) ([`LanguageDisplay!`](../../../developer/api-reference/objects/language-display))
 
 Translation language.
 
 #### [`name`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+Translated menu item name.
+
+#### [`translatableContent`](#) ([`MenuItemTranslatableContent`](../../../developer/api-reference/objects/menu-item-translatable-content))
+
+Represents the menu item fields to translate.
 
 ### Interfaces
 

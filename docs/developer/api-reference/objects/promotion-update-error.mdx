@@ -1,0 +1,29 @@
+---
+id: promotion-update-error
+title: PromotionUpdateError
+hide_table_of_contents: false
+---
+
+No description
+
+```graphql
+type PromotionUpdateError {
+  field: String
+  message: String
+  code: PromotionUpdateErrorCode!
+}
+```
+
+### Fields
+
+#### [`field`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field.
+
+#### [`message`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+The error message.
+
+#### [`code`](#) ([`PromotionUpdateErrorCode!`](../../../developer/api-reference/enums/promotion-update-error-code))
+
+The error code.

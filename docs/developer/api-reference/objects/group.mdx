@@ -13,6 +13,8 @@ type Group implements Node {
   users: [User!]
   permissions: [Permission!]
   userCanManage: Boolean!
+  accessibleChannels: [Channel!]
+  restrictedAccessToChannels: Boolean!
 }
 ```
 
@@ -20,7 +22,11 @@ type Group implements Node {
 
 #### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
 
+The ID of the group.
+
 #### [`name`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+The name of the group.
 
 #### [`users`](#) ([`[User!]`](../../../developer/api-reference/objects/user))
 
@@ -35,6 +41,14 @@ List of group permissions
 #### [`userCanManage`](#) ([`Boolean!`](../../../developer/api-reference/scalars/boolean))
 
 True, if the currently authenticated user has rights to manage a group.
+
+#### [`accessibleChannels`](#) ([`[Channel!]`](../../../developer/api-reference/objects/channel))
+
+List of channels the group has access to.
+
+#### [`restrictedAccessToChannels`](#) ([`Boolean!`](../../../developer/api-reference/scalars/boolean))
+
+Determine if the group have restricted access to channels.
 
 ### Interfaces
 

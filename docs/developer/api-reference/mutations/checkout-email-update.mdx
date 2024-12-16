@@ -6,6 +6,10 @@ hide_table_of_contents: false
 
 Updates email address in the existing checkout object.
 
+Triggers the following webhook events:
+
+- CHECKOUT_UPDATED (async): A checkout was updated.
+
 ```graphql
 checkoutEmailUpdate(
   checkoutId: ID
@@ -31,8 +35,6 @@ email.
 
 The checkout's ID.
 
-Added in Saleor 3.4.
-
 #### [`token`](#) ([`UUID`](../../../developer/api-reference/scalars/uuid))
 
 Checkout token.
@@ -44,3 +46,7 @@ DEPRECATED: this field will be removed in Saleor 4.0. Use `id` instead.
 #### [`CheckoutEmailUpdate`](../../../developer/api-reference/objects/checkout-email-update)
 
 Updates email address in the existing checkout object.
+
+Triggers the following webhook events:
+
+- CHECKOUT_UPDATED (async): A checkout was updated.

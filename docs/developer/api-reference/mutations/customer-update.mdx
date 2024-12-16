@@ -8,16 +8,26 @@ Updates an existing customer.
 
 Requires one of the following permissions: MANAGE_USERS.
 
+Triggers the following webhook events:
+
+- CUSTOMER_UPDATED (async): A new customer account was updated.
+- CUSTOMER_METADATA_UPDATED (async): Optionally called when customer's metadata was updated.
+
 ```graphql
 customerUpdate(
-  id: ID!
+  externalReference: String
+  id: ID
   input: CustomerInput!
 ): CustomerUpdate
 ```
 
 ### Arguments
 
-#### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+#### [`externalReference`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+External ID of a customer to update.
+
+#### [`id`](#) ([`ID`](../../../developer/api-reference/scalars/id))
 
 ID of a customer to update.
 
@@ -32,3 +42,8 @@ Fields required to update a customer.
 Updates an existing customer.
 
 Requires one of the following permissions: MANAGE_USERS.
+
+Triggers the following webhook events:
+
+- CUSTOMER_UPDATED (async): A new customer account was updated.
+- CUSTOMER_METADATA_UPDATED (async): Optionally called when customer's metadata was updated.

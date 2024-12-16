@@ -1,0 +1,45 @@
+---
+id: tax-configurations
+title: taxConfigurations
+hide_table_of_contents: false
+---
+
+List of tax configurations.
+
+Requires one of the following permissions: AUTHENTICATED_STAFF_USER, AUTHENTICATED_APP.
+
+```graphql
+taxConfigurations(
+  filter: TaxConfigurationFilterInput
+  before: String
+  after: String
+  first: Int
+  last: Int
+): TaxConfigurationCountableConnection
+```
+
+### Arguments
+
+#### [`filter`](#) ([`TaxConfigurationFilterInput`](../../../developer/api-reference/inputs/tax-configuration-filter-input))
+
+Filtering options for tax configurations.
+
+#### [`before`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Return the elements in the list that come before the specified cursor.
+
+#### [`after`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Return the elements in the list that come after the specified cursor.
+
+#### [`first`](#) ([`Int`](../../../developer/api-reference/scalars/int))
+
+Retrieve the first n elements from the list. Note that the system only allows fetching a maximum of 100 objects in a single query.
+
+#### [`last`](#) ([`Int`](../../../developer/api-reference/scalars/int))
+
+Retrieve the last n elements from the list. Note that the system only allows fetching a maximum of 100 objects in a single query.
+
+### Type
+
+#### [`TaxConfigurationCountableConnection`](../../../developer/api-reference/objects/tax-configuration-countable-connection)

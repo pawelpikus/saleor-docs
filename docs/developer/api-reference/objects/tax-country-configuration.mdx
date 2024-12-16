@@ -1,0 +1,24 @@
+---
+id: tax-country-configuration
+title: TaxCountryConfiguration
+hide_table_of_contents: false
+---
+
+Tax class rates grouped by country.
+
+```graphql
+type TaxCountryConfiguration {
+  country: CountryDisplay!
+  taxClassCountryRates: [TaxClassCountryRate!]!
+}
+```
+
+### Fields
+
+#### [`country`](#) ([`CountryDisplay!`](../../../developer/api-reference/objects/country-display))
+
+A country for which tax class rates are grouped.
+
+#### [`taxClassCountryRates`](#) ([`[TaxClassCountryRate!]!`](../../../developer/api-reference/objects/tax-class-country-rate))
+
+List of tax class rates.

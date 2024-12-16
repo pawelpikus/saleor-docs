@@ -8,6 +8,10 @@ Deletes a menu.
 
 Requires one of the following permissions: MANAGE_MENUS.
 
+Triggers the following webhook events:
+
+- MENU_DELETED (async): A menu was deleted.
+
 ```graphql
 menuDelete(
   id: ID!
@@ -27,3 +31,7 @@ ID of a menu to delete.
 Deletes a menu.
 
 Requires one of the following permissions: MANAGE_MENUS.
+
+Triggers the following webhook events:
+
+- MENU_DELETED (async): A menu was deleted.

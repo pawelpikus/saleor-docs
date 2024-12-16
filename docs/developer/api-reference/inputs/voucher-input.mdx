@@ -11,6 +11,7 @@ input VoucherInput {
   type: VoucherTypeEnum
   name: String
   code: String
+  addCodes: [String!]
   startDate: DateTime
   endDate: DateTime
   discountValueType: DiscountValueTypeEnum
@@ -23,6 +24,7 @@ input VoucherInput {
   applyOncePerOrder: Boolean
   applyOncePerCustomer: Boolean
   onlyForStaff: Boolean
+  singleUse: Boolean
   usageLimit: Int
 }
 ```
@@ -39,7 +41,15 @@ Voucher name.
 
 #### [`code`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
-Code to use the voucher.
+Code to use the voucher. This field will be removed in Saleor 4.0. Use `addCodes` instead.
+
+#### [`addCodes`](#) ([`[String!]`](../../../developer/api-reference/scalars/string))
+
+List of codes to add.
+
+Added in Saleor 3.18.
+
+Note: this API is currently in Feature Preview and can be subject to changes at later point.
 
 #### [`startDate`](#) ([`DateTime`](../../../developer/api-reference/scalars/date-time))
 
@@ -60,8 +70,6 @@ Products discounted by the voucher.
 #### [`variants`](#) ([`[ID!]`](../../../developer/api-reference/scalars/id))
 
 Variants discounted by the voucher.
-
-Added in Saleor 3.1.
 
 #### [`collections`](#) ([`[ID!]`](../../../developer/api-reference/scalars/id))
 
@@ -90,6 +98,16 @@ Voucher should be applied once per customer.
 #### [`onlyForStaff`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
 
 Voucher can be used only by staff user.
+
+#### [`singleUse`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
+
+When set to 'True', each voucher code can be used only once; otherwise, codes can be used multiple times depending on `usageLimit`.
+
+The option can only be changed if none of the voucher codes have been used.
+
+Added in Saleor 3.18.
+
+Note: this API is currently in Feature Preview and can be subject to changes at later point.
 
 #### [`usageLimit`](#) ([`Int`](../../../developer/api-reference/scalars/int))
 

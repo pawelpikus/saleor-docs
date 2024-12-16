@@ -1,0 +1,38 @@
+---
+id: payment-method-process-tokenization
+title: PaymentMethodProcessTokenization
+hide_table_of_contents: false
+---
+
+Tokenize payment method.
+
+Requires one of the following permissions: AUTHENTICATED_USER.
+
+Triggers the following webhook events:
+
+- PAYMENT_METHOD_PROCESS_TOKENIZATION_SESSION (sync): The customer continues payment method tokenization.
+
+```graphql
+type PaymentMethodProcessTokenization {
+  result: PaymentMethodTokenizationResult!
+  id: String
+  data: JSON
+  errors: [PaymentMethodProcessTokenizationError!]!
+}
+```
+
+### Fields
+
+#### [`result`](#) ([`PaymentMethodTokenizationResult!`](../../../developer/api-reference/enums/payment-method-tokenization-result))
+
+A status of the payment method tokenization.
+
+#### [`id`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+The identifier of the payment method.
+
+#### [`data`](#) ([`JSON`](../../../developer/api-reference/scalars/json))
+
+A data returned by the payment app.
+
+#### [`errors`](#) ([`[PaymentMethodProcessTokenizationError!]!`](../../../developer/api-reference/objects/payment-method-process-tokenization-error))

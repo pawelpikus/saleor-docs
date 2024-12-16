@@ -1,0 +1,147 @@
+---
+id: order-bulk-create-order-line-input
+title: OrderBulkCreateOrderLineInput
+hide_table_of_contents: false
+---
+
+No description
+
+```graphql
+input OrderBulkCreateOrderLineInput {
+  variantId: ID
+  variantSku: String
+  variantExternalReference: String
+  variantName: String
+  productName: String
+  productSku: String
+  translatedVariantName: String
+  translatedProductName: String
+  createdAt: DateTime!
+  isShippingRequired: Boolean!
+  isGiftCard: Boolean!
+  quantity: Int!
+  totalPrice: TaxedMoneyInput!
+  undiscountedTotalPrice: TaxedMoneyInput!
+  unitDiscountReason: String
+  unitDiscountType: DiscountValueTypeEnum
+  unitDiscountValue: PositiveDecimal
+  warehouse: ID!
+  metadata: [MetadataInput!]
+  privateMetadata: [MetadataInput!]
+  taxRate: PositiveDecimal
+  taxClassId: ID
+  taxClassName: String
+  taxClassMetadata: [MetadataInput!]
+  taxClassPrivateMetadata: [MetadataInput!]
+}
+```
+
+### Fields
+
+#### [`variantId`](#) ([`ID`](../../../developer/api-reference/scalars/id))
+
+The ID of the product variant.
+
+#### [`variantSku`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+The SKU of the product variant.
+
+#### [`variantExternalReference`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+The external ID of the product variant.
+
+#### [`variantName`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+The name of the product variant.
+
+#### [`productName`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+The name of the product.
+
+#### [`productSku`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+The SKU of the product.
+
+Added in Saleor 3.18.
+
+#### [`translatedVariantName`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Translation of the product variant name.
+
+#### [`translatedProductName`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Translation of the product name.
+
+#### [`createdAt`](#) ([`DateTime!`](../../../developer/api-reference/scalars/date-time))
+
+The date, when the order line was created.
+
+#### [`isShippingRequired`](#) ([`Boolean!`](../../../developer/api-reference/scalars/boolean))
+
+Determines whether shipping of the order line items is required.
+
+#### [`isGiftCard`](#) ([`Boolean!`](../../../developer/api-reference/scalars/boolean))
+
+Gift card flag.
+
+#### [`quantity`](#) ([`Int!`](../../../developer/api-reference/scalars/int))
+
+Number of items in the order line
+
+#### [`totalPrice`](#) ([`TaxedMoneyInput!`](../../../developer/api-reference/inputs/taxed-money-input))
+
+Price of the order line.
+
+#### [`undiscountedTotalPrice`](#) ([`TaxedMoneyInput!`](../../../developer/api-reference/inputs/taxed-money-input))
+
+Price of the order line excluding applied discount.
+
+#### [`unitDiscountReason`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Reason of the discount on order line.
+
+Added in Saleor 3.19.
+
+#### [`unitDiscountType`](#) ([`DiscountValueTypeEnum`](../../../developer/api-reference/enums/discount-value-type-enum))
+
+Type of the discount: fixed or percent
+
+Added in Saleor 3.19.
+
+#### [`unitDiscountValue`](#) ([`PositiveDecimal`](../../../developer/api-reference/scalars/positive-decimal))
+
+Value of the discount. Can store fixed value or percent value
+
+Added in Saleor 3.19.
+
+#### [`warehouse`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+
+The ID of the warehouse, where the line will be allocated.
+
+#### [`metadata`](#) ([`[MetadataInput!]`](../../../developer/api-reference/inputs/metadata-input))
+
+Metadata of the order line.
+
+#### [`privateMetadata`](#) ([`[MetadataInput!]`](../../../developer/api-reference/inputs/metadata-input))
+
+Private metadata of the order line.
+
+#### [`taxRate`](#) ([`PositiveDecimal`](../../../developer/api-reference/scalars/positive-decimal))
+
+Tax rate of the order line.
+
+#### [`taxClassId`](#) ([`ID`](../../../developer/api-reference/scalars/id))
+
+The ID of the tax class.
+
+#### [`taxClassName`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+The name of the tax class.
+
+#### [`taxClassMetadata`](#) ([`[MetadataInput!]`](../../../developer/api-reference/inputs/metadata-input))
+
+Metadata of the tax class.
+
+#### [`taxClassPrivateMetadata`](#) ([`[MetadataInput!]`](../../../developer/api-reference/inputs/metadata-input))
+
+Private metadata of the tax class.

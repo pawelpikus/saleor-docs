@@ -1,0 +1,24 @@
+---
+id: tax-country-configuration-delete
+title: TaxCountryConfigurationDelete
+hide_table_of_contents: false
+---
+
+Remove all tax class rates for a specific country.
+
+Requires one of the following permissions: MANAGE_TAXES.
+
+```graphql
+type TaxCountryConfigurationDelete {
+  taxCountryConfiguration: TaxCountryConfiguration
+  errors: [TaxCountryConfigurationDeleteError!]!
+}
+```
+
+### Fields
+
+#### [`taxCountryConfiguration`](#) ([`TaxCountryConfiguration`](../../../developer/api-reference/objects/tax-country-configuration))
+
+Updated tax class rates grouped by a country.
+
+#### [`errors`](#) ([`[TaxCountryConfigurationDeleteError!]!`](../../../developer/api-reference/objects/tax-country-configuration-delete-error))

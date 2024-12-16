@@ -1,0 +1,53 @@
+---
+id: payment-gateway-initialize-tokenization-session
+title: PaymentGatewayInitializeTokenizationSession
+hide_table_of_contents: false
+---
+
+Event sent to initialize a new session in payment gateway to store the payment method.
+
+```graphql
+type PaymentGatewayInitializeTokenizationSession implements Event {
+  issuedAt: DateTime
+  version: String
+  issuingPrincipal: IssuingPrincipal
+  recipient: App
+  user: User!
+  channel: Channel!
+  data: JSON
+}
+```
+
+### Fields
+
+#### [`issuedAt`](#) ([`DateTime`](../../../developer/api-reference/scalars/date-time))
+
+Time of the event.
+
+#### [`version`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Saleor version that triggered the event.
+
+#### [`issuingPrincipal`](#) ([`IssuingPrincipal`](../../../developer/api-reference/unions/issuing-principal))
+
+The user or application that triggered the event.
+
+#### [`recipient`](#) ([`App`](../../../developer/api-reference/objects/app))
+
+The application receiving the webhook.
+
+#### [`user`](#) ([`User!`](../../../developer/api-reference/objects/user))
+
+The user related to the requested action.
+
+#### [`channel`](#) ([`Channel!`](../../../developer/api-reference/objects/channel))
+
+Channel related to the requested action.
+
+#### [`data`](#) ([`JSON`](../../../developer/api-reference/scalars/json))
+
+Payment gateway data in JSON format, received from storefront.
+
+### Interfaces
+
+#### [`Event`](../../../developer/api-reference/interfaces/event)

@@ -6,6 +6,10 @@ hide_table_of_contents: false
 
 Creates a new app. Requires the following permissions: AUTHENTICATED_STAFF_USER and MANAGE_APPS.
 
+Triggers the following webhook events:
+
+- APP_INSTALLED (async): An app was installed.
+
 ```graphql
 type AppCreate {
   authToken: String

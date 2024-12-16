@@ -1,0 +1,19 @@
+---
+id: checkout-line-problem-variant-not-available
+title: CheckoutLineProblemVariantNotAvailable
+hide_table_of_contents: false
+---
+
+The variant assigned to the checkout line is not available.Placing the order will not be possible until solving this problem.
+
+```graphql
+type CheckoutLineProblemVariantNotAvailable {
+  line: CheckoutLine!
+}
+```
+
+### Fields
+
+#### [`line`](#) ([`CheckoutLine!`](../../../developer/api-reference/objects/checkout-line))
+
+The line that has variant that is not available.

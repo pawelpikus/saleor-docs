@@ -22,6 +22,10 @@ type Manifest {
   supportUrl: String
   extensions: [AppManifestExtension!]!
   webhooks: [AppManifestWebhook!]!
+  audience: String
+  requiredSaleorVersion: AppManifestRequiredSaleorVersion
+  author: String
+  brand: AppManifestBrand
 }
 ```
 
@@ -29,15 +33,27 @@ type Manifest {
 
 #### [`identifier`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
+The identifier of the manifest for the app.
+
 #### [`version`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+The version of the manifest for the app.
 
 #### [`name`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
+The name of the manifest for the app .
+
 #### [`about`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Description of the app displayed in the dashboard.
 
 #### [`permissions`](#) ([`[Permission!]`](../../../developer/api-reference/objects/permission))
 
+The array permissions required for the app.
+
 #### [`appUrl`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+App website rendered in the dashboard.
 
 #### [`configurationUrl`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
@@ -45,22 +61,44 @@ URL to iframe with the configuration for the app.
 
 #### [`tokenTargetUrl`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
+Endpoint used during process of app installation, [see installing an app.](https://docs.saleor.io/docs/3.x/developer/extending/apps/installing-apps#installing-an-app)
+
 #### [`dataPrivacy`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
 Description of the data privacy defined for this app.
 
 #### [`dataPrivacyUrl`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
+URL to the full privacy policy.
+
 #### [`homepageUrl`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+External URL to the app homepage.
 
 #### [`supportUrl`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
+External URL to the page where app users can find support.
+
 #### [`extensions`](#) ([`[AppManifestExtension!]!`](../../../developer/api-reference/objects/app-manifest-extension))
+
+List of extensions that will be mounted in Saleor's dashboard. For details, please [see the extension section.](https://docs.saleor.io/docs/3.x/developer/extending/apps/extending-dashboard-with-apps#key-concepts)
 
 #### [`webhooks`](#) ([`[AppManifestWebhook!]!`](../../../developer/api-reference/objects/app-manifest-webhook))
 
 List of the app's webhooks.
 
-Added in Saleor 3.5.
+#### [`audience`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
+The audience that will be included in all JWT tokens for the app.
+
+#### [`requiredSaleorVersion`](#) ([`AppManifestRequiredSaleorVersion`](../../../developer/api-reference/objects/app-manifest-required-saleor-version))
+
+Determines the app's required Saleor version as semver range.
+
+#### [`author`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+The App's author name.
+
+#### [`brand`](#) ([`AppManifestBrand`](../../../developer/api-reference/objects/app-manifest-brand))
+
+App's brand data.

@@ -4,12 +4,13 @@ title: attribute
 hide_table_of_contents: false
 ---
 
-Look up an attribute by ID.
+Look up an attribute by ID, slug or external reference.
 
 ```graphql
 attribute(
   id: ID
   slug: String
+  externalReference: String
 ): Attribute
 ```
 
@@ -22,6 +23,10 @@ ID of the attribute.
 #### [`slug`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
 Slug of the attribute.
+
+#### [`externalReference`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+External ID of the attribute.
 
 ### Type
 

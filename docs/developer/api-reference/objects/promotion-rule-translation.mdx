@@ -1,0 +1,47 @@
+---
+id: promotion-rule-translation
+title: PromotionRuleTranslation
+hide_table_of_contents: false
+---
+
+Represents promotion rule translations.
+
+```graphql
+type PromotionRuleTranslation implements Node {
+  id: ID!
+  language: LanguageDisplay!
+  name: String
+  description: JSONString
+  translatableContent: PromotionRuleTranslatableContent
+}
+```
+
+### Fields
+
+#### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+
+ID of the promotion rule translation.
+
+#### [`language`](#) ([`LanguageDisplay!`](../../../developer/api-reference/objects/language-display))
+
+Translation language.
+
+#### [`name`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Translated name of the promotion rule.
+
+#### [`description`](#) ([`JSONString`](../../../developer/api-reference/scalars/jsonstring))
+
+Translated description of the promotion rule.
+
+Rich text format. For reference see https://editorjs.io/
+
+#### [`translatableContent`](#) ([`PromotionRuleTranslatableContent`](../../../developer/api-reference/objects/promotion-rule-translatable-content))
+
+Represents the promotion rule fields to translate.
+
+### Interfaces
+
+#### [`Node`](../../../developer/api-reference/interfaces/node)
+
+An object with an ID

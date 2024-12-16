@@ -6,11 +6,16 @@ hide_table_of_contents: false
 
 Updates the shipping method of the checkout.
 
+Triggers the following webhook events:
+
+- SHIPPING_LIST_METHODS_FOR_CHECKOUT (sync): Triggered when updating the checkout shipping method with the external one.
+- CHECKOUT_UPDATED (async): A checkout was updated.
+
 ```graphql
 checkoutShippingMethodUpdate(
   checkoutId: ID
   id: ID
-  shippingMethodId: ID!
+  shippingMethodId: ID
   token: UUID
 ): CheckoutShippingMethodUpdate
 ```
@@ -27,9 +32,7 @@ DEPRECATED: this field will be removed in Saleor 4.0. Use `id` instead.
 
 The checkout's ID.
 
-Added in Saleor 3.4.
-
-#### [`shippingMethodId`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+#### [`shippingMethodId`](#) ([`ID`](../../../developer/api-reference/scalars/id))
 
 Shipping method.
 
@@ -44,3 +47,8 @@ DEPRECATED: this field will be removed in Saleor 4.0. Use `id` instead.
 #### [`CheckoutShippingMethodUpdate`](../../../developer/api-reference/objects/checkout-shipping-method-update)
 
 Updates the shipping method of the checkout.
+
+Triggers the following webhook events:
+
+- SHIPPING_LIST_METHODS_FOR_CHECKOUT (sync): Triggered when updating the checkout shipping method with the external one.
+- CHECKOUT_UPDATED (async): A checkout was updated.

@@ -11,6 +11,7 @@ type ProductPricingInfo {
   onSale: Boolean
   discount: TaxedMoney
   discountLocalCurrency: TaxedMoney
+  displayGrossPrices: Boolean!
   priceRange: TaxedMoneyRange
   priceRangeUndiscounted: TaxedMoneyRange
   priceRangeLocalCurrency: TaxedMoneyRange
@@ -30,6 +31,10 @@ The discount amount if in sale (null otherwise).
 #### [`discountLocalCurrency`](#) ([`TaxedMoney`](../../../developer/api-reference/objects/taxed-money))
 
 The discount amount in the local currency.
+
+#### [`displayGrossPrices`](#) ([`Boolean!`](../../../developer/api-reference/scalars/boolean))
+
+Determines whether displayed prices should include taxes.
 
 #### [`priceRange`](#) ([`TaxedMoneyRange`](../../../developer/api-reference/objects/taxed-money-range))
 

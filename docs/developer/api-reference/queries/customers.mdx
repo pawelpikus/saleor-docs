@@ -4,7 +4,7 @@ title: customers
 hide_table_of_contents: false
 ---
 
-List of the shop's customers.
+List of the shop's customers. This list includes all users who registered through the accountRegister mutation. Additionally, staff users who have placed an order using their account will also appear in this list.
 
 Requires one of the following permissions: MANAGE_ORDERS, MANAGE_USERS.
 
@@ -39,11 +39,11 @@ Return the elements in the list that come after the specified cursor.
 
 #### [`first`](#) ([`Int`](../../../developer/api-reference/scalars/int))
 
-Return the first n elements from the list.
+Retrieve the first n elements from the list. Note that the system only allows fetching a maximum of 100 objects in a single query.
 
 #### [`last`](#) ([`Int`](../../../developer/api-reference/scalars/int))
 
-Return the last n elements from the list.
+Retrieve the last n elements from the list. Note that the system only allows fetching a maximum of 100 objects in a single query.
 
 ### Type
 

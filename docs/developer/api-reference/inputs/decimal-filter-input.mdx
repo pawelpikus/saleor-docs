@@ -1,0 +1,29 @@
+---
+id: decimal-filter-input
+title: DecimalFilterInput
+hide_table_of_contents: false
+---
+
+Define the filtering options for decimal fields.
+
+```graphql
+input DecimalFilterInput {
+  eq: Decimal
+  oneOf: [Decimal!]
+  range: DecimalRangeInput
+}
+```
+
+### Fields
+
+#### [`eq`](#) ([`Decimal`](../../../developer/api-reference/scalars/decimal))
+
+The value equal to.
+
+#### [`oneOf`](#) ([`[Decimal!]`](../../../developer/api-reference/scalars/decimal))
+
+The value included in.
+
+#### [`range`](#) ([`DecimalRangeInput`](../../../developer/api-reference/inputs/decimal-range-input))
+
+The value in range.

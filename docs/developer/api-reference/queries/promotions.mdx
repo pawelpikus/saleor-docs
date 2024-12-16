@@ -1,0 +1,50 @@
+---
+id: promotions
+title: promotions
+hide_table_of_contents: false
+---
+
+List of the promotions.
+
+Requires one of the following permissions: MANAGE_DISCOUNTS.
+
+```graphql
+promotions(
+  where: PromotionWhereInput
+  sortBy: PromotionSortingInput
+  before: String
+  after: String
+  first: Int
+  last: Int
+): PromotionCountableConnection
+```
+
+### Arguments
+
+#### [`where`](#) ([`PromotionWhereInput`](../../../developer/api-reference/inputs/promotion-where-input))
+
+Where filtering options.
+
+#### [`sortBy`](#) ([`PromotionSortingInput`](../../../developer/api-reference/inputs/promotion-sorting-input))
+
+Sort promotions.
+
+#### [`before`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Return the elements in the list that come before the specified cursor.
+
+#### [`after`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Return the elements in the list that come after the specified cursor.
+
+#### [`first`](#) ([`Int`](../../../developer/api-reference/scalars/int))
+
+Retrieve the first n elements from the list. Note that the system only allows fetching a maximum of 100 objects in a single query.
+
+#### [`last`](#) ([`Int`](../../../developer/api-reference/scalars/int))
+
+Retrieve the last n elements from the list. Note that the system only allows fetching a maximum of 100 objects in a single query.
+
+### Type
+
+#### [`PromotionCountableConnection`](../../../developer/api-reference/objects/promotion-countable-connection)

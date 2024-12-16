@@ -16,15 +16,18 @@ type Checkout implements Node, ObjectWithMetadata {
   metafield(key: String!): String
   metafields(keys: [String!]): Metadata
   created: DateTime!
+  updatedAt: DateTime!
   lastChange: DateTime!
   user: User
   channel: Channel!
   billingAddress: Address
   shippingAddress: Address
+  customerNote: String!
   note: String!
   discount: Money
   discountName: String
   translatedDiscountName: String
+  voucher: Voucher
   voucherCode: String
   availableShippingMethods: [ShippingMethod!]!
   shippingMethods: [ShippingMethod!]!
@@ -40,16 +43,25 @@ type Checkout implements Node, ObjectWithMetadata {
   shippingMethod: ShippingMethod
   deliveryMethod: DeliveryMethod
   subtotalPrice: TaxedMoney!
+  taxExemption: Boolean!
   token: UUID!
   totalPrice: TaxedMoney!
+  totalBalance: Money!
   languageCode: LanguageCodeEnum!
   transactions: [TransactionItem!]
+  displayGrossPrices: Boolean!
+  authorizeStatus: CheckoutAuthorizeStatusEnum!
+  chargeStatus: CheckoutChargeStatusEnum!
+  storedPaymentMethods(amount: PositiveDecimal): [StoredPaymentMethod!]
+  problems: [CheckoutProblem!]
 }
 ```
 
 ### Fields
 
 #### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+
+The ID of the checkout.
 
 #### [`privateMetadata`](#) ([`[MetadataItem!]!`](../../../developer/api-reference/objects/metadata-item))
 
@@ -61,19 +73,11 @@ A single key from private metadata. Requires staff permissions to access.
 
 Tip: Use GraphQL aliases to fetch multiple keys.
 
-Added in Saleor 3.3.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
 - ##### [`key`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
 #### [`privateMetafields`](#) ([`Metadata`](../../../developer/api-reference/scalars/metadata))
 
 Private metadata. Requires staff permissions to access. Use `keys` to control which fields you want to include. The default is to include everything.
-
-Added in Saleor 3.3.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
 
 - ##### [`keys`](#) ([`[String!]`](../../../developer/api-reference/scalars/string))
 
@@ -87,63 +91,103 @@ A single key from public metadata.
 
 Tip: Use GraphQL aliases to fetch multiple keys.
 
-Added in Saleor 3.3.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
 - ##### [`key`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
 #### [`metafields`](#) ([`Metadata`](../../../developer/api-reference/scalars/metadata))
 
 Public metadata. Use `keys` to control which fields you want to include. The default is to include everything.
 
-Added in Saleor 3.3.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
 - ##### [`keys`](#) ([`[String!]`](../../../developer/api-reference/scalars/string))
 
 #### [`created`](#) ([`DateTime!`](../../../developer/api-reference/scalars/date-time))
+
+The date and time when the checkout was created.
+
+#### [`updatedAt`](#) ([`DateTime!`](../../../developer/api-reference/scalars/date-time))
+
+Time of last modification of the given checkout.
 
 #### [`lastChange`](#) ([`DateTime!`](../../../developer/api-reference/scalars/date-time))
 
 #### [`user`](#) ([`User`](../../../developer/api-reference/objects/user))
 
+The user assigned to the checkout. Requires one of the following permissions: MANAGE_USERS, HANDLE_PAYMENTS, OWNER.
+
 #### [`channel`](#) ([`Channel!`](../../../developer/api-reference/objects/channel))
+
+The channel for which checkout was created.
 
 #### [`billingAddress`](#) ([`Address`](../../../developer/api-reference/objects/address))
 
+The billing address of the checkout.
+
 #### [`shippingAddress`](#) ([`Address`](../../../developer/api-reference/objects/address))
+
+The shipping address of the checkout.
+
+#### [`customerNote`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+The customer note for the checkout.
+
+Added in Saleor 3.21.
 
 #### [`note`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
+The note for the checkout.
+
 #### [`discount`](#) ([`Money`](../../../developer/api-reference/objects/money))
+
+The total discount applied to the checkout. Note: Only discount created via voucher are included in this field.
 
 #### [`discountName`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
+The name of voucher assigned to the checkout.
+
 #### [`translatedDiscountName`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
+Translation of the discountName field in the language set in Checkout.languageCode field.Note: this field is set automatically when Checkout.languageCode is defined; otherwise it's null
+
+#### [`voucher`](#) ([`Voucher`](../../../developer/api-reference/objects/voucher))
+
+The voucher assigned to the checkout.
+
+Added in Saleor 3.18.
+
+Requires one of the following permissions: MANAGE_DISCOUNTS.
+
 #### [`voucherCode`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+The code of voucher assigned to the checkout.
 
 #### [`availableShippingMethods`](#) ([`[ShippingMethod!]!`](../../../developer/api-reference/objects/shipping-method))
 
 Shipping methods that can be used with this checkout.
 
+Triggers the following webhook events:
+
+- SHIPPING_LIST_METHODS_FOR_CHECKOUT (sync): Optionally triggered when cached external shipping methods are invalid.
+- CHECKOUT_FILTER_SHIPPING_METHODS (sync): Optionally triggered when cached filtered shipping methods are invalid.
+
 #### [`shippingMethods`](#) ([`[ShippingMethod!]!`](../../../developer/api-reference/objects/shipping-method))
 
 Shipping methods that can be used with this checkout.
+
+Triggers the following webhook events:
+
+- SHIPPING_LIST_METHODS_FOR_CHECKOUT (sync): Optionally triggered when cached external shipping methods are invalid.
+- CHECKOUT_FILTER_SHIPPING_METHODS (sync): Optionally triggered when cached filtered shipping methods are invalid.
 
 #### [`availableCollectionPoints`](#) ([`[Warehouse!]!`](../../../developer/api-reference/objects/warehouse))
 
 Collection points that can be used for this order.
 
-Added in Saleor 3.1.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
 #### [`availablePaymentGateways`](#) ([`[PaymentGateway!]!`](../../../developer/api-reference/objects/payment-gateway))
 
 List of available payment gateways.
+
+Triggers the following webhook events:
+
+- PAYMENT_LIST_GATEWAYS (sync): Fetch payment gateways available for checkout.
 
 #### [`email`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
@@ -165,31 +209,47 @@ The number of items purchased.
 
 Date when oldest stock reservation for this checkout expires or null if no stock is reserved.
 
-Added in Saleor 3.1.
-
 #### [`lines`](#) ([`[CheckoutLine!]!`](../../../developer/api-reference/objects/checkout-line))
 
 A list of checkout lines, each containing information about an item in the checkout.
 
 #### [`shippingPrice`](#) ([`TaxedMoney!`](../../../developer/api-reference/objects/taxed-money))
 
-The price of the shipping, with all the taxes included.
+The price of the shipping, with all the taxes included. Set to 0 when no delivery method is selected.
+
+Triggers the following webhook events:
+
+- CHECKOUT_CALCULATE_TAXES (sync): Optionally triggered when checkout prices are expired.
 
 #### [`shippingMethod`](#) ([`ShippingMethod`](../../../developer/api-reference/objects/shipping-method))
 
 The shipping method related with checkout.
 
+Triggers the following webhook events:
+
+- SHIPPING_LIST_METHODS_FOR_CHECKOUT (sync): Optionally triggered when cached external shipping methods are invalid.
+- CHECKOUT_FILTER_SHIPPING_METHODS (sync): Optionally triggered when cached filtered shipping methods are invalid.
+
 #### [`deliveryMethod`](#) ([`DeliveryMethod`](../../../developer/api-reference/unions/delivery-method))
 
 The delivery method selected for this checkout.
 
-Added in Saleor 3.1.
+Triggers the following webhook events:
 
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
+- SHIPPING_LIST_METHODS_FOR_CHECKOUT (sync): Optionally triggered when cached external shipping methods are invalid.
+- CHECKOUT_FILTER_SHIPPING_METHODS (sync): Optionally triggered when cached filtered shipping methods are invalid.
 
 #### [`subtotalPrice`](#) ([`TaxedMoney!`](../../../developer/api-reference/objects/taxed-money))
 
 The price of the checkout before shipping, with taxes included.
+
+Triggers the following webhook events:
+
+- CHECKOUT_CALCULATE_TAXES (sync): Optionally triggered when checkout prices are expired.
+
+#### [`taxExemption`](#) ([`Boolean!`](../../../developer/api-reference/scalars/boolean))
+
+Returns True if checkout has to be exempt from taxes.
 
 #### [`token`](#) ([`UUID!`](../../../developer/api-reference/scalars/uuid))
 
@@ -197,7 +257,19 @@ The checkout's token.
 
 #### [`totalPrice`](#) ([`TaxedMoney!`](../../../developer/api-reference/objects/taxed-money))
 
-The sum of the the checkout line prices, with all the taxes,shipping costs, and discounts included.
+The sum of the checkout line prices, with all the taxes,shipping costs, and discounts included.
+
+Triggers the following webhook events:
+
+- CHECKOUT_CALCULATE_TAXES (sync): Optionally triggered when checkout prices are expired.
+
+#### [`totalBalance`](#) ([`Money!`](../../../developer/api-reference/objects/money))
+
+The difference between the paid and the checkout total amount.
+
+Triggers the following webhook events:
+
+- CHECKOUT_CALCULATE_TAXES (sync): Optionally triggered when checkout prices are expired.
 
 #### [`languageCode`](#) ([`LanguageCodeEnum!`](../../../developer/api-reference/enums/language-code-enum))
 
@@ -207,9 +279,37 @@ Checkout language code.
 
 List of transactions for the checkout. Requires one of the following permissions: MANAGE_CHECKOUTS, HANDLE_PAYMENTS.
 
-Added in Saleor 3.4.
+#### [`displayGrossPrices`](#) ([`Boolean!`](../../../developer/api-reference/scalars/boolean))
 
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
+Determines whether displayed prices should include taxes.
+
+#### [`authorizeStatus`](#) ([`CheckoutAuthorizeStatusEnum!`](../../../developer/api-reference/enums/checkout-authorize-status-enum))
+
+The authorize status of the checkout.
+
+Triggers the following webhook events:
+
+- CHECKOUT_CALCULATE_TAXES (sync): Optionally triggered when checkout prices are expired.
+
+#### [`chargeStatus`](#) ([`CheckoutChargeStatusEnum!`](../../../developer/api-reference/enums/checkout-charge-status-enum))
+
+The charge status of the checkout.
+
+Triggers the following webhook events:
+
+- CHECKOUT_CALCULATE_TAXES (sync): Optionally triggered when checkout prices are expired.
+
+#### [`storedPaymentMethods`](#) ([`[StoredPaymentMethod!]`](../../../developer/api-reference/objects/stored-payment-method))
+
+List of user's stored payment methods that can be used in this checkout session. It uses the channel that the checkout was created in. When `amount` is not provided, `checkout.total` will be used as a default value.
+
+- ##### [`amount`](#) ([`PositiveDecimal`](../../../developer/api-reference/scalars/positive-decimal))
+
+Amount that will be used to fetch stored payment methods.
+
+#### [`problems`](#) ([`[CheckoutProblem!]`](../../../developer/api-reference/unions/checkout-problem))
+
+List of problems with the checkout.
 
 ### Interfaces
 

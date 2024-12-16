@@ -1,0 +1,23 @@
+---
+id: checkout-line-problem
+title: CheckoutLineProblem
+hide_table_of_contents: false
+---
+
+Represents an problem in the checkout line.
+
+```graphql
+union CheckoutLineProblem =
+    CheckoutLineProblemInsufficientStock
+  | CheckoutLineProblemVariantNotAvailable
+```
+
+### Possible types
+
+#### [`CheckoutLineProblemInsufficientStock`](../../../developer/api-reference/objects/checkout-line-problem-insufficient-stock)
+
+Indicates insufficient stock for a given checkout line.Placing the order will not be possible until solving this problem.
+
+#### [`CheckoutLineProblemVariantNotAvailable`](../../../developer/api-reference/objects/checkout-line-problem-variant-not-available)
+
+The variant assigned to the checkout line is not available.Placing the order will not be possible until solving this problem.

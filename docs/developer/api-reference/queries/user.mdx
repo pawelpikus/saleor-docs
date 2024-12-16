@@ -12,6 +12,7 @@ Requires one of the following permissions: MANAGE_STAFF, MANAGE_USERS, MANAGE_OR
 user(
   id: ID
   email: String
+  externalReference: String
 ): User
 ```
 
@@ -24,6 +25,10 @@ ID of the user.
 #### [`email`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
 Email address of the user.
+
+#### [`externalReference`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+External ID of the user.
 
 ### Type
 

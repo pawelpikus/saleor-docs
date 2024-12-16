@@ -1,0 +1,29 @@
+---
+id: payment-method-initialize-tokenization-error
+title: PaymentMethodInitializeTokenizationError
+hide_table_of_contents: false
+---
+
+No description
+
+```graphql
+type PaymentMethodInitializeTokenizationError {
+  field: String
+  message: String
+  code: PaymentMethodInitializeTokenizationErrorCode!
+}
+```
+
+### Fields
+
+#### [`field`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field.
+
+#### [`message`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+The error message.
+
+#### [`code`](#) ([`PaymentMethodInitializeTokenizationErrorCode!`](../../../developer/api-reference/enums/payment-method-initialize-tokenization-error-code))
+
+The error code.

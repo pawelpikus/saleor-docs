@@ -8,6 +8,10 @@ Updates an existing staff user. Apps are not allowed to perform this mutation.
 
 Requires one of the following permissions: MANAGE_STAFF.
 
+Triggers the following webhook events:
+
+- STAFF_UPDATED (async): A staff account was updated.
+
 ```graphql
 type StaffUpdate {
   staffErrors: [StaffError!]!

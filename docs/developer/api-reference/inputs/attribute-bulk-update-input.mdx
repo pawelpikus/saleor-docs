@@ -1,0 +1,29 @@
+---
+id: attribute-bulk-update-input
+title: AttributeBulkUpdateInput
+hide_table_of_contents: false
+---
+
+No description
+
+```graphql
+input AttributeBulkUpdateInput {
+  id: ID
+  externalReference: String
+  fields: AttributeUpdateInput!
+}
+```
+
+### Fields
+
+#### [`id`](#) ([`ID`](../../../developer/api-reference/scalars/id))
+
+ID of an attribute to update.
+
+#### [`externalReference`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+External ID of this attribute.
+
+#### [`fields`](#) ([`AttributeUpdateInput!`](../../../developer/api-reference/inputs/attribute-update-input))
+
+Fields to update.

@@ -28,27 +28,31 @@ type ProductChannelListing implements Node {
 
 #### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
 
+The ID of the product channel listing.
+
 #### [`publicationDate`](#) ([`Date`](../../../developer/api-reference/scalars/date))
 
 #### [`publishedAt`](#) ([`DateTime`](../../../developer/api-reference/scalars/date-time))
 
 The product publication date time.
 
-Added in Saleor 3.3.
-
 #### [`isPublished`](#) ([`Boolean!`](../../../developer/api-reference/scalars/boolean))
+
+Indicates if the product is published in the channel.
 
 #### [`channel`](#) ([`Channel!`](../../../developer/api-reference/objects/channel))
 
+The channel in which the product is listed.
+
 #### [`visibleInListings`](#) ([`Boolean!`](../../../developer/api-reference/scalars/boolean))
+
+Indicates product visibility in the channel listings.
 
 #### [`availableForPurchase`](#) ([`Date`](../../../developer/api-reference/scalars/date))
 
 #### [`availableForPurchaseAt`](#) ([`DateTime`](../../../developer/api-reference/scalars/date-time))
 
 The product available for purchase date time.
-
-Added in Saleor 3.3.
 
 #### [`discountedPrice`](#) ([`Money`](../../../developer/api-reference/objects/money))
 
@@ -68,7 +72,7 @@ Requires one of the following permissions: MANAGE_PRODUCTS.
 
 #### [`isAvailableForPurchase`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
 
-Whether the product is available for purchase.
+Refers to a state that can be set by admins to control whether a product is available for purchase in storefronts in this channel. This does not guarantee the availability of stock. When set to `False`, this product is still visible to customers, but it cannot be purchased.
 
 #### [`pricing`](#) ([`ProductPricingInfo`](../../../developer/api-reference/objects/product-pricing-info))
 

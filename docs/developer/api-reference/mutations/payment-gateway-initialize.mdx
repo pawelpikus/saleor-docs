@@ -1,0 +1,35 @@
+---
+id: payment-gateway-initialize
+title: paymentGatewayInitialize
+hide_table_of_contents: false
+---
+
+Initializes a payment gateway session. It triggers the webhook `PAYMENT_GATEWAY_INITIALIZE_SESSION`, to the requested `paymentGateways`. If `paymentGateways` is not provided, the webhook will be send to all subscribed payment gateways. There is a limit of 100 transaction items per checkout / order.
+
+```graphql
+paymentGatewayInitialize(
+  amount: PositiveDecimal
+  id: ID!
+  paymentGateways: [PaymentGatewayToInitialize!]
+): PaymentGatewayInitialize
+```
+
+### Arguments
+
+#### [`amount`](#) ([`PositiveDecimal`](../../../developer/api-reference/scalars/positive-decimal))
+
+The amount requested for initializing the payment gateway. If not provided, the difference between checkout.total - transactions that are already processed will be send.
+
+#### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+
+The ID of the checkout or order.
+
+#### [`paymentGateways`](#) ([`[PaymentGatewayToInitialize!]`](../../../developer/api-reference/inputs/payment-gateway-to-initialize))
+
+List of payment gateways to initialize.
+
+### Type
+
+#### [`PaymentGatewayInitialize`](../../../developer/api-reference/objects/payment-gateway-initialize)
+
+Initializes a payment gateway session. It triggers the webhook `PAYMENT_GATEWAY_INITIALIZE_SESSION`, to the requested `paymentGateways`. If `paymentGateways` is not provided, the webhook will be send to all subscribed payment gateways. There is a limit of 100 transaction items per checkout / order.

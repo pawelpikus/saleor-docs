@@ -4,11 +4,12 @@ title: ShippingMethodTranslatableContent
 hide_table_of_contents: false
 ---
 
-No description
+Represents shipping method's original translatable fields and related translations.
 
 ```graphql
 type ShippingMethodTranslatableContent implements Node {
   id: ID!
+  shippingMethodId: ID!
   name: String!
   description: JSONString
   translation(languageCode: LanguageCodeEnum!): ShippingMethodTranslation
@@ -20,11 +21,19 @@ type ShippingMethodTranslatableContent implements Node {
 
 #### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
 
+The ID of the shipping method translatable content.
+
+#### [`shippingMethodId`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+
+The ID of the shipping method to translate.
+
 #### [`name`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+Shipping method name to translate.
 
 #### [`description`](#) ([`JSONString`](../../../developer/api-reference/scalars/jsonstring))
 
-Description of the shipping method.
+Shipping method description to translate.
 
 Rich text format. For reference see https://editorjs.io/
 

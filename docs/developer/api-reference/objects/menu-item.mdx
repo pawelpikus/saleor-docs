@@ -32,6 +32,8 @@ type MenuItem implements Node, ObjectWithMetadata {
 
 #### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
 
+The ID of the menu item.
+
 #### [`privateMetadata`](#) ([`[MetadataItem!]!`](../../../developer/api-reference/objects/metadata-item))
 
 List of private metadata items. Requires staff permissions to access.
@@ -42,19 +44,11 @@ A single key from private metadata. Requires staff permissions to access.
 
 Tip: Use GraphQL aliases to fetch multiple keys.
 
-Added in Saleor 3.3.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
 - ##### [`key`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
 #### [`privateMetafields`](#) ([`Metadata`](../../../developer/api-reference/scalars/metadata))
 
 Private metadata. Requires staff permissions to access. Use `keys` to control which fields you want to include. The default is to include everything.
-
-Added in Saleor 3.3.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
 
 - ##### [`keys`](#) ([`[String!]`](../../../developer/api-reference/scalars/string))
 
@@ -68,29 +62,29 @@ A single key from public metadata.
 
 Tip: Use GraphQL aliases to fetch multiple keys.
 
-Added in Saleor 3.3.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
 - ##### [`key`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
 #### [`metafields`](#) ([`Metadata`](../../../developer/api-reference/scalars/metadata))
 
 Public metadata. Use `keys` to control which fields you want to include. The default is to include everything.
 
-Added in Saleor 3.3.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
 - ##### [`keys`](#) ([`[String!]`](../../../developer/api-reference/scalars/string))
 
 #### [`name`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
+The name of the menu item.
+
 #### [`menu`](#) ([`Menu!`](../../../developer/api-reference/objects/menu))
+
+Represents the menu to which the menu item belongs.
 
 #### [`parent`](#) ([`MenuItem`](../../../developer/api-reference/objects/menu-item))
 
+ID of parent menu item. If empty, menu will be top level menu.
+
 #### [`category`](#) ([`Category`](../../../developer/api-reference/objects/category))
+
+Category associated with the menu item.
 
 #### [`collection`](#) ([`Collection`](../../../developer/api-reference/objects/collection))
 
@@ -102,7 +96,11 @@ A page associated with this menu item. Requires one of the following permissions
 
 #### [`level`](#) ([`Int!`](../../../developer/api-reference/scalars/int))
 
+Indicates the position of the menu item within the menu structure.
+
 #### [`children`](#) ([`[MenuItem!]`](../../../developer/api-reference/objects/menu-item))
+
+Represents the child items of the current menu item.
 
 #### [`url`](#) ([`String`](../../../developer/api-reference/scalars/string))
 

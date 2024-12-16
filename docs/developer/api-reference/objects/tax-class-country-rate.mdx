@@ -1,0 +1,29 @@
+---
+id: tax-class-country-rate
+title: TaxClassCountryRate
+hide_table_of_contents: false
+---
+
+Tax rate for a country. When tax class is null, it represents the default tax rate for that country; otherwise it's a country tax rate specific to the given tax class.
+
+```graphql
+type TaxClassCountryRate {
+  country: CountryDisplay!
+  rate: Float!
+  taxClass: TaxClass
+}
+```
+
+### Fields
+
+#### [`country`](#) ([`CountryDisplay!`](../../../developer/api-reference/objects/country-display))
+
+Country in which this tax rate applies.
+
+#### [`rate`](#) ([`Float!`](../../../developer/api-reference/scalars/float))
+
+Tax rate value.
+
+#### [`taxClass`](#) ([`TaxClass`](../../../developer/api-reference/objects/tax-class))
+
+Related tax class.

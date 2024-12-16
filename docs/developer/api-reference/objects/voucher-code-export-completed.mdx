@@ -1,0 +1,45 @@
+---
+id: voucher-code-export-completed
+title: VoucherCodeExportCompleted
+hide_table_of_contents: false
+---
+
+Event sent when voucher code export is completed.
+
+Added in Saleor 3.18.
+
+```graphql
+type VoucherCodeExportCompleted implements Event {
+  issuedAt: DateTime
+  version: String
+  issuingPrincipal: IssuingPrincipal
+  recipient: App
+  export: ExportFile
+}
+```
+
+### Fields
+
+#### [`issuedAt`](#) ([`DateTime`](../../../developer/api-reference/scalars/date-time))
+
+Time of the event.
+
+#### [`version`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Saleor version that triggered the event.
+
+#### [`issuingPrincipal`](#) ([`IssuingPrincipal`](../../../developer/api-reference/unions/issuing-principal))
+
+The user or application that triggered the event.
+
+#### [`recipient`](#) ([`App`](../../../developer/api-reference/objects/app))
+
+The application receiving the webhook.
+
+#### [`export`](#) ([`ExportFile`](../../../developer/api-reference/objects/export-file))
+
+The export file for voucher codes.
+
+### Interfaces
+
+#### [`Event`](../../../developer/api-reference/interfaces/event)

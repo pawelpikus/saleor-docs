@@ -10,15 +10,20 @@ Requires one of the following permissions: MANAGE_PRODUCTS, MANAGE_ORDERS, MANAG
 
 ```graphql
 warehouse(
-  id: ID!
+  id: ID
+  externalReference: String
 ): Warehouse
 ```
 
 ### Arguments
 
-#### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+#### [`id`](#) ([`ID`](../../../developer/api-reference/scalars/id))
 
-ID of an warehouse
+ID of a warehouse.
+
+#### [`externalReference`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+External ID of a warehouse.
 
 ### Type
 

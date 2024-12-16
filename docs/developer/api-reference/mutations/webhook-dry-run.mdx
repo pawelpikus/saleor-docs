@@ -1,0 +1,34 @@
+---
+id: webhook-dry-run
+title: webhookDryRun
+hide_table_of_contents: false
+---
+
+Performs a dry run of a webhook event. Supports a single event (the first, if multiple provided in the `query`). Requires permission relevant to processed event.
+
+Requires one of the following permissions: AUTHENTICATED_STAFF_USER.
+
+```graphql
+webhookDryRun(
+  objectId: ID!
+  query: String!
+): WebhookDryRun
+```
+
+### Arguments
+
+#### [`objectId`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+
+The ID of an object to serialize.
+
+#### [`query`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+The subscription query that defines the webhook event and its payload.
+
+### Type
+
+#### [`WebhookDryRun`](../../../developer/api-reference/objects/webhook-dry-run)
+
+Performs a dry run of a webhook event. Supports a single event (the first, if multiple provided in the `query`). Requires permission relevant to processed event.
+
+Requires one of the following permissions: AUTHENTICATED_STAFF_USER.

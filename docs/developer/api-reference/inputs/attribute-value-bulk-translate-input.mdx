@@ -1,0 +1,34 @@
+---
+id: attribute-value-bulk-translate-input
+title: AttributeValueBulkTranslateInput
+hide_table_of_contents: false
+---
+
+No description
+
+```graphql
+input AttributeValueBulkTranslateInput {
+  id: ID
+  externalReference: String
+  languageCode: LanguageCodeEnum!
+  translationFields: AttributeValueTranslationInput!
+}
+```
+
+### Fields
+
+#### [`id`](#) ([`ID`](../../../developer/api-reference/scalars/id))
+
+Attribute value ID.
+
+#### [`externalReference`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+External reference of an attribute value.
+
+#### [`languageCode`](#) ([`LanguageCodeEnum!`](../../../developer/api-reference/enums/language-code-enum))
+
+Translation language code.
+
+#### [`translationFields`](#) ([`AttributeValueTranslationInput!`](../../../developer/api-reference/inputs/attribute-value-translation-input))
+
+Translation fields.

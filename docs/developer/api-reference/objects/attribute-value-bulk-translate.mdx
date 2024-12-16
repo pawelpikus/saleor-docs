@@ -1,0 +1,29 @@
+---
+id: attribute-value-bulk-translate
+title: AttributeValueBulkTranslate
+hide_table_of_contents: false
+---
+
+Creates/updates translations for attributes values.
+
+Requires one of the following permissions: MANAGE_TRANSLATIONS.
+
+```graphql
+type AttributeValueBulkTranslate {
+  count: Int!
+  results: [AttributeValueBulkTranslateResult!]!
+  errors: [AttributeValueBulkTranslateError!]!
+}
+```
+
+### Fields
+
+#### [`count`](#) ([`Int!`](../../../developer/api-reference/scalars/int))
+
+Returns how many translations were created/updated.
+
+#### [`results`](#) ([`[AttributeValueBulkTranslateResult!]!`](../../../developer/api-reference/objects/attribute-value-bulk-translate-result))
+
+List of the translations.
+
+#### [`errors`](#) ([`[AttributeValueBulkTranslateError!]!`](../../../developer/api-reference/objects/attribute-value-bulk-translate-error))

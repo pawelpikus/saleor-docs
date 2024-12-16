@@ -4,7 +4,7 @@ title: AttributeValueTranslation
 hide_table_of_contents: false
 ---
 
-No description
+Represents attribute value translations.
 
 ```graphql
 type AttributeValueTranslation implements Node {
@@ -13,6 +13,7 @@ type AttributeValueTranslation implements Node {
   name: String!
   richText: JSONString
   plainText: String
+  translatableContent: AttributeValueTranslatableContent
 }
 ```
 
@@ -20,21 +21,29 @@ type AttributeValueTranslation implements Node {
 
 #### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
 
+The ID of the attribute value translation.
+
 #### [`language`](#) ([`LanguageDisplay!`](../../../developer/api-reference/objects/language-display))
 
 Translation language.
 
 #### [`name`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
+Translated attribute value name.
+
 #### [`richText`](#) ([`JSONString`](../../../developer/api-reference/scalars/jsonstring))
 
-Attribute value.
+Translated rich-text attribute value.
 
 Rich text format. For reference see https://editorjs.io/
 
 #### [`plainText`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
-Attribute plain text value.
+Translated plain text attribute value .
+
+#### [`translatableContent`](#) ([`AttributeValueTranslatableContent`](../../../developer/api-reference/objects/attribute-value-translatable-content))
+
+Represents the attribute value fields to translate.
 
 ### Interfaces
 

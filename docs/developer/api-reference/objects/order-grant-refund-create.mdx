@@ -1,0 +1,29 @@
+---
+id: order-grant-refund-create
+title: OrderGrantRefundCreate
+hide_table_of_contents: false
+---
+
+Adds granted refund to the order.
+
+Requires one of the following permissions: MANAGE_ORDERS.
+
+```graphql
+type OrderGrantRefundCreate {
+  order: Order
+  grantedRefund: OrderGrantedRefund
+  errors: [OrderGrantRefundCreateError!]!
+}
+```
+
+### Fields
+
+#### [`order`](#) ([`Order`](../../../developer/api-reference/objects/order))
+
+Order which has assigned new grant refund.
+
+#### [`grantedRefund`](#) ([`OrderGrantedRefund`](../../../developer/api-reference/objects/order-granted-refund))
+
+Created granted refund.
+
+#### [`errors`](#) ([`[OrderGrantRefundCreateError!]!`](../../../developer/api-reference/objects/order-grant-refund-create-error))

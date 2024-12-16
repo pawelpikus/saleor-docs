@@ -1,0 +1,39 @@
+---
+id: product-variant-bulk-update
+title: productVariantBulkUpdate
+hide_table_of_contents: false
+---
+
+Update multiple product variants.
+
+Requires one of the following permissions: MANAGE_PRODUCTS.
+
+```graphql
+productVariantBulkUpdate(
+  errorPolicy: ErrorPolicyEnum
+  product: ID!
+  variants: [ProductVariantBulkUpdateInput!]!
+): ProductVariantBulkUpdate
+```
+
+### Arguments
+
+#### [`errorPolicy`](#) ([`ErrorPolicyEnum`](../../../developer/api-reference/enums/error-policy-enum))
+
+Policies of error handling. DEFAULT: REJECT_EVERYTHING
+
+#### [`product`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+
+ID of the product to update the variants for.
+
+#### [`variants`](#) ([`[ProductVariantBulkUpdateInput!]!`](../../../developer/api-reference/inputs/product-variant-bulk-update-input))
+
+Input list of product variants to update.
+
+### Type
+
+#### [`ProductVariantBulkUpdate`](../../../developer/api-reference/objects/product-variant-bulk-update)
+
+Update multiple product variants.
+
+Requires one of the following permissions: MANAGE_PRODUCTS.

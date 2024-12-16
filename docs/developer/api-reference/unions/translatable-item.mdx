@@ -16,31 +16,65 @@ union TranslatableItem =
   | ProductVariantTranslatableContent
   | PageTranslatableContent
   | ShippingMethodTranslatableContent
-  | SaleTranslatableContent
   | VoucherTranslatableContent
   | MenuItemTranslatableContent
+  | PromotionTranslatableContent
+  | PromotionRuleTranslatableContent
+  | SaleTranslatableContent
 ```
 
 ### Possible types
 
 #### [`ProductTranslatableContent`](../../../developer/api-reference/objects/product-translatable-content)
 
+Represents product's original translatable fields and related translations.
+
 #### [`CollectionTranslatableContent`](../../../developer/api-reference/objects/collection-translatable-content)
+
+Represents collection's original translatable fields and related translations.
 
 #### [`CategoryTranslatableContent`](../../../developer/api-reference/objects/category-translatable-content)
 
+Represents category original translatable fields and related translations.
+
 #### [`AttributeTranslatableContent`](../../../developer/api-reference/objects/attribute-translatable-content)
+
+Represents attribute's original translatable fields and related translations.
 
 #### [`AttributeValueTranslatableContent`](../../../developer/api-reference/objects/attribute-value-translatable-content)
 
+Represents attribute value's original translatable fields and related translations.
+
 #### [`ProductVariantTranslatableContent`](../../../developer/api-reference/objects/product-variant-translatable-content)
+
+Represents product variant's original translatable fields and related translations.
 
 #### [`PageTranslatableContent`](../../../developer/api-reference/objects/page-translatable-content)
 
+Represents page's original translatable fields and related translations.
+
 #### [`ShippingMethodTranslatableContent`](../../../developer/api-reference/objects/shipping-method-translatable-content)
 
-#### [`SaleTranslatableContent`](../../../developer/api-reference/objects/sale-translatable-content)
+Represents shipping method's original translatable fields and related translations.
 
 #### [`VoucherTranslatableContent`](../../../developer/api-reference/objects/voucher-translatable-content)
 
+Represents voucher's original translatable fields and related translations.
+
 #### [`MenuItemTranslatableContent`](../../../developer/api-reference/objects/menu-item-translatable-content)
+
+Represents menu item's original translatable fields and related translations.
+
+#### [`PromotionTranslatableContent`](../../../developer/api-reference/objects/promotion-translatable-content)
+
+Represents promotion's original translatable fields and related translations.
+
+#### [`PromotionRuleTranslatableContent`](../../../developer/api-reference/objects/promotion-rule-translatable-content)
+
+Represents promotion rule's original translatable fields and related translations.
+
+#### [`SaleTranslatableContent`](../../../developer/api-reference/objects/sale-translatable-content)
+
+Represents sale's original translatable fields and related translations.
+
+DEPRECATED: this type will be removed in Saleor 4.0. Use `PromotionTranslatableContent` instead.

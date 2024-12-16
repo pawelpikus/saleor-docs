@@ -34,24 +34,39 @@ type Product implements Node, ObjectWithMetadata {
   pricing(address: AddressInput): ProductPricingInfo
   isAvailable(address: AddressInput): Boolean
   taxType: TaxType
+  attribute(slug: String!): SelectedAttribute
   attributes: [SelectedAttribute!]!
   channelListings: [ProductChannelListing!]
   mediaById(id: ID): ProductMedia
   imageById(id: ID): ProductImage
+  variant(id: ID, sku: String): ProductVariant
   variants: [ProductVariant!]
-  media: [ProductMedia!]
+  productVariants(
+    filter: ProductVariantFilterInput
+    where: ProductVariantWhereInput
+    sortBy: ProductVariantSortingInput
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): ProductVariantCountableConnection
+  media(sortBy: MediaSortingInput): [ProductMedia!]
   images: [ProductImage!]
   collections: [Collection!]
   translation(languageCode: LanguageCodeEnum!): ProductTranslation
   availableForPurchase: Date
   availableForPurchaseAt: DateTime
   isAvailableForPurchase: Boolean
+  taxClass: TaxClass
+  externalReference: String
 }
 ```
 
 ### Fields
 
 #### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+
+The ID of the product.
 
 #### [`privateMetadata`](#) ([`[MetadataItem!]!`](../../../developer/api-reference/objects/metadata-item))
 
@@ -63,19 +78,11 @@ A single key from private metadata. Requires staff permissions to access.
 
 Tip: Use GraphQL aliases to fetch multiple keys.
 
-Added in Saleor 3.3.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
 - ##### [`key`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
 #### [`privateMetafields`](#) ([`Metadata`](../../../developer/api-reference/scalars/metadata))
 
 Private metadata. Requires staff permissions to access. Use `keys` to control which fields you want to include. The default is to include everything.
-
-Added in Saleor 3.3.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
 
 - ##### [`keys`](#) ([`[String!]`](../../../developer/api-reference/scalars/string))
 
@@ -89,27 +96,25 @@ A single key from public metadata.
 
 Tip: Use GraphQL aliases to fetch multiple keys.
 
-Added in Saleor 3.3.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
 - ##### [`key`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
 #### [`metafields`](#) ([`Metadata`](../../../developer/api-reference/scalars/metadata))
 
 Public metadata. Use `keys` to control which fields you want to include. The default is to include everything.
 
-Added in Saleor 3.3.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
 - ##### [`keys`](#) ([`[String!]`](../../../developer/api-reference/scalars/string))
 
 #### [`seoTitle`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
+SEO title of the product.
+
 #### [`seoDescription`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
+SEO description of the product.
+
 #### [`name`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+SEO description of the product.
 
 #### [`description`](#) ([`JSONString`](../../../developer/api-reference/scalars/jsonstring))
 
@@ -119,21 +124,35 @@ Rich text format. For reference see https://editorjs.io/
 
 #### [`productType`](#) ([`ProductType!`](../../../developer/api-reference/objects/product-type))
 
+Type of the product.
+
 #### [`slug`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+Slug of the product.
 
 #### [`category`](#) ([`Category`](../../../developer/api-reference/objects/category))
 
 #### [`created`](#) ([`DateTime!`](../../../developer/api-reference/scalars/date-time))
 
+The date and time when the product was created.
+
 #### [`updatedAt`](#) ([`DateTime!`](../../../developer/api-reference/scalars/date-time))
+
+The date and time when the product was last updated.
 
 #### [`chargeTaxes`](#) ([`Boolean!`](../../../developer/api-reference/scalars/boolean))
 
 #### [`weight`](#) ([`Weight`](../../../developer/api-reference/objects/weight))
 
+Weight of the product.
+
 #### [`defaultVariant`](#) ([`ProductVariant`](../../../developer/api-reference/objects/product-variant))
 
+Default variant of the product.
+
 #### [`rating`](#) ([`Float`](../../../developer/api-reference/scalars/float))
+
+Rating of the product.
 
 #### [`channel`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
@@ -147,17 +166,15 @@ Rich text format. For reference see https://editorjs.io/
 
 #### [`thumbnail`](#) ([`Image`](../../../developer/api-reference/objects/image))
 
+Thumbnail of the product.
+
 - ##### [`size`](#) ([`Int`](../../../developer/api-reference/scalars/int))
 
-Size of the image. If not provided, the original image will be returned.
+Desired longest side the image in pixels. Defaults to 4096. Images are never cropped. Pass 0 to retrieve the original size (not recommended).
 
 - ##### [`format`](#) ([`ThumbnailFormatEnum`](../../../developer/api-reference/enums/thumbnail-format-enum))
 
-The format of the image. When not provided, format of the original image will be used. Must be provided together with the size value, otherwise original image will be returned.
-
-Added in Saleor 3.6.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
+The format of the image. When not provided, format of the original image will be used.
 
 #### [`pricing`](#) ([`ProductPricingInfo`](../../../developer/api-reference/objects/product-pricing-info))
 
@@ -169,7 +186,7 @@ Destination address used to find warehouses where stock availability for this pr
 
 #### [`isAvailable`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
 
-Whether the product is in stock and visible or not.
+Whether the product is in stock, set as available for purchase in the given channel, and published.
 
 - ##### [`address`](#) ([`AddressInput`](../../../developer/api-reference/inputs/address-input))
 
@@ -178,6 +195,14 @@ Destination address used to find warehouses where stock availability for this pr
 #### [`taxType`](#) ([`TaxType`](../../../developer/api-reference/objects/tax-type))
 
 A type of tax. Assigned by enabled tax gateway
+
+#### [`attribute`](#) ([`SelectedAttribute`](../../../developer/api-reference/objects/selected-attribute))
+
+Get a single attribute attached to product by attribute slug.
+
+- ##### [`slug`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+Slug of the attribute
 
 #### [`attributes`](#) ([`[SelectedAttribute!]!`](../../../developer/api-reference/objects/selected-attribute))
 
@@ -205,13 +230,63 @@ Get a single product image by ID.
 
 ID of a product image.
 
+#### [`variant`](#) ([`ProductVariant`](../../../developer/api-reference/objects/product-variant))
+
+Get a single variant by SKU or ID.
+
+- ##### [`id`](#) ([`ID`](../../../developer/api-reference/scalars/id))
+
+ID of the variant.
+
+- ##### [`sku`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+SKU of the variant.
+
 #### [`variants`](#) ([`[ProductVariant!]`](../../../developer/api-reference/objects/product-variant))
 
 List of variants for the product. Requires the following permissions to include the unpublished items: MANAGE_ORDERS, MANAGE_DISCOUNTS, MANAGE_PRODUCTS.
 
+#### [`productVariants`](#) ([`ProductVariantCountableConnection`](../../../developer/api-reference/objects/product-variant-countable-connection))
+
+List of variants for the product. Requires the following permissions to include the unpublished items: MANAGE_ORDERS, MANAGE_DISCOUNTS, MANAGE_PRODUCTS.
+
+Added in Saleor 3.21.
+
+- ##### [`filter`](#) ([`ProductVariantFilterInput`](../../../developer/api-reference/inputs/product-variant-filter-input))
+
+Filtering options for product variant.
+
+- ##### [`where`](#) ([`ProductVariantWhereInput`](../../../developer/api-reference/inputs/product-variant-where-input))
+
+Where filtering options.
+
+- ##### [`sortBy`](#) ([`ProductVariantSortingInput`](../../../developer/api-reference/inputs/product-variant-sorting-input))
+
+Sort products variants.
+
+- ##### [`before`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Return the elements in the list that come before the specified cursor.
+
+- ##### [`after`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Return the elements in the list that come after the specified cursor.
+
+- ##### [`first`](#) ([`Int`](../../../developer/api-reference/scalars/int))
+
+Retrieve the first n elements from the list. Note that the system only allows fetching a maximum of 100 objects in a single query.
+
+- ##### [`last`](#) ([`Int`](../../../developer/api-reference/scalars/int))
+
+Retrieve the last n elements from the list. Note that the system only allows fetching a maximum of 100 objects in a single query.
+
 #### [`media`](#) ([`[ProductMedia!]`](../../../developer/api-reference/objects/product-media))
 
 List of media for the product.
+
+- ##### [`sortBy`](#) ([`MediaSortingInput`](../../../developer/api-reference/inputs/media-sorting-input))
+
+Sort media.
 
 #### [`images`](#) ([`[ProductImage!]`](../../../developer/api-reference/objects/product-image))
 
@@ -239,7 +314,17 @@ Date when product is available for purchase.
 
 #### [`isAvailableForPurchase`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
 
-Whether the product is available for purchase.
+Refers to a state that can be set by admins to control whether a product is available for purchase in storefronts. This does not guarantee the availability of stock. When set to `False`, this product is still visible to customers, but it cannot be purchased.
+
+#### [`taxClass`](#) ([`TaxClass`](../../../developer/api-reference/objects/tax-class))
+
+Tax class assigned to this product type. All products of this product type use this tax class, unless it's overridden in the `Product` type.
+
+Requires one of the following permissions: AUTHENTICATED_STAFF_USER, AUTHENTICATED_APP.
+
+#### [`externalReference`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+External ID of this product.
 
 ### Interfaces
 

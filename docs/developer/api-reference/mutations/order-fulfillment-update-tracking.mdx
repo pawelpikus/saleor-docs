@@ -8,6 +8,10 @@ Updates a fulfillment for an order.
 
 Requires one of the following permissions: MANAGE_ORDERS.
 
+Triggers the following webhook events:
+
+- FULFILLMENT_TRACKING_NUMBER_UPDATED (async): Fulfillment tracking number is updated.
+
 ```graphql
 orderFulfillmentUpdateTracking(
   id: ID!
@@ -32,3 +36,7 @@ Fields required to update a fulfillment.
 Updates a fulfillment for an order.
 
 Requires one of the following permissions: MANAGE_ORDERS.
+
+Triggers the following webhook events:
+
+- FULFILLMENT_TRACKING_NUMBER_UPDATED (async): Fulfillment tracking number is updated.

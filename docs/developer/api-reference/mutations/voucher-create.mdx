@@ -8,6 +8,11 @@ Creates a new voucher.
 
 Requires one of the following permissions: MANAGE_DISCOUNTS.
 
+Triggers the following webhook events:
+
+- VOUCHER_CREATED (async): A voucher was created.
+- VOUCHER_CODES_CREATED (async): A voucher codes were created.
+
 ```graphql
 voucherCreate(
   input: VoucherInput!
@@ -27,3 +32,8 @@ Fields required to create a voucher.
 Creates a new voucher.
 
 Requires one of the following permissions: MANAGE_DISCOUNTS.
+
+Triggers the following webhook events:
+
+- VOUCHER_CREATED (async): A voucher was created.
+- VOUCHER_CODES_CREATED (async): A voucher codes were created.

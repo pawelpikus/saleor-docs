@@ -6,7 +6,14 @@ hide_table_of_contents: false
 
 Updates a sale.
 
+DEPRECATED: this mutation will be removed in Saleor 4.0. Use `promotionUpdate` mutation instead.
+
 Requires one of the following permissions: MANAGE_DISCOUNTS.
+
+Triggers the following webhook events:
+
+- SALE_UPDATED (async): A sale was updated.
+- SALE_TOGGLE (async): Optionally triggered when a sale is started or stopped.
 
 ```graphql
 saleUpdate(
@@ -31,4 +38,11 @@ Fields required to update a sale.
 
 Updates a sale.
 
+DEPRECATED: this mutation will be removed in Saleor 4.0. Use `promotionUpdate` mutation instead.
+
 Requires one of the following permissions: MANAGE_DISCOUNTS.
+
+Triggers the following webhook events:
+
+- SALE_UPDATED (async): A sale was updated.
+- SALE_TOGGLE (async): Optionally triggered when a sale is started or stopped.

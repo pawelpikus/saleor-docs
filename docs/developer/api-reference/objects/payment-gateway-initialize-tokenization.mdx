@@ -1,0 +1,33 @@
+---
+id: payment-gateway-initialize-tokenization
+title: PaymentGatewayInitializeTokenization
+hide_table_of_contents: false
+---
+
+Initializes payment gateway for tokenizing payment method session.
+
+Requires one of the following permissions: AUTHENTICATED_USER.
+
+Triggers the following webhook events:
+
+- PAYMENT_GATEWAY_INITIALIZE_TOKENIZATION_SESSION (sync): The customer requested to initialize payment gateway for tokenization.
+
+```graphql
+type PaymentGatewayInitializeTokenization {
+  result: PaymentGatewayInitializeTokenizationResult!
+  data: JSON
+  errors: [PaymentGatewayInitializeTokenizationError!]!
+}
+```
+
+### Fields
+
+#### [`result`](#) ([`PaymentGatewayInitializeTokenizationResult!`](../../../developer/api-reference/enums/payment-gateway-initialize-tokenization-result))
+
+A status of the payment gateway initialization.
+
+#### [`data`](#) ([`JSON`](../../../developer/api-reference/scalars/json))
+
+A data returned by payment app.
+
+#### [`errors`](#) ([`[PaymentGatewayInitializeTokenizationError!]!`](../../../developer/api-reference/objects/payment-gateway-initialize-tokenization-error))

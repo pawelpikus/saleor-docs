@@ -12,6 +12,8 @@ input DigitalContentUploadInput {
   maxDownloads: Int
   urlValidDays: Int
   automaticFulfillment: Boolean
+  metadata: [MetadataInput!]
+  privateMetadata: [MetadataInput!]
   contentFile: Upload!
 }
 ```
@@ -33,6 +35,14 @@ Determines for how many days a download link is active since it was generated.
 #### [`automaticFulfillment`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
 
 Overwrite default automatic_fulfillment setting for variant.
+
+#### [`metadata`](#) ([`[MetadataInput!]`](../../../developer/api-reference/inputs/metadata-input))
+
+Fields required to update the digital content metadata.
+
+#### [`privateMetadata`](#) ([`[MetadataInput!]`](../../../developer/api-reference/inputs/metadata-input))
+
+Fields required to update the digital content private metadata.
 
 #### [`contentFile`](#) ([`Upload!`](../../../developer/api-reference/scalars/upload))
 

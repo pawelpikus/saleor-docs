@@ -1,0 +1,39 @@
+---
+id: promotion-rule-translate
+title: promotionRuleTranslate
+hide_table_of_contents: false
+---
+
+Creates/updates translations for a promotion rule.
+
+Requires one of the following permissions: MANAGE_TRANSLATIONS.
+
+```graphql
+promotionRuleTranslate(
+  id: ID!
+  input: PromotionRuleTranslationInput!
+  languageCode: LanguageCodeEnum!
+): PromotionRuleTranslate
+```
+
+### Arguments
+
+#### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+
+PromotionRule ID or PromotionRuleTranslatableContent ID.
+
+#### [`input`](#) ([`PromotionRuleTranslationInput!`](../../../developer/api-reference/inputs/promotion-rule-translation-input))
+
+Fields required to update promotion rule translations.
+
+#### [`languageCode`](#) ([`LanguageCodeEnum!`](../../../developer/api-reference/enums/language-code-enum))
+
+Translation language code.
+
+### Type
+
+#### [`PromotionRuleTranslate`](../../../developer/api-reference/objects/promotion-rule-translate)
+
+Creates/updates translations for a promotion rule.
+
+Requires one of the following permissions: MANAGE_TRANSLATIONS.

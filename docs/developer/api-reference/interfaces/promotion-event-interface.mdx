@@ -1,0 +1,34 @@
+---
+id: promotion-event-interface
+title: PromotionEventInterface
+hide_table_of_contents: false
+---
+
+No description
+
+```graphql
+interface PromotionEventInterface {
+  id: ID!
+  date: DateTime!
+  type: PromotionEventsEnum!
+  createdBy: UserOrApp
+}
+```
+
+### Fields
+
+#### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+
+#### [`date`](#) ([`DateTime!`](../../../developer/api-reference/scalars/date-time))
+
+Date when event happened.
+
+#### [`type`](#) ([`PromotionEventsEnum!`](../../../developer/api-reference/enums/promotion-events-enum))
+
+Promotion event type.
+
+#### [`createdBy`](#) ([`UserOrApp`](../../../developer/api-reference/unions/user-or-app))
+
+User or App that created the promotion event.
+
+Requires one of the following permissions: MANAGE_STAFF, MANAGE_APPS, OWNER.

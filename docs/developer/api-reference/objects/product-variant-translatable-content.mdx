@@ -4,11 +4,12 @@ title: ProductVariantTranslatableContent
 hide_table_of_contents: false
 ---
 
-No description
+Represents product variant's original translatable fields and related translations.
 
 ```graphql
 type ProductVariantTranslatableContent implements Node {
   id: ID!
+  productVariantId: ID!
   name: String!
   translation(languageCode: LanguageCodeEnum!): ProductVariantTranslation
   productVariant: ProductVariant
@@ -20,7 +21,15 @@ type ProductVariantTranslatableContent implements Node {
 
 #### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
 
+The ID of the product variant translatable content.
+
+#### [`productVariantId`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+
+The ID of the product variant to translate.
+
 #### [`name`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+Name of the product variant to translate.
 
 #### [`translation`](#) ([`ProductVariantTranslation`](../../../developer/api-reference/objects/product-variant-translation))
 

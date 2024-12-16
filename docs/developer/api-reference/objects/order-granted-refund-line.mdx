@@ -1,0 +1,32 @@
+---
+id: order-granted-refund-line
+title: OrderGrantedRefundLine
+hide_table_of_contents: false
+---
+
+Represents granted refund line.
+
+```graphql
+type OrderGrantedRefundLine {
+  id: ID!
+  quantity: Int!
+  orderLine: OrderLine!
+  reason: String
+}
+```
+
+### Fields
+
+#### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+
+#### [`quantity`](#) ([`Int!`](../../../developer/api-reference/scalars/int))
+
+Number of items to refund.
+
+#### [`orderLine`](#) ([`OrderLine!`](../../../developer/api-reference/objects/order-line))
+
+Line of the order associated with this granted refund.
+
+#### [`reason`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Reason for refunding the line.

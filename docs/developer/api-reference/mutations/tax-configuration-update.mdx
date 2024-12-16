@@ -1,0 +1,34 @@
+---
+id: tax-configuration-update
+title: taxConfigurationUpdate
+hide_table_of_contents: false
+---
+
+Update tax configuration for a channel.
+
+Requires one of the following permissions: MANAGE_TAXES.
+
+```graphql
+taxConfigurationUpdate(
+  id: ID!
+  input: TaxConfigurationUpdateInput!
+): TaxConfigurationUpdate
+```
+
+### Arguments
+
+#### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+
+ID of the tax configuration.
+
+#### [`input`](#) ([`TaxConfigurationUpdateInput!`](../../../developer/api-reference/inputs/tax-configuration-update-input))
+
+Fields required to update the tax configuration.
+
+### Type
+
+#### [`TaxConfigurationUpdate`](../../../developer/api-reference/objects/tax-configuration-update)
+
+Update tax configuration for a channel.
+
+Requires one of the following permissions: MANAGE_TAXES.

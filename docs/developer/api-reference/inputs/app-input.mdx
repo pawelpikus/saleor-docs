@@ -9,6 +9,7 @@ No description
 ```graphql
 input AppInput {
   name: String
+  identifier: String
   permissions: [PermissionEnum!]
 }
 ```
@@ -18,6 +19,12 @@ input AppInput {
 #### [`name`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
 Name of the app.
+
+#### [`identifier`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Canonical app ID. If not provided, the identifier will be generated based on app.id.
+
+Added in Saleor 3.19.
 
 #### [`permissions`](#) ([`[PermissionEnum!]`](../../../developer/api-reference/enums/permission-enum))
 

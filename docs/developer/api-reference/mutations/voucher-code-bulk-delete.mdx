@@ -1,0 +1,41 @@
+---
+id: voucher-code-bulk-delete
+title: voucherCodeBulkDelete
+hide_table_of_contents: false
+---
+
+Deletes voucher codes.
+
+Added in Saleor 3.18.
+
+Requires one of the following permissions: MANAGE_DISCOUNTS.
+
+Triggers the following webhook events:
+
+- VOUCHER_CODES_DELETED (async): A voucher codes were deleted.
+
+```graphql
+voucherCodeBulkDelete(
+  ids: [ID!]!
+): VoucherCodeBulkDelete
+```
+
+### Arguments
+
+#### [`ids`](#) ([`[ID!]!`](../../../developer/api-reference/scalars/id))
+
+List of voucher codes IDs to delete.
+
+### Type
+
+#### [`VoucherCodeBulkDelete`](../../../developer/api-reference/objects/voucher-code-bulk-delete)
+
+Deletes voucher codes.
+
+Added in Saleor 3.18.
+
+Requires one of the following permissions: MANAGE_DISCOUNTS.
+
+Triggers the following webhook events:
+
+- VOUCHER_CODES_DELETED (async): A voucher codes were deleted.

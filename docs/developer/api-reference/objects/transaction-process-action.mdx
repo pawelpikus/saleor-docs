@@ -1,0 +1,27 @@
+---
+id: transaction-process-action
+title: TransactionProcessAction
+hide_table_of_contents: false
+---
+
+No description
+
+```graphql
+type TransactionProcessAction {
+  amount: PositiveDecimal!
+  currency: String!
+  actionType: TransactionFlowStrategyEnum!
+}
+```
+
+### Fields
+
+#### [`amount`](#) ([`PositiveDecimal!`](../../../developer/api-reference/scalars/positive-decimal))
+
+Transaction amount to process.
+
+#### [`currency`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+Currency of the amount.
+
+#### [`actionType`](#) ([`TransactionFlowStrategyEnum!`](../../../developer/api-reference/enums/transaction-flow-strategy-enum))

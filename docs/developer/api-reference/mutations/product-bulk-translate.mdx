@@ -1,0 +1,44 @@
+---
+id: product-bulk-translate
+title: productBulkTranslate
+hide_table_of_contents: false
+---
+
+Creates/updates translations for products.
+
+Requires one of the following permissions: MANAGE_TRANSLATIONS.
+
+Triggers the following webhook events:
+
+- TRANSLATION_CREATED (async): Called when a translation was created.
+- TRANSLATION_UPDATED (async): Called when a translation was updated.
+
+```graphql
+productBulkTranslate(
+  errorPolicy: ErrorPolicyEnum
+  translations: [ProductBulkTranslateInput!]!
+): ProductBulkTranslate
+```
+
+### Arguments
+
+#### [`errorPolicy`](#) ([`ErrorPolicyEnum`](../../../developer/api-reference/enums/error-policy-enum))
+
+Policies of error handling. DEFAULT: REJECT_EVERYTHING
+
+#### [`translations`](#) ([`[ProductBulkTranslateInput!]!`](../../../developer/api-reference/inputs/product-bulk-translate-input))
+
+List of product translations.
+
+### Type
+
+#### [`ProductBulkTranslate`](../../../developer/api-reference/objects/product-bulk-translate)
+
+Creates/updates translations for products.
+
+Requires one of the following permissions: MANAGE_TRANSLATIONS.
+
+Triggers the following webhook events:
+
+- TRANSLATION_CREATED (async): Called when a translation was created.
+- TRANSLATION_UPDATED (async): Called when a translation was updated.

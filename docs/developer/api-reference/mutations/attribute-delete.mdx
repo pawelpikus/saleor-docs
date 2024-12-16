@@ -8,15 +8,24 @@ Deletes an attribute.
 
 Requires one of the following permissions: MANAGE_PRODUCT_TYPES_AND_ATTRIBUTES.
 
+Triggers the following webhook events:
+
+- ATTRIBUTE_DELETED (async): An attribute was deleted.
+
 ```graphql
 attributeDelete(
-  id: ID!
+  externalReference: String
+  id: ID
 ): AttributeDelete
 ```
 
 ### Arguments
 
-#### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+#### [`externalReference`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+External ID of an attribute to delete.
+
+#### [`id`](#) ([`ID`](../../../developer/api-reference/scalars/id))
 
 ID of an attribute to delete.
 
@@ -27,3 +36,7 @@ ID of an attribute to delete.
 Deletes an attribute.
 
 Requires one of the following permissions: MANAGE_PRODUCT_TYPES_AND_ATTRIBUTES.
+
+Triggers the following webhook events:
+
+- ATTRIBUTE_DELETED (async): An attribute was deleted.

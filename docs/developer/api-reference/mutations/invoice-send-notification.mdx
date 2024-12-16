@@ -8,6 +8,11 @@ Send an invoice notification to the customer.
 
 Requires one of the following permissions: MANAGE_ORDERS.
 
+Triggers the following webhook events:
+
+- INVOICE_SENT (async): A notification for invoice send
+- NOTIFY_USER (async): A notification for invoice send
+
 ```graphql
 invoiceSendNotification(
   id: ID!
@@ -27,3 +32,8 @@ ID of an invoice to be sent.
 Send an invoice notification to the customer.
 
 Requires one of the following permissions: MANAGE_ORDERS.
+
+Triggers the following webhook events:
+
+- INVOICE_SENT (async): A notification for invoice send
+- NOTIFY_USER (async): A notification for invoice send

@@ -1,0 +1,27 @@
+---
+id: payment-gateway-config
+title: PaymentGatewayConfig
+hide_table_of_contents: false
+---
+
+No description
+
+```graphql
+type PaymentGatewayConfig {
+  id: String!
+  data: JSON
+  errors: [PaymentGatewayConfigError!]
+}
+```
+
+### Fields
+
+#### [`id`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+The app identifier.
+
+#### [`data`](#) ([`JSON`](../../../developer/api-reference/scalars/json))
+
+The JSON data required to initialize the payment gateway.
+
+#### [`errors`](#) ([`[PaymentGatewayConfigError!]`](../../../developer/api-reference/objects/payment-gateway-config-error))

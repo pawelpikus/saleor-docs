@@ -8,6 +8,10 @@ Remove user account.
 
 Requires one of the following permissions: AUTHENTICATED_USER.
 
+Triggers the following webhook events:
+
+- ACCOUNT_DELETED (async): Account was deleted.
+
 ```graphql
 accountDelete(
   token: String!
@@ -27,3 +31,7 @@ A one-time token required to remove account. Sent by email using AccountRequestD
 Remove user account.
 
 Requires one of the following permissions: AUTHENTICATED_USER.
+
+Triggers the following webhook events:
+
+- ACCOUNT_DELETED (async): Account was deleted.

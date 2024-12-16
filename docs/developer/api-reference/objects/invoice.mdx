@@ -22,6 +22,7 @@ type Invoice implements ObjectWithMetadata, Job, Node {
   number: String
   externalUrl: String
   url: String
+  order: Order
 }
 ```
 
@@ -37,19 +38,11 @@ A single key from private metadata. Requires staff permissions to access.
 
 Tip: Use GraphQL aliases to fetch multiple keys.
 
-Added in Saleor 3.3.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
 - ##### [`key`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
 #### [`privateMetafields`](#) ([`Metadata`](../../../developer/api-reference/scalars/metadata))
 
 Private metadata. Requires staff permissions to access. Use `keys` to control which fields you want to include. The default is to include everything.
-
-Added in Saleor 3.3.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
 
 - ##### [`keys`](#) ([`[String!]`](../../../developer/api-reference/scalars/string))
 
@@ -63,19 +56,11 @@ A single key from public metadata.
 
 Tip: Use GraphQL aliases to fetch multiple keys.
 
-Added in Saleor 3.3.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
 - ##### [`key`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
 #### [`metafields`](#) ([`Metadata`](../../../developer/api-reference/scalars/metadata))
 
 Public metadata. Use `keys` to control which fields you want to include. The default is to include everything.
-
-Added in Saleor 3.3.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
 
 - ##### [`keys`](#) ([`[String!]`](../../../developer/api-reference/scalars/string))
 
@@ -85,9 +70,15 @@ Job status.
 
 #### [`createdAt`](#) ([`DateTime!`](../../../developer/api-reference/scalars/date-time))
 
+Date and time at which invoice was created.
+
 #### [`updatedAt`](#) ([`DateTime!`](../../../developer/api-reference/scalars/date-time))
 
+Date and time at which invoice was updated.
+
 #### [`message`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Message associated with an invoice.
 
 #### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
 
@@ -95,11 +86,19 @@ The ID of the object.
 
 #### [`number`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
+Invoice number.
+
 #### [`externalUrl`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+URL to view an invoice.
 
 #### [`url`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
-URL to download an invoice.
+URL to view/download an invoice.
+
+#### [`order`](#) ([`Order`](../../../developer/api-reference/objects/order))
+
+Order related to the invoice.
 
 ### Interfaces
 

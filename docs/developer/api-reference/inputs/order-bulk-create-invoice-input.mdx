@@ -1,0 +1,39 @@
+---
+id: order-bulk-create-invoice-input
+title: OrderBulkCreateInvoiceInput
+hide_table_of_contents: false
+---
+
+No description
+
+```graphql
+input OrderBulkCreateInvoiceInput {
+  createdAt: DateTime!
+  number: String
+  url: String
+  metadata: [MetadataInput!]
+  privateMetadata: [MetadataInput!]
+}
+```
+
+### Fields
+
+#### [`createdAt`](#) ([`DateTime!`](../../../developer/api-reference/scalars/date-time))
+
+The date, when the invoice was created.
+
+#### [`number`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Invoice number.
+
+#### [`url`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+URL of the invoice to download.
+
+#### [`metadata`](#) ([`[MetadataInput!]`](../../../developer/api-reference/inputs/metadata-input))
+
+Metadata of the invoice.
+
+#### [`privateMetadata`](#) ([`[MetadataInput!]`](../../../developer/api-reference/inputs/metadata-input))
+
+Private metadata of the invoice.

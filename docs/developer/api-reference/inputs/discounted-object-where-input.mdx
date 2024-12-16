@@ -1,0 +1,34 @@
+---
+id: discounted-object-where-input
+title: DiscountedObjectWhereInput
+hide_table_of_contents: false
+---
+
+No description
+
+```graphql
+input DiscountedObjectWhereInput {
+  baseSubtotalPrice: DecimalFilterInput
+  baseTotalPrice: DecimalFilterInput
+  AND: [DiscountedObjectWhereInput!]
+  OR: [DiscountedObjectWhereInput!]
+}
+```
+
+### Fields
+
+#### [`baseSubtotalPrice`](#) ([`DecimalFilterInput`](../../../developer/api-reference/inputs/decimal-filter-input))
+
+Filter by the base subtotal price.
+
+#### [`baseTotalPrice`](#) ([`DecimalFilterInput`](../../../developer/api-reference/inputs/decimal-filter-input))
+
+Filter by the base total price.
+
+#### [`AND`](#) ([`[DiscountedObjectWhereInput!]`](../../../developer/api-reference/inputs/discounted-object-where-input))
+
+List of conditions that must be met.
+
+#### [`OR`](#) ([`[DiscountedObjectWhereInput!]`](../../../developer/api-reference/inputs/discounted-object-where-input))
+
+A list of conditions of which at least one must be met.

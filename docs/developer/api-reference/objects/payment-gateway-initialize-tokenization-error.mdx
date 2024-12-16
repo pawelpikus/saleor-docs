@@ -1,0 +1,29 @@
+---
+id: payment-gateway-initialize-tokenization-error
+title: PaymentGatewayInitializeTokenizationError
+hide_table_of_contents: false
+---
+
+No description
+
+```graphql
+type PaymentGatewayInitializeTokenizationError {
+  field: String
+  message: String
+  code: PaymentGatewayInitializeTokenizationErrorCode!
+}
+```
+
+### Fields
+
+#### [`field`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field.
+
+#### [`message`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+The error message.
+
+#### [`code`](#) ([`PaymentGatewayInitializeTokenizationErrorCode!`](../../../developer/api-reference/enums/payment-gateway-initialize-tokenization-error-code))
+
+The error code.

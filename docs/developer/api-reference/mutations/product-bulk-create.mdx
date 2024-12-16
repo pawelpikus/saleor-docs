@@ -1,0 +1,34 @@
+---
+id: product-bulk-create
+title: productBulkCreate
+hide_table_of_contents: false
+---
+
+Creates products.
+
+Requires one of the following permissions: MANAGE_PRODUCTS.
+
+```graphql
+productBulkCreate(
+  errorPolicy: ErrorPolicyEnum
+  products: [ProductBulkCreateInput!]!
+): ProductBulkCreate
+```
+
+### Arguments
+
+#### [`errorPolicy`](#) ([`ErrorPolicyEnum`](../../../developer/api-reference/enums/error-policy-enum))
+
+Policies of error handling. DEFAULT: REJECT_EVERYTHING
+
+#### [`products`](#) ([`[ProductBulkCreateInput!]!`](../../../developer/api-reference/inputs/product-bulk-create-input))
+
+Input list of products to create.
+
+### Type
+
+#### [`ProductBulkCreate`](../../../developer/api-reference/objects/product-bulk-create)
+
+Creates products.
+
+Requires one of the following permissions: MANAGE_PRODUCTS.
