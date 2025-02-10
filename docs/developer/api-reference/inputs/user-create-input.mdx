@@ -15,7 +15,11 @@ input UserCreateInput {
   email: String
   isActive: Boolean
   note: String
+  metadata: [MetadataInput!]
+  privateMetadata: [MetadataInput!]
   languageCode: LanguageCodeEnum
+  externalReference: String
+  isConfirmed: Boolean
   redirectUrl: String
   channel: String
 }
@@ -51,9 +55,29 @@ User account is active.
 
 A note about the user.
 
+#### [`metadata`](#) ([`[MetadataInput!]`](../../../developer/api-reference/inputs/metadata-input))
+
+Fields required to update the user metadata.
+
+#### [`privateMetadata`](#) ([`[MetadataInput!]`](../../../developer/api-reference/inputs/metadata-input))
+
+Fields required to update the user private metadata.
+
 #### [`languageCode`](#) ([`LanguageCodeEnum`](../../../developer/api-reference/enums/language-code-enum))
 
 User language code.
+
+#### [`externalReference`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+External ID of the customer.
+
+#### [`isConfirmed`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
+
+User account is confirmed.
+
+DEPRECATED: this field will be removed in Saleor 4.0.
+
+The user will be always set as unconfirmed. The confirmation will take place when the user sets the password.
 
 #### [`redirectUrl`](#) ([`String`](../../../developer/api-reference/scalars/string))
 

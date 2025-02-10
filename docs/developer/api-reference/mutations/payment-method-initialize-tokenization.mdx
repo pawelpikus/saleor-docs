@@ -1,0 +1,52 @@
+---
+id: payment-method-initialize-tokenization
+title: paymentMethodInitializeTokenization
+hide_table_of_contents: false
+---
+
+Tokenize payment method.
+
+Requires one of the following permissions: AUTHENTICATED_USER.
+
+Triggers the following webhook events:
+
+- PAYMENT_METHOD_INITIALIZE_TOKENIZATION_SESSION (sync): The customer requested to tokenize payment method.
+
+```graphql
+paymentMethodInitializeTokenization(
+  channel: String!
+  data: JSON
+  id: String!
+  paymentFlowToSupport: TokenizedPaymentFlowEnum!
+): PaymentMethodInitializeTokenization
+```
+
+### Arguments
+
+#### [`channel`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+Slug of a channel related to tokenization request.
+
+#### [`data`](#) ([`JSON`](../../../developer/api-reference/scalars/json))
+
+The data that will be passed to the payment gateway.
+
+#### [`id`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+The identifier of the payment gateway app to initialize payment method tokenization.
+
+#### [`paymentFlowToSupport`](#) ([`TokenizedPaymentFlowEnum!`](../../../developer/api-reference/enums/tokenized-payment-flow-enum))
+
+The payment flow that the tokenized payment method should support.
+
+### Type
+
+#### [`PaymentMethodInitializeTokenization`](../../../developer/api-reference/objects/payment-method-initialize-tokenization)
+
+Tokenize payment method.
+
+Requires one of the following permissions: AUTHENTICATED_USER.
+
+Triggers the following webhook events:
+
+- PAYMENT_METHOD_INITIALIZE_TOKENIZATION_SESSION (sync): The customer requested to tokenize payment method.

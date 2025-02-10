@@ -1,0 +1,24 @@
+---
+id: product-variant-bulk-result
+title: ProductVariantBulkResult
+hide_table_of_contents: false
+---
+
+No description
+
+```graphql
+type ProductVariantBulkResult {
+  productVariant: ProductVariant
+  errors: [ProductVariantBulkError!]
+}
+```
+
+### Fields
+
+#### [`productVariant`](#) ([`ProductVariant`](../../../developer/api-reference/objects/product-variant))
+
+Product variant data.
+
+#### [`errors`](#) ([`[ProductVariantBulkError!]`](../../../developer/api-reference/objects/product-variant-bulk-error))
+
+List of errors occurred on create attempt.

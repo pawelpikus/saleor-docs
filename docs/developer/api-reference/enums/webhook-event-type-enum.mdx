@@ -9,6 +9,13 @@ Enum determining type of webhook.
 ```graphql
 enum WebhookEventTypeEnum {
   ANY_EVENTS
+  ACCOUNT_CONFIRMATION_REQUESTED
+  ACCOUNT_CHANGE_EMAIL_REQUESTED
+  ACCOUNT_EMAIL_CHANGED
+  ACCOUNT_SET_PASSWORD_REQUESTED
+  ACCOUNT_CONFIRMED
+  ACCOUNT_DELETE_REQUESTED
+  ACCOUNT_DELETED
   ADDRESS_CREATED
   ADDRESS_UPDATED
   ADDRESS_DELETED
@@ -29,10 +36,14 @@ enum WebhookEventTypeEnum {
   CHANNEL_UPDATED
   CHANNEL_DELETED
   CHANNEL_STATUS_CHANGED
+  CHANNEL_METADATA_UPDATED
   GIFT_CARD_CREATED
   GIFT_CARD_UPDATED
   GIFT_CARD_DELETED
+  GIFT_CARD_SENT
   GIFT_CARD_STATUS_CHANGED
+  GIFT_CARD_METADATA_UPDATED
+  GIFT_CARD_EXPORT_COMPLETED
   MENU_CREATED
   MENU_UPDATED
   MENU_DELETED
@@ -41,10 +52,21 @@ enum WebhookEventTypeEnum {
   MENU_ITEM_DELETED
   ORDER_CREATED
   ORDER_CONFIRMED
+  ORDER_PAID
   ORDER_FULLY_PAID
+  ORDER_REFUNDED
+  ORDER_FULLY_REFUNDED
   ORDER_UPDATED
   ORDER_CANCELLED
+  ORDER_EXPIRED
   ORDER_FULFILLED
+  ORDER_METADATA_UPDATED
+  ORDER_BULK_CREATED
+  FULFILLMENT_CREATED
+  FULFILLMENT_CANCELED
+  FULFILLMENT_APPROVED
+  FULFILLMENT_METADATA_UPDATED
+  FULFILLMENT_TRACKING_NUMBER_UPDATED
   DRAFT_ORDER_CREATED
   DRAFT_ORDER_UPDATED
   DRAFT_ORDER_DELETED
@@ -52,27 +74,44 @@ enum WebhookEventTypeEnum {
   SALE_UPDATED
   SALE_DELETED
   SALE_TOGGLE
+  PROMOTION_CREATED
+  PROMOTION_UPDATED
+  PROMOTION_DELETED
+  PROMOTION_STARTED
+  PROMOTION_ENDED
+  PROMOTION_RULE_CREATED
+  PROMOTION_RULE_UPDATED
+  PROMOTION_RULE_DELETED
   INVOICE_REQUESTED
   INVOICE_DELETED
   INVOICE_SENT
   CUSTOMER_CREATED
   CUSTOMER_UPDATED
   CUSTOMER_DELETED
+  CUSTOMER_METADATA_UPDATED
   COLLECTION_CREATED
   COLLECTION_UPDATED
   COLLECTION_DELETED
+  COLLECTION_METADATA_UPDATED
   PRODUCT_CREATED
   PRODUCT_UPDATED
   PRODUCT_DELETED
+  PRODUCT_METADATA_UPDATED
+  PRODUCT_EXPORT_COMPLETED
+  PRODUCT_MEDIA_CREATED
+  PRODUCT_MEDIA_UPDATED
+  PRODUCT_MEDIA_DELETED
   PRODUCT_VARIANT_CREATED
   PRODUCT_VARIANT_UPDATED
   PRODUCT_VARIANT_DELETED
+  PRODUCT_VARIANT_METADATA_UPDATED
   PRODUCT_VARIANT_OUT_OF_STOCK
   PRODUCT_VARIANT_BACK_IN_STOCK
+  PRODUCT_VARIANT_STOCK_UPDATED
   CHECKOUT_CREATED
   CHECKOUT_UPDATED
-  FULFILLMENT_CREATED
-  FULFILLMENT_CANCELED
+  CHECKOUT_FULLY_PAID
+  CHECKOUT_METADATA_UPDATED
   NOTIFY_USER
   PAGE_CREATED
   PAGE_UPDATED
@@ -89,31 +128,51 @@ enum WebhookEventTypeEnum {
   SHIPPING_ZONE_CREATED
   SHIPPING_ZONE_UPDATED
   SHIPPING_ZONE_DELETED
+  SHIPPING_ZONE_METADATA_UPDATED
   STAFF_CREATED
   STAFF_UPDATED
   STAFF_DELETED
-  TRANSACTION_ACTION_REQUEST
+  STAFF_SET_PASSWORD_REQUESTED
+  TRANSACTION_ITEM_METADATA_UPDATED
   TRANSLATION_CREATED
   TRANSLATION_UPDATED
   WAREHOUSE_CREATED
   WAREHOUSE_UPDATED
   WAREHOUSE_DELETED
+  WAREHOUSE_METADATA_UPDATED
   VOUCHER_CREATED
   VOUCHER_UPDATED
   VOUCHER_DELETED
+  VOUCHER_CODES_CREATED
+  VOUCHER_CODES_DELETED
+  VOUCHER_METADATA_UPDATED
+  VOUCHER_CODE_EXPORT_COMPLETED
   OBSERVABILITY
+  THUMBNAIL_CREATED
+  SHOP_METADATA_UPDATED
+  PAYMENT_LIST_GATEWAYS
   PAYMENT_AUTHORIZE
   PAYMENT_CAPTURE
-  PAYMENT_CONFIRM
-  PAYMENT_LIST_GATEWAYS
-  PAYMENT_PROCESS
   PAYMENT_REFUND
   PAYMENT_VOID
+  PAYMENT_CONFIRM
+  PAYMENT_PROCESS
   CHECKOUT_CALCULATE_TAXES
   ORDER_CALCULATE_TAXES
+  TRANSACTION_CHARGE_REQUESTED
+  TRANSACTION_REFUND_REQUESTED
+  TRANSACTION_CANCELATION_REQUESTED
   SHIPPING_LIST_METHODS_FOR_CHECKOUT
-  ORDER_FILTER_SHIPPING_METHODS
   CHECKOUT_FILTER_SHIPPING_METHODS
+  ORDER_FILTER_SHIPPING_METHODS
+  PAYMENT_GATEWAY_INITIALIZE_SESSION
+  TRANSACTION_INITIALIZE_SESSION
+  TRANSACTION_PROCESS_SESSION
+  LIST_STORED_PAYMENT_METHODS
+  STORED_PAYMENT_METHOD_DELETE_REQUESTED
+  PAYMENT_GATEWAY_INITIALIZE_TOKENIZATION_SESSION
+  PAYMENT_METHOD_INITIALIZE_TOKENIZATION_SESSION
+  PAYMENT_METHOD_PROCESS_TOKENIZATION_SESSION
 }
 ```
 
@@ -122,6 +181,36 @@ enum WebhookEventTypeEnum {
 #### [`ANY_EVENTS`](#)
 
 All the events.
+
+DEPRECATED: this value will be removed in Saleor 4.0.
+
+#### [`ACCOUNT_CONFIRMATION_REQUESTED`](#)
+
+An account confirmation is requested.
+
+#### [`ACCOUNT_CHANGE_EMAIL_REQUESTED`](#)
+
+An account email change is requested.
+
+#### [`ACCOUNT_EMAIL_CHANGED`](#)
+
+An account email was changed
+
+#### [`ACCOUNT_SET_PASSWORD_REQUESTED`](#)
+
+Setting a new password for the account is requested.
+
+#### [`ACCOUNT_CONFIRMED`](#)
+
+An account is confirmed.
+
+#### [`ACCOUNT_DELETE_REQUESTED`](#)
+
+An account delete is requested.
+
+#### [`ACCOUNT_DELETED`](#)
+
+An account is deleted.
 
 #### [`ADDRESS_CREATED`](#)
 
@@ -203,6 +292,10 @@ A channel is deleted.
 
 A channel status is changed.
 
+#### [`CHANNEL_METADATA_UPDATED`](#)
+
+A channel metadata is updated.
+
 #### [`GIFT_CARD_CREATED`](#)
 
 A new gift card created.
@@ -215,9 +308,21 @@ A gift card is updated.
 
 A gift card is deleted.
 
+#### [`GIFT_CARD_SENT`](#)
+
+A gift card has been sent.
+
 #### [`GIFT_CARD_STATUS_CHANGED`](#)
 
 A gift card status is changed.
+
+#### [`GIFT_CARD_METADATA_UPDATED`](#)
+
+A gift card metadata is updated.
+
+#### [`GIFT_CARD_EXPORT_COMPLETED`](#)
+
+A gift card export is completed.
 
 #### [`MENU_CREATED`](#)
 
@@ -251,9 +356,21 @@ A new order is placed.
 
 An order is confirmed (status change unconfirmed -&#x003E; unfulfilled) by a staff user using the OrderConfirm mutation. It also triggers when the user completes the checkout and the shop setting `automatically_confirm_all_new_orders` is enabled.
 
+#### [`ORDER_PAID`](#)
+
+Payment has been made. The order may be partially or fully paid.
+
 #### [`ORDER_FULLY_PAID`](#)
 
 Payment is made and an order is fully paid.
+
+#### [`ORDER_REFUNDED`](#)
+
+The order received a refund. The order may be partially or fully refunded.
+
+#### [`ORDER_FULLY_REFUNDED`](#)
+
+The order is fully refunded.
 
 #### [`ORDER_UPDATED`](#)
 
@@ -263,9 +380,39 @@ An order is updated; triggered for all changes related to an order; covers all o
 
 An order is cancelled.
 
+#### [`ORDER_EXPIRED`](#)
+
+An order is expired.
+
 #### [`ORDER_FULFILLED`](#)
 
 An order is fulfilled.
+
+#### [`ORDER_METADATA_UPDATED`](#)
+
+An order metadata is updated.
+
+#### [`ORDER_BULK_CREATED`](#)
+
+Orders are imported.
+
+#### [`FULFILLMENT_CREATED`](#)
+
+A new fulfillment is created.
+
+#### [`FULFILLMENT_CANCELED`](#)
+
+A fulfillment is cancelled.
+
+#### [`FULFILLMENT_APPROVED`](#)
+
+A fulfillment is approved.
+
+#### [`FULFILLMENT_METADATA_UPDATED`](#)
+
+A fulfillment metadata is updated.
+
+#### [`FULFILLMENT_TRACKING_NUMBER_UPDATED`](#)
 
 #### [`DRAFT_ORDER_CREATED`](#)
 
@@ -295,6 +442,38 @@ A sale is deleted.
 
 A sale is activated or deactivated.
 
+#### [`PROMOTION_CREATED`](#)
+
+A promotion is created.
+
+#### [`PROMOTION_UPDATED`](#)
+
+A promotion is updated.
+
+#### [`PROMOTION_DELETED`](#)
+
+A promotion is deleted.
+
+#### [`PROMOTION_STARTED`](#)
+
+A promotion is activated.
+
+#### [`PROMOTION_ENDED`](#)
+
+A promotion is deactivated.
+
+#### [`PROMOTION_RULE_CREATED`](#)
+
+A promotion rule is created.
+
+#### [`PROMOTION_RULE_UPDATED`](#)
+
+A promotion rule is updated.
+
+#### [`PROMOTION_RULE_DELETED`](#)
+
+A promotion rule is deleted.
+
 #### [`INVOICE_REQUESTED`](#)
 
 An invoice for order requested.
@@ -319,6 +498,10 @@ A customer account is updated.
 
 A customer account is deleted.
 
+#### [`CUSTOMER_METADATA_UPDATED`](#)
+
+A customer account metadata is updated.
+
 #### [`COLLECTION_CREATED`](#)
 
 A new collection is created.
@@ -330,6 +513,10 @@ A collection is updated.
 #### [`COLLECTION_DELETED`](#)
 
 A collection is deleted.
+
+#### [`COLLECTION_METADATA_UPDATED`](#)
+
+A collection metadata is updated.
 
 #### [`PRODUCT_CREATED`](#)
 
@@ -343,6 +530,26 @@ A product is updated.
 
 A product is deleted.
 
+#### [`PRODUCT_METADATA_UPDATED`](#)
+
+A product metadata is updated.
+
+#### [`PRODUCT_EXPORT_COMPLETED`](#)
+
+A product export is completed.
+
+#### [`PRODUCT_MEDIA_CREATED`](#)
+
+A new product media is created.
+
+#### [`PRODUCT_MEDIA_UPDATED`](#)
+
+A product media is updated.
+
+#### [`PRODUCT_MEDIA_DELETED`](#)
+
+A product media is deleted.
+
 #### [`PRODUCT_VARIANT_CREATED`](#)
 
 A new product variant is created.
@@ -353,7 +560,11 @@ A product variant is updated.
 
 #### [`PRODUCT_VARIANT_DELETED`](#)
 
-A product variant is deleted.
+A product variant is deleted. Warning: this event will not be executed when parent product has been deleted. Check PRODUCT_DELETED.
+
+#### [`PRODUCT_VARIANT_METADATA_UPDATED`](#)
+
+A product variant metadata is updated.
 
 #### [`PRODUCT_VARIANT_OUT_OF_STOCK`](#)
 
@@ -363,6 +574,10 @@ A product variant is out of stock.
 
 A product variant is back in stock.
 
+#### [`PRODUCT_VARIANT_STOCK_UPDATED`](#)
+
+A product variant stock is updated
+
 #### [`CHECKOUT_CREATED`](#)
 
 A new checkout is created.
@@ -371,17 +586,17 @@ A new checkout is created.
 
 A checkout is updated. It also triggers all updates related to the checkout.
 
-#### [`FULFILLMENT_CREATED`](#)
+#### [`CHECKOUT_FULLY_PAID`](#)
 
-A new fulfillment is created.
+#### [`CHECKOUT_METADATA_UPDATED`](#)
 
-#### [`FULFILLMENT_CANCELED`](#)
-
-A fulfillment is cancelled.
+A checkout metadata is updated.
 
 #### [`NOTIFY_USER`](#)
 
 User notification triggered.
+
+DEPRECATED: this value will be removed in Saleor 4.0. See the docs for more details about migrating from NOTIFY_USER to other events: https://docs.saleor.io/docs/next/upgrade-guides/notify-user-deprecation
 
 #### [`PAGE_CREATED`](#)
 
@@ -443,6 +658,10 @@ A shipping zone is updated.
 
 A shipping zone is deleted.
 
+#### [`SHIPPING_ZONE_METADATA_UPDATED`](#)
+
+A shipping zone metadata is updated.
+
 #### [`STAFF_CREATED`](#)
 
 A new staff user is created.
@@ -455,9 +674,13 @@ A staff user is updated.
 
 A staff user is deleted.
 
-#### [`TRANSACTION_ACTION_REQUEST`](#)
+#### [`STAFF_SET_PASSWORD_REQUESTED`](#)
 
-An action requested for transaction.
+Setting a new password for the staff account is requested.
+
+#### [`TRANSACTION_ITEM_METADATA_UPDATED`](#)
+
+Transaction item metadata is updated.
 
 #### [`TRANSLATION_CREATED`](#)
 
@@ -479,6 +702,10 @@ A warehouse is updated.
 
 A warehouse is deleted.
 
+#### [`WAREHOUSE_METADATA_UPDATED`](#)
+
+A warehouse metadata is updated.
+
 #### [`VOUCHER_CREATED`](#)
 
 A new voucher created.
@@ -491,9 +718,35 @@ A voucher is updated.
 
 A voucher is deleted.
 
+#### [`VOUCHER_CODES_CREATED`](#)
+
+#### [`VOUCHER_CODES_DELETED`](#)
+
+#### [`VOUCHER_METADATA_UPDATED`](#)
+
+A voucher metadata is updated.
+
+#### [`VOUCHER_CODE_EXPORT_COMPLETED`](#)
+
+A voucher code export is completed.
+
+Added in Saleor 3.18.
+
 #### [`OBSERVABILITY`](#)
 
 An observability event is created.
+
+#### [`THUMBNAIL_CREATED`](#)
+
+A thumbnail is created.
+
+#### [`SHOP_METADATA_UPDATED`](#)
+
+Shop metadata is updated.
+
+#### [`PAYMENT_LIST_GATEWAYS`](#)
+
+Listing available payment gateways.
 
 #### [`PAYMENT_AUTHORIZE`](#)
 
@@ -503,18 +756,6 @@ Authorize payment.
 
 Capture payment.
 
-#### [`PAYMENT_CONFIRM`](#)
-
-Confirm payment.
-
-#### [`PAYMENT_LIST_GATEWAYS`](#)
-
-Listing available payment gateways.
-
-#### [`PAYMENT_PROCESS`](#)
-
-Process payment.
-
 #### [`PAYMENT_REFUND`](#)
 
 Refund payment.
@@ -523,30 +764,58 @@ Refund payment.
 
 Void payment.
 
+#### [`PAYMENT_CONFIRM`](#)
+
+Confirm payment.
+
+#### [`PAYMENT_PROCESS`](#)
+
+Process payment.
+
 #### [`CHECKOUT_CALCULATE_TAXES`](#)
 
 Event called for checkout tax calculation.
-
-Added in Saleor 3.6.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
 
 #### [`ORDER_CALCULATE_TAXES`](#)
 
 Event called for order tax calculation.
 
-Added in Saleor 3.6.
+#### [`TRANSACTION_CHARGE_REQUESTED`](#)
 
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
+Event called when charge has been requested for transaction.
+
+#### [`TRANSACTION_REFUND_REQUESTED`](#)
+
+Event called when refund has been requested for transaction.
+
+#### [`TRANSACTION_CANCELATION_REQUESTED`](#)
+
+Event called when cancel has been requested for transaction.
 
 #### [`SHIPPING_LIST_METHODS_FOR_CHECKOUT`](#)
 
 Fetch external shipping methods for checkout.
 
+#### [`CHECKOUT_FILTER_SHIPPING_METHODS`](#)
+
+Filter shipping methods for checkout.
+
 #### [`ORDER_FILTER_SHIPPING_METHODS`](#)
 
 Filter shipping methods for order.
 
-#### [`CHECKOUT_FILTER_SHIPPING_METHODS`](#)
+#### [`PAYMENT_GATEWAY_INITIALIZE_SESSION`](#)
 
-Filter shipping methods for checkout.
+#### [`TRANSACTION_INITIALIZE_SESSION`](#)
+
+#### [`TRANSACTION_PROCESS_SESSION`](#)
+
+#### [`LIST_STORED_PAYMENT_METHODS`](#)
+
+#### [`STORED_PAYMENT_METHOD_DELETE_REQUESTED`](#)
+
+#### [`PAYMENT_GATEWAY_INITIALIZE_TOKENIZATION_SESSION`](#)
+
+#### [`PAYMENT_METHOD_INITIALIZE_TOKENIZATION_SESSION`](#)
+
+#### [`PAYMENT_METHOD_PROCESS_TOKENIZATION_SESSION`](#)

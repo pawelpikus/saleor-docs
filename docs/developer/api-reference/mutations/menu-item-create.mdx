@@ -8,6 +8,10 @@ Creates a new menu item.
 
 Requires one of the following permissions: MANAGE_MENUS.
 
+Triggers the following webhook events:
+
+- MENU_ITEM_CREATED (async): A menu item was created.
+
 ```graphql
 menuItemCreate(
   input: MenuItemCreateInput!
@@ -27,3 +31,7 @@ Fields required to update a menu item. Only one of `url`, `category`, `page`, `c
 Creates a new menu item.
 
 Requires one of the following permissions: MANAGE_MENUS.
+
+Triggers the following webhook events:
+
+- MENU_ITEM_CREATED (async): A menu item was created.

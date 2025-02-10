@@ -4,7 +4,7 @@ title: DigitalContent
 hide_table_of_contents: false
 ---
 
-No description
+Represents digital content associated with a product variant.
 
 ```graphql
 type DigitalContent implements Node, ObjectWithMetadata {
@@ -29,6 +29,8 @@ type DigitalContent implements Node, ObjectWithMetadata {
 
 #### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
 
+The ID of the digital content.
+
 #### [`privateMetadata`](#) ([`[MetadataItem!]!`](../../../developer/api-reference/objects/metadata-item))
 
 List of private metadata items. Requires staff permissions to access.
@@ -39,19 +41,11 @@ A single key from private metadata. Requires staff permissions to access.
 
 Tip: Use GraphQL aliases to fetch multiple keys.
 
-Added in Saleor 3.3.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
 - ##### [`key`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
 #### [`privateMetafields`](#) ([`Metadata`](../../../developer/api-reference/scalars/metadata))
 
 Private metadata. Requires staff permissions to access. Use `keys` to control which fields you want to include. The default is to include everything.
-
-Added in Saleor 3.3.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
 
 - ##### [`keys`](#) ([`[String!]`](../../../developer/api-reference/scalars/string))
 
@@ -65,31 +59,33 @@ A single key from public metadata.
 
 Tip: Use GraphQL aliases to fetch multiple keys.
 
-Added in Saleor 3.3.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
 - ##### [`key`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
 #### [`metafields`](#) ([`Metadata`](../../../developer/api-reference/scalars/metadata))
 
 Public metadata. Use `keys` to control which fields you want to include. The default is to include everything.
 
-Added in Saleor 3.3.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
 - ##### [`keys`](#) ([`[String!]`](../../../developer/api-reference/scalars/string))
 
 #### [`useDefaultSettings`](#) ([`Boolean!`](../../../developer/api-reference/scalars/boolean))
 
+Default settings indicator for digital content.
+
 #### [`automaticFulfillment`](#) ([`Boolean!`](../../../developer/api-reference/scalars/boolean))
+
+Indicator for automatic fulfillment of digital content.
 
 #### [`contentFile`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
+File associated with digital content.
+
 #### [`maxDownloads`](#) ([`Int`](../../../developer/api-reference/scalars/int))
 
+Maximum number of allowed downloads for the digital content.
+
 #### [`urlValidDays`](#) ([`Int`](../../../developer/api-reference/scalars/int))
+
+Number of days the URL for the digital content remains valid.
 
 #### [`urls`](#) ([`[DigitalContentUrl!]`](../../../developer/api-reference/objects/digital-content-url))
 

@@ -1,0 +1,30 @@
+---
+id: category-where-input
+title: CategoryWhereInput
+hide_table_of_contents: false
+---
+
+No description
+
+```graphql
+input CategoryWhereInput {
+  metadata: [MetadataFilter!]
+  ids: [ID!]
+  AND: [CategoryWhereInput!]
+  OR: [CategoryWhereInput!]
+}
+```
+
+### Fields
+
+#### [`metadata`](#) ([`[MetadataFilter!]`](../../../developer/api-reference/inputs/metadata-filter))
+
+#### [`ids`](#) ([`[ID!]`](../../../developer/api-reference/scalars/id))
+
+#### [`AND`](#) ([`[CategoryWhereInput!]`](../../../developer/api-reference/inputs/category-where-input))
+
+List of conditions that must be met.
+
+#### [`OR`](#) ([`[CategoryWhereInput!]`](../../../developer/api-reference/inputs/category-where-input))
+
+A list of conditions of which at least one must be met.

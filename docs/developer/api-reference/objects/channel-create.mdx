@@ -8,6 +8,10 @@ Creates new channel.
 
 Requires one of the following permissions: MANAGE_CHANNELS.
 
+Triggers the following webhook events:
+
+- CHANNEL_CREATED (async): A channel was created.
+
 ```graphql
 type ChannelCreate {
   channelErrors: [ChannelError!]!

@@ -8,6 +8,10 @@ Deletes a customer.
 
 Requires one of the following permissions: MANAGE_USERS.
 
+Triggers the following webhook events:
+
+- CUSTOMER_DELETED (async): A customer account was deleted.
+
 ```graphql
 type CustomerDelete {
   accountErrors: [AccountError!]!

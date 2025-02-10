@@ -8,6 +8,10 @@ Updates an existing app.
 
 Requires one of the following permissions: MANAGE_APPS.
 
+Triggers the following webhook events:
+
+- APP_UPDATED (async): An app was updated.
+
 ```graphql
 type AppUpdate {
   appErrors: [AppError!]!

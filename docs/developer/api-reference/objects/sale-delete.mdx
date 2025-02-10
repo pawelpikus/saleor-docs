@@ -6,7 +6,13 @@ hide_table_of_contents: false
 
 Deletes a sale.
 
+DEPRECATED: this mutation will be removed in Saleor 4.0. Use `promotionDelete` mutation instead.
+
 Requires one of the following permissions: MANAGE_DISCOUNTS.
+
+Triggers the following webhook events:
+
+- SALE_DELETED (async): A sale was deleted.
 
 ```graphql
 type SaleDelete {

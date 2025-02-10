@@ -1,0 +1,29 @@
+---
+id: product-variant-bulk-translate-error
+title: ProductVariantBulkTranslateError
+hide_table_of_contents: false
+---
+
+No description
+
+```graphql
+type ProductVariantBulkTranslateError {
+  path: String
+  message: String
+  code: ProductVariantTranslateErrorCode!
+}
+```
+
+### Fields
+
+#### [`path`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Path to field that caused the error. A value of `null` indicates that the error isn't associated with a particular field.
+
+#### [`message`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+The error message.
+
+#### [`code`](#) ([`ProductVariantTranslateErrorCode!`](../../../developer/api-reference/enums/product-variant-translate-error-code))
+
+The error code.

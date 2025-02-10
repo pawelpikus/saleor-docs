@@ -8,6 +8,10 @@ Manage voucher's availability in channels.
 
 Requires one of the following permissions: MANAGE_DISCOUNTS.
 
+Triggers the following webhook events:
+
+- VOUCHER_UPDATED (async): A voucher was updated.
+
 ```graphql
 voucherChannelListingUpdate(
   id: ID!
@@ -32,3 +36,7 @@ Fields required to update voucher channel listings.
 Manage voucher's availability in channels.
 
 Requires one of the following permissions: MANAGE_DISCOUNTS.
+
+Triggers the following webhook events:
+
+- VOUCHER_UPDATED (async): A voucher was updated.

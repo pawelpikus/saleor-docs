@@ -1,0 +1,22 @@
+---
+id: tax-class-update
+title: TaxClassUpdate
+hide_table_of_contents: false
+---
+
+Update a tax class.
+
+Requires one of the following permissions: MANAGE_TAXES.
+
+```graphql
+type TaxClassUpdate {
+  errors: [TaxClassUpdateError!]!
+  taxClass: TaxClass
+}
+```
+
+### Fields
+
+#### [`errors`](#) ([`[TaxClassUpdateError!]!`](../../../developer/api-reference/objects/tax-class-update-error))
+
+#### [`taxClass`](#) ([`TaxClass`](../../../developer/api-reference/objects/tax-class))

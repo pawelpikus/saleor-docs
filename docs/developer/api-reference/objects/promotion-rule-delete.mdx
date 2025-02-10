@@ -1,0 +1,26 @@
+---
+id: promotion-rule-delete
+title: PromotionRuleDelete
+hide_table_of_contents: false
+---
+
+Deletes a promotion rule.
+
+Requires one of the following permissions: MANAGE_DISCOUNTS.
+
+Triggers the following webhook events:
+
+- PROMOTION_RULE_DELETED (async): A promotion rule was deleted.
+
+```graphql
+type PromotionRuleDelete {
+  errors: [PromotionRuleDeleteError!]!
+  promotionRule: PromotionRule
+}
+```
+
+### Fields
+
+#### [`errors`](#) ([`[PromotionRuleDeleteError!]!`](../../../developer/api-reference/objects/promotion-rule-delete-error))
+
+#### [`promotionRule`](#) ([`PromotionRule`](../../../developer/api-reference/objects/promotion-rule))

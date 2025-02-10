@@ -10,6 +10,8 @@ Look up a product by ID. Requires one of the following permissions to include th
 product(
   id: ID
   slug: String
+  slugLanguageCode: LanguageCodeEnum
+  externalReference: String
   channel: String
 ): Product
 ```
@@ -23,6 +25,16 @@ ID of the product.
 #### [`slug`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
 Slug of the product.
+
+#### [`slugLanguageCode`](#) ([`LanguageCodeEnum`](../../../developer/api-reference/enums/language-code-enum))
+
+Language code of the product slug, omit to use primary slug.
+
+Added in Saleor 3.21.
+
+#### [`externalReference`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+External ID of the product.
 
 #### [`channel`](#) ([`String`](../../../developer/api-reference/scalars/string))
 

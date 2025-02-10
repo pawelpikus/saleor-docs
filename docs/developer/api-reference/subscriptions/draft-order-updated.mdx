@@ -1,0 +1,29 @@
+---
+id: draft-order-updated
+title: draftOrderUpdated
+hide_table_of_contents: false
+---
+
+Event sent when draft order is updated.
+
+Added in Saleor 3.20.
+
+Note: this API is currently in Feature Preview and can be subject to changes at later point.
+
+```graphql
+draftOrderUpdated(
+  channels: [String!]
+): DraftOrderUpdated
+```
+
+### Arguments
+
+#### [`channels`](#) ([`[String!]`](../../../developer/api-reference/scalars/string))
+
+List of channel slugs. The event will be sent only if the order belongs to one of the provided channels. If the channel slug list is empty, orders that belong to any channel will be sent. Maximally 500 items.
+
+### Type
+
+#### [`DraftOrderUpdated`](../../../developer/api-reference/objects/draft-order-updated)
+
+Event sent when draft order is updated.

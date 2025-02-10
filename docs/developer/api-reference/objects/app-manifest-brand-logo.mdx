@@ -1,0 +1,27 @@
+---
+id: app-manifest-brand-logo
+title: AppManifestBrandLogo
+hide_table_of_contents: false
+---
+
+Represents the app's manifest brand data.
+
+```graphql
+type AppManifestBrandLogo {
+  default(size: Int, format: IconThumbnailFormatEnum): String!
+}
+```
+
+### Fields
+
+#### [`default`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+Data URL with a base64 encoded logo image.
+
+- ##### [`size`](#) ([`Int`](../../../developer/api-reference/scalars/int))
+
+Desired longest side the image in pixels. Defaults to 4096. Images are never cropped. Pass 0 to retrieve the original size (not recommended).
+
+- ##### [`format`](#) ([`IconThumbnailFormatEnum`](../../../developer/api-reference/enums/icon-thumbnail-format-enum))
+
+The format of the image. When not provided, format of the original image will be used.

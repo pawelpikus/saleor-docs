@@ -1,0 +1,24 @@
+---
+id: webhook-dry-run
+title: WebhookDryRun
+hide_table_of_contents: false
+---
+
+Performs a dry run of a webhook event. Supports a single event (the first, if multiple provided in the `query`). Requires permission relevant to processed event.
+
+Requires one of the following permissions: AUTHENTICATED_STAFF_USER.
+
+```graphql
+type WebhookDryRun {
+  payload: JSONString
+  errors: [WebhookDryRunError!]!
+}
+```
+
+### Fields
+
+#### [`payload`](#) ([`JSONString`](../../../developer/api-reference/scalars/jsonstring))
+
+JSON payload, that would be sent out to webhook's target URL.
+
+#### [`errors`](#) ([`[WebhookDryRunError!]!`](../../../developer/api-reference/objects/webhook-dry-run-error))

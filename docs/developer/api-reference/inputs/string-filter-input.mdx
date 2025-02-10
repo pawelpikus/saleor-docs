@@ -1,0 +1,24 @@
+---
+id: string-filter-input
+title: StringFilterInput
+hide_table_of_contents: false
+---
+
+Define the filtering options for string fields.
+
+```graphql
+input StringFilterInput {
+  eq: String
+  oneOf: [String!]
+}
+```
+
+### Fields
+
+#### [`eq`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+The value equal to.
+
+#### [`oneOf`](#) ([`[String!]`](../../../developer/api-reference/scalars/string))
+
+The value included in.

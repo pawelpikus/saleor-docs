@@ -9,6 +9,7 @@ List of the shop's categories.
 ```graphql
 categories(
   filter: CategoryFilterInput
+  where: CategoryWhereInput
   sortBy: CategorySortingInput
   level: Int
   before: String
@@ -23,6 +24,10 @@ categories(
 #### [`filter`](#) ([`CategoryFilterInput`](../../../developer/api-reference/inputs/category-filter-input))
 
 Filtering options for categories.
+
+#### [`where`](#) ([`CategoryWhereInput`](../../../developer/api-reference/inputs/category-where-input))
+
+Where filtering options.
 
 #### [`sortBy`](#) ([`CategorySortingInput`](../../../developer/api-reference/inputs/category-sorting-input))
 
@@ -42,11 +47,11 @@ Return the elements in the list that come after the specified cursor.
 
 #### [`first`](#) ([`Int`](../../../developer/api-reference/scalars/int))
 
-Return the first n elements from the list.
+Retrieve the first n elements from the list. Note that the system only allows fetching a maximum of 100 objects in a single query.
 
 #### [`last`](#) ([`Int`](../../../developer/api-reference/scalars/int))
 
-Return the last n elements from the list.
+Retrieve the last n elements from the list. Note that the system only allows fetching a maximum of 100 objects in a single query.
 
 ### Type
 

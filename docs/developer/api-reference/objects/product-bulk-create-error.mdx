@@ -1,0 +1,49 @@
+---
+id: product-bulk-create-error
+title: ProductBulkCreateError
+hide_table_of_contents: false
+---
+
+No description
+
+```graphql
+type ProductBulkCreateError {
+  path: String
+  message: String
+  code: ProductBulkCreateErrorCode!
+  attributes: [ID!]
+  values: [ID!]
+  warehouses: [ID!]
+  channels: [ID!]
+}
+```
+
+### Fields
+
+#### [`path`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Path to field that caused the error. A value of `null` indicates that the error isn't associated with a particular field.
+
+#### [`message`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+The error message.
+
+#### [`code`](#) ([`ProductBulkCreateErrorCode!`](../../../developer/api-reference/enums/product-bulk-create-error-code))
+
+The error code.
+
+#### [`attributes`](#) ([`[ID!]`](../../../developer/api-reference/scalars/id))
+
+List of attributes IDs which causes the error.
+
+#### [`values`](#) ([`[ID!]`](../../../developer/api-reference/scalars/id))
+
+List of attribute values IDs which causes the error.
+
+#### [`warehouses`](#) ([`[ID!]`](../../../developer/api-reference/scalars/id))
+
+List of warehouse IDs which causes the error.
+
+#### [`channels`](#) ([`[ID!]`](../../../developer/api-reference/scalars/id))
+
+List of channel IDs which causes the error.

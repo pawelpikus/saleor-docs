@@ -1,0 +1,24 @@
+---
+id: product-variant-bulk-translate-result
+title: ProductVariantBulkTranslateResult
+hide_table_of_contents: false
+---
+
+No description
+
+```graphql
+type ProductVariantBulkTranslateResult {
+  translation: ProductVariantTranslation
+  errors: [ProductVariantBulkTranslateError!]
+}
+```
+
+### Fields
+
+#### [`translation`](#) ([`ProductVariantTranslation`](../../../developer/api-reference/objects/product-variant-translation))
+
+Product variant translation data.
+
+#### [`errors`](#) ([`[ProductVariantBulkTranslateError!]`](../../../developer/api-reference/objects/product-variant-bulk-translate-error))
+
+List of errors occurred on translation attempt.

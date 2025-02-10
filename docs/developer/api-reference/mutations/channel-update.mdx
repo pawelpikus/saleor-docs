@@ -7,6 +7,14 @@ hide_table_of_contents: false
 Update a channel.
 
 Requires one of the following permissions: MANAGE_CHANNELS.
+Requires one of the following permissions when updating only `orderSettings` field: `MANAGE_CHANNELS`, `MANAGE_ORDERS`.
+Requires one of the following permissions when updating only `checkoutSettings` field: `MANAGE_CHANNELS`, `MANAGE_CHECKOUTS`.
+Requires one of the following permissions when updating only `paymentSettings` field: `MANAGE_CHANNELS`, `HANDLE_PAYMENTS`.
+
+Triggers the following webhook events:
+
+- CHANNEL_UPDATED (async): A channel was updated.
+- CHANNEL_METADATA_UPDATED (async): Optionally triggered when public or private metadata is updated.
 
 ```graphql
 channelUpdate(
@@ -32,3 +40,11 @@ Fields required to update a channel.
 Update a channel.
 
 Requires one of the following permissions: MANAGE_CHANNELS.
+Requires one of the following permissions when updating only `orderSettings` field: `MANAGE_CHANNELS`, `MANAGE_ORDERS`.
+Requires one of the following permissions when updating only `checkoutSettings` field: `MANAGE_CHANNELS`, `MANAGE_CHECKOUTS`.
+Requires one of the following permissions when updating only `paymentSettings` field: `MANAGE_CHANNELS`, `HANDLE_PAYMENTS`.
+
+Triggers the following webhook events:
+
+- CHANNEL_UPDATED (async): A channel was updated.
+- CHANNEL_METADATA_UPDATED (async): Optionally triggered when public or private metadata is updated.

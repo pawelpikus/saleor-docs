@@ -4,7 +4,9 @@ title: checkout
 hide_table_of_contents: false
 ---
 
-Look up a checkout by token and slug of channel.
+Look up a checkout by id.
+
+Requires one of the following permissions to query a checkout, if a checkout is in inactive channel: MANAGE_CHECKOUTS, IMPERSONATE_USER, HANDLE_PAYMENTS.
 
 ```graphql
 checkout(
@@ -18,8 +20,6 @@ checkout(
 #### [`id`](#) ([`ID`](../../../developer/api-reference/scalars/id))
 
 The checkout's ID.
-
-Added in Saleor 3.4.
 
 #### [`token`](#) ([`UUID`](../../../developer/api-reference/scalars/uuid))
 

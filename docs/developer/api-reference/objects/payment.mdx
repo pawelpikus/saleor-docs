@@ -32,12 +32,16 @@ type Payment implements Node, ObjectWithMetadata {
   availableCaptureAmount: Money
   availableRefundAmount: Money
   creditCard: CreditCard
+  partial: Boolean!
+  pspReference: String
 }
 ```
 
 ### Fields
 
 #### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+
+ID of the payment.
 
 #### [`privateMetadata`](#) ([`[MetadataItem!]!`](../../../developer/api-reference/objects/metadata-item))
 
@@ -49,19 +53,11 @@ A single key from private metadata. Requires staff permissions to access.
 
 Tip: Use GraphQL aliases to fetch multiple keys.
 
-Added in Saleor 3.3.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
 - ##### [`key`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
 #### [`privateMetafields`](#) ([`Metadata`](../../../developer/api-reference/scalars/metadata))
 
 Private metadata. Requires staff permissions to access. Use `keys` to control which fields you want to include. The default is to include everything.
-
-Added in Saleor 3.3.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
 
 - ##### [`keys`](#) ([`[String!]`](../../../developer/api-reference/scalars/string))
 
@@ -75,37 +71,45 @@ A single key from public metadata.
 
 Tip: Use GraphQL aliases to fetch multiple keys.
 
-Added in Saleor 3.3.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
 - ##### [`key`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
 #### [`metafields`](#) ([`Metadata`](../../../developer/api-reference/scalars/metadata))
 
 Public metadata. Use `keys` to control which fields you want to include. The default is to include everything.
 
-Added in Saleor 3.3.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
 - ##### [`keys`](#) ([`[String!]`](../../../developer/api-reference/scalars/string))
 
 #### [`gateway`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
+Payment gateway used for payment.
+
 #### [`isActive`](#) ([`Boolean!`](../../../developer/api-reference/scalars/boolean))
+
+Determines if the payment is active or not.
 
 #### [`created`](#) ([`DateTime!`](../../../developer/api-reference/scalars/date-time))
 
+Date and time at which payment was created.
+
 #### [`modified`](#) ([`DateTime!`](../../../developer/api-reference/scalars/date-time))
+
+Date and time at which payment was modified.
 
 #### [`token`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
+Unique token associated with a payment.
+
 #### [`checkout`](#) ([`Checkout`](../../../developer/api-reference/objects/checkout))
+
+Checkout associated with a payment.
 
 #### [`order`](#) ([`Order`](../../../developer/api-reference/objects/order))
 
+Order associated with a payment.
+
 #### [`paymentMethodType`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+Type of method used for payment.
 
 #### [`customerIpAddress`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
@@ -152,6 +156,14 @@ Requires one of the following permissions: MANAGE_ORDERS.
 #### [`creditCard`](#) ([`CreditCard`](../../../developer/api-reference/objects/credit-card))
 
 The details of the card used for this payment.
+
+#### [`partial`](#) ([`Boolean!`](../../../developer/api-reference/scalars/boolean))
+
+Informs whether this is a partial payment.
+
+#### [`pspReference`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+PSP reference of the payment.
 
 ### Interfaces
 

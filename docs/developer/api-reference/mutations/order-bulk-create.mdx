@@ -1,0 +1,39 @@
+---
+id: order-bulk-create
+title: orderBulkCreate
+hide_table_of_contents: false
+---
+
+Creates multiple orders.
+
+Requires one of the following permissions: MANAGE_ORDERS_IMPORT.
+
+```graphql
+orderBulkCreate(
+  errorPolicy: ErrorPolicyEnum
+  orders: [OrderBulkCreateInput!]!
+  stockUpdatePolicy: StockUpdatePolicyEnum
+): OrderBulkCreate
+```
+
+### Arguments
+
+#### [`errorPolicy`](#) ([`ErrorPolicyEnum`](../../../developer/api-reference/enums/error-policy-enum))
+
+Policies of error handling. DEFAULT: REJECT_EVERYTHING
+
+#### [`orders`](#) ([`[OrderBulkCreateInput!]!`](../../../developer/api-reference/inputs/order-bulk-create-input))
+
+Input list of orders to create. Orders limit: 50.
+
+#### [`stockUpdatePolicy`](#) ([`StockUpdatePolicyEnum`](../../../developer/api-reference/enums/stock-update-policy-enum))
+
+Determine how stock should be updated, while processing the order. DEFAULT: UPDATE - Only do update, if there is enough stocks.
+
+### Type
+
+#### [`OrderBulkCreate`](../../../developer/api-reference/objects/order-bulk-create)
+
+Creates multiple orders.
+
+Requires one of the following permissions: MANAGE_ORDERS_IMPORT.

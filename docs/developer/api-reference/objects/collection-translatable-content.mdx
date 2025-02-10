@@ -4,13 +4,15 @@ title: CollectionTranslatableContent
 hide_table_of_contents: false
 ---
 
-No description
+Represents collection's original translatable fields and related translations.
 
 ```graphql
 type CollectionTranslatableContent implements Node {
   id: ID!
+  collectionId: ID!
   seoTitle: String
   seoDescription: String
+  slug: String
   name: String!
   description: JSONString
   descriptionJson: JSONString
@@ -23,15 +25,33 @@ type CollectionTranslatableContent implements Node {
 
 #### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
 
+The ID of the collection translatable content.
+
+#### [`collectionId`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+
+The ID of the collection to translate.
+
 #### [`seoTitle`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+SEO title to translate.
 
 #### [`seoDescription`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
+SEO description to translate.
+
+#### [`slug`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Slug to translate
+
+Added in Saleor 3.21.
+
 #### [`name`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+Collection's name to translate.
 
 #### [`description`](#) ([`JSONString`](../../../developer/api-reference/scalars/jsonstring))
 
-Description of the collection.
+Collection's description to translate.
 
 Rich text format. For reference see https://editorjs.io/
 

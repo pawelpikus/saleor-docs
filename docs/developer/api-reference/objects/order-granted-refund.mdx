@@ -1,0 +1,78 @@
+---
+id: order-granted-refund
+title: OrderGrantedRefund
+hide_table_of_contents: false
+---
+
+The details of granted refund.
+
+```graphql
+type OrderGrantedRefund {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  amount: Money!
+  reason: String
+  user: User
+  app: App
+  shippingCostsIncluded: Boolean!
+  lines: [OrderGrantedRefundLine!]
+  status: OrderGrantedRefundStatusEnum!
+  transactionEvents: [TransactionEvent!]
+  transaction: TransactionItem
+}
+```
+
+### Fields
+
+#### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+
+#### [`createdAt`](#) ([`DateTime!`](../../../developer/api-reference/scalars/date-time))
+
+Time of creation.
+
+#### [`updatedAt`](#) ([`DateTime!`](../../../developer/api-reference/scalars/date-time))
+
+Time of last update.
+
+#### [`amount`](#) ([`Money!`](../../../developer/api-reference/objects/money))
+
+Refund amount.
+
+#### [`reason`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Reason of the refund.
+
+#### [`user`](#) ([`User`](../../../developer/api-reference/objects/user))
+
+User who performed the action. Requires of of the following permissions: MANAGE_USERS, MANAGE_STAFF, OWNER.
+
+#### [`app`](#) ([`App`](../../../developer/api-reference/objects/app))
+
+App that performed the action.
+
+#### [`shippingCostsIncluded`](#) ([`Boolean!`](../../../developer/api-reference/scalars/boolean))
+
+If true, the refunded amount includes the shipping price.If false, the refunded amount does not include the shipping price.
+
+#### [`lines`](#) ([`[OrderGrantedRefundLine!]`](../../../developer/api-reference/objects/order-granted-refund-line))
+
+Lines assigned to the granted refund.
+
+#### [`status`](#) ([`OrderGrantedRefundStatusEnum!`](../../../developer/api-reference/enums/order-granted-refund-status-enum))
+
+Status of the granted refund calculated based on transactionItem assigned to granted refund.
+
+Added in Saleor 3.20.
+
+#### [`transactionEvents`](#) ([`[TransactionEvent!]`](../../../developer/api-reference/objects/transaction-event))
+
+List of refund events associated with the granted refund.
+
+Added in Saleor 3.20.
+
+#### [`transaction`](#) ([`TransactionItem`](../../../developer/api-reference/objects/transaction-item))
+
+The transaction assigned to the granted refund.
+
+Added in Saleor 3.20.

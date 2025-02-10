@@ -1,0 +1,44 @@
+---
+id: catalogue-predicate-input
+title: CataloguePredicateInput
+hide_table_of_contents: false
+---
+
+No description
+
+```graphql
+input CataloguePredicateInput {
+  variantPredicate: ProductVariantWhereInput
+  productPredicate: ProductWhereInput
+  categoryPredicate: CategoryWhereInput
+  collectionPredicate: CollectionWhereInput
+  AND: [CataloguePredicateInput!]
+  OR: [CataloguePredicateInput!]
+}
+```
+
+### Fields
+
+#### [`variantPredicate`](#) ([`ProductVariantWhereInput`](../../../developer/api-reference/inputs/product-variant-where-input))
+
+Defines the product variant conditions to be met.
+
+#### [`productPredicate`](#) ([`ProductWhereInput`](../../../developer/api-reference/inputs/product-where-input))
+
+Defines the product conditions to be met.
+
+#### [`categoryPredicate`](#) ([`CategoryWhereInput`](../../../developer/api-reference/inputs/category-where-input))
+
+Defines the category conditions to be met.
+
+#### [`collectionPredicate`](#) ([`CollectionWhereInput`](../../../developer/api-reference/inputs/collection-where-input))
+
+Defines the collection conditions to be met.
+
+#### [`AND`](#) ([`[CataloguePredicateInput!]`](../../../developer/api-reference/inputs/catalogue-predicate-input))
+
+List of conditions that must be met.
+
+#### [`OR`](#) ([`[CataloguePredicateInput!]`](../../../developer/api-reference/inputs/catalogue-predicate-input))
+
+A list of conditions of which at least one must be met.

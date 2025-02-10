@@ -10,14 +10,19 @@ Requires one of the following permissions: MANAGE_ORDERS.
 
 ```graphql
 draftOrderUpdate(
-  id: ID!
+  externalReference: String
+  id: ID
   input: DraftOrderInput!
 ): DraftOrderUpdate
 ```
 
 ### Arguments
 
-#### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+#### [`externalReference`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+External ID of a draft order to update.
+
+#### [`id`](#) ([`ID`](../../../developer/api-reference/scalars/id))
 
 ID of a draft order to update.
 

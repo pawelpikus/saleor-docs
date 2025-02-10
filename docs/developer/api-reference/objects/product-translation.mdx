@@ -4,7 +4,7 @@ title: ProductTranslation
 hide_table_of_contents: false
 ---
 
-No description
+Represents product translations.
 
 ```graphql
 type ProductTranslation implements Node {
@@ -12,9 +12,11 @@ type ProductTranslation implements Node {
   language: LanguageDisplay!
   seoTitle: String
   seoDescription: String
+  slug: String
   name: String
   description: JSONString
   descriptionJson: JSONString
+  translatableContent: ProductTranslatableContent
 }
 ```
 
@@ -22,15 +24,29 @@ type ProductTranslation implements Node {
 
 #### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
 
+The ID of the product translation.
+
 #### [`language`](#) ([`LanguageDisplay!`](../../../developer/api-reference/objects/language-display))
 
 Translation language.
 
 #### [`seoTitle`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
+Translated SEO title.
+
 #### [`seoDescription`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
+Translated SEO description.
+
+#### [`slug`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Translated product slug.
+
+Added in Saleor 3.21.
+
 #### [`name`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Translated product name.
 
 #### [`description`](#) ([`JSONString`](../../../developer/api-reference/scalars/jsonstring))
 
@@ -43,6 +59,10 @@ Rich text format. For reference see https://editorjs.io/
 Translated description of the product.
 
 Rich text format. For reference see https://editorjs.io/
+
+#### [`translatableContent`](#) ([`ProductTranslatableContent`](../../../developer/api-reference/objects/product-translatable-content))
+
+Represents the product fields to translate.
 
 ### Interfaces
 

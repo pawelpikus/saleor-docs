@@ -1,0 +1,44 @@
+---
+id: promotion-rule-update-error
+title: PromotionRuleUpdateError
+hide_table_of_contents: false
+---
+
+No description
+
+```graphql
+type PromotionRuleUpdateError {
+  field: String
+  message: String
+  code: PromotionRuleUpdateErrorCode!
+  channels: [ID!]
+  giftsLimit: Int
+  giftsLimitExceedBy: Int
+}
+```
+
+### Fields
+
+#### [`field`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field.
+
+#### [`message`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+The error message.
+
+#### [`code`](#) ([`PromotionRuleUpdateErrorCode!`](../../../developer/api-reference/enums/promotion-rule-update-error-code))
+
+The error code.
+
+#### [`channels`](#) ([`[ID!]`](../../../developer/api-reference/scalars/id))
+
+List of channel IDs which causes the error.
+
+#### [`giftsLimit`](#) ([`Int`](../../../developer/api-reference/scalars/int))
+
+Limit of gifts assigned to promotion rule.
+
+#### [`giftsLimitExceedBy`](#) ([`Int`](../../../developer/api-reference/scalars/int))
+
+Number of gifts defined for this promotion rule exceeding the limit.

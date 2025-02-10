@@ -1,0 +1,26 @@
+---
+id: promotion-rule-update
+title: PromotionRuleUpdate
+hide_table_of_contents: false
+---
+
+Updates an existing promotion rule.
+
+Requires one of the following permissions: MANAGE_DISCOUNTS.
+
+Triggers the following webhook events:
+
+- PROMOTION_RULE_UPDATED (async): A promotion rule was updated.
+
+```graphql
+type PromotionRuleUpdate {
+  errors: [PromotionRuleUpdateError!]!
+  promotionRule: PromotionRule
+}
+```
+
+### Fields
+
+#### [`errors`](#) ([`[PromotionRuleUpdateError!]!`](../../../developer/api-reference/objects/promotion-rule-update-error))
+
+#### [`promotionRule`](#) ([`PromotionRule`](../../../developer/api-reference/objects/promotion-rule))

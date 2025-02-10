@@ -8,6 +8,10 @@ Adds products, categories, collections to a voucher.
 
 Requires one of the following permissions: MANAGE_DISCOUNTS.
 
+Triggers the following webhook events:
+
+- VOUCHER_UPDATED (async): A voucher was updated.
+
 ```graphql
 type VoucherAddCatalogues {
   voucher: Voucher

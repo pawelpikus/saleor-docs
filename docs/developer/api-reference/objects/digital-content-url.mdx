@@ -4,7 +4,7 @@ title: DigitalContentUrl
 hide_table_of_contents: false
 ---
 
-No description
+Represents a URL for digital content.
 
 ```graphql
 type DigitalContentUrl implements Node {
@@ -21,11 +21,19 @@ type DigitalContentUrl implements Node {
 
 #### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
 
+The ID of the digital content URL.
+
 #### [`content`](#) ([`DigitalContent!`](../../../developer/api-reference/objects/digital-content))
+
+Digital content associated with the URL.
 
 #### [`created`](#) ([`DateTime!`](../../../developer/api-reference/scalars/date-time))
 
+Date and time when the digital content URL was created.
+
 #### [`downloadNum`](#) ([`Int!`](../../../developer/api-reference/scalars/int))
+
+Number of times digital content has been downloaded.
 
 #### [`url`](#) ([`String`](../../../developer/api-reference/scalars/string))
 

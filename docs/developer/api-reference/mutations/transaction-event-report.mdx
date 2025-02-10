@@ -1,0 +1,93 @@
+---
+id: transaction-event-report
+title: transactionEventReport
+hide_table_of_contents: false
+---
+
+Report the event for the transaction.
+
+Requires the following permissions: OWNER and HANDLE_PAYMENTS for apps, HANDLE_PAYMENTS for staff users. Staff user cannot update a transaction that is owned by the app.
+
+Triggers the following webhook events:
+
+- TRANSACTION_ITEM_METADATA_UPDATED (async): Optionally called when transaction's metadata was updated.
+- CHECKOUT_FULLY_PAID (async): Optionally called when the checkout charge status changed to `FULL` or `OVERCHARGED`.
+- ORDER_UPDATED (async): Optionally called when the transaction is related to the order and the order was updated.
+
+```graphql
+transactionEventReport(
+  amount: PositiveDecimal
+  availableActions: [TransactionActionEnum!]
+  externalUrl: String
+  id: ID
+  message: String
+  pspReference: String!
+  time: DateTime
+  token: UUID
+  transactionMetadata: [MetadataInput!]
+  transactionPrivateMetadata: [MetadataInput!]
+  type: TransactionEventTypeEnum!
+): TransactionEventReport
+```
+
+### Arguments
+
+#### [`amount`](#) ([`PositiveDecimal`](../../../developer/api-reference/scalars/positive-decimal))
+
+The amount of the event to report.
+
+Required for all `REQUEST`, `SUCCESS`, `ACTION_REQUIRED`, and `ADJUSTMENT` events. For other events, the amount will be calculated based on the previous events with the same pspReference. If not possible to calculate, the mutation will return an error.
+
+#### [`availableActions`](#) ([`[TransactionActionEnum!]`](../../../developer/api-reference/enums/transaction-action-enum))
+
+List of all possible actions for the transaction
+
+#### [`externalUrl`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+The url that will allow to redirect user to payment provider page with event details.
+
+#### [`id`](#) ([`ID`](../../../developer/api-reference/scalars/id))
+
+The ID of the transaction. One of field id or token is required.
+
+#### [`message`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+The message related to the event. The maximum length is 512 characters; any text exceeding this limit will be truncated.
+
+#### [`pspReference`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+PSP Reference of the event to report.
+
+#### [`time`](#) ([`DateTime`](../../../developer/api-reference/scalars/date-time))
+
+The time of the event to report. If not provide, the current time will be used.
+
+#### [`token`](#) ([`UUID`](../../../developer/api-reference/scalars/uuid))
+
+The token of the transaction. One of field id or token is required.
+
+#### [`transactionMetadata`](#) ([`[MetadataInput!]`](../../../developer/api-reference/inputs/metadata-input))
+
+Fields required to update the transaction metadata.
+
+#### [`transactionPrivateMetadata`](#) ([`[MetadataInput!]`](../../../developer/api-reference/inputs/metadata-input))
+
+Fields required to update the transaction private metadata.
+
+#### [`type`](#) ([`TransactionEventTypeEnum!`](../../../developer/api-reference/enums/transaction-event-type-enum))
+
+Current status of the event to report.
+
+### Type
+
+#### [`TransactionEventReport`](../../../developer/api-reference/objects/transaction-event-report)
+
+Report the event for the transaction.
+
+Requires the following permissions: OWNER and HANDLE_PAYMENTS for apps, HANDLE_PAYMENTS for staff users. Staff user cannot update a transaction that is owned by the app.
+
+Triggers the following webhook events:
+
+- TRANSACTION_ITEM_METADATA_UPDATED (async): Optionally called when transaction's metadata was updated.
+- CHECKOUT_FULLY_PAID (async): Optionally called when the checkout charge status changed to `FULL` or `OVERCHARGED`.
+- ORDER_UPDATED (async): Optionally called when the transaction is related to the order and the order was updated.

@@ -13,6 +13,7 @@ type PermissionGroupError {
   code: PermissionGroupErrorCode!
   permissions: [PermissionEnum!]
   users: [ID!]
+  channels: [ID!]
 }
 ```
 
@@ -37,3 +38,7 @@ List of permissions which causes the error.
 #### [`users`](#) ([`[ID!]`](../../../developer/api-reference/scalars/id))
 
 List of user IDs which causes the error.
+
+#### [`channels`](#) ([`[ID!]`](../../../developer/api-reference/scalars/id))
+
+List of channels IDs which causes the error.

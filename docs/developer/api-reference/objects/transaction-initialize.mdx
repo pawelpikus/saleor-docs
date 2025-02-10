@@ -1,0 +1,32 @@
+---
+id: transaction-initialize
+title: TransactionInitialize
+hide_table_of_contents: false
+---
+
+Initializes a transaction session. It triggers the webhook `TRANSACTION_INITIALIZE_SESSION`, to the requested `paymentGateways`. There is a limit of 100 transaction items per checkout / order.
+
+```graphql
+type TransactionInitialize {
+  transaction: TransactionItem
+  transactionEvent: TransactionEvent
+  data: JSON
+  errors: [TransactionInitializeError!]!
+}
+```
+
+### Fields
+
+#### [`transaction`](#) ([`TransactionItem`](../../../developer/api-reference/objects/transaction-item))
+
+The initialized transaction.
+
+#### [`transactionEvent`](#) ([`TransactionEvent`](../../../developer/api-reference/objects/transaction-event))
+
+The event created for the initialized transaction.
+
+#### [`data`](#) ([`JSON`](../../../developer/api-reference/scalars/json))
+
+The JSON data required to finalize the payment.
+
+#### [`errors`](#) ([`[TransactionInitializeError!]!`](../../../developer/api-reference/objects/transaction-initialize-error))

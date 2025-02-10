@@ -1,0 +1,34 @@
+---
+id: voucher-code-bulk-delete-error
+title: VoucherCodeBulkDeleteError
+hide_table_of_contents: false
+---
+
+No description
+
+```graphql
+type VoucherCodeBulkDeleteError {
+  path: String
+  message: String
+  code: VoucherCodeBulkDeleteErrorCode!
+  voucherCodes: [ID!]
+}
+```
+
+### Fields
+
+#### [`path`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Path to field that caused the error. A value of `null` indicates that the error isn't associated with a particular field.
+
+#### [`message`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+The error message.
+
+#### [`code`](#) ([`VoucherCodeBulkDeleteErrorCode!`](../../../developer/api-reference/enums/voucher-code-bulk-delete-error-code))
+
+The error code.
+
+#### [`voucherCodes`](#) ([`[ID!]`](../../../developer/api-reference/scalars/id))
+
+List of voucher codes which causes the error.

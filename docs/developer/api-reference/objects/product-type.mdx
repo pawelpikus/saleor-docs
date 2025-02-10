@@ -30,6 +30,7 @@ type ProductType implements Node, ObjectWithMetadata {
     last: Int
   ): ProductCountableConnection
   taxType: TaxType
+  taxClass: TaxClass
   variantAttributes(variantSelection: VariantAttributeScope): [Attribute!]
   assignedVariantAttributes(
     variantSelection: VariantAttributeScope
@@ -37,6 +38,7 @@ type ProductType implements Node, ObjectWithMetadata {
   productAttributes: [Attribute!]
   availableAttributes(
     filter: AttributeFilterInput
+    where: AttributeWhereInput
     before: String
     after: String
     first: Int
@@ -49,6 +51,8 @@ type ProductType implements Node, ObjectWithMetadata {
 
 #### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
 
+The ID of the product type.
+
 #### [`privateMetadata`](#) ([`[MetadataItem!]!`](../../../developer/api-reference/objects/metadata-item))
 
 List of private metadata items. Requires staff permissions to access.
@@ -59,19 +63,11 @@ A single key from private metadata. Requires staff permissions to access.
 
 Tip: Use GraphQL aliases to fetch multiple keys.
 
-Added in Saleor 3.3.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
 - ##### [`key`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
 #### [`privateMetafields`](#) ([`Metadata`](../../../developer/api-reference/scalars/metadata))
 
 Private metadata. Requires staff permissions to access. Use `keys` to control which fields you want to include. The default is to include everything.
-
-Added in Saleor 3.3.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
 
 - ##### [`keys`](#) ([`[String!]`](../../../developer/api-reference/scalars/string))
 
@@ -85,33 +81,37 @@ A single key from public metadata.
 
 Tip: Use GraphQL aliases to fetch multiple keys.
 
-Added in Saleor 3.3.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
 - ##### [`key`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
 #### [`metafields`](#) ([`Metadata`](../../../developer/api-reference/scalars/metadata))
 
 Public metadata. Use `keys` to control which fields you want to include. The default is to include everything.
 
-Added in Saleor 3.3.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
 - ##### [`keys`](#) ([`[String!]`](../../../developer/api-reference/scalars/string))
 
 #### [`name`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
+Name of the product type.
+
 #### [`slug`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+Slug of the product type.
 
 #### [`hasVariants`](#) ([`Boolean!`](../../../developer/api-reference/scalars/boolean))
 
+Whether the product type has variants.
+
 #### [`isShippingRequired`](#) ([`Boolean!`](../../../developer/api-reference/scalars/boolean))
+
+Whether shipping is required for this product type.
 
 #### [`isDigital`](#) ([`Boolean!`](../../../developer/api-reference/scalars/boolean))
 
+Whether the product type is digital.
+
 #### [`weight`](#) ([`Weight`](../../../developer/api-reference/objects/weight))
+
+Weight of the product type.
 
 #### [`kind`](#) ([`ProductTypeKindEnum!`](../../../developer/api-reference/enums/product-type-kind-enum))
 
@@ -135,15 +135,21 @@ Return the elements in the list that come after the specified cursor.
 
 - ##### [`first`](#) ([`Int`](../../../developer/api-reference/scalars/int))
 
-Return the first n elements from the list.
+Retrieve the first n elements from the list. Note that the system only allows fetching a maximum of 100 objects in a single query.
 
 - ##### [`last`](#) ([`Int`](../../../developer/api-reference/scalars/int))
 
-Return the last n elements from the list.
+Retrieve the last n elements from the list. Note that the system only allows fetching a maximum of 100 objects in a single query.
 
 #### [`taxType`](#) ([`TaxType`](../../../developer/api-reference/objects/tax-type))
 
 A type of tax. Assigned by enabled tax gateway
+
+#### [`taxClass`](#) ([`TaxClass`](../../../developer/api-reference/objects/tax-class))
+
+Tax class assigned to this product type. All products of this product type use this tax class, unless it's overridden in the `Product` type.
+
+Requires one of the following permissions: AUTHENTICATED_STAFF_USER, AUTHENTICATED_APP.
 
 #### [`variantAttributes`](#) ([`[Attribute!]`](../../../developer/api-reference/objects/attribute))
 
@@ -156,8 +162,6 @@ Define scope of returned attributes.
 #### [`assignedVariantAttributes`](#) ([`[AssignedVariantAttribute!]`](../../../developer/api-reference/objects/assigned-variant-attribute))
 
 Variant attributes of that product type with attached variant selection.
-
-Added in Saleor 3.1.
 
 - ##### [`variantSelection`](#) ([`VariantAttributeScope`](../../../developer/api-reference/enums/variant-attribute-scope))
 
@@ -175,6 +179,8 @@ Requires one of the following permissions: MANAGE_PRODUCTS.
 
 - ##### [`filter`](#) ([`AttributeFilterInput`](../../../developer/api-reference/inputs/attribute-filter-input))
 
+- ##### [`where`](#) ([`AttributeWhereInput`](../../../developer/api-reference/inputs/attribute-where-input))
+
 - ##### [`before`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
 Return the elements in the list that come before the specified cursor.
@@ -185,11 +191,11 @@ Return the elements in the list that come after the specified cursor.
 
 - ##### [`first`](#) ([`Int`](../../../developer/api-reference/scalars/int))
 
-Return the first n elements from the list.
+Retrieve the first n elements from the list. Note that the system only allows fetching a maximum of 100 objects in a single query.
 
 - ##### [`last`](#) ([`Int`](../../../developer/api-reference/scalars/int))
 
-Return the last n elements from the list.
+Retrieve the last n elements from the list. Note that the system only allows fetching a maximum of 100 objects in a single query.
 
 ### Interfaces
 

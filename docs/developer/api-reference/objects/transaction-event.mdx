@@ -10,9 +10,13 @@ Represents transaction's event.
 type TransactionEvent implements Node {
   id: ID!
   createdAt: DateTime!
-  status: TransactionStatus!
-  reference: String!
-  name: String
+  pspReference: String!
+  message: String!
+  externalUrl: String!
+  amount: Money!
+  type: TransactionEventTypeEnum
+  createdBy: UserOrApp
+  idempotencyKey: String
 }
 ```
 
@@ -24,17 +28,35 @@ The ID of the object.
 
 #### [`createdAt`](#) ([`DateTime!`](../../../developer/api-reference/scalars/date-time))
 
-#### [`status`](#) ([`TransactionStatus!`](../../../developer/api-reference/enums/transaction-status))
+Date and time at which a transaction event was created.
 
-Status of transaction's event.
+#### [`pspReference`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
-#### [`reference`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+PSP reference of transaction.
 
-Reference of transaction's event.
+#### [`message`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
-#### [`name`](#) ([`String`](../../../developer/api-reference/scalars/string))
+Message related to the transaction's event.
 
-Name of the transaction's event.
+#### [`externalUrl`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+The url that will allow to redirect user to payment provider page with transaction details.
+
+#### [`amount`](#) ([`Money!`](../../../developer/api-reference/objects/money))
+
+The amount related to this event.
+
+#### [`type`](#) ([`TransactionEventTypeEnum`](../../../developer/api-reference/enums/transaction-event-type-enum))
+
+The type of action related to this event.
+
+#### [`createdBy`](#) ([`UserOrApp`](../../../developer/api-reference/unions/user-or-app))
+
+User or App that created the transaction event.
+
+#### [`idempotencyKey`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Idempotency key assigned to the event.
 
 ### Interfaces
 

@@ -4,7 +4,7 @@ title: ProductVariantChannelListing
 hide_table_of_contents: false
 ---
 
-Represents product varaint channel listing.
+Represents product variant channel listing.
 
 ```graphql
 type ProductVariantChannelListing implements Node {
@@ -12,6 +12,7 @@ type ProductVariantChannelListing implements Node {
   channel: Channel!
   price: Money
   costPrice: Money
+  priorPrice: Money
   margin: Int
   preorderThreshold: PreorderThreshold
 }
@@ -21,13 +22,25 @@ type ProductVariantChannelListing implements Node {
 
 #### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
 
+The ID of the variant channel listing.
+
 #### [`channel`](#) ([`Channel!`](../../../developer/api-reference/objects/channel))
 
+The channel to which the variant listing belongs.
+
 #### [`price`](#) ([`Money`](../../../developer/api-reference/objects/money))
+
+The price of the variant.
 
 #### [`costPrice`](#) ([`Money`](../../../developer/api-reference/objects/money))
 
 Cost price of the variant.
+
+#### [`priorPrice`](#) ([`Money`](../../../developer/api-reference/objects/money))
+
+Prior price of the variant used for discount calculations.
+
+Added in Saleor 3.21.
 
 #### [`margin`](#) ([`Int`](../../../developer/api-reference/scalars/int))
 
@@ -38,10 +51,6 @@ Requires one of the following permissions: MANAGE_PRODUCTS.
 #### [`preorderThreshold`](#) ([`PreorderThreshold`](../../../developer/api-reference/objects/preorder-threshold))
 
 Preorder variant data.
-
-Added in Saleor 3.1.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
 
 ### Interfaces
 

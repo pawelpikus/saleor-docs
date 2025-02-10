@@ -6,6 +6,8 @@ hide_table_of_contents: false
 
 Represents sale channel listing.
 
+DEPRECATED: this type will be removed in Saleor 4.0. Use `PromotionRule` type instead.
+
 ```graphql
 type SaleChannelListing implements Node {
   id: ID!
@@ -19,11 +21,19 @@ type SaleChannelListing implements Node {
 
 #### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
 
+The ID of the channel listing.
+
 #### [`channel`](#) ([`Channel!`](../../../developer/api-reference/objects/channel))
+
+The channel in which the sale is available.
 
 #### [`discountValue`](#) ([`Float!`](../../../developer/api-reference/scalars/float))
 
+The value of the discount applied to the sale in the channel.
+
 #### [`currency`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+The currency in which the discount value is specified.
 
 ### Interfaces
 

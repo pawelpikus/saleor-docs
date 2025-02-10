@@ -4,7 +4,7 @@ title: ShippingMethodTranslation
 hide_table_of_contents: false
 ---
 
-No description
+Represents shipping method translations.
 
 ```graphql
 type ShippingMethodTranslation implements Node {
@@ -12,6 +12,7 @@ type ShippingMethodTranslation implements Node {
   language: LanguageDisplay!
   name: String
   description: JSONString
+  translatableContent: ShippingMethodTranslatableContent
 }
 ```
 
@@ -19,17 +20,25 @@ type ShippingMethodTranslation implements Node {
 
 #### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
 
+The ID of the shipping method translation.
+
 #### [`language`](#) ([`LanguageDisplay!`](../../../developer/api-reference/objects/language-display))
 
 Translation language.
 
 #### [`name`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
+Translated shipping method name.
+
 #### [`description`](#) ([`JSONString`](../../../developer/api-reference/scalars/jsonstring))
 
 Translated description of the shipping method.
 
 Rich text format. For reference see https://editorjs.io/
+
+#### [`translatableContent`](#) ([`ShippingMethodTranslatableContent`](../../../developer/api-reference/objects/shipping-method-translatable-content))
+
+Represents the shipping method fields to translate.
 
 ### Interfaces
 

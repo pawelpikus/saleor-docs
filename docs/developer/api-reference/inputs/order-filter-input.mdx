@@ -21,9 +21,11 @@ input OrderFilterInput {
   isClickAndCollect: Boolean
   isPreorder: Boolean
   ids: [ID!]
+  checkoutTokens: [UUID!]
   giftCardUsed: Boolean
   giftCardBought: Boolean
   numbers: [String!]
+  checkoutIds: [ID!]
 }
 ```
 
@@ -55,8 +57,12 @@ input OrderFilterInput {
 
 #### [`ids`](#) ([`[ID!]`](../../../developer/api-reference/scalars/id))
 
+#### [`checkoutTokens`](#) ([`[UUID!]`](../../../developer/api-reference/scalars/uuid))
+
 #### [`giftCardUsed`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
 
 #### [`giftCardBought`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
 
 #### [`numbers`](#) ([`[String!]`](../../../developer/api-reference/scalars/string))
+
+#### [`checkoutIds`](#) ([`[ID!]`](../../../developer/api-reference/scalars/id))

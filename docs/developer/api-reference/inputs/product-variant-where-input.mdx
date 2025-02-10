@@ -1,0 +1,30 @@
+---
+id: product-variant-where-input
+title: ProductVariantWhereInput
+hide_table_of_contents: false
+---
+
+No description
+
+```graphql
+input ProductVariantWhereInput {
+  metadata: [MetadataFilter!]
+  ids: [ID!]
+  AND: [ProductVariantWhereInput!]
+  OR: [ProductVariantWhereInput!]
+}
+```
+
+### Fields
+
+#### [`metadata`](#) ([`[MetadataFilter!]`](../../../developer/api-reference/inputs/metadata-filter))
+
+#### [`ids`](#) ([`[ID!]`](../../../developer/api-reference/scalars/id))
+
+#### [`AND`](#) ([`[ProductVariantWhereInput!]`](../../../developer/api-reference/inputs/product-variant-where-input))
+
+List of conditions that must be met.
+
+#### [`OR`](#) ([`[ProductVariantWhereInput!]`](../../../developer/api-reference/inputs/product-variant-where-input))
+
+A list of conditions of which at least one must be met.

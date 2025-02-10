@@ -1,0 +1,19 @@
+---
+id: payment-settings
+title: PaymentSettings
+hide_table_of_contents: false
+---
+
+Represents the channel-specific payment settings.
+
+```graphql
+type PaymentSettings {
+  defaultTransactionFlowStrategy: TransactionFlowStrategyEnum!
+}
+```
+
+### Fields
+
+#### [`defaultTransactionFlowStrategy`](#) ([`TransactionFlowStrategyEnum!`](../../../developer/api-reference/enums/transaction-flow-strategy-enum))
+
+Determine the transaction flow strategy to be used. Include the selected option in the payload sent to the payment app, as a requested action for the transaction.

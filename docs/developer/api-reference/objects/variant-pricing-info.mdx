@@ -10,9 +10,11 @@ Represents availability of a variant in the storefront.
 type VariantPricingInfo {
   onSale: Boolean
   discount: TaxedMoney
+  discountPrior: TaxedMoney
   discountLocalCurrency: TaxedMoney
   price: TaxedMoney
   priceUndiscounted: TaxedMoney
+  pricePrior: TaxedMoney
   priceLocalCurrency: TaxedMoney
 }
 ```
@@ -27,6 +29,12 @@ Whether it is in sale or not.
 
 The discount amount if in sale (null otherwise).
 
+#### [`discountPrior`](#) ([`TaxedMoney`](../../../developer/api-reference/objects/taxed-money))
+
+The discount amount compared to prior price. Null if product is not on sale or prior price was not provided in VariantChannelListing
+
+Added in Saleor 3.21.
+
 #### [`discountLocalCurrency`](#) ([`TaxedMoney`](../../../developer/api-reference/objects/taxed-money))
 
 The discount amount in the local currency.
@@ -38,6 +46,12 @@ The price, with any discount subtracted.
 #### [`priceUndiscounted`](#) ([`TaxedMoney`](../../../developer/api-reference/objects/taxed-money))
 
 The price without any discount.
+
+#### [`pricePrior`](#) ([`TaxedMoney`](../../../developer/api-reference/objects/taxed-money))
+
+The price prior to discount.
+
+Added in Saleor 3.21.
 
 #### [`priceLocalCurrency`](#) ([`TaxedMoney`](../../../developer/api-reference/objects/taxed-money))
 

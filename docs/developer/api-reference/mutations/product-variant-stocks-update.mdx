@@ -10,20 +10,25 @@ Requires one of the following permissions: MANAGE_PRODUCTS.
 
 ```graphql
 productVariantStocksUpdate(
+  sku: String
   stocks: [StockInput!]!
-  variantId: ID!
+  variantId: ID
 ): ProductVariantStocksUpdate
 ```
 
 ### Arguments
 
+#### [`sku`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+SKU of product variant for which stocks will be updated.
+
 #### [`stocks`](#) ([`[StockInput!]!`](../../../developer/api-reference/inputs/stock-input))
 
-Input list of stocks to create.
+Input list of stocks to create or update.
 
-#### [`variantId`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+#### [`variantId`](#) ([`ID`](../../../developer/api-reference/scalars/id))
 
-ID of a product variant for which stocks will be created.
+ID of a product variant for which stocks will be updated.
 
 ### Type
 

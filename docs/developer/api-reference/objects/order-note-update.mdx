@@ -1,0 +1,29 @@
+---
+id: order-note-update
+title: OrderNoteUpdate
+hide_table_of_contents: false
+---
+
+Updates note of an order.
+
+Requires one of the following permissions: MANAGE_ORDERS.
+
+```graphql
+type OrderNoteUpdate {
+  order: Order
+  event: OrderEvent
+  errors: [OrderNoteUpdateError!]!
+}
+```
+
+### Fields
+
+#### [`order`](#) ([`Order`](../../../developer/api-reference/objects/order))
+
+Order with the note updated.
+
+#### [`event`](#) ([`OrderEvent`](../../../developer/api-reference/objects/order-event))
+
+Order note updated.
+
+#### [`errors`](#) ([`[OrderNoteUpdateError!]!`](../../../developer/api-reference/objects/order-note-update-error))

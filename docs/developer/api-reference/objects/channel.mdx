@@ -7,8 +7,14 @@ hide_table_of_contents: false
 Represents channel.
 
 ```graphql
-type Channel implements Node {
+type Channel implements Node, ObjectWithMetadata {
   id: ID!
+  privateMetadata: [MetadataItem!]!
+  privateMetafield(key: String!): String
+  privateMetafields(keys: [String!]): Metadata
+  metadata: [MetadataItem!]!
+  metafield(key: String!): String
+  metafields(keys: [String!]): Metadata
   slug: String!
   name: String!
   isActive: Boolean!
@@ -21,12 +27,54 @@ type Channel implements Node {
     countries: [CountryCode!]
   ): [ShippingMethodsPerCountry!]
   stockSettings: StockSettings!
+  orderSettings: OrderSettings!
+  checkoutSettings: CheckoutSettings!
+  paymentSettings: PaymentSettings!
+  taxConfiguration: TaxConfiguration!
 }
 ```
 
 ### Fields
 
 #### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+
+The ID of the channel.
+
+#### [`privateMetadata`](#) ([`[MetadataItem!]!`](../../../developer/api-reference/objects/metadata-item))
+
+List of private metadata items. Requires staff permissions to access.
+
+#### [`privateMetafield`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+A single key from private metadata. Requires staff permissions to access.
+
+Tip: Use GraphQL aliases to fetch multiple keys.
+
+- ##### [`key`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+#### [`privateMetafields`](#) ([`Metadata`](../../../developer/api-reference/scalars/metadata))
+
+Private metadata. Requires staff permissions to access. Use `keys` to control which fields you want to include. The default is to include everything.
+
+- ##### [`keys`](#) ([`[String!]`](../../../developer/api-reference/scalars/string))
+
+#### [`metadata`](#) ([`[MetadataItem!]!`](../../../developer/api-reference/objects/metadata-item))
+
+List of public metadata items. Can be accessed without permissions.
+
+#### [`metafield`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+A single key from public metadata.
+
+Tip: Use GraphQL aliases to fetch multiple keys.
+
+- ##### [`key`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+#### [`metafields`](#) ([`Metadata`](../../../developer/api-reference/scalars/metadata))
+
+Public metadata. Use `keys` to control which fields you want to include. The default is to include everything.
+
+- ##### [`keys`](#) ([`[String!]`](../../../developer/api-reference/scalars/string))
 
 #### [`slug`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
@@ -60,17 +108,11 @@ Requires one of the following permissions: MANAGE_CHANNELS.
 
 Default country for the channel. Default country can be used in checkout to determine the stock quantities or calculate taxes when the country was not explicitly provided.
 
-Added in Saleor 3.1.
-
 Requires one of the following permissions: AUTHENTICATED_APP, AUTHENTICATED_STAFF_USER.
 
 #### [`warehouses`](#) ([`[Warehouse!]!`](../../../developer/api-reference/objects/warehouse))
 
 List of warehouses assigned to this channel.
-
-Added in Saleor 3.5.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
 
 Requires one of the following permissions: AUTHENTICATED_APP, AUTHENTICATED_STAFF_USER.
 
@@ -78,17 +120,9 @@ Requires one of the following permissions: AUTHENTICATED_APP, AUTHENTICATED_STAF
 
 List of shippable countries for the channel.
 
-Added in Saleor 3.6.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
 #### [`availableShippingMethodsPerCountry`](#) ([`[ShippingMethodsPerCountry!]`](../../../developer/api-reference/objects/shipping-methods-per-country))
 
 Shipping methods that are available for the channel.
-
-Added in Saleor 3.6.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
 
 - ##### [`countries`](#) ([`[CountryCode!]`](../../../developer/api-reference/enums/country-code))
 
@@ -96,14 +130,38 @@ Note: this API is currently in Feature Preview and can be subject to changes at 
 
 Define the stock setting for this channel.
 
-Added in Saleor 3.7.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
 Requires one of the following permissions: AUTHENTICATED_APP, AUTHENTICATED_STAFF_USER.
+
+#### [`orderSettings`](#) ([`OrderSettings!`](../../../developer/api-reference/objects/order-settings))
+
+Channel-specific order settings.
+
+Requires one of the following permissions: MANAGE_CHANNELS, MANAGE_ORDERS.
+
+#### [`checkoutSettings`](#) ([`CheckoutSettings!`](../../../developer/api-reference/objects/checkout-settings))
+
+Channel-specific checkout settings.
+
+Requires one of the following permissions: MANAGE_CHANNELS, MANAGE_CHECKOUTS.
+
+#### [`paymentSettings`](#) ([`PaymentSettings!`](../../../developer/api-reference/objects/payment-settings))
+
+Channel-specific payment settings.
+
+Requires one of the following permissions: MANAGE_CHANNELS, HANDLE_PAYMENTS.
+
+#### [`taxConfiguration`](#) ([`TaxConfiguration!`](../../../developer/api-reference/objects/tax-configuration))
+
+Channel specific tax configuration.
+
+Added in Saleor 3.20.
+
+Requires one of the following permissions: AUTHENTICATED_STAFF_USER, AUTHENTICATED_APP.
 
 ### Interfaces
 
 #### [`Node`](../../../developer/api-reference/interfaces/node)
 
 An object with an ID
+
+#### [`ObjectWithMetadata`](../../../developer/api-reference/interfaces/object-with-metadata)

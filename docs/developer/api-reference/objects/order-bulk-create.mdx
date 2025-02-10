@@ -1,0 +1,29 @@
+---
+id: order-bulk-create
+title: OrderBulkCreate
+hide_table_of_contents: false
+---
+
+Creates multiple orders.
+
+Requires one of the following permissions: MANAGE_ORDERS_IMPORT.
+
+```graphql
+type OrderBulkCreate {
+  count: Int!
+  results: [OrderBulkCreateResult!]!
+  errors: [OrderBulkCreateError!]!
+}
+```
+
+### Fields
+
+#### [`count`](#) ([`Int!`](../../../developer/api-reference/scalars/int))
+
+Returns how many objects were created.
+
+#### [`results`](#) ([`[OrderBulkCreateResult!]!`](../../../developer/api-reference/objects/order-bulk-create-result))
+
+List of the created orders.
+
+#### [`errors`](#) ([`[OrderBulkCreateError!]!`](../../../developer/api-reference/objects/order-bulk-create-error))

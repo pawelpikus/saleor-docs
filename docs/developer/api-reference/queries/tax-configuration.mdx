@@ -1,0 +1,27 @@
+---
+id: tax-configuration
+title: taxConfiguration
+hide_table_of_contents: false
+---
+
+Look up a tax configuration.
+
+Requires one of the following permissions: AUTHENTICATED_STAFF_USER, AUTHENTICATED_APP.
+
+```graphql
+taxConfiguration(
+  id: ID!
+): TaxConfiguration
+```
+
+### Arguments
+
+#### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+
+ID of a tax configuration.
+
+### Type
+
+#### [`TaxConfiguration`](../../../developer/api-reference/objects/tax-configuration)
+
+Channel-specific tax configuration.

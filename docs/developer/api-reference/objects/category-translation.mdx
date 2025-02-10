@@ -4,7 +4,7 @@ title: CategoryTranslation
 hide_table_of_contents: false
 ---
 
-No description
+Represents category translations.
 
 ```graphql
 type CategoryTranslation implements Node {
@@ -12,9 +12,11 @@ type CategoryTranslation implements Node {
   language: LanguageDisplay!
   seoTitle: String
   seoDescription: String
+  slug: String
   name: String
   description: JSONString
   descriptionJson: JSONString
+  translatableContent: CategoryTranslatableContent
 }
 ```
 
@@ -22,15 +24,29 @@ type CategoryTranslation implements Node {
 
 #### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
 
+The ID of the category translation.
+
 #### [`language`](#) ([`LanguageDisplay!`](../../../developer/api-reference/objects/language-display))
 
 Translation language.
 
 #### [`seoTitle`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
+Translated SEO title.
+
 #### [`seoDescription`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
+Translated SEO description.
+
+#### [`slug`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Translated category slug.
+
+Added in Saleor 3.21.
+
 #### [`name`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Translated category name.
 
 #### [`description`](#) ([`JSONString`](../../../developer/api-reference/scalars/jsonstring))
 
@@ -43,6 +59,10 @@ Rich text format. For reference see https://editorjs.io/
 Translated description of the category.
 
 Rich text format. For reference see https://editorjs.io/
+
+#### [`translatableContent`](#) ([`CategoryTranslatableContent`](../../../developer/api-reference/objects/category-translatable-content))
+
+Represents the category fields to translate.
 
 ### Interfaces
 

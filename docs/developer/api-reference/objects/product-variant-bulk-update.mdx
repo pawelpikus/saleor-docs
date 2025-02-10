@@ -1,0 +1,29 @@
+---
+id: product-variant-bulk-update
+title: ProductVariantBulkUpdate
+hide_table_of_contents: false
+---
+
+Update multiple product variants.
+
+Requires one of the following permissions: MANAGE_PRODUCTS.
+
+```graphql
+type ProductVariantBulkUpdate {
+  count: Int!
+  results: [ProductVariantBulkResult!]!
+  errors: [ProductVariantBulkError!]!
+}
+```
+
+### Fields
+
+#### [`count`](#) ([`Int!`](../../../developer/api-reference/scalars/int))
+
+Returns how many objects were updated.
+
+#### [`results`](#) ([`[ProductVariantBulkResult!]!`](../../../developer/api-reference/objects/product-variant-bulk-result))
+
+List of the updated variants.
+
+#### [`errors`](#) ([`[ProductVariantBulkError!]!`](../../../developer/api-reference/objects/product-variant-bulk-error))

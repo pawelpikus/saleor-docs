@@ -1,0 +1,44 @@
+---
+id: product-variant-bulk-translate
+title: productVariantBulkTranslate
+hide_table_of_contents: false
+---
+
+Creates/updates translations for products variants.
+
+Requires one of the following permissions: MANAGE_TRANSLATIONS.
+
+Triggers the following webhook events:
+
+- TRANSLATION_CREATED (async): A translation was created.
+- TRANSLATION_UPDATED (async): A translation was updated.
+
+```graphql
+productVariantBulkTranslate(
+  errorPolicy: ErrorPolicyEnum
+  translations: [ProductVariantBulkTranslateInput!]!
+): ProductVariantBulkTranslate
+```
+
+### Arguments
+
+#### [`errorPolicy`](#) ([`ErrorPolicyEnum`](../../../developer/api-reference/enums/error-policy-enum))
+
+Policies of error handling. DEFAULT: REJECT_EVERYTHING
+
+#### [`translations`](#) ([`[ProductVariantBulkTranslateInput!]!`](../../../developer/api-reference/inputs/product-variant-bulk-translate-input))
+
+List of products variants translations.
+
+### Type
+
+#### [`ProductVariantBulkTranslate`](../../../developer/api-reference/objects/product-variant-bulk-translate)
+
+Creates/updates translations for products variants.
+
+Requires one of the following permissions: MANAGE_TRANSLATIONS.
+
+Triggers the following webhook events:
+
+- TRANSLATION_CREATED (async): A translation was created.
+- TRANSLATION_UPDATED (async): A translation was updated.

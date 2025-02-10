@@ -1,0 +1,24 @@
+---
+id: webhook-events-info
+title: webhookEventsInfo
+hide_table_of_contents: false
+---
+
+Webhook events triggered by a specific location.
+
+```graphql
+directive @webhookEventsInfo(
+  asyncEvents: [WebhookEventTypeAsyncEnum!]!
+  syncEvents: [WebhookEventTypeSyncEnum!]!
+)
+```
+
+### Arguments
+
+#### [`asyncEvents`](#) ([`[WebhookEventTypeAsyncEnum!]!`](../../../developer/api-reference/enums/webhook-event-type-async-enum))
+
+List of asynchronous webhook events triggered by a specific location.
+
+#### [`syncEvents`](#) ([`[WebhookEventTypeSyncEnum!]!`](../../../developer/api-reference/enums/webhook-event-type-sync-enum))
+
+List of synchronous webhook events triggered by a specific location.

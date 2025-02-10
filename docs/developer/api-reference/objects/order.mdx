@@ -40,17 +40,23 @@ type Order implements Node, ObjectWithMetadata {
   paymentStatusDisplay: String!
   authorizeStatus: OrderAuthorizeStatusEnum!
   chargeStatus: OrderChargeStatusEnum!
+  taxExemption: Boolean!
   transactions: [TransactionItem!]!
   payments: [Payment!]!
   total: TaxedMoney!
   undiscountedTotal: TaxedMoney!
   shippingMethod: ShippingMethod
+  undiscountedShippingPrice: Money!
   shippingPrice: TaxedMoney!
   shippingTaxRate: Float!
+  shippingTaxClass: TaxClass
+  shippingTaxClassName: String
+  shippingTaxClassMetadata: [MetadataItem!]!
+  shippingTaxClassPrivateMetadata: [MetadataItem!]!
   token: String!
   voucher: Voucher
+  voucherCode: String
   giftCards: [GiftCard!]!
-  displayGrossPrices: Boolean!
   customerNote: String!
   weight: Weight!
   redirectUrl: String
@@ -59,6 +65,8 @@ type Order implements Node, ObjectWithMetadata {
   canFinalize: Boolean!
   totalAuthorized: Money!
   totalCaptured: Money!
+  totalCharged: Money!
+  totalCanceled: Money!
   events: [OrderEvent!]!
   totalBalance: Money!
   userEmail: String
@@ -71,12 +79,25 @@ type Order implements Node, ObjectWithMetadata {
   translatedDiscountName: String
   discounts: [OrderDiscount!]!
   errors: [OrderError!]!
+  displayGrossPrices: Boolean!
+  externalReference: String
+  checkoutId: ID
+  grantedRefunds: [OrderGrantedRefund!]!
+  totalGrantedRefund: Money!
+  totalRefunded: Money!
+  totalRefundPending: Money!
+  totalAuthorizePending: Money!
+  totalChargePending: Money!
+  totalCancelPending: Money!
+  totalRemainingGrant: Money!
 }
 ```
 
 ### Fields
 
 #### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+
+ID of the order.
 
 #### [`privateMetadata`](#) ([`[MetadataItem!]!`](../../../developer/api-reference/objects/metadata-item))
 
@@ -88,19 +109,11 @@ A single key from private metadata. Requires staff permissions to access.
 
 Tip: Use GraphQL aliases to fetch multiple keys.
 
-Added in Saleor 3.3.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
 - ##### [`key`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
 #### [`privateMetafields`](#) ([`Metadata`](../../../developer/api-reference/scalars/metadata))
 
 Private metadata. Requires staff permissions to access. Use `keys` to control which fields you want to include. The default is to include everything.
-
-Added in Saleor 3.3.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
 
 - ##### [`keys`](#) ([`[String!]`](../../../developer/api-reference/scalars/string))
 
@@ -114,33 +127,33 @@ A single key from public metadata.
 
 Tip: Use GraphQL aliases to fetch multiple keys.
 
-Added in Saleor 3.3.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
 - ##### [`key`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
 #### [`metafields`](#) ([`Metadata`](../../../developer/api-reference/scalars/metadata))
 
 Public metadata. Use `keys` to control which fields you want to include. The default is to include everything.
 
-Added in Saleor 3.3.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
 - ##### [`keys`](#) ([`[String!]`](../../../developer/api-reference/scalars/string))
 
 #### [`created`](#) ([`DateTime!`](../../../developer/api-reference/scalars/date-time))
 
+Date and time when the order was created.
+
 #### [`updatedAt`](#) ([`DateTime!`](../../../developer/api-reference/scalars/date-time))
+
+Date and time when the order was created.
 
 #### [`status`](#) ([`OrderStatus!`](../../../developer/api-reference/enums/order-status))
 
+Status of the order.
+
 #### [`user`](#) ([`User`](../../../developer/api-reference/objects/user))
 
-User who placed the order. This field is set only for orders placed by authenticated users. Can be fetched for orders created in Saleor 3.2 and later, for other orders requires one of the following permissions: MANAGE_USERS, MANAGE_ORDERS, OWNER.
+User who placed the order. This field is set only for orders placed by authenticated users. Can be fetched for orders created in Saleor 3.2 and later, for other orders requires one of the following permissions: MANAGE_USERS, MANAGE_ORDERS, HANDLE_PAYMENTS, OWNER.
 
 #### [`trackingClientId`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+Google Analytics tracking client ID. This field will be removed in Saleor 4.0.
 
 #### [`billingAddress`](#) ([`Address`](../../../developer/api-reference/objects/address))
 
@@ -152,9 +165,15 @@ Shipping address. The full data can be access for orders created in Saleor 3.2 a
 
 #### [`shippingMethodName`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
+Method used for shipping.
+
 #### [`collectionPointName`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
+Name of the collection point where the order should be picked up by the customer.
+
 #### [`channel`](#) ([`Channel!`](../../../developer/api-reference/objects/channel))
+
+Channel through which the order was placed.
 
 #### [`fulfillments`](#) ([`[Fulfillment!]!`](../../../developer/api-reference/objects/fulfillment))
 
@@ -179,10 +198,6 @@ Shipping methods related to this order.
 #### [`availableCollectionPoints`](#) ([`[Warehouse!]!`](../../../developer/api-reference/objects/warehouse))
 
 Collection points that can be used for this order.
-
-Added in Saleor 3.1.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
 
 #### [`invoices`](#) ([`[Invoice!]!`](../../../developer/api-reference/objects/invoice))
 
@@ -216,25 +231,17 @@ User-friendly payment status.
 
 The authorize status of the order.
 
-Added in Saleor 3.4.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
 #### [`chargeStatus`](#) ([`OrderChargeStatusEnum!`](../../../developer/api-reference/enums/order-charge-status-enum))
 
 The charge status of the order.
 
-Added in Saleor 3.4.
+#### [`taxExemption`](#) ([`Boolean!`](../../../developer/api-reference/scalars/boolean))
 
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
+Returns True if order has to be exempt from taxes.
 
 #### [`transactions`](#) ([`[TransactionItem!]!`](../../../developer/api-reference/objects/transaction-item))
 
 List of transactions for the order. Requires one of the following permissions: MANAGE_ORDERS, HANDLE_PAYMENTS.
-
-Added in Saleor 3.4.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
 
 #### [`payments`](#) ([`[Payment!]!`](../../../developer/api-reference/objects/payment))
 
@@ -252,27 +259,65 @@ Undiscounted total amount of the order.
 
 Shipping method for this order.
 
+#### [`undiscountedShippingPrice`](#) ([`Money!`](../../../developer/api-reference/objects/money))
+
+Undiscounted total price of shipping.
+
+Added in Saleor 3.19.
+
 #### [`shippingPrice`](#) ([`TaxedMoney!`](../../../developer/api-reference/objects/taxed-money))
 
 Total price of shipping.
 
 #### [`shippingTaxRate`](#) ([`Float!`](../../../developer/api-reference/scalars/float))
 
+The shipping tax rate value.
+
+#### [`shippingTaxClass`](#) ([`TaxClass`](../../../developer/api-reference/objects/tax-class))
+
+Denormalized tax class assigned to the shipping method.
+
+Requires one of the following permissions: AUTHENTICATED_STAFF_USER, AUTHENTICATED_APP.
+
+#### [`shippingTaxClassName`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Denormalized name of the tax class assigned to the shipping method.
+
+#### [`shippingTaxClassMetadata`](#) ([`[MetadataItem!]!`](../../../developer/api-reference/objects/metadata-item))
+
+Denormalized public metadata of the shipping method's tax class.
+
+#### [`shippingTaxClassPrivateMetadata`](#) ([`[MetadataItem!]!`](../../../developer/api-reference/objects/metadata-item))
+
+Denormalized private metadata of the shipping method's tax class. Requires staff permissions to access.
+
 #### [`token`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
 #### [`voucher`](#) ([`Voucher`](../../../developer/api-reference/objects/voucher))
+
+Voucher linked to the order.
+
+#### [`voucherCode`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Voucher code that was used for Order.
+
+Added in Saleor 3.18.
 
 #### [`giftCards`](#) ([`[GiftCard!]!`](../../../developer/api-reference/objects/gift-card))
 
 List of user gift cards.
 
-#### [`displayGrossPrices`](#) ([`Boolean!`](../../../developer/api-reference/scalars/boolean))
-
 #### [`customerNote`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+Additional information provided by the customer about the order.
 
 #### [`weight`](#) ([`Weight!`](../../../developer/api-reference/objects/weight))
 
+Weight of the order.
+
 #### [`redirectUrl`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+URL to which user should be redirected after order is placed.
 
 #### [`subtotal`](#) ([`TaxedMoney!`](../../../developer/api-reference/objects/taxed-money))
 
@@ -292,7 +337,15 @@ Amount authorized for the order.
 
 #### [`totalCaptured`](#) ([`Money!`](../../../developer/api-reference/objects/money))
 
-Amount captured by payment.
+Amount captured for the order.
+
+#### [`totalCharged`](#) ([`Money!`](../../../developer/api-reference/objects/money))
+
+Amount charged for the order.
+
+#### [`totalCanceled`](#) ([`Money!`](../../../developer/api-reference/objects/money))
+
+Amount canceled for the order.
 
 #### [`events`](#) ([`[OrderEvent!]!`](../../../developer/api-reference/objects/order-event))
 
@@ -314,11 +367,7 @@ Returns True, if order requires shipping.
 
 #### [`deliveryMethod`](#) ([`DeliveryMethod`](../../../developer/api-reference/unions/delivery-method))
 
-The delivery method selected for this checkout.
-
-Added in Saleor 3.1.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
+The delivery method selected for this order.
 
 #### [`languageCode`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
@@ -345,6 +394,64 @@ List of all discounts assigned to the order.
 #### [`errors`](#) ([`[OrderError!]!`](../../../developer/api-reference/objects/order-error))
 
 List of errors that occurred during order validation.
+
+#### [`displayGrossPrices`](#) ([`Boolean!`](../../../developer/api-reference/scalars/boolean))
+
+Determines whether displayed prices should include taxes.
+
+#### [`externalReference`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+External ID of this order.
+
+#### [`checkoutId`](#) ([`ID`](../../../developer/api-reference/scalars/id))
+
+ID of the checkout that the order was created from.
+
+#### [`grantedRefunds`](#) ([`[OrderGrantedRefund!]!`](../../../developer/api-reference/objects/order-granted-refund))
+
+List of granted refunds.
+
+Requires one of the following permissions: MANAGE_ORDERS.
+
+#### [`totalGrantedRefund`](#) ([`Money!`](../../../developer/api-reference/objects/money))
+
+Total amount of granted refund.
+
+Requires one of the following permissions: MANAGE_ORDERS.
+
+#### [`totalRefunded`](#) ([`Money!`](../../../developer/api-reference/objects/money))
+
+Total refund amount for the order.
+
+#### [`totalRefundPending`](#) ([`Money!`](../../../developer/api-reference/objects/money))
+
+Total amount of ongoing refund requests for the order's transactions.
+
+Requires one of the following permissions: MANAGE_ORDERS.
+
+#### [`totalAuthorizePending`](#) ([`Money!`](../../../developer/api-reference/objects/money))
+
+Total amount of ongoing authorize requests for the order's transactions.
+
+Requires one of the following permissions: MANAGE_ORDERS.
+
+#### [`totalChargePending`](#) ([`Money!`](../../../developer/api-reference/objects/money))
+
+Total amount of ongoing charge requests for the order's transactions.
+
+Requires one of the following permissions: MANAGE_ORDERS.
+
+#### [`totalCancelPending`](#) ([`Money!`](../../../developer/api-reference/objects/money))
+
+Total amount of ongoing cancel requests for the order's transactions.
+
+Requires one of the following permissions: MANAGE_ORDERS.
+
+#### [`totalRemainingGrant`](#) ([`Money!`](../../../developer/api-reference/objects/money))
+
+The difference amount between granted refund and the amounts that are pending and refunded.
+
+Requires one of the following permissions: MANAGE_ORDERS.
 
 ### Interfaces
 

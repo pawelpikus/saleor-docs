@@ -1,0 +1,24 @@
+---
+id: product-bulk-translate-result
+title: ProductBulkTranslateResult
+hide_table_of_contents: false
+---
+
+No description
+
+```graphql
+type ProductBulkTranslateResult {
+  translation: ProductTranslation
+  errors: [ProductBulkTranslateError!]
+}
+```
+
+### Fields
+
+#### [`translation`](#) ([`ProductTranslation`](../../../developer/api-reference/objects/product-translation))
+
+Product translation data.
+
+#### [`errors`](#) ([`[ProductBulkTranslateError!]`](../../../developer/api-reference/objects/product-bulk-translate-error))
+
+List of errors occurred on translation attempt.

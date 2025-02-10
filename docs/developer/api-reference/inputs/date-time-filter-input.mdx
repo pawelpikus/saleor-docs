@@ -1,0 +1,29 @@
+---
+id: date-time-filter-input
+title: DateTimeFilterInput
+hide_table_of_contents: false
+---
+
+Define the filtering options for date time fields.
+
+```graphql
+input DateTimeFilterInput {
+  eq: DateTime
+  oneOf: [DateTime!]
+  range: DateTimeRangeInput
+}
+```
+
+### Fields
+
+#### [`eq`](#) ([`DateTime`](../../../developer/api-reference/scalars/date-time))
+
+The value equal to.
+
+#### [`oneOf`](#) ([`[DateTime!]`](../../../developer/api-reference/scalars/date-time))
+
+The value included in.
+
+#### [`range`](#) ([`DateTimeRangeInput`](../../../developer/api-reference/inputs/date-time-range-input))
+
+The value in range.

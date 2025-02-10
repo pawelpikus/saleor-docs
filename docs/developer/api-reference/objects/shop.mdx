@@ -7,7 +7,14 @@ hide_table_of_contents: false
 Represents a shop resource containing general shop data and configuration.
 
 ```graphql
-type Shop {
+type Shop implements ObjectWithMetadata {
+  privateMetadata: [MetadataItem!]!
+  privateMetafield(key: String!): String
+  privateMetafields(keys: [String!]): Metadata
+  metadata: [MetadataItem!]!
+  metafield(key: String!): String
+  metafields(keys: [String!]): Metadata
+  id: ID!
   availablePaymentGateways(
     currency: String
     channel: String
@@ -32,11 +39,8 @@ type Shop {
   permissions: [Permission!]!
   phonePrefixes: [String!]!
   headerText: String
-  includeTaxesInPrices: Boolean!
   fulfillmentAutoApprove: Boolean!
   fulfillmentAllowUnpaid: Boolean!
-  displayGrossPrices: Boolean!
-  chargeTaxesOnShipping: Boolean!
   trackInventoryByDefault: Boolean
   defaultWeightUnit: WeightUnitsEnum
   translation(languageCode: LanguageCodeEnum!): ShopTranslation
@@ -49,12 +53,59 @@ type Shop {
   companyAddress: Address
   customerSetPasswordUrl: String
   staffNotificationRecipients: [StaffNotificationRecipient!]
+  enableAccountConfirmationByEmail: Boolean
+  allowLoginWithoutConfirmation: Boolean
   limits: LimitInfo!
   version: String!
+  schemaVersion: String!
+  availableTaxApps: [App!]!
+  includeTaxesInPrices: Boolean!
+  displayGrossPrices: Boolean!
+  chargeTaxesOnShipping: Boolean!
 }
 ```
 
 ### Fields
+
+#### [`privateMetadata`](#) ([`[MetadataItem!]!`](../../../developer/api-reference/objects/metadata-item))
+
+List of private metadata items. Requires staff permissions to access.
+
+#### [`privateMetafield`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+A single key from private metadata. Requires staff permissions to access.
+
+Tip: Use GraphQL aliases to fetch multiple keys.
+
+- ##### [`key`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+#### [`privateMetafields`](#) ([`Metadata`](../../../developer/api-reference/scalars/metadata))
+
+Private metadata. Requires staff permissions to access. Use `keys` to control which fields you want to include. The default is to include everything.
+
+- ##### [`keys`](#) ([`[String!]`](../../../developer/api-reference/scalars/string))
+
+#### [`metadata`](#) ([`[MetadataItem!]!`](../../../developer/api-reference/objects/metadata-item))
+
+List of public metadata items. Can be accessed without permissions.
+
+#### [`metafield`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+A single key from public metadata.
+
+Tip: Use GraphQL aliases to fetch multiple keys.
+
+- ##### [`key`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+#### [`metafields`](#) ([`Metadata`](../../../developer/api-reference/scalars/metadata))
+
+Public metadata. Use `keys` to control which fields you want to include. The default is to include everything.
+
+- ##### [`keys`](#) ([`[String!]`](../../../developer/api-reference/scalars/string))
+
+#### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+
+ID of the shop.
 
 #### [`availablePaymentGateways`](#) ([`[PaymentGateway!]!`](../../../developer/api-reference/objects/payment-gateway))
 
@@ -89,8 +140,6 @@ Address for which available shipping methods should be returned.
 #### [`channelCurrencies`](#) ([`[String!]!`](../../../developer/api-reference/scalars/string))
 
 List of all currencies supported by shop's channels.
-
-Added in Saleor 3.1.
 
 Requires one of the following permissions: AUTHENTICATED_STAFF_USER, AUTHENTICATED_APP.
 
@@ -152,33 +201,17 @@ List of possible phone prefixes.
 
 Header text.
 
-#### [`includeTaxesInPrices`](#) ([`Boolean!`](../../../developer/api-reference/scalars/boolean))
-
-Include taxes in prices.
-
 #### [`fulfillmentAutoApprove`](#) ([`Boolean!`](../../../developer/api-reference/scalars/boolean))
 
 Automatically approve all new fulfillments.
-
-Added in Saleor 3.1.
 
 #### [`fulfillmentAllowUnpaid`](#) ([`Boolean!`](../../../developer/api-reference/scalars/boolean))
 
 Allow to approve fulfillments which are unpaid.
 
-Added in Saleor 3.1.
-
-#### [`displayGrossPrices`](#) ([`Boolean!`](../../../developer/api-reference/scalars/boolean))
-
-Display prices with tax in store.
-
-#### [`chargeTaxesOnShipping`](#) ([`Boolean!`](../../../developer/api-reference/scalars/boolean))
-
-Charge taxes on shipping.
-
 #### [`trackInventoryByDefault`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
 
-Enable inventory tracking.
+This field is used as a default value for `ProductVariant.trackInventory`.
 
 #### [`defaultWeightUnit`](#) ([`WeightUnitsEnum`](../../../developer/api-reference/enums/weight-units-enum))
 
@@ -202,25 +235,17 @@ Requires one of the following permissions: MANAGE_SETTINGS.
 
 Default number of minutes stock will be reserved for anonymous checkout or null when stock reservation is disabled.
 
-Added in Saleor 3.1.
-
 Requires one of the following permissions: MANAGE_SETTINGS.
 
 #### [`reserveStockDurationAuthenticatedUser`](#) ([`Int`](../../../developer/api-reference/scalars/int))
 
 Default number of minutes stock will be reserved for authenticated checkout or null when stock reservation is disabled.
 
-Added in Saleor 3.1.
-
 Requires one of the following permissions: MANAGE_SETTINGS.
 
 #### [`limitQuantityPerCheckout`](#) ([`Int`](../../../developer/api-reference/scalars/int))
 
 Default number of maximum line quantity in single checkout (per single checkout line).
-
-Added in Saleor 3.1.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
 
 Requires one of the following permissions: MANAGE_SETTINGS.
 
@@ -250,6 +275,18 @@ List of staff notification recipients.
 
 Requires one of the following permissions: MANAGE_SETTINGS.
 
+#### [`enableAccountConfirmationByEmail`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
+
+Determines if account confirmation by email is enabled.
+
+Requires one of the following permissions: MANAGE_SETTINGS.
+
+#### [`allowLoginWithoutConfirmation`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
+
+Determines if user can login without confirmation when `enableAccountConfirmation` is enabled.
+
+Requires one of the following permissions: MANAGE_SETTINGS.
+
 #### [`limits`](#) ([`LimitInfo!`](../../../developer/api-reference/objects/limit-info))
 
 Resource limitations and current usage if any set for a shop
@@ -261,3 +298,31 @@ Requires one of the following permissions: AUTHENTICATED_STAFF_USER.
 Saleor API version.
 
 Requires one of the following permissions: AUTHENTICATED_STAFF_USER, AUTHENTICATED_APP.
+
+#### [`schemaVersion`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+Minor Saleor API version.
+
+#### [`availableTaxApps`](#) ([`[App!]!`](../../../developer/api-reference/objects/app))
+
+List of tax apps that can be assigned to the channel. The list will be calculated by Saleor based on the apps that are subscribed to webhooks related to tax calculations: CHECKOUT_CALCULATE_TAXES
+
+Added in Saleor 3.19.
+
+Requires one of the following permissions: AUTHENTICATED_STAFF_USER, MANAGE_APPS.
+
+#### [`includeTaxesInPrices`](#) ([`Boolean!`](../../../developer/api-reference/scalars/boolean))
+
+Include taxes in prices.
+
+#### [`displayGrossPrices`](#) ([`Boolean!`](../../../developer/api-reference/scalars/boolean))
+
+Display prices with tax in store.
+
+#### [`chargeTaxesOnShipping`](#) ([`Boolean!`](../../../developer/api-reference/scalars/boolean))
+
+Charge taxes on shipping.
+
+### Interfaces
+
+#### [`ObjectWithMetadata`](../../../developer/api-reference/interfaces/object-with-metadata)

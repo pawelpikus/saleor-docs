@@ -15,10 +15,14 @@ input ProductInput {
   description: JSONString
   name: String
   slug: String
+  taxClass: ID
   taxCode: String
   seo: SeoInput
   weight: WeightScalar
   rating: Float
+  metadata: [MetadataInput!]
+  privateMetadata: [MetadataInput!]
+  externalReference: String
 }
 ```
 
@@ -35,6 +39,8 @@ ID of the product's category.
 #### [`chargeTaxes`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
 
 Determine if taxes are being charged for the product.
+
+DEPRECATED: this field will be removed in Saleor 4.0. Use `Channel.taxConfiguration` to configure whether tax collection is enabled.
 
 #### [`collections`](#) ([`[ID!]`](../../../developer/api-reference/scalars/id))
 
@@ -54,9 +60,15 @@ Product name.
 
 Product slug.
 
+#### [`taxClass`](#) ([`ID`](../../../developer/api-reference/scalars/id))
+
+ID of a tax class to assign to this product. If not provided, product will use the tax class which is assigned to the product type.
+
 #### [`taxCode`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
 Tax rate for enabled tax gateway.
+
+DEPRECATED: this field will be removed in Saleor 4.0. Use tax classes to control the tax calculation for a product. If taxCode is provided, Saleor will try to find a tax class with given code (codes are stored in metadata) and assign it. If no tax class is found, it would be created and assigned.
 
 #### [`seo`](#) ([`SeoInput`](../../../developer/api-reference/inputs/seo-input))
 
@@ -69,3 +81,15 @@ Weight of the Product.
 #### [`rating`](#) ([`Float`](../../../developer/api-reference/scalars/float))
 
 Defines the product rating value.
+
+#### [`metadata`](#) ([`[MetadataInput!]`](../../../developer/api-reference/inputs/metadata-input))
+
+Fields required to update the product metadata.
+
+#### [`privateMetadata`](#) ([`[MetadataInput!]`](../../../developer/api-reference/inputs/metadata-input))
+
+Fields required to update the product private metadata.
+
+#### [`externalReference`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+External ID of this product.

@@ -11,6 +11,7 @@ input ProductVariantChannelListingAddInput {
   channelId: ID!
   price: PositiveDecimal!
   costPrice: PositiveDecimal
+  priorPrice: PositiveDecimal
   preorderThreshold: Int
 }
 ```
@@ -29,10 +30,12 @@ Price of the particular variant in channel.
 
 Cost price of the variant in channel.
 
+#### [`priorPrice`](#) ([`PositiveDecimal`](../../../developer/api-reference/scalars/positive-decimal))
+
+Previous price of the variant in channel. Useful for providing promotion information required by customer protection laws such as EU Omnibus directive.
+
+Added in Saleor 3.21.
+
 #### [`preorderThreshold`](#) ([`Int`](../../../developer/api-reference/scalars/int))
 
 The threshold for preorder variant in channel.
-
-Added in Saleor 3.1.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.

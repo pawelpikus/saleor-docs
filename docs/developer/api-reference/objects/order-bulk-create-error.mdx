@@ -1,0 +1,29 @@
+---
+id: order-bulk-create-error
+title: OrderBulkCreateError
+hide_table_of_contents: false
+---
+
+No description
+
+```graphql
+type OrderBulkCreateError {
+  path: String
+  message: String
+  code: OrderBulkCreateErrorCode
+}
+```
+
+### Fields
+
+#### [`path`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Path to field that caused the error. A value of `null` indicates that the error isn't associated with a particular field.
+
+#### [`message`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+The error message.
+
+#### [`code`](#) ([`OrderBulkCreateErrorCode`](../../../developer/api-reference/enums/order-bulk-create-error-code))
+
+The error code.

@@ -1,0 +1,57 @@
+---
+id: order-settings-input
+title: OrderSettingsInput
+hide_table_of_contents: false
+---
+
+No description
+
+```graphql
+input OrderSettingsInput {
+  automaticallyConfirmAllNewOrders: Boolean
+  automaticallyFulfillNonShippableGiftCard: Boolean
+  expireOrdersAfter: Minute
+  deleteExpiredOrdersAfter: Day
+  markAsPaidStrategy: MarkAsPaidStrategyEnum
+  allowUnpaidOrders: Boolean
+  includeDraftOrderInVoucherUsage: Boolean
+}
+```
+
+### Fields
+
+#### [`automaticallyConfirmAllNewOrders`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
+
+When disabled, all new orders from checkout will be marked as unconfirmed. When enabled orders from checkout will become unfulfilled immediately. By default set to True
+
+#### [`automaticallyFulfillNonShippableGiftCard`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
+
+When enabled, all non-shippable gift card orders will be fulfilled automatically. By default set to True.
+
+#### [`expireOrdersAfter`](#) ([`Minute`](../../../developer/api-reference/scalars/minute))
+
+Expiration time in minutes. Default null - means do not expire any orders. Enter 0 or null to disable.
+
+#### [`deleteExpiredOrdersAfter`](#) ([`Day`](../../../developer/api-reference/scalars/day))
+
+The time in days after expired orders will be deleted.Allowed range is from 1 to 120.
+
+#### [`markAsPaidStrategy`](#) ([`MarkAsPaidStrategyEnum`](../../../developer/api-reference/enums/mark-as-paid-strategy-enum))
+
+Determine what strategy will be used to mark the order as paid. Based on the chosen option, the proper object will be created and attached to the order when it's manually marked as paid.
+`PAYMENT_FLOW` - [default option] creates the `Payment` object.
+`TRANSACTION_FLOW` - creates the `TransactionItem` object.
+
+#### [`allowUnpaidOrders`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
+
+Determine if it is possible to place unpaid order by calling `checkoutComplete` mutation.
+
+#### [`includeDraftOrderInVoucherUsage`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
+
+Specify whether a coupon applied to draft orders will count toward voucher usage.
+
+Warning: when switching this setting from `false` to `true`, the vouchers will be disconnected from all draft orders.
+
+Added in Saleor 3.18.
+
+Note: this API is currently in Feature Preview and can be subject to changes at later point.

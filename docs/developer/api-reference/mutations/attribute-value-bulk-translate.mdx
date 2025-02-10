@@ -1,0 +1,34 @@
+---
+id: attribute-value-bulk-translate
+title: attributeValueBulkTranslate
+hide_table_of_contents: false
+---
+
+Creates/updates translations for attributes values.
+
+Requires one of the following permissions: MANAGE_TRANSLATIONS.
+
+```graphql
+attributeValueBulkTranslate(
+  errorPolicy: ErrorPolicyEnum
+  translations: [AttributeValueBulkTranslateInput!]!
+): AttributeValueBulkTranslate
+```
+
+### Arguments
+
+#### [`errorPolicy`](#) ([`ErrorPolicyEnum`](../../../developer/api-reference/enums/error-policy-enum))
+
+Policies of error handling. DEFAULT: REJECT_EVERYTHING
+
+#### [`translations`](#) ([`[AttributeValueBulkTranslateInput!]!`](../../../developer/api-reference/inputs/attribute-value-bulk-translate-input))
+
+List of attribute values translations.
+
+### Type
+
+#### [`AttributeValueBulkTranslate`](../../../developer/api-reference/objects/attribute-value-bulk-translate)
+
+Creates/updates translations for attributes values.
+
+Requires one of the following permissions: MANAGE_TRANSLATIONS.

@@ -1,0 +1,39 @@
+---
+id: transaction-request-refund-for-granted-refund
+title: transactionRequestRefundForGrantedRefund
+hide_table_of_contents: false
+---
+
+Request a refund for payment transaction based on granted refund.
+
+Requires one of the following permissions: HANDLE_PAYMENTS.
+
+```graphql
+transactionRequestRefundForGrantedRefund(
+  grantedRefundId: ID!
+  id: ID
+  token: UUID
+): TransactionRequestRefundForGrantedRefund
+```
+
+### Arguments
+
+#### [`grantedRefundId`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+
+The ID of the granted refund.
+
+#### [`id`](#) ([`ID`](../../../developer/api-reference/scalars/id))
+
+The ID of the transaction. One of field id or token is required, if `transactionItem` is not already assigned to the `orderGrantedRefund`. If `transactionItem` is already assigned to the grantedRefund the field will be ignored.
+
+#### [`token`](#) ([`UUID`](../../../developer/api-reference/scalars/uuid))
+
+The token of the transaction. One of field id or token is required, if `transactionItem` is not already assigned to the `orderGrantedRefund`. If `transactionItem` is already assigned to the grantedRefund the field will be ignored.
+
+### Type
+
+#### [`TransactionRequestRefundForGrantedRefund`](../../../developer/api-reference/objects/transaction-request-refund-for-granted-refund)
+
+Request a refund for payment transaction based on granted refund.
+
+Requires one of the following permissions: HANDLE_PAYMENTS.

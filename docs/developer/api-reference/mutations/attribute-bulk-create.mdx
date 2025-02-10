@@ -1,0 +1,38 @@
+---
+id: attribute-bulk-create
+title: attributeBulkCreate
+hide_table_of_contents: false
+---
+
+Creates attributes.
+
+Triggers the following webhook events:
+
+- ATTRIBUTE_CREATED (async): An attribute was created.
+
+```graphql
+attributeBulkCreate(
+  attributes: [AttributeCreateInput!]!
+  errorPolicy: ErrorPolicyEnum
+): AttributeBulkCreate
+```
+
+### Arguments
+
+#### [`attributes`](#) ([`[AttributeCreateInput!]!`](../../../developer/api-reference/inputs/attribute-create-input))
+
+Input list of attributes to create.
+
+#### [`errorPolicy`](#) ([`ErrorPolicyEnum`](../../../developer/api-reference/enums/error-policy-enum))
+
+Policies of error handling. DEFAULT: REJECT_EVERYTHING
+
+### Type
+
+#### [`AttributeBulkCreate`](../../../developer/api-reference/objects/attribute-bulk-create)
+
+Creates attributes.
+
+Triggers the following webhook events:
+
+- ATTRIBUTE_CREATED (async): An attribute was created.

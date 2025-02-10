@@ -19,15 +19,21 @@ type CheckoutLine implements Node, ObjectWithMetadata {
   quantity: Int!
   unitPrice: TaxedMoney!
   undiscountedUnitPrice: Money!
+  priorUnitPrice: Money
   totalPrice: TaxedMoney!
   undiscountedTotalPrice: Money!
+  priorTotalPrice: Money
   requiresShipping: Boolean!
+  problems: [CheckoutLineProblem!]
+  isGift: Boolean
 }
 ```
 
 ### Fields
 
 #### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+
+The ID of the checkout line.
 
 #### [`privateMetadata`](#) ([`[MetadataItem!]!`](../../../developer/api-reference/objects/metadata-item))
 
@@ -39,19 +45,11 @@ A single key from private metadata. Requires staff permissions to access.
 
 Tip: Use GraphQL aliases to fetch multiple keys.
 
-Added in Saleor 3.3.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
 - ##### [`key`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
 #### [`privateMetafields`](#) ([`Metadata`](../../../developer/api-reference/scalars/metadata))
 
 Private metadata. Requires staff permissions to access. Use `keys` to control which fields you want to include. The default is to include everything.
-
-Added in Saleor 3.3.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
 
 - ##### [`keys`](#) ([`[String!]`](../../../developer/api-reference/scalars/string))
 
@@ -65,45 +63,73 @@ A single key from public metadata.
 
 Tip: Use GraphQL aliases to fetch multiple keys.
 
-Added in Saleor 3.3.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
 - ##### [`key`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
 #### [`metafields`](#) ([`Metadata`](../../../developer/api-reference/scalars/metadata))
 
 Public metadata. Use `keys` to control which fields you want to include. The default is to include everything.
 
-Added in Saleor 3.3.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
 - ##### [`keys`](#) ([`[String!]`](../../../developer/api-reference/scalars/string))
 
 #### [`variant`](#) ([`ProductVariant!`](../../../developer/api-reference/objects/product-variant))
 
+The product variant from which the checkout line was created.
+
 #### [`quantity`](#) ([`Int!`](../../../developer/api-reference/scalars/int))
+
+The quantity of product variant assigned to the checkout line.
 
 #### [`unitPrice`](#) ([`TaxedMoney!`](../../../developer/api-reference/objects/taxed-money))
 
 The unit price of the checkout line, with taxes and discounts.
 
+Triggers the following webhook events:
+
+- CHECKOUT_CALCULATE_TAXES (sync): Optionally triggered when checkout prices are expired.
+
 #### [`undiscountedUnitPrice`](#) ([`Money!`](../../../developer/api-reference/objects/money))
 
 The unit price of the checkout line, without discounts.
+
+#### [`priorUnitPrice`](#) ([`Money`](../../../developer/api-reference/objects/money))
+
+The unit price of the checkout line prior to promotion.
+
+Added in Saleor 3.21.
 
 #### [`totalPrice`](#) ([`TaxedMoney!`](../../../developer/api-reference/objects/taxed-money))
 
 The sum of the checkout line price, taxes and discounts.
 
+Triggers the following webhook events:
+
+- CHECKOUT_CALCULATE_TAXES (sync): Optionally triggered when checkout prices are expired.
+
 #### [`undiscountedTotalPrice`](#) ([`Money!`](../../../developer/api-reference/objects/money))
 
 The sum of the checkout line price, without discounts.
 
+#### [`priorTotalPrice`](#) ([`Money`](../../../developer/api-reference/objects/money))
+
+The sum of the checkout line price prior to promotion.
+
+Added in Saleor 3.21.
+
 #### [`requiresShipping`](#) ([`Boolean!`](../../../developer/api-reference/scalars/boolean))
 
 Indicates whether the item need to be delivered.
+
+#### [`problems`](#) ([`[CheckoutLineProblem!]`](../../../developer/api-reference/unions/checkout-line-problem))
+
+List of problems with the checkout line.
+
+#### [`isGift`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
+
+Determine if the line is a gift.
+
+Added in Saleor 3.19.
+
+Note: this API is currently in Feature Preview and can be subject to changes at later point.
 
 ### Interfaces
 

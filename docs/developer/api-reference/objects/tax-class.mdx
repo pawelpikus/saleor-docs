@@ -1,0 +1,79 @@
+---
+id: tax-class
+title: TaxClass
+hide_table_of_contents: false
+---
+
+Tax class is a named object used to define tax rates per country. Tax class can be assigned to product types, products and shipping methods to define their tax rates.
+
+```graphql
+type TaxClass implements Node, ObjectWithMetadata {
+  id: ID!
+  privateMetadata: [MetadataItem!]!
+  privateMetafield(key: String!): String
+  privateMetafields(keys: [String!]): Metadata
+  metadata: [MetadataItem!]!
+  metafield(key: String!): String
+  metafields(keys: [String!]): Metadata
+  name: String!
+  countries: [TaxClassCountryRate!]!
+}
+```
+
+### Fields
+
+#### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+
+The ID of the object.
+
+#### [`privateMetadata`](#) ([`[MetadataItem!]!`](../../../developer/api-reference/objects/metadata-item))
+
+List of private metadata items. Requires staff permissions to access.
+
+#### [`privateMetafield`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+A single key from private metadata. Requires staff permissions to access.
+
+Tip: Use GraphQL aliases to fetch multiple keys.
+
+- ##### [`key`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+#### [`privateMetafields`](#) ([`Metadata`](../../../developer/api-reference/scalars/metadata))
+
+Private metadata. Requires staff permissions to access. Use `keys` to control which fields you want to include. The default is to include everything.
+
+- ##### [`keys`](#) ([`[String!]`](../../../developer/api-reference/scalars/string))
+
+#### [`metadata`](#) ([`[MetadataItem!]!`](../../../developer/api-reference/objects/metadata-item))
+
+List of public metadata items. Can be accessed without permissions.
+
+#### [`metafield`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+A single key from public metadata.
+
+Tip: Use GraphQL aliases to fetch multiple keys.
+
+- ##### [`key`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+#### [`metafields`](#) ([`Metadata`](../../../developer/api-reference/scalars/metadata))
+
+Public metadata. Use `keys` to control which fields you want to include. The default is to include everything.
+
+- ##### [`keys`](#) ([`[String!]`](../../../developer/api-reference/scalars/string))
+
+#### [`name`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+Name of the tax class.
+
+#### [`countries`](#) ([`[TaxClassCountryRate!]!`](../../../developer/api-reference/objects/tax-class-country-rate))
+
+Country-specific tax rates for this tax class.
+
+### Interfaces
+
+#### [`Node`](../../../developer/api-reference/interfaces/node)
+
+An object with an ID
+
+#### [`ObjectWithMetadata`](../../../developer/api-reference/interfaces/object-with-metadata)

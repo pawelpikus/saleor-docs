@@ -10,12 +10,17 @@ Requires one of the following permissions: MANAGE_PRODUCTS.
 
 ```graphql
 productVariantBulkCreate(
+  errorPolicy: ErrorPolicyEnum
   product: ID!
   variants: [ProductVariantBulkCreateInput!]!
 ): ProductVariantBulkCreate
 ```
 
 ### Arguments
+
+#### [`errorPolicy`](#) ([`ErrorPolicyEnum`](../../../developer/api-reference/enums/error-policy-enum))
+
+Policies of error handling. DEFAULT: REJECT_EVERYTHING
 
 #### [`product`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
 

@@ -10,14 +10,19 @@ Requires one of the following permissions: MANAGE_PRODUCTS.
 
 ```graphql
 productUpdate(
-  id: ID!
+  externalReference: String
+  id: ID
   input: ProductInput!
 ): ProductUpdate
 ```
 
 ### Arguments
 
-#### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+#### [`externalReference`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+External ID of a product to update.
+
+#### [`id`](#) ([`ID`](../../../developer/api-reference/scalars/id))
 
 ID of a product to update.
 

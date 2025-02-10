@@ -1,0 +1,34 @@
+---
+id: product-variant-bulk-translate
+title: ProductVariantBulkTranslate
+hide_table_of_contents: false
+---
+
+Creates/updates translations for products variants.
+
+Requires one of the following permissions: MANAGE_TRANSLATIONS.
+
+Triggers the following webhook events:
+
+- TRANSLATION_CREATED (async): A translation was created.
+- TRANSLATION_UPDATED (async): A translation was updated.
+
+```graphql
+type ProductVariantBulkTranslate {
+  count: Int!
+  results: [ProductVariantBulkTranslateResult!]!
+  errors: [ProductVariantBulkTranslateError!]!
+}
+```
+
+### Fields
+
+#### [`count`](#) ([`Int!`](../../../developer/api-reference/scalars/int))
+
+Returns how many translations were created/updated.
+
+#### [`results`](#) ([`[ProductVariantBulkTranslateResult!]!`](../../../developer/api-reference/objects/product-variant-bulk-translate-result))
+
+List of the translations.
+
+#### [`errors`](#) ([`[ProductVariantBulkTranslateError!]!`](../../../developer/api-reference/objects/product-variant-bulk-translate-error))

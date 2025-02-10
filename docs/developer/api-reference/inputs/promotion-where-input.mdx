@@ -1,0 +1,51 @@
+---
+id: promotion-where-input
+title: PromotionWhereInput
+hide_table_of_contents: false
+---
+
+No description
+
+```graphql
+input PromotionWhereInput {
+  metadata: [MetadataFilter!]
+  ids: [ID!]
+  name: StringFilterInput
+  endDate: DateTimeFilterInput
+  startDate: DateTimeFilterInput
+  isOldSale: Boolean
+  type: PromotionTypeEnumFilterInput
+  AND: [PromotionWhereInput!]
+  OR: [PromotionWhereInput!]
+}
+```
+
+### Fields
+
+#### [`metadata`](#) ([`[MetadataFilter!]`](../../../developer/api-reference/inputs/metadata-filter))
+
+#### [`ids`](#) ([`[ID!]`](../../../developer/api-reference/scalars/id))
+
+#### [`name`](#) ([`StringFilterInput`](../../../developer/api-reference/inputs/string-filter-input))
+
+Filter by promotion name.
+
+#### [`endDate`](#) ([`DateTimeFilterInput`](../../../developer/api-reference/inputs/date-time-filter-input))
+
+Filter promotions by end date.
+
+#### [`startDate`](#) ([`DateTimeFilterInput`](../../../developer/api-reference/inputs/date-time-filter-input))
+
+Filter promotions by start date.
+
+#### [`isOldSale`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
+
+#### [`type`](#) ([`PromotionTypeEnumFilterInput`](../../../developer/api-reference/inputs/promotion-type-enum-filter-input))
+
+#### [`AND`](#) ([`[PromotionWhereInput!]`](../../../developer/api-reference/inputs/promotion-where-input))
+
+List of conditions that must be met.
+
+#### [`OR`](#) ([`[PromotionWhereInput!]`](../../../developer/api-reference/inputs/promotion-where-input))
+
+A list of conditions of which at least one must be met.

@@ -8,6 +8,10 @@ Deletes an attribute.
 
 Requires one of the following permissions: MANAGE_PRODUCT_TYPES_AND_ATTRIBUTES.
 
+Triggers the following webhook events:
+
+- ATTRIBUTE_DELETED (async): An attribute was deleted.
+
 ```graphql
 type AttributeDelete {
   attributeErrors: [AttributeError!]!

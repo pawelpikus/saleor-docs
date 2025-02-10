@@ -4,11 +4,14 @@ title: SaleTranslatableContent
 hide_table_of_contents: false
 ---
 
-No description
+Represents sale's original translatable fields and related translations.
+
+DEPRECATED: this type will be removed in Saleor 4.0. Use `PromotionTranslatableContent` instead.
 
 ```graphql
 type SaleTranslatableContent implements Node {
   id: ID!
+  saleId: ID!
   name: String!
   translation(languageCode: LanguageCodeEnum!): SaleTranslation
   sale: Sale
@@ -19,7 +22,15 @@ type SaleTranslatableContent implements Node {
 
 #### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
 
+The ID of the sale translatable content.
+
+#### [`saleId`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+
+The ID of the sale to translate.
+
 #### [`name`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+Name of the sale to translate.
 
 #### [`translation`](#) ([`SaleTranslation`](../../../developer/api-reference/objects/sale-translation))
 

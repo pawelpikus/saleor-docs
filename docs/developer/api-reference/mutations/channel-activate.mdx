@@ -8,6 +8,10 @@ Activate a channel.
 
 Requires one of the following permissions: MANAGE_CHANNELS.
 
+Triggers the following webhook events:
+
+- CHANNEL_STATUS_CHANGED (async): A channel was activated.
+
 ```graphql
 channelActivate(
   id: ID!
@@ -27,3 +31,7 @@ ID of the channel to activate.
 Activate a channel.
 
 Requires one of the following permissions: MANAGE_CHANNELS.
+
+Triggers the following webhook events:
+
+- CHANNEL_STATUS_CHANGED (async): A channel was activated.

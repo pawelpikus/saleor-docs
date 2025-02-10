@@ -8,6 +8,10 @@ Create new permission group. Apps are not allowed to perform this mutation.
 
 Requires one of the following permissions: MANAGE_STAFF.
 
+Triggers the following webhook events:
+
+- PERMISSION_GROUP_CREATED (async)
+
 ```graphql
 permissionGroupCreate(
   input: PermissionGroupCreateInput!
@@ -27,3 +31,7 @@ Input fields to create permission group.
 Create new permission group. Apps are not allowed to perform this mutation.
 
 Requires one of the following permissions: MANAGE_STAFF.
+
+Triggers the following webhook events:
+
+- PERMISSION_GROUP_CREATED (async)

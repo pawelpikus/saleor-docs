@@ -1,0 +1,42 @@
+---
+id: attribute-bulk-update
+title: attributeBulkUpdate
+hide_table_of_contents: false
+---
+
+Updates attributes.
+
+Triggers the following webhook events:
+
+- ATTRIBUTE_UPDATED (async): An attribute was updated. Optionally called when new attribute value was created or deleted.
+- ATTRIBUTE_VALUE_CREATED (async): Called optionally when an attribute value was created.
+- ATTRIBUTE_VALUE_DELETED (async): Called optionally when an attribute value was deleted.
+
+```graphql
+attributeBulkUpdate(
+  attributes: [AttributeBulkUpdateInput!]!
+  errorPolicy: ErrorPolicyEnum
+): AttributeBulkUpdate
+```
+
+### Arguments
+
+#### [`attributes`](#) ([`[AttributeBulkUpdateInput!]!`](../../../developer/api-reference/inputs/attribute-bulk-update-input))
+
+Input list of attributes to update.
+
+#### [`errorPolicy`](#) ([`ErrorPolicyEnum`](../../../developer/api-reference/enums/error-policy-enum))
+
+Policies of error handling. DEFAULT: REJECT_EVERYTHING
+
+### Type
+
+#### [`AttributeBulkUpdate`](../../../developer/api-reference/objects/attribute-bulk-update)
+
+Updates attributes.
+
+Triggers the following webhook events:
+
+- ATTRIBUTE_UPDATED (async): An attribute was updated. Optionally called when new attribute value was created or deleted.
+- ATTRIBUTE_VALUE_CREATED (async): Called optionally when an attribute value was created.
+- ATTRIBUTE_VALUE_DELETED (async): Called optionally when an attribute value was deleted.

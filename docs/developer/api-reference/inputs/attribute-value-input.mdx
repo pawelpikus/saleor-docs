@@ -9,7 +9,12 @@ No description
 ```graphql
 input AttributeValueInput {
   id: ID
+  externalReference: String
   values: [String!]
+  dropdown: AttributeValueSelectableTypeInput
+  swatch: AttributeValueSelectableTypeInput
+  multiselect: [AttributeValueSelectableTypeInput!]
+  numeric: String
   file: String
   contentType: String
   references: [ID!]
@@ -27,9 +32,29 @@ input AttributeValueInput {
 
 ID of the selected attribute.
 
+#### [`externalReference`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+External ID of this attribute.
+
 #### [`values`](#) ([`[String!]`](../../../developer/api-reference/scalars/string))
 
-The value or slug of an attribute to resolve. If the passed value is non-existent, it will be created.
+The value or slug of an attribute to resolve. If the passed value is non-existent, it will be created. This field will be removed in Saleor 4.0.
+
+#### [`dropdown`](#) ([`AttributeValueSelectableTypeInput`](../../../developer/api-reference/inputs/attribute-value-selectable-type-input))
+
+Attribute value ID or external reference.
+
+#### [`swatch`](#) ([`AttributeValueSelectableTypeInput`](../../../developer/api-reference/inputs/attribute-value-selectable-type-input))
+
+Attribute value ID or external reference.
+
+#### [`multiselect`](#) ([`[AttributeValueSelectableTypeInput!]`](../../../developer/api-reference/inputs/attribute-value-selectable-type-input))
+
+List of attribute value IDs or external references.
+
+#### [`numeric`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Numeric value of an attribute.
 
 #### [`file`](#) ([`String`](../../../developer/api-reference/scalars/string))
 

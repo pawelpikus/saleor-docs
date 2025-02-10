@@ -8,6 +8,10 @@ Moves items of menus.
 
 Requires one of the following permissions: MANAGE_MENUS.
 
+Triggers the following webhook events:
+
+- MENU_ITEM_UPDATED (async): Optionally triggered when sort order or parent changed for menu item.
+
 ```graphql
 type MenuItemMove {
   menu: Menu
