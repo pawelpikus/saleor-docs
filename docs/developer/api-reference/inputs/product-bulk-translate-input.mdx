@@ -1,0 +1,34 @@
+---
+id: product-bulk-translate-input
+title: ProductBulkTranslateInput
+hide_table_of_contents: false
+---
+
+No description
+
+```graphql
+input ProductBulkTranslateInput {
+  id: ID
+  externalReference: String
+  languageCode: LanguageCodeEnum!
+  translationFields: TranslationInput!
+}
+```
+
+### Fields
+
+#### [`id`](#) ([`ID`](../../../developer/api-reference/scalars/id))
+
+Product ID.
+
+#### [`externalReference`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+External reference of an product.
+
+#### [`languageCode`](#) ([`LanguageCodeEnum!`](../../../developer/api-reference/enums/language-code-enum))
+
+Translation language code.
+
+#### [`translationFields`](#) ([`TranslationInput!`](../../../developer/api-reference/inputs/translation-input))
+
+Translation fields.

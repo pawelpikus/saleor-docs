@@ -1,0 +1,24 @@
+---
+id: customer-bulk-result
+title: CustomerBulkResult
+hide_table_of_contents: false
+---
+
+No description
+
+```graphql
+type CustomerBulkResult {
+  customer: User
+  errors: [CustomerBulkUpdateError!]
+}
+```
+
+### Fields
+
+#### [`customer`](#) ([`User`](../../../developer/api-reference/objects/user))
+
+Customer data.
+
+#### [`errors`](#) ([`[CustomerBulkUpdateError!]`](../../../developer/api-reference/objects/customer-bulk-update-error))
+
+List of errors that occurred during the update attempt.

@@ -1,0 +1,24 @@
+---
+id: attribute-bulk-update-result
+title: AttributeBulkUpdateResult
+hide_table_of_contents: false
+---
+
+No description
+
+```graphql
+type AttributeBulkUpdateResult {
+  attribute: Attribute
+  errors: [AttributeBulkUpdateError!]
+}
+```
+
+### Fields
+
+#### [`attribute`](#) ([`Attribute`](../../../developer/api-reference/objects/attribute))
+
+Attribute data.
+
+#### [`errors`](#) ([`[AttributeBulkUpdateError!]`](../../../developer/api-reference/objects/attribute-bulk-update-error))
+
+List of errors occurred on update attempt.

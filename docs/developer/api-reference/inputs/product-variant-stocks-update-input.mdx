@@ -1,0 +1,29 @@
+---
+id: product-variant-stocks-update-input
+title: ProductVariantStocksUpdateInput
+hide_table_of_contents: false
+---
+
+No description
+
+```graphql
+input ProductVariantStocksUpdateInput {
+  create: [StockInput!]
+  update: [StockUpdateInput!]
+  remove: [ID!]
+}
+```
+
+### Fields
+
+#### [`create`](#) ([`[StockInput!]`](../../../developer/api-reference/inputs/stock-input))
+
+List of warehouses to create stocks.
+
+#### [`update`](#) ([`[StockUpdateInput!]`](../../../developer/api-reference/inputs/stock-update-input))
+
+List of stocks to update.
+
+#### [`remove`](#) ([`[ID!]`](../../../developer/api-reference/scalars/id))
+
+List of stocks to remove.

@@ -1,0 +1,29 @@
+---
+id: order-predicate-input
+title: OrderPredicateInput
+hide_table_of_contents: false
+---
+
+No description
+
+```graphql
+input OrderPredicateInput {
+  discountedObjectPredicate: DiscountedObjectWhereInput
+  AND: [OrderPredicateInput!]
+  OR: [OrderPredicateInput!]
+}
+```
+
+### Fields
+
+#### [`discountedObjectPredicate`](#) ([`DiscountedObjectWhereInput`](../../../developer/api-reference/inputs/discounted-object-where-input))
+
+Defines the conditions related to checkout and order objects.
+
+#### [`AND`](#) ([`[OrderPredicateInput!]`](../../../developer/api-reference/inputs/order-predicate-input))
+
+List of conditions that must be met.
+
+#### [`OR`](#) ([`[OrderPredicateInput!]`](../../../developer/api-reference/inputs/order-predicate-input))
+
+A list of conditions of which at least one must be met.

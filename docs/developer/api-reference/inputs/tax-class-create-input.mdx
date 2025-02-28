@@ -1,0 +1,24 @@
+---
+id: tax-class-create-input
+title: TaxClassCreateInput
+hide_table_of_contents: false
+---
+
+No description
+
+```graphql
+input TaxClassCreateInput {
+  name: String!
+  createCountryRates: [CountryRateInput!]
+}
+```
+
+### Fields
+
+#### [`name`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+Name of the tax class.
+
+#### [`createCountryRates`](#) ([`[CountryRateInput!]`](../../../developer/api-reference/inputs/country-rate-input))
+
+List of country-specific tax rates to create for this tax class.

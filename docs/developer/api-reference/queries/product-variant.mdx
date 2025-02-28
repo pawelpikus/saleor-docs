@@ -10,6 +10,7 @@ Look up a product variant by ID or SKU. Requires one of the following permission
 productVariant(
   id: ID
   sku: String
+  externalReference: String
   channel: String
 ): ProductVariant
 ```
@@ -22,7 +23,11 @@ ID of the product variant.
 
 #### [`sku`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
-Sku of the product variant.
+SKU of the product variant.
+
+#### [`externalReference`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+External ID of the product.
 
 #### [`channel`](#) ([`String`](../../../developer/api-reference/scalars/string))
 

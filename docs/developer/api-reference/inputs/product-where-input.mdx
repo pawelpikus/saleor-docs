@@ -1,0 +1,125 @@
+---
+id: product-where-input
+title: ProductWhereInput
+hide_table_of_contents: false
+---
+
+No description
+
+```graphql
+input ProductWhereInput {
+  metadata: [MetadataFilter!]
+  ids: [ID!]
+  name: StringFilterInput
+  slug: StringFilterInput
+  productType: GlobalIDFilterInput
+  category: GlobalIDFilterInput
+  collection: GlobalIDFilterInput
+  isAvailable: Boolean
+  isPublished: Boolean
+  isVisibleInListing: Boolean
+  publishedFrom: DateTime
+  availableFrom: DateTime
+  hasCategory: Boolean
+  price: DecimalFilterInput
+  minimalPrice: DecimalFilterInput
+  attributes: [AttributeInput!]
+  stockAvailability: StockAvailability
+  stocks: ProductStockFilterInput
+  giftCard: Boolean
+  hasPreorderedVariants: Boolean
+  updatedAt: DateTimeFilterInput
+  AND: [ProductWhereInput!]
+  OR: [ProductWhereInput!]
+}
+```
+
+### Fields
+
+#### [`metadata`](#) ([`[MetadataFilter!]`](../../../developer/api-reference/inputs/metadata-filter))
+
+#### [`ids`](#) ([`[ID!]`](../../../developer/api-reference/scalars/id))
+
+#### [`name`](#) ([`StringFilterInput`](../../../developer/api-reference/inputs/string-filter-input))
+
+Filter by product name.
+
+#### [`slug`](#) ([`StringFilterInput`](../../../developer/api-reference/inputs/string-filter-input))
+
+Filter by product slug.
+
+#### [`productType`](#) ([`GlobalIDFilterInput`](../../../developer/api-reference/inputs/global-idfilter-input))
+
+Filter by product type.
+
+#### [`category`](#) ([`GlobalIDFilterInput`](../../../developer/api-reference/inputs/global-idfilter-input))
+
+Filter by product category.
+
+#### [`collection`](#) ([`GlobalIDFilterInput`](../../../developer/api-reference/inputs/global-idfilter-input))
+
+Filter by collection.
+
+#### [`isAvailable`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
+
+Filter by availability for purchase.
+
+#### [`isPublished`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
+
+Filter by public visibility.
+
+#### [`isVisibleInListing`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
+
+Filter by visibility on the channel.
+
+#### [`publishedFrom`](#) ([`DateTime`](../../../developer/api-reference/scalars/date-time))
+
+Filter by the publication date.
+
+#### [`availableFrom`](#) ([`DateTime`](../../../developer/api-reference/scalars/date-time))
+
+Filter by the date of availability for purchase.
+
+#### [`hasCategory`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
+
+Filter by product with category assigned.
+
+#### [`price`](#) ([`DecimalFilterInput`](../../../developer/api-reference/inputs/decimal-filter-input))
+
+Filter by product variant price.
+
+#### [`minimalPrice`](#) ([`DecimalFilterInput`](../../../developer/api-reference/inputs/decimal-filter-input))
+
+Filter by the lowest variant price after discounts.
+
+#### [`attributes`](#) ([`[AttributeInput!]`](../../../developer/api-reference/inputs/attribute-input))
+
+Filter by attributes associated with the product.
+
+#### [`stockAvailability`](#) ([`StockAvailability`](../../../developer/api-reference/enums/stock-availability))
+
+Filter by variants having specific stock status.
+
+#### [`stocks`](#) ([`ProductStockFilterInput`](../../../developer/api-reference/inputs/product-stock-filter-input))
+
+Filter by stock of the product variant.
+
+#### [`giftCard`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
+
+Filter on whether product is a gift card or not.
+
+#### [`hasPreorderedVariants`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
+
+Filter by product with preordered variants.
+
+#### [`updatedAt`](#) ([`DateTimeFilterInput`](../../../developer/api-reference/inputs/date-time-filter-input))
+
+Filter by when was the most recent update.
+
+#### [`AND`](#) ([`[ProductWhereInput!]`](../../../developer/api-reference/inputs/product-where-input))
+
+List of conditions that must be met.
+
+#### [`OR`](#) ([`[ProductWhereInput!]`](../../../developer/api-reference/inputs/product-where-input))
+
+A list of conditions of which at least one must be met.

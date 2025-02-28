@@ -8,6 +8,10 @@ Deactivate a channel.
 
 Requires one of the following permissions: MANAGE_CHANNELS.
 
+Triggers the following webhook events:
+
+- CHANNEL_STATUS_CHANGED (async): A channel was deactivated.
+
 ```graphql
 channelDeactivate(
   id: ID!
@@ -27,3 +31,7 @@ ID of the channel to deactivate.
 Deactivate a channel.
 
 Requires one of the following permissions: MANAGE_CHANNELS.
+
+Triggers the following webhook events:
+
+- CHANNEL_STATUS_CHANGED (async): A channel was deactivated.

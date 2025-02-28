@@ -1,0 +1,32 @@
+---
+id: transaction-process
+title: TransactionProcess
+hide_table_of_contents: false
+---
+
+Processes a transaction session. It triggers the webhook `TRANSACTION_PROCESS_SESSION`, to the assigned `paymentGateways`.
+
+```graphql
+type TransactionProcess {
+  transaction: TransactionItem
+  transactionEvent: TransactionEvent
+  data: JSON
+  errors: [TransactionProcessError!]!
+}
+```
+
+### Fields
+
+#### [`transaction`](#) ([`TransactionItem`](../../../developer/api-reference/objects/transaction-item))
+
+The processed transaction.
+
+#### [`transactionEvent`](#) ([`TransactionEvent`](../../../developer/api-reference/objects/transaction-event))
+
+The event created for the processed transaction.
+
+#### [`data`](#) ([`JSON`](../../../developer/api-reference/scalars/json))
+
+The json data required to finalize the payment.
+
+#### [`errors`](#) ([`[TransactionProcessError!]!`](../../../developer/api-reference/objects/transaction-process-error))

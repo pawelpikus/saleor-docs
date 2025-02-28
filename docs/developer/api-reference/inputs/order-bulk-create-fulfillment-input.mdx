@@ -1,0 +1,24 @@
+---
+id: order-bulk-create-fulfillment-input
+title: OrderBulkCreateFulfillmentInput
+hide_table_of_contents: false
+---
+
+No description
+
+```graphql
+input OrderBulkCreateFulfillmentInput {
+  trackingCode: String
+  lines: [OrderBulkCreateFulfillmentLineInput!]
+}
+```
+
+### Fields
+
+#### [`trackingCode`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Fulfillment's tracking code.
+
+#### [`lines`](#) ([`[OrderBulkCreateFulfillmentLineInput!]`](../../../developer/api-reference/inputs/order-bulk-create-fulfillment-line-input))
+
+List of items informing how to fulfill the order.

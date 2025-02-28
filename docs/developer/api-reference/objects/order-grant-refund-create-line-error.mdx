@@ -1,0 +1,34 @@
+---
+id: order-grant-refund-create-line-error
+title: OrderGrantRefundCreateLineError
+hide_table_of_contents: false
+---
+
+No description
+
+```graphql
+type OrderGrantRefundCreateLineError {
+  field: String
+  message: String
+  code: OrderGrantRefundCreateLineErrorCode!
+  lineId: ID!
+}
+```
+
+### Fields
+
+#### [`field`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field.
+
+#### [`message`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+The error message.
+
+#### [`code`](#) ([`OrderGrantRefundCreateLineErrorCode!`](../../../developer/api-reference/enums/order-grant-refund-create-line-error-code))
+
+The error code.
+
+#### [`lineId`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+
+The ID of the line related to the error.

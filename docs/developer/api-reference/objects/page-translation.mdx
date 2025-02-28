@@ -4,7 +4,7 @@ title: PageTranslation
 hide_table_of_contents: false
 ---
 
-No description
+Represents page translations.
 
 ```graphql
 type PageTranslation implements Node {
@@ -12,9 +12,11 @@ type PageTranslation implements Node {
   language: LanguageDisplay!
   seoTitle: String
   seoDescription: String
+  slug: String
   title: String
   content: JSONString
   contentJson: JSONString
+  translatableContent: PageTranslatableContent
 }
 ```
 
@@ -22,15 +24,29 @@ type PageTranslation implements Node {
 
 #### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
 
+The ID of the page translation.
+
 #### [`language`](#) ([`LanguageDisplay!`](../../../developer/api-reference/objects/language-display))
 
 Translation language.
 
 #### [`seoTitle`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
+Translated SEO title.
+
 #### [`seoDescription`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
+Translated SEO description.
+
+#### [`slug`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Translated page slug.
+
+Added in Saleor 3.21.
+
 #### [`title`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Translated page title.
 
 #### [`content`](#) ([`JSONString`](../../../developer/api-reference/scalars/jsonstring))
 
@@ -43,6 +59,10 @@ Rich text format. For reference see https://editorjs.io/
 Translated description of the page.
 
 Rich text format. For reference see https://editorjs.io/
+
+#### [`translatableContent`](#) ([`PageTranslatableContent`](../../../developer/api-reference/objects/page-translatable-content))
+
+Represents the page fields to translate.
 
 ### Interfaces
 

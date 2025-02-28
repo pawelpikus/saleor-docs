@@ -7,8 +7,14 @@ hide_table_of_contents: false
 Represents user address data.
 
 ```graphql
-type Address implements Node {
+type Address implements Node, ObjectWithMetadata {
   id: ID!
+  privateMetadata: [MetadataItem!]!
+  privateMetafield(key: String!): String
+  privateMetafields(keys: [String!]): Metadata
+  metadata: [MetadataItem!]!
+  metafield(key: String!): String
+  metafields(keys: [String!]): Metadata
   firstName: String!
   lastName: String!
   companyName: String!
@@ -29,29 +35,87 @@ type Address implements Node {
 
 #### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
 
+The ID of the address.
+
+#### [`privateMetadata`](#) ([`[MetadataItem!]!`](../../../developer/api-reference/objects/metadata-item))
+
+List of private metadata items. Requires staff permissions to access.
+
+#### [`privateMetafield`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+A single key from private metadata. Requires staff permissions to access.
+
+Tip: Use GraphQL aliases to fetch multiple keys.
+
+- ##### [`key`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+#### [`privateMetafields`](#) ([`Metadata`](../../../developer/api-reference/scalars/metadata))
+
+Private metadata. Requires staff permissions to access. Use `keys` to control which fields you want to include. The default is to include everything.
+
+- ##### [`keys`](#) ([`[String!]`](../../../developer/api-reference/scalars/string))
+
+#### [`metadata`](#) ([`[MetadataItem!]!`](../../../developer/api-reference/objects/metadata-item))
+
+List of public metadata items. Can be accessed without permissions.
+
+#### [`metafield`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+A single key from public metadata.
+
+Tip: Use GraphQL aliases to fetch multiple keys.
+
+- ##### [`key`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+#### [`metafields`](#) ([`Metadata`](../../../developer/api-reference/scalars/metadata))
+
+Public metadata. Use `keys` to control which fields you want to include. The default is to include everything.
+
+- ##### [`keys`](#) ([`[String!]`](../../../developer/api-reference/scalars/string))
+
 #### [`firstName`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+The given name of the address.
 
 #### [`lastName`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
+The family name of the address.
+
 #### [`companyName`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+Company or organization name.
 
 #### [`streetAddress1`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
+The first line of the address.
+
 #### [`streetAddress2`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+The second line of the address.
 
 #### [`city`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
+The city of the address.
+
 #### [`cityArea`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+The district of the address.
 
 #### [`postalCode`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
+The postal code of the address.
+
 #### [`country`](#) ([`CountryDisplay!`](../../../developer/api-reference/objects/country-display))
 
-Shop's default country.
+The country of the address.
 
 #### [`countryArea`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
+The country area of the address.
+
 #### [`phone`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+The phone number assigned the address.
 
 #### [`isDefaultShippingAddress`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
 
@@ -66,3 +130,5 @@ Address is user's default billing address.
 #### [`Node`](../../../developer/api-reference/interfaces/node)
 
 An object with an ID
+
+#### [`ObjectWithMetadata`](../../../developer/api-reference/interfaces/object-with-metadata)

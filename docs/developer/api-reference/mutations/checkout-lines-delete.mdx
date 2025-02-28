@@ -6,6 +6,10 @@ hide_table_of_contents: false
 
 Deletes checkout lines.
 
+Triggers the following webhook events:
+
+- CHECKOUT_UPDATED (async): A checkout was updated.
+
 ```graphql
 checkoutLinesDelete(
   id: ID
@@ -19,8 +23,6 @@ checkoutLinesDelete(
 #### [`id`](#) ([`ID`](../../../developer/api-reference/scalars/id))
 
 The checkout's ID.
-
-Added in Saleor 3.4.
 
 #### [`linesIds`](#) ([`[ID!]!`](../../../developer/api-reference/scalars/id))
 
@@ -37,3 +39,7 @@ DEPRECATED: this field will be removed in Saleor 4.0. Use `id` instead.
 #### [`CheckoutLinesDelete`](../../../developer/api-reference/objects/checkout-lines-delete)
 
 Deletes checkout lines.
+
+Triggers the following webhook events:
+
+- CHECKOUT_UPDATED (async): A checkout was updated.

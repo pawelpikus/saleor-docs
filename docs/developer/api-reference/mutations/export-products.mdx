@@ -8,6 +8,11 @@ Export products to csv file.
 
 Requires one of the following permissions: MANAGE_PRODUCTS.
 
+Triggers the following webhook events:
+
+- NOTIFY_USER (async): A notification for the exported file.
+- PRODUCT_EXPORT_COMPLETED (async): A notification for the exported file.
+
 ```graphql
 exportProducts(
   input: ExportProductsInput!
@@ -27,3 +32,8 @@ Fields required to export product data.
 Export products to csv file.
 
 Requires one of the following permissions: MANAGE_PRODUCTS.
+
+Triggers the following webhook events:
+
+- NOTIFY_USER (async): A notification for the exported file.
+- PRODUCT_EXPORT_COMPLETED (async): A notification for the exported file.

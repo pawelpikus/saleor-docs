@@ -1,0 +1,39 @@
+---
+id: channel-listing-update-input
+title: ChannelListingUpdateInput
+hide_table_of_contents: false
+---
+
+No description
+
+```graphql
+input ChannelListingUpdateInput {
+  channelListing: ID!
+  price: PositiveDecimal
+  costPrice: PositiveDecimal
+  priorPrice: PositiveDecimal
+  preorderThreshold: Int
+}
+```
+
+### Fields
+
+#### [`channelListing`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+
+ID of a channel listing.
+
+#### [`price`](#) ([`PositiveDecimal`](../../../developer/api-reference/scalars/positive-decimal))
+
+Price of the particular variant in channel.
+
+#### [`costPrice`](#) ([`PositiveDecimal`](../../../developer/api-reference/scalars/positive-decimal))
+
+Cost price of the variant in channel.
+
+#### [`priorPrice`](#) ([`PositiveDecimal`](../../../developer/api-reference/scalars/positive-decimal))
+
+Price of the variant before discount.
+
+#### [`preorderThreshold`](#) ([`Int`](../../../developer/api-reference/scalars/int))
+
+The threshold for preorder variant in channel.

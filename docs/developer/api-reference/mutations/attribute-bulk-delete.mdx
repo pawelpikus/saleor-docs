@@ -8,6 +8,10 @@ Deletes attributes.
 
 Requires one of the following permissions: MANAGE_PAGE_TYPES_AND_ATTRIBUTES.
 
+Triggers the following webhook events:
+
+- ATTRIBUTE_DELETED (async): An attribute was deleted.
+
 ```graphql
 attributeBulkDelete(
   ids: [ID!]!
@@ -27,3 +31,7 @@ List of attribute IDs to delete.
 Deletes attributes.
 
 Requires one of the following permissions: MANAGE_PAGE_TYPES_AND_ATTRIBUTES.
+
+Triggers the following webhook events:
+
+- ATTRIBUTE_DELETED (async): An attribute was deleted.

@@ -1,0 +1,37 @@
+---
+id: promotion-rule-create
+title: promotionRuleCreate
+hide_table_of_contents: false
+---
+
+Creates a new promotion rule.
+
+Requires one of the following permissions: MANAGE_DISCOUNTS.
+
+Triggers the following webhook events:
+
+- PROMOTION_RULE_CREATED (async): A promotion rule was created.
+
+```graphql
+promotionRuleCreate(
+  input: PromotionRuleCreateInput!
+): PromotionRuleCreate
+```
+
+### Arguments
+
+#### [`input`](#) ([`PromotionRuleCreateInput!`](../../../developer/api-reference/inputs/promotion-rule-create-input))
+
+Fields required to create a promotion rule.
+
+### Type
+
+#### [`PromotionRuleCreate`](../../../developer/api-reference/objects/promotion-rule-create)
+
+Creates a new promotion rule.
+
+Requires one of the following permissions: MANAGE_DISCOUNTS.
+
+Triggers the following webhook events:
+
+- PROMOTION_RULE_CREATED (async): A promotion rule was created.

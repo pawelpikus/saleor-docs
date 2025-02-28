@@ -1,0 +1,45 @@
+---
+id: export-voucher-codes
+title: exportVoucherCodes
+hide_table_of_contents: false
+---
+
+Export voucher codes to csv/xlsx file.
+
+Added in Saleor 3.18.
+
+Note: this API is currently in Feature Preview and can be subject to changes at later point.
+
+Requires one of the following permissions: MANAGE_DISCOUNTS.
+
+Triggers the following webhook events:
+
+- VOUCHER_CODE_EXPORT_COMPLETED (async): A notification for the exported file.
+
+```graphql
+exportVoucherCodes(
+  input: ExportVoucherCodesInput!
+): ExportVoucherCodes
+```
+
+### Arguments
+
+#### [`input`](#) ([`ExportVoucherCodesInput!`](../../../developer/api-reference/inputs/export-voucher-codes-input))
+
+Fields required to export voucher codes.
+
+### Type
+
+#### [`ExportVoucherCodes`](../../../developer/api-reference/objects/export-voucher-codes)
+
+Export voucher codes to csv/xlsx file.
+
+Added in Saleor 3.18.
+
+Note: this API is currently in Feature Preview and can be subject to changes at later point.
+
+Requires one of the following permissions: MANAGE_DISCOUNTS.
+
+Triggers the following webhook events:
+
+- VOUCHER_CODE_EXPORT_COMPLETED (async): A notification for the exported file.

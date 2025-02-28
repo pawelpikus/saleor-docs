@@ -8,16 +8,26 @@ Updates value of an attribute.
 
 Requires one of the following permissions: MANAGE_PRODUCT_TYPES_AND_ATTRIBUTES.
 
+Triggers the following webhook events:
+
+- ATTRIBUTE_VALUE_UPDATED (async): An attribute value was updated.
+- ATTRIBUTE_UPDATED (async): An attribute was updated.
+
 ```graphql
 attributeValueUpdate(
-  id: ID!
+  externalReference: String
+  id: ID
   input: AttributeValueUpdateInput!
 ): AttributeValueUpdate
 ```
 
 ### Arguments
 
-#### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+#### [`externalReference`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+External ID of an AttributeValue to update.
+
+#### [`id`](#) ([`ID`](../../../developer/api-reference/scalars/id))
 
 ID of an AttributeValue to update.
 
@@ -32,3 +42,8 @@ Fields required to update an AttributeValue.
 Updates value of an attribute.
 
 Requires one of the following permissions: MANAGE_PRODUCT_TYPES_AND_ATTRIBUTES.
+
+Triggers the following webhook events:
+
+- ATTRIBUTE_VALUE_UPDATED (async): An attribute value was updated.
+- ATTRIBUTE_UPDATED (async): An attribute was updated.

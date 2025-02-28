@@ -8,6 +8,10 @@ Deletes an address.
 
 Requires one of the following permissions: MANAGE_USERS.
 
+Triggers the following webhook events:
+
+- ADDRESS_DELETED (async): An address was deleted.
+
 ```graphql
 addressDelete(
   id: ID!
@@ -27,3 +31,7 @@ ID of the address to delete.
 Deletes an address.
 
 Requires one of the following permissions: MANAGE_USERS.
+
+Triggers the following webhook events:
+
+- ADDRESS_DELETED (async): An address was deleted.

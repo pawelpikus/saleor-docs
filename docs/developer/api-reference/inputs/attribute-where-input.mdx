@@ -1,0 +1,66 @@
+---
+id: attribute-where-input
+title: AttributeWhereInput
+hide_table_of_contents: false
+---
+
+Where filtering options.
+
+```graphql
+input AttributeWhereInput {
+  metadata: [MetadataFilter!]
+  ids: [ID!]
+  name: StringFilterInput
+  slug: StringFilterInput
+  withChoices: Boolean
+  inputType: AttributeInputTypeEnumFilterInput
+  entityType: AttributeEntityTypeEnumFilterInput
+  type: AttributeTypeEnumFilterInput
+  unit: MeasurementUnitsEnumFilterInput
+  inCollection: ID
+  inCategory: ID
+  valueRequired: Boolean
+  visibleInStorefront: Boolean
+  filterableInDashboard: Boolean
+  AND: [AttributeWhereInput!]
+  OR: [AttributeWhereInput!]
+}
+```
+
+### Fields
+
+#### [`metadata`](#) ([`[MetadataFilter!]`](../../../developer/api-reference/inputs/metadata-filter))
+
+#### [`ids`](#) ([`[ID!]`](../../../developer/api-reference/scalars/id))
+
+#### [`name`](#) ([`StringFilterInput`](../../../developer/api-reference/inputs/string-filter-input))
+
+#### [`slug`](#) ([`StringFilterInput`](../../../developer/api-reference/inputs/string-filter-input))
+
+#### [`withChoices`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
+
+#### [`inputType`](#) ([`AttributeInputTypeEnumFilterInput`](../../../developer/api-reference/inputs/attribute-input-type-enum-filter-input))
+
+#### [`entityType`](#) ([`AttributeEntityTypeEnumFilterInput`](../../../developer/api-reference/inputs/attribute-entity-type-enum-filter-input))
+
+#### [`type`](#) ([`AttributeTypeEnumFilterInput`](../../../developer/api-reference/inputs/attribute-type-enum-filter-input))
+
+#### [`unit`](#) ([`MeasurementUnitsEnumFilterInput`](../../../developer/api-reference/inputs/measurement-units-enum-filter-input))
+
+#### [`inCollection`](#) ([`ID`](../../../developer/api-reference/scalars/id))
+
+#### [`inCategory`](#) ([`ID`](../../../developer/api-reference/scalars/id))
+
+#### [`valueRequired`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
+
+#### [`visibleInStorefront`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
+
+#### [`filterableInDashboard`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
+
+#### [`AND`](#) ([`[AttributeWhereInput!]`](../../../developer/api-reference/inputs/attribute-where-input))
+
+List of conditions that must be met.
+
+#### [`OR`](#) ([`[AttributeWhereInput!]`](../../../developer/api-reference/inputs/attribute-where-input))
+
+A list of conditions of which at least one must be met.

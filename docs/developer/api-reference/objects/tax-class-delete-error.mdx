@@ -1,0 +1,29 @@
+---
+id: tax-class-delete-error
+title: TaxClassDeleteError
+hide_table_of_contents: false
+---
+
+No description
+
+```graphql
+type TaxClassDeleteError {
+  field: String
+  message: String
+  code: TaxClassDeleteErrorCode!
+}
+```
+
+### Fields
+
+#### [`field`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field.
+
+#### [`message`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+The error message.
+
+#### [`code`](#) ([`TaxClassDeleteErrorCode!`](../../../developer/api-reference/enums/tax-class-delete-error-code))
+
+The error code.

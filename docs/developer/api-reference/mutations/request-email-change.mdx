@@ -8,6 +8,11 @@ Request email change of the logged in user.
 
 Requires one of the following permissions: AUTHENTICATED_USER.
 
+Triggers the following webhook events:
+
+- NOTIFY_USER (async): A notification for account email change.
+- ACCOUNT_CHANGE_EMAIL_REQUESTED (async): An account email change was requested.
+
 ```graphql
 requestEmailChange(
   channel: String
@@ -42,3 +47,8 @@ URL of a view where users should be redirected to update the email address. URL 
 Request email change of the logged in user.
 
 Requires one of the following permissions: AUTHENTICATED_USER.
+
+Triggers the following webhook events:
+
+- NOTIFY_USER (async): A notification for account email change.
+- ACCOUNT_CHANGE_EMAIL_REQUESTED (async): An account email change was requested.

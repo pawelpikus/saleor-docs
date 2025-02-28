@@ -1,0 +1,34 @@
+---
+id: tax-country-configuration-update
+title: taxCountryConfigurationUpdate
+hide_table_of_contents: false
+---
+
+Update tax class rates for a specific country.
+
+Requires one of the following permissions: MANAGE_TAXES.
+
+```graphql
+taxCountryConfigurationUpdate(
+  countryCode: CountryCode!
+  updateTaxClassRates: [TaxClassRateInput!]!
+): TaxCountryConfigurationUpdate
+```
+
+### Arguments
+
+#### [`countryCode`](#) ([`CountryCode!`](../../../developer/api-reference/enums/country-code))
+
+Country in which to update the tax class rates.
+
+#### [`updateTaxClassRates`](#) ([`[TaxClassRateInput!]!`](../../../developer/api-reference/inputs/tax-class-rate-input))
+
+List of tax rates per tax class to update. When `&#x007B;taxClass: id, rate: null`&#x007D; is passed, it deletes the rate object for given taxClass ID. When `&#x007B;rate: Int&#x007D;` is passed without a tax class, it updates the default tax class for this country.
+
+### Type
+
+#### [`TaxCountryConfigurationUpdate`](../../../developer/api-reference/objects/tax-country-configuration-update)
+
+Update tax class rates for a specific country.
+
+Requires one of the following permissions: MANAGE_TAXES.

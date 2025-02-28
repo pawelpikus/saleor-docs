@@ -1,0 +1,29 @@
+---
+id: order-grant-refund-update
+title: OrderGrantRefundUpdate
+hide_table_of_contents: false
+---
+
+Updates granted refund.
+
+Requires one of the following permissions: MANAGE_ORDERS.
+
+```graphql
+type OrderGrantRefundUpdate {
+  order: Order
+  grantedRefund: OrderGrantedRefund
+  errors: [OrderGrantRefundUpdateError!]!
+}
+```
+
+### Fields
+
+#### [`order`](#) ([`Order`](../../../developer/api-reference/objects/order))
+
+Order which has assigned updated grant refund.
+
+#### [`grantedRefund`](#) ([`OrderGrantedRefund`](../../../developer/api-reference/objects/order-granted-refund))
+
+Created granted refund.
+
+#### [`errors`](#) ([`[OrderGrantRefundUpdateError!]!`](../../../developer/api-reference/objects/order-grant-refund-update-error))

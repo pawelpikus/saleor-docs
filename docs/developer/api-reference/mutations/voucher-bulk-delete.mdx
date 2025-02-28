@@ -8,6 +8,10 @@ Deletes vouchers.
 
 Requires one of the following permissions: MANAGE_DISCOUNTS.
 
+Triggers the following webhook events:
+
+- VOUCHER_DELETED (async): A voucher was deleted.
+
 ```graphql
 voucherBulkDelete(
   ids: [ID!]!
@@ -27,3 +31,7 @@ List of voucher IDs to delete.
 Deletes vouchers.
 
 Requires one of the following permissions: MANAGE_DISCOUNTS.
+
+Triggers the following webhook events:
+
+- VOUCHER_DELETED (async): A voucher was deleted.

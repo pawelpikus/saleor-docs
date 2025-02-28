@@ -19,6 +19,8 @@ input AddressInput {
   country: CountryCode
   countryArea: String
   phone: String
+  metadata: [MetadataInput!]
+  skipValidation: Boolean
 }
 ```
 
@@ -67,3 +69,17 @@ State or province.
 #### [`phone`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
 Phone number.
+
+Phone numbers are validated with Google's [libphonenumber](https://github.com/google/libphonenumber) library.
+
+#### [`metadata`](#) ([`[MetadataInput!]`](../../../developer/api-reference/inputs/metadata-input))
+
+Address public metadata.
+
+#### [`skipValidation`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
+
+Determine if the address should be validated. By default, Saleor accepts only address inputs matching ruleset from [Google Address Data]&#x007B;https://chromium-i18n.appspot.com/ssl-address), using [i18naddress](https://github.com/mirumee/google-i18n-address) library. Some mutations may require additional permissions to use the the field. More info about permissions can be found in relevant mutation.
+
+Added in Saleor 3.19.
+
+Note: this API is currently in Feature Preview and can be subject to changes at later point.

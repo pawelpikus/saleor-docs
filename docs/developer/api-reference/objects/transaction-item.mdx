@@ -6,10 +6,6 @@ hide_table_of_contents: false
 
 Represents a payment transaction.
 
-Added in Saleor 3.4.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
 ```graphql
 type TransactionItem implements Node, ObjectWithMetadata {
   id: ID!
@@ -19,18 +15,26 @@ type TransactionItem implements Node, ObjectWithMetadata {
   metadata: [MetadataItem!]!
   metafield(key: String!): String
   metafields(keys: [String!]): Metadata
+  token: UUID!
   createdAt: DateTime!
   modifiedAt: DateTime!
   actions: [TransactionActionEnum!]!
   authorizedAmount: Money!
+  authorizePendingAmount: Money!
   refundedAmount: Money!
-  voidedAmount: Money!
+  refundPendingAmount: Money!
+  canceledAmount: Money!
+  cancelPendingAmount: Money!
   chargedAmount: Money!
-  status: String!
-  type: String!
-  reference: String!
+  chargePendingAmount: Money!
+  name: String!
+  message: String!
+  pspReference: String!
   order: Order
+  checkout: Checkout
   events: [TransactionEvent!]!
+  createdBy: UserOrApp
+  externalUrl: String!
 }
 ```
 
@@ -50,19 +54,11 @@ A single key from private metadata. Requires staff permissions to access.
 
 Tip: Use GraphQL aliases to fetch multiple keys.
 
-Added in Saleor 3.3.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
 - ##### [`key`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
 #### [`privateMetafields`](#) ([`Metadata`](../../../developer/api-reference/scalars/metadata))
 
 Private metadata. Requires staff permissions to access. Use `keys` to control which fields you want to include. The default is to include everything.
-
-Added in Saleor 3.3.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
 
 - ##### [`keys`](#) ([`[String!]`](../../../developer/api-reference/scalars/string))
 
@@ -76,25 +72,25 @@ A single key from public metadata.
 
 Tip: Use GraphQL aliases to fetch multiple keys.
 
-Added in Saleor 3.3.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
 - ##### [`key`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
 #### [`metafields`](#) ([`Metadata`](../../../developer/api-reference/scalars/metadata))
 
 Public metadata. Use `keys` to control which fields you want to include. The default is to include everything.
 
-Added in Saleor 3.3.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
 - ##### [`keys`](#) ([`[String!]`](../../../developer/api-reference/scalars/string))
+
+#### [`token`](#) ([`UUID!`](../../../developer/api-reference/scalars/uuid))
+
+The transaction token.
 
 #### [`createdAt`](#) ([`DateTime!`](../../../developer/api-reference/scalars/date-time))
 
+Date and time at which payment transaction was created.
+
 #### [`modifiedAt`](#) ([`DateTime!`](../../../developer/api-reference/scalars/date-time))
+
+Date and time at which payment transaction was modified.
 
 #### [`actions`](#) ([`[TransactionActionEnum!]!`](../../../developer/api-reference/enums/transaction-action-enum))
 
@@ -104,39 +100,65 @@ List of actions that can be performed in the current state of a payment.
 
 Total amount authorized for this payment.
 
+#### [`authorizePendingAmount`](#) ([`Money!`](../../../developer/api-reference/objects/money))
+
+Total amount of ongoing authorization requests for the transaction.
+
 #### [`refundedAmount`](#) ([`Money!`](../../../developer/api-reference/objects/money))
 
 Total amount refunded for this payment.
 
-#### [`voidedAmount`](#) ([`Money!`](../../../developer/api-reference/objects/money))
+#### [`refundPendingAmount`](#) ([`Money!`](../../../developer/api-reference/objects/money))
 
-Total amount voided for this payment.
+Total amount of ongoing refund requests for the transaction.
+
+#### [`canceledAmount`](#) ([`Money!`](../../../developer/api-reference/objects/money))
+
+Total amount canceled for this payment.
+
+#### [`cancelPendingAmount`](#) ([`Money!`](../../../developer/api-reference/objects/money))
+
+Total amount of ongoing cancel requests for the transaction.
 
 #### [`chargedAmount`](#) ([`Money!`](../../../developer/api-reference/objects/money))
 
 Total amount charged for this payment.
 
-#### [`status`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+#### [`chargePendingAmount`](#) ([`Money!`](../../../developer/api-reference/objects/money))
 
-Status of transaction.
+Total amount of ongoing charge requests for the transaction.
 
-#### [`type`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+#### [`name`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
-Type of transaction.
+Name of the transaction.
 
-#### [`reference`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+#### [`message`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
-Reference of transaction.
+Message related to the transaction.
+
+#### [`pspReference`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+PSP reference of transaction.
 
 #### [`order`](#) ([`Order`](../../../developer/api-reference/objects/order))
 
 The related order.
 
-Added in Saleor 3.6.
+#### [`checkout`](#) ([`Checkout`](../../../developer/api-reference/objects/checkout))
+
+The related checkout.
 
 #### [`events`](#) ([`[TransactionEvent!]!`](../../../developer/api-reference/objects/transaction-event))
 
 List of all transaction's events.
+
+#### [`createdBy`](#) ([`UserOrApp`](../../../developer/api-reference/unions/user-or-app))
+
+User or App that created the transaction.
+
+#### [`externalUrl`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+The url that will allow to redirect user to payment provider page with transaction details.
 
 ### Interfaces
 

@@ -9,7 +9,7 @@ Webhook.
 ```graphql
 type Webhook implements Node {
   id: ID!
-  name: String!
+  name: String
   events: [WebhookEvent!]!
   syncEvents: [WebhookEventSync!]!
   asyncEvents: [WebhookEventAsync!]!
@@ -26,6 +26,7 @@ type Webhook implements Node {
   isActive: Boolean!
   secretKey: String
   subscriptionQuery: String
+  customHeaders: JSONString
 }
 ```
 
@@ -33,7 +34,11 @@ type Webhook implements Node {
 
 #### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
 
-#### [`name`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+The ID of webhook.
+
+#### [`name`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+The name of webhook.
 
 #### [`events`](#) ([`[WebhookEvent!]!`](../../../developer/api-reference/objects/webhook-event))
 
@@ -48,6 +53,8 @@ List of synchronous webhook events.
 List of asynchronous webhook events.
 
 #### [`app`](#) ([`App!`](../../../developer/api-reference/objects/app))
+
+The app associated with Webhook.
 
 #### [`eventDeliveries`](#) ([`EventDeliveryCountableConnection`](../../../developer/api-reference/objects/event-delivery-countable-connection))
 
@@ -71,11 +78,11 @@ Return the elements in the list that come after the specified cursor.
 
 - ##### [`first`](#) ([`Int`](../../../developer/api-reference/scalars/int))
 
-Return the first n elements from the list.
+Retrieve the first n elements from the list. Note that the system only allows fetching a maximum of 100 objects in a single query.
 
 - ##### [`last`](#) ([`Int`](../../../developer/api-reference/scalars/int))
 
-Return the last n elements from the list.
+Retrieve the last n elements from the list. Note that the system only allows fetching a maximum of 100 objects in a single query.
 
 #### [`targetUrl`](#) ([`String!`](../../../developer/api-reference/scalars/string))
 
@@ -92,6 +99,10 @@ Used to create a hash signature for each payload.
 #### [`subscriptionQuery`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
 Used to define payloads for specific events.
+
+#### [`customHeaders`](#) ([`JSONString`](../../../developer/api-reference/scalars/jsonstring))
+
+Custom headers, which will be added to HTTP request.
 
 ### Interfaces
 

@@ -1,0 +1,24 @@
+---
+id: app-manifest-required-saleor-version
+title: AppManifestRequiredSaleorVersion
+hide_table_of_contents: false
+---
+
+No description
+
+```graphql
+type AppManifestRequiredSaleorVersion {
+  constraint: String!
+  satisfied: Boolean!
+}
+```
+
+### Fields
+
+#### [`constraint`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+Required Saleor version as semver range.
+
+#### [`satisfied`](#) ([`Boolean!`](../../../developer/api-reference/scalars/boolean))
+
+Informs if the Saleor version matches the required one.

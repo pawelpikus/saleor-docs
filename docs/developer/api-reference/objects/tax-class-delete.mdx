@@ -1,0 +1,22 @@
+---
+id: tax-class-delete
+title: TaxClassDelete
+hide_table_of_contents: false
+---
+
+Delete a tax class. After deleting the tax class any products, product types or shipping methods using it are updated to use the default tax class.
+
+Requires one of the following permissions: MANAGE_TAXES.
+
+```graphql
+type TaxClassDelete {
+  errors: [TaxClassDeleteError!]!
+  taxClass: TaxClass
+}
+```
+
+### Fields
+
+#### [`errors`](#) ([`[TaxClassDeleteError!]!`](../../../developer/api-reference/objects/tax-class-delete-error))
+
+#### [`taxClass`](#) ([`TaxClass`](../../../developer/api-reference/objects/tax-class))

@@ -6,6 +6,8 @@ hide_table_of_contents: false
 
 Creates/updates translations for a sale.
 
+DEPRECATED: this mutation will be removed in Saleor 4.0. Use `PromotionTranslate` mutation instead.
+
 Requires one of the following permissions: MANAGE_TRANSLATIONS.
 
 ```graphql
@@ -24,6 +26,8 @@ Sale ID or SaleTranslatableContent ID.
 
 #### [`input`](#) ([`NameTranslationInput!`](../../../developer/api-reference/inputs/name-translation-input))
 
+Fields required to update sale translations.
+
 #### [`languageCode`](#) ([`LanguageCodeEnum!`](../../../developer/api-reference/enums/language-code-enum))
 
 Translation language code.
@@ -33,5 +37,7 @@ Translation language code.
 #### [`SaleTranslate`](../../../developer/api-reference/objects/sale-translate)
 
 Creates/updates translations for a sale.
+
+DEPRECATED: this mutation will be removed in Saleor 4.0. Use `PromotionTranslate` mutation instead.
 
 Requires one of the following permissions: MANAGE_TRANSLATIONS.

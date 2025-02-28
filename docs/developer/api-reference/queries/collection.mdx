@@ -4,12 +4,13 @@ title: collection
 hide_table_of_contents: false
 ---
 
-Look up a collection by ID. Requires one of the following permissions to include the unpublished items: MANAGE_ORDERS, MANAGE_DISCOUNTS, MANAGE_PRODUCTS.
+Look up a collection by ID or slug. If slugLanguageCode is provided, category will be fetched by slug translation. Requires one of the following permissions to include the unpublished items: MANAGE_ORDERS, MANAGE_DISCOUNTS, MANAGE_PRODUCTS.
 
 ```graphql
 collection(
   id: ID
   slug: String
+  slugLanguageCode: LanguageCodeEnum
   channel: String
 ): Collection
 ```
@@ -22,7 +23,13 @@ ID of the collection.
 
 #### [`slug`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
-Slug of the category
+Slug of the collection
+
+#### [`slugLanguageCode`](#) ([`LanguageCodeEnum`](../../../developer/api-reference/enums/language-code-enum))
+
+Language code of the collection slug, omit to use primary slug.
+
+Added in Saleor 3.21.
 
 #### [`channel`](#) ([`String`](../../../developer/api-reference/scalars/string))
 

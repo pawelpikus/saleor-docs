@@ -10,15 +10,20 @@ Requires one of the following permissions: MANAGE_PRODUCTS.
 
 ```graphql
 productVariantBulkDelete(
-  ids: [ID!]!
+  ids: [ID!]
+  skus: [String!]
 ): ProductVariantBulkDelete
 ```
 
 ### Arguments
 
-#### [`ids`](#) ([`[ID!]!`](../../../developer/api-reference/scalars/id))
+#### [`ids`](#) ([`[ID!]`](../../../developer/api-reference/scalars/id))
 
 List of product variant IDs to delete.
+
+#### [`skus`](#) ([`[String!]`](../../../developer/api-reference/scalars/string))
+
+List of product variant SKUs to delete.
 
 ### Type
 

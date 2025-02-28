@@ -1,0 +1,29 @@
+---
+id: order-grant-refund-create-line-input
+title: OrderGrantRefundCreateLineInput
+hide_table_of_contents: false
+---
+
+No description
+
+```graphql
+input OrderGrantRefundCreateLineInput {
+  id: ID!
+  quantity: Int!
+  reason: String
+}
+```
+
+### Fields
+
+#### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+
+The ID of the order line.
+
+#### [`quantity`](#) ([`Int!`](../../../developer/api-reference/scalars/int))
+
+The quantity of line items to be marked to refund.
+
+#### [`reason`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Reason of the granted refund for the line.

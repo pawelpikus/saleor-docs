@@ -8,6 +8,10 @@ Delete a channel. Orders associated with the deleted channel will be moved to th
 
 Requires one of the following permissions: MANAGE_CHANNELS.
 
+Triggers the following webhook events:
+
+- CHANNEL_DELETED (async): A channel was deleted.
+
 ```graphql
 type ChannelDelete {
   channelErrors: [ChannelError!]!

@@ -15,9 +15,11 @@ input DraftOrderInput {
   shippingAddress: AddressInput
   shippingMethod: ID
   voucher: ID
+  voucherCode: String
   customerNote: String
   channelId: ID
   redirectUrl: String
+  externalReference: String
 }
 ```
 
@@ -51,6 +53,12 @@ ID of a selected shipping method.
 
 ID of the voucher associated with the order.
 
+#### [`voucherCode`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+A code of the voucher associated with the order.
+
+Added in Saleor 3.18.
+
 #### [`customerNote`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
 A note from a customer. Visible by customers in the order summary.
@@ -62,3 +70,7 @@ ID of the channel associated with the order.
 #### [`redirectUrl`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
 URL of a view where users should be redirected to see the order details. URL in RFC 1808 format.
+
+#### [`externalReference`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+External ID of this order.

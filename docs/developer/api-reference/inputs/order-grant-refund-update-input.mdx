@@ -1,0 +1,48 @@
+---
+id: order-grant-refund-update-input
+title: OrderGrantRefundUpdateInput
+hide_table_of_contents: false
+---
+
+No description
+
+```graphql
+input OrderGrantRefundUpdateInput {
+  amount: Decimal
+  reason: String
+  addLines: [OrderGrantRefundUpdateLineAddInput!]
+  removeLines: [ID!]
+  grantRefundForShipping: Boolean
+  transactionId: ID
+}
+```
+
+### Fields
+
+#### [`amount`](#) ([`Decimal`](../../../developer/api-reference/scalars/decimal))
+
+Amount of the granted refund. if not provided and `addLines` or `removeLines` or `grantRefundForShipping` is provided, amount will be calculated automatically.
+
+#### [`reason`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Reason of the granted refund.
+
+#### [`addLines`](#) ([`[OrderGrantRefundUpdateLineAddInput!]`](../../../developer/api-reference/inputs/order-grant-refund-update-line-add-input))
+
+Lines to assign to granted refund.
+
+#### [`removeLines`](#) ([`[ID!]`](../../../developer/api-reference/scalars/id))
+
+Lines to remove from granted refund.
+
+#### [`grantRefundForShipping`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
+
+Determine if granted refund should include shipping costs.
+
+#### [`transactionId`](#) ([`ID`](../../../developer/api-reference/scalars/id))
+
+The ID of the transaction item related to the granted refund. If `amount` provided in the input, the transaction.chargedAmount needs to be equal or greater than provided `amount`.If `amount` is not provided in the input and calculated automatically by Saleor, the `min(calculatedAmount, transaction.chargedAmount)` will be used.Field will be required starting from Saleor 3.21.
+
+Added in Saleor 3.20.
+
+Note: this API is currently in Feature Preview and can be subject to changes at later point.

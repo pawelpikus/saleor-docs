@@ -1,0 +1,29 @@
+---
+id: promotion-delete-error
+title: PromotionDeleteError
+hide_table_of_contents: false
+---
+
+No description
+
+```graphql
+type PromotionDeleteError {
+  field: String
+  message: String
+  code: PromotionDeleteErrorCode!
+}
+```
+
+### Fields
+
+#### [`field`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field.
+
+#### [`message`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+The error message.
+
+#### [`code`](#) ([`PromotionDeleteErrorCode!`](../../../developer/api-reference/enums/promotion-delete-error-code))
+
+The error code.

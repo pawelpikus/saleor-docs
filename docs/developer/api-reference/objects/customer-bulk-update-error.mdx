@@ -1,0 +1,29 @@
+---
+id: customer-bulk-update-error
+title: CustomerBulkUpdateError
+hide_table_of_contents: false
+---
+
+No description
+
+```graphql
+type CustomerBulkUpdateError {
+  path: String
+  message: String
+  code: CustomerBulkUpdateErrorCode!
+}
+```
+
+### Fields
+
+#### [`path`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Path to field that caused the error. A value of `null` indicates that the error isn't associated with a particular field.
+
+#### [`message`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+The error message.
+
+#### [`code`](#) ([`CustomerBulkUpdateErrorCode!`](../../../developer/api-reference/enums/customer-bulk-update-error-code))
+
+The error code.

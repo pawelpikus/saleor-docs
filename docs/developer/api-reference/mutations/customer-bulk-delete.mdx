@@ -8,6 +8,10 @@ Deletes customers.
 
 Requires one of the following permissions: MANAGE_USERS.
 
+Triggers the following webhook events:
+
+- CUSTOMER_DELETED (async): A customer account was deleted.
+
 ```graphql
 customerBulkDelete(
   ids: [ID!]!
@@ -27,3 +31,7 @@ List of user IDs to delete.
 Deletes customers.
 
 Requires one of the following permissions: MANAGE_USERS.
+
+Triggers the following webhook events:
+
+- CUSTOMER_DELETED (async): A customer account was deleted.

@@ -1,0 +1,24 @@
+---
+id: attribute-bulk-translate-result
+title: AttributeBulkTranslateResult
+hide_table_of_contents: false
+---
+
+No description
+
+```graphql
+type AttributeBulkTranslateResult {
+  translation: AttributeTranslation
+  errors: [AttributeBulkTranslateError!]
+}
+```
+
+### Fields
+
+#### [`translation`](#) ([`AttributeTranslation`](../../../developer/api-reference/objects/attribute-translation))
+
+Attribute translation data.
+
+#### [`errors`](#) ([`[AttributeBulkTranslateError!]`](../../../developer/api-reference/objects/attribute-bulk-translate-error))
+
+List of errors occurred on translation attempt.

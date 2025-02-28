@@ -6,17 +6,14 @@ hide_table_of_contents: false
 
 Request an action for payment transaction.
 
-Added in Saleor 3.4.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
-Requires one of the following permissions: HANDLE_PAYMENTS, MANAGE_ORDERS.
+Requires one of the following permissions: HANDLE_PAYMENTS.
 
 ```graphql
 transactionRequestAction(
   actionType: TransactionActionEnum!
   amount: PositiveDecimal
-  id: ID!
+  id: ID
+  token: UUID
 ): TransactionRequestAction
 ```
 
@@ -30,9 +27,13 @@ Determines the action type.
 
 Transaction request amount. If empty for refund or capture, maximal possible amount will be used.
 
-#### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+#### [`id`](#) ([`ID`](../../../developer/api-reference/scalars/id))
 
-The ID of the transaction.
+The ID of the transaction. One of field id or token is required.
+
+#### [`token`](#) ([`UUID`](../../../developer/api-reference/scalars/uuid))
+
+The token of the transaction. One of field id or token is required.
 
 ### Type
 
@@ -40,8 +41,4 @@ The ID of the transaction.
 
 Request an action for payment transaction.
 
-Added in Saleor 3.4.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
-Requires one of the following permissions: HANDLE_PAYMENTS, MANAGE_ORDERS.
+Requires one of the following permissions: HANDLE_PAYMENTS.

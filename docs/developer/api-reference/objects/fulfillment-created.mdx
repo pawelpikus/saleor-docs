@@ -6,10 +6,6 @@ hide_table_of_contents: false
 
 Event sent when new fulfillment is created.
 
-Added in Saleor 3.4.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
 ```graphql
 type FulfillmentCreated implements Event {
   issuedAt: DateTime
@@ -18,6 +14,7 @@ type FulfillmentCreated implements Event {
   recipient: App
   fulfillment: Fulfillment
   order: Order
+  notifyCustomer: Boolean!
 }
 ```
 
@@ -46,6 +43,10 @@ The fulfillment the event relates to.
 #### [`order`](#) ([`Order`](../../../developer/api-reference/objects/order))
 
 The order the fulfillment belongs to.
+
+#### [`notifyCustomer`](#) ([`Boolean!`](../../../developer/api-reference/scalars/boolean))
+
+If true, the app should send a notification to the customer.
 
 ### Interfaces
 

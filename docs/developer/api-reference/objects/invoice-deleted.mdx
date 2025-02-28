@@ -6,10 +6,6 @@ hide_table_of_contents: false
 
 Event sent when invoice is deleted.
 
-Added in Saleor 3.2.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
 ```graphql
 type InvoiceDeleted implements Event {
   issuedAt: DateTime
@@ -17,6 +13,7 @@ type InvoiceDeleted implements Event {
   issuingPrincipal: IssuingPrincipal
   recipient: App
   invoice: Invoice
+  order: Order
 }
 ```
 
@@ -41,6 +38,10 @@ The application receiving the webhook.
 #### [`invoice`](#) ([`Invoice`](../../../developer/api-reference/objects/invoice))
 
 The invoice the event relates to.
+
+#### [`order`](#) ([`Order`](../../../developer/api-reference/objects/order))
+
+Order related to the invoice.
 
 ### Interfaces
 

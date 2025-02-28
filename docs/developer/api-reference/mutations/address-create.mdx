@@ -8,6 +8,10 @@ Creates user address.
 
 Requires one of the following permissions: MANAGE_USERS.
 
+Triggers the following webhook events:
+
+- ADDRESS_CREATED (async): A new address was created.
+
 ```graphql
 addressCreate(
   input: AddressInput!
@@ -32,3 +36,7 @@ ID of a user to create address for.
 Creates user address.
 
 Requires one of the following permissions: MANAGE_USERS.
+
+Triggers the following webhook events:
+
+- ADDRESS_CREATED (async): A new address was created.

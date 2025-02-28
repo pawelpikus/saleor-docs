@@ -1,0 +1,136 @@
+---
+id: order-bulk-create-input
+title: OrderBulkCreateInput
+hide_table_of_contents: false
+---
+
+No description
+
+```graphql
+input OrderBulkCreateInput {
+  externalReference: String
+  channel: String!
+  createdAt: DateTime!
+  status: OrderStatus
+  user: OrderBulkCreateUserInput!
+  billingAddress: AddressInput!
+  shippingAddress: AddressInput
+  currency: String!
+  metadata: [MetadataInput!]
+  privateMetadata: [MetadataInput!]
+  customerNote: String
+  notes: [OrderBulkCreateNoteInput!]
+  languageCode: LanguageCodeEnum!
+  displayGrossPrices: Boolean
+  weight: WeightScalar
+  redirectUrl: String
+  lines: [OrderBulkCreateOrderLineInput!]!
+  deliveryMethod: OrderBulkCreateDeliveryMethodInput
+  giftCards: [String!]
+  voucherCode: String
+  discounts: [OrderDiscountCommonInput!]
+  fulfillments: [OrderBulkCreateFulfillmentInput!]
+  transactions: [TransactionCreateInput!]
+  invoices: [OrderBulkCreateInvoiceInput!]
+}
+```
+
+### Fields
+
+#### [`externalReference`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+External ID of the order.
+
+#### [`channel`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+Slug of the channel associated with the order.
+
+#### [`createdAt`](#) ([`DateTime!`](../../../developer/api-reference/scalars/date-time))
+
+The date, when the order was inserted to Saleor database.
+
+#### [`status`](#) ([`OrderStatus`](../../../developer/api-reference/enums/order-status))
+
+Status of the order.
+
+#### [`user`](#) ([`OrderBulkCreateUserInput!`](../../../developer/api-reference/inputs/order-bulk-create-user-input))
+
+Customer associated with the order.
+
+#### [`billingAddress`](#) ([`AddressInput!`](../../../developer/api-reference/inputs/address-input))
+
+Billing address of the customer.
+
+#### [`shippingAddress`](#) ([`AddressInput`](../../../developer/api-reference/inputs/address-input))
+
+Shipping address of the customer.
+
+#### [`currency`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+Currency code.
+
+#### [`metadata`](#) ([`[MetadataInput!]`](../../../developer/api-reference/inputs/metadata-input))
+
+Metadata of the order.
+
+#### [`privateMetadata`](#) ([`[MetadataInput!]`](../../../developer/api-reference/inputs/metadata-input))
+
+Private metadata of the order.
+
+#### [`customerNote`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Note about customer.
+
+#### [`notes`](#) ([`[OrderBulkCreateNoteInput!]`](../../../developer/api-reference/inputs/order-bulk-create-note-input))
+
+Notes related to the order.
+
+#### [`languageCode`](#) ([`LanguageCodeEnum!`](../../../developer/api-reference/enums/language-code-enum))
+
+Order language code.
+
+#### [`displayGrossPrices`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
+
+Determines whether displayed prices should include taxes.
+
+#### [`weight`](#) ([`WeightScalar`](../../../developer/api-reference/scalars/weight-scalar))
+
+Weight of the order in kg.
+
+#### [`redirectUrl`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+URL of a view, where users should be redirected to see the order details.
+
+#### [`lines`](#) ([`[OrderBulkCreateOrderLineInput!]!`](../../../developer/api-reference/inputs/order-bulk-create-order-line-input))
+
+List of order lines.
+
+#### [`deliveryMethod`](#) ([`OrderBulkCreateDeliveryMethodInput`](../../../developer/api-reference/inputs/order-bulk-create-delivery-method-input))
+
+The delivery method selected for this order.
+
+#### [`giftCards`](#) ([`[String!]`](../../../developer/api-reference/scalars/string))
+
+List of gift card codes associated with the order.
+
+#### [`voucherCode`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Code of a voucher associated with the order.
+
+Added in Saleor 3.18.
+
+#### [`discounts`](#) ([`[OrderDiscountCommonInput!]`](../../../developer/api-reference/inputs/order-discount-common-input))
+
+List of discounts.
+
+#### [`fulfillments`](#) ([`[OrderBulkCreateFulfillmentInput!]`](../../../developer/api-reference/inputs/order-bulk-create-fulfillment-input))
+
+Fulfillments of the order.
+
+#### [`transactions`](#) ([`[TransactionCreateInput!]`](../../../developer/api-reference/inputs/transaction-create-input))
+
+Transactions related to the order.
+
+#### [`invoices`](#) ([`[OrderBulkCreateInvoiceInput!]`](../../../developer/api-reference/inputs/order-bulk-create-invoice-input))
+
+Invoices related to the order.

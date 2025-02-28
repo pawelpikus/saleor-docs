@@ -1,0 +1,43 @@
+---
+id: checkout-fully-paid
+title: CheckoutFullyPaid
+hide_table_of_contents: false
+---
+
+Event sent when checkout is fully paid with transactions. The checkout is considered as fully paid when the checkout `charge_status` is `FULL` or `OVERCHARGED`. The event is not sent when the checkout authorization flow strategy is used.
+
+```graphql
+type CheckoutFullyPaid implements Event {
+  issuedAt: DateTime
+  version: String
+  issuingPrincipal: IssuingPrincipal
+  recipient: App
+  checkout: Checkout
+}
+```
+
+### Fields
+
+#### [`issuedAt`](#) ([`DateTime`](../../../developer/api-reference/scalars/date-time))
+
+Time of the event.
+
+#### [`version`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Saleor version that triggered the event.
+
+#### [`issuingPrincipal`](#) ([`IssuingPrincipal`](../../../developer/api-reference/unions/issuing-principal))
+
+The user or application that triggered the event.
+
+#### [`recipient`](#) ([`App`](../../../developer/api-reference/objects/app))
+
+The application receiving the webhook.
+
+#### [`checkout`](#) ([`Checkout`](../../../developer/api-reference/objects/checkout))
+
+The checkout the event relates to.
+
+### Interfaces
+
+#### [`Event`](../../../developer/api-reference/interfaces/event)

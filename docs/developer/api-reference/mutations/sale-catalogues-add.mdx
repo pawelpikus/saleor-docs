@@ -4,9 +4,15 @@ title: saleCataloguesAdd
 hide_table_of_contents: false
 ---
 
-Adds products, categories, collections to a voucher.
+Adds products, categories, collections to a sale.
+
+DEPRECATED: this mutation will be removed in Saleor 4.0. Use `promotionRuleCreate` mutation instead.
 
 Requires one of the following permissions: MANAGE_DISCOUNTS.
+
+Triggers the following webhook events:
+
+- SALE_UPDATED (async): A sale was updated.
 
 ```graphql
 saleCataloguesAdd(
@@ -29,6 +35,12 @@ Fields required to modify catalogue IDs of sale.
 
 #### [`SaleAddCatalogues`](../../../developer/api-reference/objects/sale-add-catalogues)
 
-Adds products, categories, collections to a voucher.
+Adds products, categories, collections to a sale.
+
+DEPRECATED: this mutation will be removed in Saleor 4.0. Use `promotionRuleCreate` mutation instead.
 
 Requires one of the following permissions: MANAGE_DISCOUNTS.
+
+Triggers the following webhook events:
+
+- SALE_UPDATED (async): A sale was updated.

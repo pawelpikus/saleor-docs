@@ -4,11 +4,12 @@ title: VoucherTranslatableContent
 hide_table_of_contents: false
 ---
 
-No description
+Represents voucher's original translatable fields and related translations.
 
 ```graphql
 type VoucherTranslatableContent implements Node {
   id: ID!
+  voucherId: ID!
   name: String
   translation(languageCode: LanguageCodeEnum!): VoucherTranslation
   voucher: Voucher
@@ -19,7 +20,15 @@ type VoucherTranslatableContent implements Node {
 
 #### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
 
+The ID of the voucher translatable content.
+
+#### [`voucherId`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+
+The ID of the voucher to translate.
+
 #### [`name`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Voucher name to translate.
 
 #### [`translation`](#) ([`VoucherTranslation`](../../../developer/api-reference/objects/voucher-translation))
 

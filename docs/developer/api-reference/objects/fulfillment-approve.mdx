@@ -6,9 +6,11 @@ hide_table_of_contents: false
 
 Approve existing fulfillment.
 
-Added in Saleor 3.1.
-
 Requires one of the following permissions: MANAGE_ORDERS.
+
+Triggers the following webhook events:
+
+- FULFILLMENT_APPROVED (async): Fulfillment is approved.
 
 ```graphql
 type FulfillmentApprove {

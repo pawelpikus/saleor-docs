@@ -1,0 +1,22 @@
+---
+id: tax-class-create
+title: TaxClassCreate
+hide_table_of_contents: false
+---
+
+Create a tax class.
+
+Requires one of the following permissions: MANAGE_TAXES.
+
+```graphql
+type TaxClassCreate {
+  errors: [TaxClassCreateError!]!
+  taxClass: TaxClass
+}
+```
+
+### Fields
+
+#### [`errors`](#) ([`[TaxClassCreateError!]!`](../../../developer/api-reference/objects/tax-class-create-error))
+
+#### [`taxClass`](#) ([`TaxClass`](../../../developer/api-reference/objects/tax-class))

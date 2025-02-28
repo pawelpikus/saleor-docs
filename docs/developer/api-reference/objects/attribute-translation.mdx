@@ -4,13 +4,14 @@ title: AttributeTranslation
 hide_table_of_contents: false
 ---
 
-No description
+Represents attribute translations.
 
 ```graphql
 type AttributeTranslation implements Node {
   id: ID!
   language: LanguageDisplay!
   name: String!
+  translatableContent: AttributeTranslatableContent
 }
 ```
 
@@ -18,11 +19,19 @@ type AttributeTranslation implements Node {
 
 #### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
 
+The ID of the attribute translation.
+
 #### [`language`](#) ([`LanguageDisplay!`](../../../developer/api-reference/objects/language-display))
 
 Translation language.
 
 #### [`name`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+Translated attribute name.
+
+#### [`translatableContent`](#) ([`AttributeTranslatableContent`](../../../developer/api-reference/objects/attribute-translatable-content))
+
+Represents the attribute fields to translate.
 
 ### Interfaces
 

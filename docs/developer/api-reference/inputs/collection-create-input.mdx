@@ -16,6 +16,8 @@ input CollectionCreateInput {
   backgroundImageAlt: String
   seo: SeoInput
   publicationDate: Date
+  metadata: [MetadataInput!]
+  privateMetadata: [MetadataInput!]
   products: [ID!]
 }
 ```
@@ -57,6 +59,14 @@ Search engine optimization fields.
 Publication date. ISO 8601 standard.
 
 DEPRECATED: this field will be removed in Saleor 4.0.
+
+#### [`metadata`](#) ([`[MetadataInput!]`](../../../developer/api-reference/inputs/metadata-input))
+
+Fields required to update the collection metadata.
+
+#### [`privateMetadata`](#) ([`[MetadataInput!]`](../../../developer/api-reference/inputs/metadata-input))
+
+Fields required to update the collection private metadata.
 
 #### [`products`](#) ([`[ID!]`](../../../developer/api-reference/scalars/id))
 

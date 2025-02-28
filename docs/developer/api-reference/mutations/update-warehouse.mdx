@@ -10,14 +10,19 @@ Requires one of the following permissions: MANAGE_PRODUCTS.
 
 ```graphql
 updateWarehouse(
-  id: ID!
+  externalReference: String
+  id: ID
   input: WarehouseUpdateInput!
 ): WarehouseUpdate
 ```
 
 ### Arguments
 
-#### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+#### [`externalReference`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+External reference of a warehouse.
+
+#### [`id`](#) ([`ID`](../../../developer/api-reference/scalars/id))
 
 ID of a warehouse to update.
 

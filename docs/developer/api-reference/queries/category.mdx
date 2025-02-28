@@ -10,6 +10,7 @@ Look up a category by ID or slug.
 category(
   id: ID
   slug: String
+  slugLanguageCode: LanguageCodeEnum
 ): Category
 ```
 
@@ -22,6 +23,12 @@ ID of the category.
 #### [`slug`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
 Slug of the category
+
+#### [`slugLanguageCode`](#) ([`LanguageCodeEnum`](../../../developer/api-reference/enums/language-code-enum))
+
+Language code of the category slug, omit to use primary slug.
+
+Added in Saleor 3.21.
 
 ### Type
 

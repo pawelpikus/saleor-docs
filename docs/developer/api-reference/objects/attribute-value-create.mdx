@@ -8,6 +8,11 @@ Creates a value for an attribute.
 
 Requires one of the following permissions: MANAGE_PRODUCTS.
 
+Triggers the following webhook events:
+
+- ATTRIBUTE_VALUE_CREATED (async): An attribute value was created.
+- ATTRIBUTE_UPDATED (async): An attribute was updated.
+
 ```graphql
 type AttributeValueCreate {
   attribute: Attribute

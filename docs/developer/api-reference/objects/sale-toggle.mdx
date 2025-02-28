@@ -6,9 +6,7 @@ hide_table_of_contents: false
 
 The event informs about the start or end of the sale.
 
-Added in Saleor 3.5.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
+DEPRECATED: this event will be removed in Saleor 4.0. Use `PromotionStarted` and `PromotionEnded` events instead.
 
 ```graphql
 type SaleToggle implements Event {
@@ -41,10 +39,6 @@ The application receiving the webhook.
 #### [`sale`](#) ([`Sale`](../../../developer/api-reference/objects/sale))
 
 The sale the event relates to.
-
-Added in Saleor 3.5.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
 
 - ##### [`channel`](#) ([`String`](../../../developer/api-reference/scalars/string))
 

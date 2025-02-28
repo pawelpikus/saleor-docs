@@ -1,0 +1,29 @@
+---
+id: transaction-request-refund-for-granted-refund-error
+title: TransactionRequestRefundForGrantedRefundError
+hide_table_of_contents: false
+---
+
+No description
+
+```graphql
+type TransactionRequestRefundForGrantedRefundError {
+  field: String
+  message: String
+  code: TransactionRequestRefundForGrantedRefundErrorCode!
+}
+```
+
+### Fields
+
+#### [`field`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Name of a field that caused the error. A value of `null` indicates that the error isn't associated with a particular field.
+
+#### [`message`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+The error message.
+
+#### [`code`](#) ([`TransactionRequestRefundForGrantedRefundErrorCode!`](../../../developer/api-reference/enums/transaction-request-refund-for-granted-refund-error-code))
+
+The error code.

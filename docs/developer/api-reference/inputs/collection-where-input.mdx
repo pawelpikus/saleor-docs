@@ -1,0 +1,30 @@
+---
+id: collection-where-input
+title: CollectionWhereInput
+hide_table_of_contents: false
+---
+
+No description
+
+```graphql
+input CollectionWhereInput {
+  metadata: [MetadataFilter!]
+  ids: [ID!]
+  AND: [CollectionWhereInput!]
+  OR: [CollectionWhereInput!]
+}
+```
+
+### Fields
+
+#### [`metadata`](#) ([`[MetadataFilter!]`](../../../developer/api-reference/inputs/metadata-filter))
+
+#### [`ids`](#) ([`[ID!]`](../../../developer/api-reference/scalars/id))
+
+#### [`AND`](#) ([`[CollectionWhereInput!]`](../../../developer/api-reference/inputs/collection-where-input))
+
+List of conditions that must be met.
+
+#### [`OR`](#) ([`[CollectionWhereInput!]`](../../../developer/api-reference/inputs/collection-where-input))
+
+A list of conditions of which at least one must be met.

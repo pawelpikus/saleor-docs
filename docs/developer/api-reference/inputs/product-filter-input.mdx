@@ -17,6 +17,10 @@ input ProductFilterInput {
   stocks: ProductStockFilterInput
   search: String
   metadata: [MetadataFilter!]
+  publishedFrom: DateTime
+  isAvailable: Boolean
+  availableFrom: DateTime
+  isVisibleInListing: Boolean
   price: PriceRangeInput
   minimalPrice: PriceRangeInput
   updatedAt: DateTimeRangeInput
@@ -24,6 +28,7 @@ input ProductFilterInput {
   giftCard: Boolean
   ids: [ID!]
   hasPreorderedVariants: Boolean
+  slugs: [String!]
   channel: String
 }
 ```
@@ -50,6 +55,22 @@ Filter by variants having specific stock status.
 
 #### [`metadata`](#) ([`[MetadataFilter!]`](../../../developer/api-reference/inputs/metadata-filter))
 
+#### [`publishedFrom`](#) ([`DateTime`](../../../developer/api-reference/scalars/date-time))
+
+Filter by the publication date.
+
+#### [`isAvailable`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
+
+Filter by availability for purchase.
+
+#### [`availableFrom`](#) ([`DateTime`](../../../developer/api-reference/scalars/date-time))
+
+Filter by the date of availability for purchase.
+
+#### [`isVisibleInListing`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
+
+Filter by visibility in product listings.
+
 #### [`price`](#) ([`PriceRangeInput`](../../../developer/api-reference/inputs/price-range-input))
 
 #### [`minimalPrice`](#) ([`PriceRangeInput`](../../../developer/api-reference/inputs/price-range-input))
@@ -69,6 +90,8 @@ Filter on whether product is a gift card or not.
 #### [`ids`](#) ([`[ID!]`](../../../developer/api-reference/scalars/id))
 
 #### [`hasPreorderedVariants`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
+
+#### [`slugs`](#) ([`[String!]`](../../../developer/api-reference/scalars/string))
 
 #### [`channel`](#) ([`String`](../../../developer/api-reference/scalars/string))
 

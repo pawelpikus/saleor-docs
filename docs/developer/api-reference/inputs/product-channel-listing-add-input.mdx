@@ -41,15 +41,13 @@ DEPRECATED: this field will be removed in Saleor 4.0. Use `publishedAt` field in
 
 Publication date time. ISO 8601 standard.
 
-Added in Saleor 3.3.
-
 #### [`visibleInListings`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
 
 Determines if product is visible in product listings (doesn't apply to product collections).
 
 #### [`isAvailableForPurchase`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
 
-Determine if product should be available for purchase.
+Determines if product should be available for purchase in this channel. This does not guarantee the availability of stock. When set to `False`, this product is still visible to customers, but it cannot be purchased.
 
 #### [`availableForPurchaseDate`](#) ([`Date`](../../../developer/api-reference/scalars/date))
 
@@ -60,8 +58,6 @@ DEPRECATED: this field will be removed in Saleor 4.0. Use `availableForPurchaseA
 #### [`availableForPurchaseAt`](#) ([`DateTime`](../../../developer/api-reference/scalars/date-time))
 
 A start date time from which a product will be available for purchase. When not set and `isAvailable` is set to True, the current day is assumed.
-
-Added in Saleor 3.3.
 
 #### [`addVariants`](#) ([`[ID!]`](../../../developer/api-reference/scalars/id))
 

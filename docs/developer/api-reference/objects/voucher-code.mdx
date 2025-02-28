@@ -1,0 +1,43 @@
+---
+id: voucher-code
+title: VoucherCode
+hide_table_of_contents: false
+---
+
+Represents voucher code.
+
+Added in Saleor 3.18.
+
+Note: this API is currently in Feature Preview and can be subject to changes at later point.
+
+```graphql
+type VoucherCode {
+  id: ID!
+  code: String
+  used: Int
+  isActive: Boolean
+  createdAt: DateTime!
+}
+```
+
+### Fields
+
+#### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+
+The ID of the voucher code.
+
+#### [`code`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Code to use the voucher.
+
+#### [`used`](#) ([`Int`](../../../developer/api-reference/scalars/int))
+
+Number of times a code has been used.
+
+#### [`isActive`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
+
+Whether a code is active or not.
+
+#### [`createdAt`](#) ([`DateTime!`](../../../developer/api-reference/scalars/date-time))
+
+Date time of code creation.

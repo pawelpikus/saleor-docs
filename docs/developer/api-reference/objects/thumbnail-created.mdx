@@ -1,0 +1,58 @@
+---
+id: thumbnail-created
+title: ThumbnailCreated
+hide_table_of_contents: false
+---
+
+Event sent when thumbnail is created.
+
+```graphql
+type ThumbnailCreated implements Event {
+  issuedAt: DateTime
+  version: String
+  issuingPrincipal: IssuingPrincipal
+  recipient: App
+  id: ID
+  url: String
+  objectId: ID
+  mediaUrl: String
+}
+```
+
+### Fields
+
+#### [`issuedAt`](#) ([`DateTime`](../../../developer/api-reference/scalars/date-time))
+
+Time of the event.
+
+#### [`version`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Saleor version that triggered the event.
+
+#### [`issuingPrincipal`](#) ([`IssuingPrincipal`](../../../developer/api-reference/unions/issuing-principal))
+
+The user or application that triggered the event.
+
+#### [`recipient`](#) ([`App`](../../../developer/api-reference/objects/app))
+
+The application receiving the webhook.
+
+#### [`id`](#) ([`ID`](../../../developer/api-reference/scalars/id))
+
+Thumbnail id.
+
+#### [`url`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Thumbnail url.
+
+#### [`objectId`](#) ([`ID`](../../../developer/api-reference/scalars/id))
+
+Object the thumbnail refers to.
+
+#### [`mediaUrl`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Original media url.
+
+### Interfaces
+
+#### [`Event`](../../../developer/api-reference/interfaces/event)

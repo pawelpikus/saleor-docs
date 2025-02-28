@@ -8,6 +8,10 @@ Updates shop settings.
 
 Requires one of the following permissions: MANAGE_SETTINGS.
 
+Triggers the following webhook events:
+
+- SHOP_METADATA_UPDATED (async): Optionally triggered when public or private metadata is updated.
+
 ```graphql
 shopSettingsUpdate(
   input: ShopSettingsInput!
@@ -27,3 +31,7 @@ Fields required to update shop settings.
 Updates shop settings.
 
 Requires one of the following permissions: MANAGE_SETTINGS.
+
+Triggers the following webhook events:
+
+- SHOP_METADATA_UPDATED (async): Optionally triggered when public or private metadata is updated.

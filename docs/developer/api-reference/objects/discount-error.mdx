@@ -13,6 +13,7 @@ type DiscountError {
   products: [ID!]
   code: DiscountErrorCode!
   channels: [ID!]
+  voucherCodes: [String!]
 }
 ```
 
@@ -37,3 +38,9 @@ The error code.
 #### [`channels`](#) ([`[ID!]`](../../../developer/api-reference/scalars/id))
 
 List of channels IDs which causes the error.
+
+#### [`voucherCodes`](#) ([`[String!]`](../../../developer/api-reference/scalars/string))
+
+List of voucher codes which causes the error.
+
+Added in Saleor 3.18.

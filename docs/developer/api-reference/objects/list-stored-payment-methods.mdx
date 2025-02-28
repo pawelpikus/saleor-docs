@@ -1,0 +1,50 @@
+---
+id: list-stored-payment-methods
+title: ListStoredPaymentMethods
+hide_table_of_contents: false
+---
+
+List payment methods stored for the user by payment gateway.
+
+Note: this API is currently in Feature Preview and can be subject to changes at later point.
+
+```graphql
+type ListStoredPaymentMethods implements Event {
+  issuedAt: DateTime
+  version: String
+  issuingPrincipal: IssuingPrincipal
+  recipient: App
+  user: User!
+  channel: Channel!
+}
+```
+
+### Fields
+
+#### [`issuedAt`](#) ([`DateTime`](../../../developer/api-reference/scalars/date-time))
+
+Time of the event.
+
+#### [`version`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Saleor version that triggered the event.
+
+#### [`issuingPrincipal`](#) ([`IssuingPrincipal`](../../../developer/api-reference/unions/issuing-principal))
+
+The user or application that triggered the event.
+
+#### [`recipient`](#) ([`App`](../../../developer/api-reference/objects/app))
+
+The application receiving the webhook.
+
+#### [`user`](#) ([`User!`](../../../developer/api-reference/objects/user))
+
+The user for which the app should return a list of payment methods.
+
+#### [`channel`](#) ([`Channel!`](../../../developer/api-reference/objects/channel))
+
+Channel in context which was used to fetch the list of payment methods.
+
+### Interfaces
+
+#### [`Event`](../../../developer/api-reference/interfaces/event)

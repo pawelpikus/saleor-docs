@@ -1,0 +1,46 @@
+---
+id: promotion-create-input
+title: PromotionCreateInput
+hide_table_of_contents: false
+---
+
+No description
+
+```graphql
+input PromotionCreateInput {
+  description: JSON
+  startDate: DateTime
+  endDate: DateTime
+  name: String!
+  type: PromotionTypeEnum!
+  rules: [PromotionRuleInput!]
+}
+```
+
+### Fields
+
+#### [`description`](#) ([`JSON`](../../../developer/api-reference/scalars/json))
+
+Promotion description.
+
+#### [`startDate`](#) ([`DateTime`](../../../developer/api-reference/scalars/date-time))
+
+The start date of the promotion in ISO 8601 format.
+
+#### [`endDate`](#) ([`DateTime`](../../../developer/api-reference/scalars/date-time))
+
+The end date of the promotion in ISO 8601 format.
+
+#### [`name`](#) ([`String!`](../../../developer/api-reference/scalars/string))
+
+Promotion name.
+
+#### [`type`](#) ([`PromotionTypeEnum!`](../../../developer/api-reference/enums/promotion-type-enum))
+
+Defines the promotion type. Implicate the required promotion rules predicate type and whether the promotion rules will give the catalogue or order discount.
+
+Added in Saleor 3.19.
+
+#### [`rules`](#) ([`[PromotionRuleInput!]`](../../../developer/api-reference/inputs/promotion-rule-input))
+
+List of promotion rules.

@@ -1,0 +1,50 @@
+---
+id: transaction-initialize
+title: transactionInitialize
+hide_table_of_contents: false
+---
+
+Initializes a transaction session. It triggers the webhook `TRANSACTION_INITIALIZE_SESSION`, to the requested `paymentGateways`. There is a limit of 100 transaction items per checkout / order.
+
+```graphql
+transactionInitialize(
+  action: TransactionFlowStrategyEnum
+  amount: PositiveDecimal
+  customerIpAddress: String
+  id: ID!
+  idempotencyKey: String
+  paymentGateway: PaymentGatewayToInitialize!
+): TransactionInitialize
+```
+
+### Arguments
+
+#### [`action`](#) ([`TransactionFlowStrategyEnum`](../../../developer/api-reference/enums/transaction-flow-strategy-enum))
+
+The expected action called for the transaction. By default, the `channel.paymentSettings.defaultTransactionFlowStrategy` will be used.The field can be used only by app that has `HANDLE_PAYMENTS` permission.
+
+#### [`amount`](#) ([`PositiveDecimal`](../../../developer/api-reference/scalars/positive-decimal))
+
+The amount requested for initializing the payment gateway. If not provided, the difference between checkout.total - transactions that are already processed will be send.
+
+#### [`customerIpAddress`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+The customer's IP address. If not provided Saleor will try to determine the customer's IP address on its own. The customer's IP address will be passed to the payment app. The IP should be in ipv4 or ipv6 format. The field can be used only by an app that has `HANDLE_PAYMENTS` permission.
+
+#### [`id`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
+
+The ID of the checkout or order.
+
+#### [`idempotencyKey`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+The idempotency key assigned to the action. It will be passed to the payment app to discover potential duplicate actions. If not provided, the default one will be generated. If empty string provided, INVALID error code will be raised.
+
+#### [`paymentGateway`](#) ([`PaymentGatewayToInitialize!`](../../../developer/api-reference/inputs/payment-gateway-to-initialize))
+
+Payment gateway used to initialize the transaction.
+
+### Type
+
+#### [`TransactionInitialize`](../../../developer/api-reference/objects/transaction-initialize)
+
+Initializes a transaction session. It triggers the webhook `TRANSACTION_INITIALIZE_SESSION`, to the requested `paymentGateways`. There is a limit of 100 transaction items per checkout / order.

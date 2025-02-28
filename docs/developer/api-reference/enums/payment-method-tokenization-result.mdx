@@ -1,0 +1,36 @@
+---
+id: payment-method-tokenization-result
+title: PaymentMethodTokenizationResult
+hide_table_of_contents: false
+---
+
+Result of tokenization of payment method.
+
+    SUCCESSFULLY_TOKENIZED - The payment method was successfully tokenized.
+    ADDITIONAL_ACTION_REQUIRED - The additional action is required to tokenize payment
+    method.
+    PENDING - The payment method is pending tokenization.
+    FAILED_TO_TOKENIZE - The payment method was not tokenized.
+    FAILED_TO_DELIVER - The request to tokenize payment method was not delivered.
+
+```graphql
+enum PaymentMethodTokenizationResult {
+  SUCCESSFULLY_TOKENIZED
+  PENDING
+  ADDITIONAL_ACTION_REQUIRED
+  FAILED_TO_TOKENIZE
+  FAILED_TO_DELIVER
+}
+```
+
+### Values
+
+#### [`SUCCESSFULLY_TOKENIZED`](#)
+
+#### [`PENDING`](#)
+
+#### [`ADDITIONAL_ACTION_REQUIRED`](#)
+
+#### [`FAILED_TO_TOKENIZE`](#)
+
+#### [`FAILED_TO_DELIVER`](#)

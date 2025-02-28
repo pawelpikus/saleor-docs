@@ -8,32 +8,33 @@ No description
 
 ```graphql
 input TransactionUpdateInput {
-  status: String
-  type: String
-  reference: String
+  name: String
+  message: String
+  pspReference: String
   availableActions: [TransactionActionEnum!]
   amountAuthorized: MoneyInput
   amountCharged: MoneyInput
   amountRefunded: MoneyInput
-  amountVoided: MoneyInput
+  amountCanceled: MoneyInput
   metadata: [MetadataInput!]
   privateMetadata: [MetadataInput!]
+  externalUrl: String
 }
 ```
 
 ### Fields
 
-#### [`status`](#) ([`String`](../../../developer/api-reference/scalars/string))
+#### [`name`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
-Status of the transaction.
+Payment name of the transaction.
 
-#### [`type`](#) ([`String`](../../../developer/api-reference/scalars/string))
+#### [`message`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
-Payment type used for this transaction.
+The message of the transaction.
 
-#### [`reference`](#) ([`String`](../../../developer/api-reference/scalars/string))
+#### [`pspReference`](#) ([`String`](../../../developer/api-reference/scalars/string))
 
-Reference of the transaction.
+PSP Reference of the transaction.
 
 #### [`availableActions`](#) ([`[TransactionActionEnum!]`](../../../developer/api-reference/enums/transaction-action-enum))
 
@@ -51,9 +52,9 @@ Amount charged by this transaction.
 
 Amount refunded by this transaction.
 
-#### [`amountVoided`](#) ([`MoneyInput`](../../../developer/api-reference/inputs/money-input))
+#### [`amountCanceled`](#) ([`MoneyInput`](../../../developer/api-reference/inputs/money-input))
 
-Amount voided by this transaction.
+Amount canceled by this transaction.
 
 #### [`metadata`](#) ([`[MetadataInput!]`](../../../developer/api-reference/inputs/metadata-input))
 
@@ -62,3 +63,7 @@ Payment public metadata.
 #### [`privateMetadata`](#) ([`[MetadataInput!]`](../../../developer/api-reference/inputs/metadata-input))
 
 Payment private metadata.
+
+#### [`externalUrl`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+The url that will allow to redirect user to payment provider page with transaction event details.

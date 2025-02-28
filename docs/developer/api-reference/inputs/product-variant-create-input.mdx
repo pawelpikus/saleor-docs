@@ -10,10 +10,14 @@ No description
 input ProductVariantCreateInput {
   attributes: [AttributeValueInput!]!
   sku: String
+  name: String
   trackInventory: Boolean
   weight: WeightScalar
   preorder: PreorderSettingsInput
   quantityLimitPerCustomer: Int
+  metadata: [MetadataInput!]
+  privateMetadata: [MetadataInput!]
+  externalReference: String
   product: ID!
   stocks: [StockInput!]
 }
@@ -29,9 +33,13 @@ List of attributes specific to this variant.
 
 Stock keeping unit.
 
+#### [`name`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Variant name.
+
 #### [`trackInventory`](#) ([`Boolean`](../../../developer/api-reference/scalars/boolean))
 
-Determines if the inventory of this variant should be tracked. If false, the quantity won't change when customers buy this item.
+Determines if the inventory of this variant should be tracked. If false, the quantity won't change when customers buy this item. If the field is not provided, `Shop.trackInventoryByDefault` will be used.
 
 #### [`weight`](#) ([`WeightScalar`](../../../developer/api-reference/scalars/weight-scalar))
 
@@ -41,17 +49,21 @@ Weight of the Product Variant.
 
 Determines if variant is in preorder.
 
-Added in Saleor 3.1.
-
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
-
 #### [`quantityLimitPerCustomer`](#) ([`Int`](../../../developer/api-reference/scalars/int))
 
 Determines maximum quantity of `ProductVariant`,that can be bought in a single checkout.
 
-Added in Saleor 3.1.
+#### [`metadata`](#) ([`[MetadataInput!]`](../../../developer/api-reference/inputs/metadata-input))
 
-Note: this API is currently in Feature Preview and can be subject to changes at later point.
+Fields required to update the product variant metadata.
+
+#### [`privateMetadata`](#) ([`[MetadataInput!]`](../../../developer/api-reference/inputs/metadata-input))
+
+Fields required to update the product variant private metadata.
+
+#### [`externalReference`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+External ID of this product variant.
 
 #### [`product`](#) ([`ID!`](../../../developer/api-reference/scalars/id))
 

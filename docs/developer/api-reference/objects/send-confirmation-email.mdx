@@ -1,0 +1,24 @@
+---
+id: send-confirmation-email
+title: SendConfirmationEmail
+hide_table_of_contents: false
+---
+
+Sends a notification confirmation.
+
+Requires one of the following permissions: AUTHENTICATED_USER.
+
+Triggers the following webhook events:
+
+- NOTIFY_USER (async): A notification for account confirmation.
+- ACCOUNT_CONFIRMATION_REQUESTED (async): An account confirmation was requested. This event is always sent regardless of settings.
+
+```graphql
+type SendConfirmationEmail {
+  errors: [SendConfirmationEmailError!]!
+}
+```
+
+### Fields
+
+#### [`errors`](#) ([`[SendConfirmationEmailError!]!`](../../../developer/api-reference/objects/send-confirmation-email-error))

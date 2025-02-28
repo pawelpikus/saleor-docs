@@ -1,0 +1,29 @@
+---
+id: attribute-bulk-translate-error
+title: AttributeBulkTranslateError
+hide_table_of_contents: false
+---
+
+No description
+
+```graphql
+type AttributeBulkTranslateError {
+  path: String
+  message: String
+  code: AttributeTranslateErrorCode!
+}
+```
+
+### Fields
+
+#### [`path`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+Path to field that caused the error. A value of `null` indicates that the error isn't associated with a particular field.
+
+#### [`message`](#) ([`String`](../../../developer/api-reference/scalars/string))
+
+The error message.
+
+#### [`code`](#) ([`AttributeTranslateErrorCode!`](../../../developer/api-reference/enums/attribute-translate-error-code))
+
+The error code.
